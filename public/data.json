@@ -1,0 +1,2521 @@
+[
+  {
+    "country": "Afghanistan",
+    "kri_rank": 194,
+    "kri_score": 0.209,
+    "life": 0.434,
+    "health": 0.612,
+    "education": 0.258,
+    "protection": 0.586,
+    "environment": 0.01
+  },
+  {
+    "country": "Albania",
+    "kri_rank": 154,
+    "kri_score": 0.523,
+    "life": 0.881,
+    "health": 0.939,
+    "education": 0.694,
+    "protection": 0.951,
+    "environment": 0.071
+  },
+  {
+    "country": "Algeria",
+    "kri_rank": 56,
+    "kri_score": 0.759,
+    "life": 0.823,
+    "health": 0.873,
+    "education": 0.723,
+    "protection": 0.97,
+    "environment": 0.5
+  },
+  {
+    "country": "Andorra",
+    "kri_rank": 24,
+    "kri_score": 0.809,
+    "life": 0.912,
+    "health": 0.997,
+    "education": null,
+    "protection": null,
+    "environment": 0.583
+  },
+  {
+    "country": "Angola",
+    "kri_rank": 163,
+    "kri_score": 0.488,
+    "life": 0.498,
+    "health": 0.43,
+    "education": 0.599,
+    "protection": 0.377,
+    "environment": 0.571
+  },
+  {
+    "country": "Antigua and Barbuda",
+    "kri_rank": 34,
+    "kri_score": 0.79,
+    "life": 0.907,
+    "health": 0.982,
+    "education": 0.654,
+    "protection": 0.0,
+    "environment": 0.667
+  },
+  {
+    "country": "Argentina",
+    "kri_rank": 84,
+    "kri_score": 0.71,
+    "life": 0.867,
+    "health": 0.928,
+    "education": 0.86,
+    "protection": 0.866,
+    "environment": 0.3
+  },
+  {
+    "country": "Armenia",
+    "kri_rank": 125,
+    "kri_score": 0.604,
+    "life": 0.828,
+    "health": 0.957,
+    "education": 0.649,
+    "protection": 0.939,
+    "environment": 0.167
+  },
+  {
+    "country": "Australia",
+    "kri_rank": 135,
+    "kri_score": 0.584,
+    "life": 0.979,
+    "health": 0.99,
+    "education": 1.0,
+    "protection": 0.977,
+    "environment": 0.071
+  },
+  {
+    "country": "Austria",
+    "kri_rank": 10,
+    "kri_score": 0.854,
+    "life": 0.95,
+    "health": 0.987,
+    "education": 0.841,
+    "protection": 0.988,
+    "environment": 0.583
+  },
+  {
+    "country": "Azerbaijan",
+    "kri_rank": 77,
+    "kri_score": 0.725,
+    "life": 0.774,
+    "health": 0.934,
+    "education": 0.74,
+    "protection": 0.873,
+    "environment": 0.429
+  },
+  {
+    "country": "Bahrain",
+    "kri_rank": 29,
+    "kri_score": 0.793,
+    "life": 0.909,
+    "health": 1.0,
+    "education": 0.835,
+    "protection": 0.967,
+    "environment": 0.429
+  },
+  {
+    "country": "Bangladesh",
+    "kri_rank": 96,
+    "kri_score": 0.692,
+    "life": 0.756,
+    "health": 0.756,
+    "education": 0.625,
+    "protection": 0.692,
+    "environment": 0.643
+  },
+  {
+    "country": "Barbados",
+    "kri_rank": 36,
+    "kri_score": 0.788,
+    "life": 0.876,
+    "health": 0.938,
+    "education": 0.603,
+    "protection": 0.918,
+    "environment": 0.667
+  },
+  {
+    "country": "Belarus",
+    "kri_rank": 79,
+    "kri_score": 0.72,
+    "life": 0.862,
+    "health": 0.997,
+    "education": 0.824,
+    "protection": 0.954,
+    "environment": 0.286
+  },
+  {
+    "country": "Belgium",
+    "kri_rank": 8,
+    "kri_score": 0.858,
+    "life": 0.951,
+    "health": 0.986,
+    "education": 1.0,
+    "protection": 0.99,
+    "environment": 0.5
+  },
+  {
+    "country": "Belize",
+    "kri_rank": 85,
+    "kri_score": 0.709,
+    "life": 0.783,
+    "health": 0.887,
+    "education": 0.687,
+    "protection": 0.874,
+    "environment": 0.429
+  },
+  {
+    "country": "Benin",
+    "kri_rank": 168,
+    "kri_score": 0.463,
+    "life": 0.357,
+    "health": 0.469,
+    "education": 0.497,
+    "protection": 0.617,
+    "environment": 0.417
+  },
+  {
+    "country": "Bhutan",
+    "kri_rank": 94,
+    "kri_score": 0.694,
+    "life": 0.77,
+    "health": 0.912,
+    "education": 0.687,
+    "protection": 0.937,
+    "environment": 0.357
+  },
+  {
+    "country": "Bolivia",
+    "kri_rank": 65,
+    "kri_score": 0.738,
+    "life": 0.666,
+    "health": 0.794,
+    "education": 0.833,
+    "protection": 0.774,
+    "environment": 0.643,
+    "indicators": [
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 3.0,
+        "value_female_18": 20.0,
+        "year": 2016,
+        "data_source": "DHS (EDSA) 2016"
+      },
+      {
+        "indicator_type": "male_child_marriage",
+        "value_male_18": 5.0,
+        "year": 2016,
+        "data_source": "DHS (EDSA) 2016"
+      }
+    ]
+  },
+  {
+    "country": "Bosnia and Herzegovina",
+    "kri_rank": 49,
+    "kri_score": 0.764,
+    "life": 0.881,
+    "health": 0.825,
+    "education": 0.735,
+    "protection": 0.976,
+    "environment": 0.5,
+    "indicators": [
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 0.0,
+        "value_female_18": 4.0,
+        "year": 2012,
+        "data_source": "MICS 2011-12"
+      },
+      {
+        "indicator_type": "male_child_marriage",
+        "value_male_18": 0.0,
+        "year": 2012,
+        "data_source": "MICS 2011-12"
+      },
+      {
+        "indicator_type": "violent_discipline",
+        "value_total": 55.2,
+        "value_male": 60.4,
+        "value_female": 49.5,
+        "year": 2012,
+        "data_source": "MICS 2011-12"
+      }
+    ]
+  },
+  {
+    "country": "Botswana",
+    "kri_rank": 92,
+    "kri_score": 0.699,
+    "life": 0.605,
+    "health": 0.86,
+    "education": 0.676,
+    "protection": 0.832,
+    "environment": 0.571
+  },
+  {
+    "country": "Brazil",
+    "kri_rank": 102,
+    "kri_score": 0.665,
+    "life": 0.812,
+    "health": 0.91,
+    "education": 0.81,
+    "protection": 0.868,
+    "environment": 0.25
+  },
+  {
+    "country": "Brunei",
+    "kri_rank": 63,
+    "kri_score": 0.741,
+    "life": 0.847,
+    "health": 0.993,
+    "education": 0.719,
+    "protection": 0.5,
+    "environment": 4.0
+  },
+  {
+    "country": "Bulgaria",
+    "kri_rank": 30,
+    "kri_score": 0.793,
+    "life": 0.844,
+    "health": 0.931,
+    "education": 0.742,
+    "protection": 0.921,
+    "environment": 0.583
+  },
+  {
+    "country": "Burkina Faso",
+    "kri_rank": 166,
+    "kri_score": 0.468,
+    "life": 0.424,
+    "health": 0.459,
+    "education": 0.518,
+    "protection": 0.442,
+    "environment": 0.5,
+    "indicators": [
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 9.0,
+        "value_female_18": 51.0,
+        "year": 2015,
+        "data_source": "EMDS 2015"
+      },
+      {
+        "indicator_type": "male_child_marriage",
+        "value_male_18": 2.0,
+        "year": 2015,
+        "data_source": "EMDS 2015"
+      },
+      {
+        "indicator_type": "violent_discipline",
+        "value_total": 76.3,
+        "value_male": 77.9,
+        "value_female": 74.8,
+        "year": 2021,
+        "data_source": "DHS 2021"
+      },
+      {
+        "indicator_type": "fgm",
+        "value_girls_0_14": 9.0,
+        "value_urban": 5.0,
+        "value_rural": 11.0,
+        "year": 2021,
+        "data_source": "DHS 2021"
+      }
+    ]
+  },
+  {
+    "country": "Burundi",
+    "kri_rank": 144,
+    "kri_score": 0.564,
+    "life": 0.474,
+    "health": 0.507,
+    "education": 0.581,
+    "protection": 0.634,
+    "environment": 0.643
+  },
+  {
+    "country": "Cabo Verde",
+    "kri_rank": 50,
+    "kri_score": 0.764,
+    "life": 0.835,
+    "health": 0.872,
+    "education": 0.669,
+    "protection": 0.833,
+    "environment": 0.643,
+    "indicators": [
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 2.0,
+        "value_female_18": 8.0,
+        "year": 2018,
+        "data_source": "DHS 2018"
+      },
+      {
+        "indicator_type": "male_child_marriage",
+        "value_male_18": 2.0,
+        "year": 2018,
+        "data_source": "DHS 2018"
+      }
+    ]
+  },
+  {
+    "country": "Cambodia",
+    "kri_rank": 176,
+    "kri_score": 0.435,
+    "life": 0.71,
+    "health": 0.709,
+    "education": 0.588,
+    "protection": 0.738,
+    "environment": 0.071
+  },
+  {
+    "country": "Cameroon",
+    "kri_rank": 165,
+    "kri_score": 0.472,
+    "life": 0.425,
+    "health": 0.571,
+    "education": 0.647,
+    "protection": 0.416,
+    "environment": 0.357
+  },
+  {
+    "country": "Canada",
+    "kri_rank": 66,
+    "kri_score": 0.738,
+    "life": 0.955,
+    "health": 0.971,
+    "education": 0.846,
+    "protection": 0.979,
+    "environment": 0.286
+  },
+  {
+    "country": "Central African Republic",
+    "kri_rank": 191,
+    "kri_score": 0.266,
+    "life": 0.164,
+    "health": 0.236,
+    "education": 0.285,
+    "protection": 0.291,
+    "environment": 0.417
+  },
+  {
+    "country": "Chad",
+    "kri_rank": 192,
+    "kri_score": 0.244,
+    "life": 0.067,
+    "health": 0.348,
+    "education": 0.277,
+    "protection": 0.206,
+    "environment": 0.643,
+    "indicators": [
+      {
+        "indicator_type": "fgm",
+        "value_girls_0_14": 7,
+        "value_urban": 6,
+        "value_rural": 7,
+        "year": 2019,
+        "data_source": "MICS 2019"
+      },
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 24.0,
+        "value_female_18": 61.0,
+        "year": 2019,
+        "data_source": "MICS 2019"
+      },
+      {
+        "indicator_type": "male_child_marriage",
+        "value_male_18": 8,
+        "year": 2019,
+        "data_source": "MICS 2019"
+      }
+    ]
+  },
+  {
+    "country": "Chile",
+    "kri_rank": 53,
+    "kri_score": 0.762,
+    "life": 0.912,
+    "health": 0.984,
+    "education": 0.899,
+    "protection": 0.888,
+    "environment": 0.357
+  },
+  {
+    "country": "China",
+    "kri_rank": 110,
+    "kri_score": 0.651,
+    "life": 0.902,
+    "health": 0.965,
+    "education": 0.722,
+    "protection": 0.286,
+    "environment": 0.286
+  },
+  {
+    "country": "Colombia",
+    "kri_rank": 44,
+    "kri_score": 0.777,
+    "life": 0.816,
+    "health": 0.925,
+    "education": 0.776,
+    "protection": 0.846,
+    "environment": 0.571
+  },
+  {
+    "country": "Comoros",
+    "kri_rank": 177,
+    "kri_score": 0.431,
+    "life": 0.575,
+    "health": 0.619,
+    "education": 0.64,
+    "protection": 0.649,
+    "environment": 0.1
+  },
+  {
+    "country": "Cook Islands",
+    "kri_rank": 106,
+    "kri_score": 0.657,
+    "life": 0.809,
+    "health": 0.819,
+    "education": 0.0,
+    "protection": 0.429,
+    "environment": 7.0
+  },
+  {
+    "country": "Costa Rica",
+    "kri_rank": 60,
+    "kri_score": 0.746,
+    "life": 0.888,
+    "health": 0.955,
+    "education": 0.851,
+    "protection": 0.898,
+    "environment": 0.357,
+    "indicators": [
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 2.0,
+        "value_female_18": 17.0,
+        "year": 2018,
+        "data_source": "MICS 2018"
+      },
+      {
+        "indicator_type": "violent_discipline",
+        "value_total": 49.3,
+        "value_male": 49.6,
+        "value_female": 48.9,
+        "year": 2018,
+        "data_source": "MICS 2018"
+      }
+    ]
+  },
+  {
+    "country": "Croatia",
+    "kri_rank": 88,
+    "kri_score": 0.706,
+    "life": 0.907,
+    "health": 0.933,
+    "education": 0.737,
+    "protection": 0.983,
+    "environment": 0.286
+  },
+  {
+    "country": "Cuba",
+    "kri_rank": 38,
+    "kri_score": 0.784,
+    "life": 0.858,
+    "health": 0.943,
+    "education": 0.719,
+    "protection": 0.891,
+    "environment": 0.571
+  },
+  {
+    "country": "Cyprus",
+    "kri_rank": 47,
+    "kri_score": 0.771,
+    "life": 0.931,
+    "health": 0.956,
+    "education": 0.868,
+    "protection": 0.988,
+    "environment": 0.357
+  },
+  {
+    "country": "Czechia",
+    "kri_rank": 14,
+    "kri_score": 0.841,
+    "life": 0.914,
+    "health": 0.993,
+    "education": 0.832,
+    "protection": 0.977,
+    "environment": 0.571
+  },
+  {
+    "country": "Democratic Republic of the Congo",
+    "kri_rank": 186,
+    "kri_score": 0.324,
+    "life": 0.357,
+    "health": 0.266,
+    "education": 0.533,
+    "protection": 0.494,
+    "environment": 0.143
+  },
+  {
+    "country": "Denmark",
+    "kri_rank": 9,
+    "kri_score": 0.858,
+    "life": 0.948,
+    "health": 0.987,
+    "education": 1.0,
+    "protection": 0.996,
+    "environment": 0.5
+  },
+  {
+    "country": "Djibouti",
+    "kri_rank": 158,
+    "kri_score": 0.515,
+    "life": 0.547,
+    "health": 0.592,
+    "education": 0.427,
+    "protection": 0.915,
+    "environment": 0.286,
+    "indicators": [
+      {
+        "indicator_type": "fgm",
+        "value_girls_0_14": 31,
+        "value_urban": 27,
+        "value_rural": 49,
+        "year": 2019,
+        "data_source": "EVFF 2019"
+      },
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 1.0,
+        "value_female_18": 7.0,
+        "year": 2019,
+        "data_source": "EVFF 2019"
+      }
+    ]
+  },
+  {
+    "country": "Dominica",
+    "kri_rank": 128,
+    "kri_score": 0.599,
+    "life": 0.653,
+    "health": 0.85,
+    "education": 0.58,
+    "protection": 0.4,
+    "environment": 0.5
+  },
+  {
+    "country": "Dominican Republic",
+    "kri_rank": 118,
+    "kri_score": 0.626,
+    "life": 0.746,
+    "health": 0.917,
+    "education": 0.686,
+    "protection": 0.823,
+    "environment": 0.25,
+    "indicators": [
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 9.0,
+        "value_female_18": 32.0,
+        "year": 2019,
+        "data_source": "MICS 2019"
+      },
+      {
+        "indicator_type": "male_child_marriage",
+        "value_male_18": 8.0,
+        "year": 2013,
+        "data_source": "DHS 2013"
+      },
+      {
+        "indicator_type": "violent_discipline",
+        "value_total": 63.5,
+        "value_male": 64.7,
+        "value_female": 62.2,
+        "year": 2019,
+        "data_source": "MICS 2019"
+      }
+    ]
+  },
+  {
+    "country": "East Timor",
+    "kri_rank": 109,
+    "kri_score": 0.652,
+    "life": 0.62,
+    "health": 0.585,
+    "education": 0.657,
+    "protection": 0.74,
+    "environment": 0.667,
+    "indicators": [
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 3.0,
+        "value_female_18": 15.0,
+        "year": 2016,
+        "data_source": "DHS 2016"
+      },
+      {
+        "indicator_type": "male_child_marriage",
+        "value_male_18": 1.0,
+        "year": 2016,
+        "data_source": "DHS 2016"
+      }
+    ]
+  },
+  {
+    "country": "Ecuador",
+    "kri_rank": 82,
+    "kri_score": 0.715,
+    "life": 0.828,
+    "health": 0.866,
+    "education": 0.774,
+    "protection": 0.784,
+    "environment": 0.429
+  },
+  {
+    "country": "Egypt",
+    "kri_rank": 28,
+    "kri_score": 0.797,
+    "life": 0.788,
+    "health": 0.937,
+    "education": 0.765,
+    "protection": 0.886,
+    "environment": 0.643
+  },
+  {
+    "country": "El Salvador",
+    "kri_rank": 185,
+    "kri_score": 0.332,
+    "life": 0.805,
+    "health": 0.843,
+    "education": 0.708,
+    "protection": 0.844,
+    "environment": 0.01,
+    "indicators": [
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 4.0,
+        "value_female_18": 20.0,
+        "year": 2021,
+        "data_source": "NHS 2021"
+      },
+      {
+        "indicator_type": "violent_discipline",
+        "value_total": 54.5,
+        "value_male": 56.6,
+        "value_female": 52.4,
+        "year": 2021,
+        "data_source": "NHS 2021"
+      }
+    ]
+  },
+  {
+    "country": "Equatorial Guinea",
+    "kri_rank": 190,
+    "kri_score": 0.29,
+    "life": 0.469,
+    "health": 0.54,
+    "education": 0.391,
+    "protection": 0.071,
+    "environment": 5.0,
+    "indicators": [
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 9.0,
+        "value_female_18": 30.0,
+        "year": 2011,
+        "data_source": "DHS 2011"
+      },
+      {
+        "indicator_type": "male_child_marriage",
+        "value_male_18": 4.0,
+        "year": 2011,
+        "data_source": "DHS 2011"
+      }
+    ]
+  },
+  {
+    "country": "Eritrea",
+    "kri_rank": 171,
+    "kri_score": 0.453,
+    "life": 0.612,
+    "health": 0.409,
+    "education": 0.392,
+    "protection": 0.0,
+    "environment": 0.429
+  },
+  {
+    "country": "Estonia",
+    "kri_rank": 27,
+    "kri_score": 0.802,
+    "life": 0.91,
+    "health": 0.955,
+    "education": 0.777,
+    "protection": 0.981,
+    "environment": 0.5
+  },
+  {
+    "country": "Eswatini",
+    "kri_rank": 131,
+    "kri_score": 0.591,
+    "life": 0.497,
+    "health": 0.723,
+    "education": 0.705,
+    "protection": 0.664,
+    "environment": 0.429
+  },
+  {
+    "country": "Ethiopia",
+    "kri_rank": 179,
+    "kri_score": 0.407,
+    "life": 0.586,
+    "health": 0.322,
+    "education": 0.534,
+    "protection": 0.222,
+    "environment": 0.5
+  },
+  {
+    "country": "Fiji",
+    "kri_rank": 70,
+    "kri_score": 0.735,
+    "life": 0.726,
+    "health": 0.935,
+    "education": 0.79,
+    "protection": 0.801,
+    "environment": 0.5
+  },
+  {
+    "country": "Finland",
+    "kri_rank": 7,
+    "kri_score": 0.859,
+    "life": 0.958,
+    "health": 0.983,
+    "education": 1.0,
+    "protection": 0.992,
+    "environment": 0.5
+  },
+  {
+    "country": "France",
+    "kri_rank": 17,
+    "kri_score": 0.826,
+    "life": 0.956,
+    "health": 0.978,
+    "education": 0.835,
+    "protection": 0.985,
+    "environment": 0.5
+  },
+  {
+    "country": "Gabon",
+    "kri_rank": 139,
+    "kri_score": 0.579,
+    "life": 0.626,
+    "health": 0.659,
+    "education": 0.679,
+    "protection": 0.696,
+    "environment": 0.333
+  },
+  {
+    "country": "Gambia",
+    "kri_rank": 157,
+    "kri_score": 0.516,
+    "life": 0.502,
+    "health": 0.665,
+    "education": 0.413,
+    "protection": 0.616,
+    "environment": 0.429
+  },
+  {
+    "country": "Georgia",
+    "kri_rank": 41,
+    "kri_score": 0.781,
+    "life": 0.828,
+    "health": 0.907,
+    "education": 0.821,
+    "protection": 0.941,
+    "environment": 0.5
+  },
+  {
+    "country": "Germany",
+    "kri_rank": 4,
+    "kri_score": 0.874,
+    "life": 0.941,
+    "health": 0.992,
+    "education": 0.946,
+    "protection": 0.99,
+    "environment": 0.583
+  },
+  {
+    "country": "Ghana",
+    "kri_rank": 133,
+    "kri_score": 0.59,
+    "life": 0.583,
+    "health": 0.669,
+    "education": 0.678,
+    "protection": 0.647,
+    "environment": 0.417
+  },
+  {
+    "country": "Greece",
+    "kri_rank": 3,
+    "kri_score": 0.878,
+    "life": 0.934,
+    "health": 0.993,
+    "education": 1.0,
+    "protection": 0.984,
+    "environment": 0.571
+  },
+  {
+    "country": "Grenada",
+    "kri_rank": 67,
+    "kri_score": 0.736,
+    "life": 0.842,
+    "health": 0.869,
+    "education": 1.0,
+    "protection": 0.4,
+    "environment": 0.5
+  },
+  {
+    "country": "Guatemala",
+    "kri_rank": 145,
+    "kri_score": 0.562,
+    "life": 0.745,
+    "health": 0.765,
+    "education": 0.59,
+    "protection": 0.78,
+    "environment": 0.214
+  },
+  {
+    "country": "Guinea",
+    "kri_rank": 189,
+    "kri_score": 0.291,
+    "life": 0.295,
+    "health": 0.467,
+    "education": 0.404,
+    "protection": 0.524,
+    "environment": 0.071
+  },
+  {
+    "country": "Guinea-Bissau",
+    "kri_rank": 181,
+    "kri_score": 0.376,
+    "life": 0.327,
+    "health": 0.491,
+    "education": 0.522,
+    "protection": 0.54,
+    "environment": 0.167,
+    "indicators": [
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 8.0,
+        "value_female_18": 26.0,
+        "year": 2019,
+        "data_source": "MICS 2018-19"
+      },
+      {
+        "indicator_type": "male_child_marriage",
+        "value_male_18": 2.0,
+        "year": 2019,
+        "data_source": "MICS 2018-19"
+      },
+      {
+        "indicator_type": "violent_discipline",
+        "value_total": 75.8,
+        "value_male": 75.4,
+        "value_female": 76.2,
+        "year": 2019,
+        "data_source": "MICS 2018-19"
+      },
+      {
+        "indicator_type": "fgm",
+        "value_girls_0_14": 30.0,
+        "value_urban": 18.0,
+        "value_rural": 35.0,
+        "year": 19,
+        "data_source": "MICS 2018-19"
+      }
+    ]
+  },
+  {
+    "country": "Guyana",
+    "kri_rank": 72,
+    "kri_score": 0.734,
+    "life": 0.691,
+    "health": 0.89,
+    "education": 0.667,
+    "protection": 0.78,
+    "environment": 0.667
+  },
+  {
+    "country": "Haiti",
+    "kri_rank": 162,
+    "kri_score": 0.491,
+    "life": 0.511,
+    "health": 0.557,
+    "education": 0.463,
+    "protection": 0.61,
+    "environment": 0.357
+  },
+  {
+    "country": "Honduras",
+    "kri_rank": 83,
+    "kri_score": 0.715,
+    "life": 0.779,
+    "health": 0.841,
+    "education": 0.543,
+    "protection": 0.816,
+    "environment": 0.643
+  },
+  {
+    "country": "Hungary",
+    "kri_rank": 43,
+    "kri_score": 0.778,
+    "life": 0.876,
+    "health": 0.993,
+    "education": 0.803,
+    "protection": 0.954,
+    "environment": 0.429
+  },
+  {
+    "country": "Iceland",
+    "kri_rank": 2,
+    "kri_score": 0.884,
+    "life": 0.964,
+    "health": 0.969,
+    "education": 1.0,
+    "protection": 0.989,
+    "environment": 0.583
+  },
+  {
+    "country": "India",
+    "kri_rank": 103,
+    "kri_score": 0.665,
+    "life": 0.701,
+    "health": 0.707,
+    "education": 0.661,
+    "protection": 0.923,
+    "environment": 0.429
+  },
+  {
+    "country": "Indonesia",
+    "kri_rank": 108,
+    "kri_score": 0.652,
+    "life": 0.71,
+    "health": 0.796,
+    "education": 0.76,
+    "protection": 0.821,
+    "environment": 0.333
+  },
+  {
+    "country": "Iran",
+    "kri_rank": 91,
+    "kri_score": 0.703,
+    "life": 0.842,
+    "health": 0.938,
+    "education": 0.807,
+    "protection": 0.946,
+    "environment": 0.286,
+    "indicators": [
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 3.0,
+        "value_female_18": 17.0,
+        "year": 2010,
+        "data_source": "MIDHS 2010"
+      }
+    ]
+  },
+  {
+    "country": "Iraq",
+    "kri_rank": 170,
+    "kri_score": 0.454,
+    "life": 0.757,
+    "health": 0.937,
+    "education": 0.601,
+    "protection": 0.631,
+    "environment": 0.071
+  },
+  {
+    "country": "Ireland",
+    "kri_rank": 71,
+    "kri_score": 0.735,
+    "life": 0.955,
+    "health": 0.91,
+    "education": 1.0,
+    "protection": 0.988,
+    "environment": 0.25
+  },
+  {
+    "country": "Israel",
+    "kri_rank": 68,
+    "kri_score": 0.736,
+    "life": 0.958,
+    "health": 1.0,
+    "education": 0.804,
+    "protection": 0.983,
+    "environment": 0.286
+  },
+  {
+    "country": "Italy",
+    "kri_rank": 16,
+    "kri_score": 0.834,
+    "life": 0.965,
+    "health": 0.983,
+    "education": 0.858,
+    "protection": 0.991,
+    "environment": 0.5
+  },
+  {
+    "country": "Ivory Coast",
+    "kri_rank": 173,
+    "kri_score": 0.446,
+    "life": 0.382,
+    "health": 0.548,
+    "education": 0.52,
+    "protection": 0.568,
+    "environment": 0.286,
+    "indicators": [
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 7.0,
+        "value_female_18": 26.0,
+        "year": 2021,
+        "data_source": "DHS 2021"
+      },
+      {
+        "indicator_type": "male_child_marriage",
+        "value_male_18": 2.0,
+        "year": 2021,
+        "data_source": "DHS 2021"
+      },
+      {
+        "indicator_type": "violent_discipline",
+        "value_total": 75.1,
+        "value_male": 75.6,
+        "value_female": 74.6,
+        "year": 2021,
+        "data_source": "DHS 2021"
+      },
+      {
+        "indicator_type": "fgm",
+        "value_girls_0_14": 10.0,
+        "value_urban": 8.0,
+        "value_rural": 12.0,
+        "year": 2016,
+        "data_source": "MICS 2016"
+      }
+    ]
+  },
+  {
+    "country": "Jamaica",
+    "kri_rank": 61,
+    "kri_score": 0.743,
+    "life": 0.788,
+    "health": 0.893,
+    "education": 0.708,
+    "protection": 0.908,
+    "environment": 0.5
+  },
+  {
+    "country": "Japan",
+    "kri_rank": 22,
+    "kri_score": 0.813,
+    "life": 0.986,
+    "health": 0.997,
+    "education": 0.847,
+    "protection": 0.994,
+    "environment": 0.429
+  },
+  {
+    "country": "Jordan",
+    "kri_rank": 98,
+    "kri_score": 0.683,
+    "life": 0.835,
+    "health": 0.913,
+    "education": 0.577,
+    "protection": 0.946,
+    "environment": 0.357
+  },
+  {
+    "country": "Kazakhstan",
+    "kri_rank": 21,
+    "kri_score": 0.816,
+    "life": 0.806,
+    "health": 0.962,
+    "education": 0.842,
+    "protection": 0.95,
+    "environment": 0.583
+  },
+  {
+    "country": "Kenya",
+    "kri_rank": 147,
+    "kri_score": 0.556,
+    "life": 0.507,
+    "health": 0.596,
+    "education": 0.561,
+    "protection": 0.629,
+    "environment": 0.5
+  },
+  {
+    "country": "Kiribati",
+    "kri_rank": 121,
+    "kri_score": 0.611,
+    "life": 0.658,
+    "health": 0.677,
+    "education": 0.586,
+    "protection": 0.781,
+    "environment": 0.417
+  },
+  {
+    "country": "Kuwait",
+    "kri_rank": 73,
+    "kri_score": 0.732,
+    "life": 0.905,
+    "health": 0.984,
+    "education": 0.645,
+    "protection": 0.5,
+    "environment": 0.5
+  },
+  {
+    "country": "Kyrgyzstan",
+    "kri_rank": 89,
+    "kri_score": 0.705,
+    "life": 0.781,
+    "health": 0.935,
+    "education": 0.708,
+    "protection": 0.786,
+    "environment": 0.429
+  },
+  {
+    "country": "Laos",
+    "kri_rank": 122,
+    "kri_score": 0.611,
+    "life": 0.668,
+    "health": 0.697,
+    "education": 0.55,
+    "protection": 0.583,
+    "environment": 0.571
+  },
+  {
+    "country": "Latvia",
+    "kri_rank": 12,
+    "kri_score": 0.845,
+    "life": 0.866,
+    "health": 0.967,
+    "education": 0.823,
+    "protection": 0.971,
+    "environment": 0.643
+  },
+  {
+    "country": "Lebanon",
+    "kri_rank": 51,
+    "kri_score": 0.764,
+    "life": 0.867,
+    "health": 0.869,
+    "education": 0.617,
+    "protection": 0.961,
+    "environment": 0.583
+  },
+  {
+    "country": "Lesotho",
+    "kri_rank": 161,
+    "kri_score": 0.493,
+    "life": 0.309,
+    "health": 0.651,
+    "education": 0.625,
+    "protection": 0.652,
+    "environment": 0.357
+  },
+  {
+    "country": "Liberia",
+    "kri_rank": 164,
+    "kri_score": 0.476,
+    "life": 0.353,
+    "health": 0.574,
+    "education": 0.551,
+    "protection": 0.44,
+    "environment": 0.5
+  },
+  {
+    "country": "Libya",
+    "kri_rank": 100,
+    "kri_score": 0.671,
+    "life": 0.814,
+    "health": 0.839,
+    "education": 0.693,
+    "protection": 0.0,
+    "environment": 0.429
+  },
+  {
+    "country": "Liechtenstein",
+    "kri_rank": 40,
+    "kri_score": 0.782,
+    "life": 0.877,
+    "health": 1.0,
+    "education": 0.717,
+    "protection": null,
+    "environment": 0.667
+  },
+  {
+    "country": "Lithuania",
+    "kri_rank": 112,
+    "kri_score": 0.646,
+    "life": 0.871,
+    "health": 0.934,
+    "education": 0.847,
+    "protection": 0.976,
+    "environment": 0.167
+  },
+  {
+    "country": "Luxembourg",
+    "kri_rank": 1,
+    "kri_score": 0.885,
+    "life": 0.963,
+    "health": 0.991,
+    "education": 0.804,
+    "protection": 0.993,
+    "environment": 0.714
+  },
+  {
+    "country": "Madagascar",
+    "kri_rank": 188,
+    "kri_score": 0.313,
+    "life": 0.49,
+    "health": 0.305,
+    "education": 0.57,
+    "protection": 0.426,
+    "environment": 0.083
+  },
+  {
+    "country": "Malawi",
+    "kri_rank": 119,
+    "kri_score": 0.624,
+    "life": 0.548,
+    "health": 0.629,
+    "education": 0.693,
+    "protection": 0.592,
+    "environment": 0.667
+  },
+  {
+    "country": "Malaysia",
+    "kri_rank": 48,
+    "kri_score": 0.768,
+    "life": 0.867,
+    "health": 0.882,
+    "education": 0.682,
+    "protection": 0.0,
+    "environment": 0.667
+  },
+  {
+    "country": "Maldives",
+    "kri_rank": 136,
+    "kri_score": 0.581,
+    "life": 0.912,
+    "health": 0.905,
+    "education": 0.577,
+    "protection": 0.975,
+    "environment": 0.143
+  },
+  {
+    "country": "Mali",
+    "kri_rank": 160,
+    "kri_score": 0.495,
+    "life": 0.331,
+    "health": 0.611,
+    "education": 0.352,
+    "protection": 0.628,
+    "environment": 0.667
+  },
+  {
+    "country": "Malta",
+    "kri_rank": 25,
+    "kri_score": 0.809,
+    "life": 0.966,
+    "health": 0.99,
+    "education": 0.865,
+    "protection": 0.976,
+    "environment": 0.429
+  },
+  {
+    "country": "Marshall Islands",
+    "kri_rank": 130,
+    "kri_score": 0.593,
+    "life": 0.567,
+    "health": 0.771,
+    "education": 0.563,
+    "protection": 0.5,
+    "environment": 3.0,
+    "indicators": [
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 6.0,
+        "value_female_18": 26.0,
+        "year": 2007,
+        "data_source": "DHS 2007"
+      },
+      {
+        "indicator_type": "male_child_marriage",
+        "value_male_18": 12.0,
+        "year": 2007,
+        "data_source": "DHS 2007"
+      }
+    ]
+  },
+  {
+    "country": "Mauritania",
+    "kri_rank": 134,
+    "kri_score": 0.585,
+    "life": 0.544,
+    "health": 0.584,
+    "education": 0.509,
+    "protection": 0.591,
+    "environment": 0.714
+  },
+  {
+    "country": "Mauritius",
+    "kri_rank": 116,
+    "kri_score": 0.642,
+    "life": 0.81,
+    "health": 0.98,
+    "education": 0.747,
+    "protection": 0.0,
+    "environment": 0.286
+  },
+  {
+    "country": "Mexico",
+    "kri_rank": 42,
+    "kri_score": 0.779,
+    "life": 0.793,
+    "health": 0.92,
+    "education": 0.782,
+    "protection": 0.859,
+    "environment": 0.583
+  },
+  {
+    "country": "Micronesia (Federated States of)",
+    "kri_rank": 174,
+    "kri_score": 0.445,
+    "life": 0.76,
+    "health": 0.813,
+    "education": 0.0,
+    "protection": 0.143,
+    "environment": 6.0
+  },
+  {
+    "country": "Moldova",
+    "kri_rank": 46,
+    "kri_score": 0.774,
+    "life": 0.79,
+    "health": 0.853,
+    "education": 0.764,
+    "protection": 0.944,
+    "environment": 0.571,
+    "indicators": [
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 0.0,
+        "value_female_18": 12.0,
+        "year": 2012,
+        "data_source": "MICS 2012"
+      },
+      {
+        "indicator_type": "male_child_marriage",
+        "value_male_18": 1.0,
+        "year": 2012,
+        "data_source": "MICS 2012"
+      },
+      {
+        "indicator_type": "violent_discipline",
+        "value_total": 75.6,
+        "value_male": 77.4,
+        "value_female": 73.8,
+        "year": 2012,
+        "data_source": "MICS 2012"
+      }
+    ]
+  },
+  {
+    "country": "Monaco",
+    "kri_rank": 18,
+    "kri_score": 0.824,
+    "life": 0.995,
+    "health": 0.963,
+    "education": null,
+    "protection": null,
+    "environment": 0.583
+  },
+  {
+    "country": "Mongolia",
+    "kri_rank": 86,
+    "kri_score": 0.709,
+    "life": 0.802,
+    "health": 0.83,
+    "education": 0.755,
+    "protection": 0.855,
+    "environment": 0.417
+  },
+  {
+    "country": "Montenegro",
+    "kri_rank": 39,
+    "kri_score": 0.784,
+    "life": 0.901,
+    "health": 0.8,
+    "education": 0.774,
+    "protection": 0.93,
+    "environment": 0.571
+  },
+  {
+    "country": "Morocco",
+    "kri_rank": 54,
+    "kri_score": 0.761,
+    "life": 0.814,
+    "health": 0.898,
+    "education": 0.761,
+    "protection": 0.918,
+    "environment": 0.5
+  },
+  {
+    "country": "Mozambique",
+    "kri_rank": 175,
+    "kri_score": 0.445,
+    "life": 0.501,
+    "health": 0.555,
+    "education": 0.524,
+    "protection": 0.561,
+    "environment": 0.214
+  },
+  {
+    "country": "Myanmar",
+    "kri_rank": 129,
+    "kri_score": 0.595,
+    "life": 0.631,
+    "health": 0.678,
+    "education": 0.589,
+    "protection": 0.826,
+    "environment": 0.357
+  },
+  {
+    "country": "Namibia",
+    "kri_rank": 101,
+    "kri_score": 0.668,
+    "life": 0.566,
+    "health": 0.666,
+    "education": 0.67,
+    "protection": 0.754,
+    "environment": 0.7
+  },
+  {
+    "country": "Nauru",
+    "kri_rank": 138,
+    "kri_score": 0.58,
+    "life": 0.552,
+    "health": 0.856,
+    "education": 0.478,
+    "protection": 0.5,
+    "environment": 0.5
+  },
+  {
+    "country": "Nepal",
+    "kri_rank": 124,
+    "kri_score": 0.608,
+    "life": 0.704,
+    "health": 0.772,
+    "education": 0.719,
+    "protection": 0.64,
+    "environment": 0.333
+  },
+  {
+    "country": "Netherlands",
+    "kri_rank": 19,
+    "kri_score": 0.823,
+    "life": 0.95,
+    "health": 0.958,
+    "education": 1.0,
+    "protection": 0.996,
+    "environment": 0.417
+  },
+  {
+    "country": "New Zealand",
+    "kri_rank": 62,
+    "kri_score": 0.742,
+    "life": 0.955,
+    "health": 0.97,
+    "education": 1.0,
+    "protection": 0.974,
+    "environment": 0.25
+  },
+  {
+    "country": "Nicaragua",
+    "kri_rank": 69,
+    "kri_score": 0.736,
+    "life": 0.824,
+    "health": 0.787,
+    "education": 0.709,
+    "protection": 0.729,
+    "environment": 0.643
+  },
+  {
+    "country": "Niger",
+    "kri_rank": 187,
+    "kri_score": 0.314,
+    "life": 0.304,
+    "health": 0.27,
+    "education": 0.315,
+    "protection": 0.413,
+    "environment": 0.286
+  },
+  {
+    "country": "Nigeria",
+    "kri_rank": 182,
+    "kri_score": 0.348,
+    "life": 0.062,
+    "health": 0.56,
+    "education": 0.5,
+    "protection": 0.453,
+    "environment": 0.643
+  },
+  {
+    "country": "North Korea",
+    "kri_rank": 142,
+    "kri_score": 0.568,
+    "life": 0.805,
+    "health": 0.626,
+    "education": 0.564,
+    "protection": 0.97,
+    "environment": 0.214
+  },
+  {
+    "country": "North Macedonia",
+    "kri_rank": 58,
+    "kri_score": 0.751,
+    "life": 0.868,
+    "health": 0.913,
+    "education": 0.732,
+    "protection": 0.959,
+    "environment": 0.429,
+    "indicators": [
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 0.0,
+        "value_female_18": 8.0,
+        "year": 2019,
+        "data_source": "MICS 2018-19"
+      },
+      {
+        "indicator_type": "violent_discipline",
+        "value_total": 73.1,
+        "value_male": 75.6,
+        "value_female": 69.5,
+        "year": 2019,
+        "data_source": "MICS 2018-19"
+      }
+    ]
+  },
+  {
+    "country": "Norway",
+    "kri_rank": 11,
+    "kri_score": 0.854,
+    "life": 0.971,
+    "health": 0.983,
+    "education": 0.954,
+    "protection": 0.996,
+    "environment": 0.5
+  },
+  {
+    "country": "Oman",
+    "kri_rank": 76,
+    "kri_score": 0.728,
+    "life": 0.837,
+    "health": 0.896,
+    "education": 0.788,
+    "protection": 0.972,
+    "environment": 0.357
+  },
+  {
+    "country": "Pakistan",
+    "kri_rank": 153,
+    "kri_score": 0.526,
+    "life": 0.579,
+    "health": 0.695,
+    "education": 0.426,
+    "protection": 0.656,
+    "environment": 0.357
+  },
+  {
+    "country": "Palau",
+    "kri_rank": 117,
+    "kri_score": 0.633,
+    "life": 0.638,
+    "health": 0.99,
+    "education": 0.848,
+    "protection": 0.3,
+    "environment": 0.7
+  },
+  {
+    "country": "Palestine",
+    "kri_rank": 104,
+    "kri_score": 0.662,
+    "life": 0.832,
+    "health": 0.976,
+    "education": 0.626,
+    "protection": 0.879,
+    "environment": 0.286,
+    "indicators": [
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 1.0,
+        "value_female_18": 13.0,
+        "year": 2020,
+        "data_source": "MICS 2019-20"
+      },
+      {
+        "indicator_type": "violent_discipline",
+        "value_total": 90.1,
+        "value_male": 92.3,
+        "value_female": 87.9,
+        "year": 2020,
+        "data_source": "MICS 2019-20"
+      }
+    ]
+  },
+  {
+    "country": "Panama",
+    "kri_rank": 132,
+    "kri_score": 0.591,
+    "life": 0.854,
+    "health": 0.905,
+    "education": 0.653,
+    "protection": 0.861,
+    "environment": 0.167
+  },
+  {
+    "country": "Papua New Guinea",
+    "kri_rank": 180,
+    "kri_score": 0.377,
+    "life": 0.622,
+    "health": 0.262,
+    "education": 0.52,
+    "protection": 0.42,
+    "environment": 0.214,
+    "indicators": [
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 8.0,
+        "value_female_18": 27.0,
+        "year": 2018,
+        "data_source": "DHS 2016-18"
+      },
+      {
+        "indicator_type": "male_child_marriage",
+        "value_male_18": 4.0,
+        "year": 2018,
+        "data_source": "DHS 2016-18"
+      }
+    ]
+  },
+  {
+    "country": "Paraguay",
+    "kri_rank": 80,
+    "kri_score": 0.72,
+    "life": 0.776,
+    "health": 0.863,
+    "education": 0.643,
+    "protection": 0.672,
+    "environment": 0.667
+  },
+  {
+    "country": "Peru",
+    "kri_rank": 37,
+    "kri_score": 0.787,
+    "life": 0.81,
+    "health": 0.844,
+    "education": 0.838,
+    "protection": 0.821,
+    "environment": 0.643
+  },
+  {
+    "country": "Philippines",
+    "kri_rank": 74,
+    "kri_score": 0.729,
+    "life": 0.742,
+    "health": 0.728,
+    "education": 0.689,
+    "protection": 0.861,
+    "environment": 0.643
+  },
+  {
+    "country": "Poland",
+    "kri_rank": 123,
+    "kri_score": 0.611,
+    "life": 0.897,
+    "health": 0.852,
+    "education": 0.793,
+    "protection": 0.979,
+    "environment": 0.143
+  },
+  {
+    "country": "Portugal",
+    "kri_rank": 13,
+    "kri_score": 0.843,
+    "life": 0.944,
+    "health": 0.992,
+    "education": 0.922,
+    "protection": 0.986,
+    "environment": 0.5
+  },
+  {
+    "country": "Qatar",
+    "kri_rank": 20,
+    "kri_score": 0.817,
+    "life": 0.921,
+    "health": 1.0,
+    "education": 0.577,
+    "protection": 0.98,
+    "environment": 0.7
+  },
+  {
+    "country": "Republic of Serbia",
+    "kri_rank": 31,
+    "kri_score": 0.792,
+    "life": 0.869,
+    "health": 0.926,
+    "education": 0.728,
+    "protection": 0.911,
+    "environment": 0.583
+  },
+  {
+    "country": "Republic of the Congo",
+    "kri_rank": 146,
+    "kri_score": 0.556,
+    "life": 0.578,
+    "health": 0.518,
+    "education": 0.684,
+    "protection": 0.727,
+    "environment": 0.357
+  },
+  {
+    "country": "Romania",
+    "kri_rank": 111,
+    "kri_score": 0.647,
+    "life": 0.866,
+    "health": 0.903,
+    "education": 0.731,
+    "protection": 0.925,
+    "environment": 0.214
+  },
+  {
+    "country": "Russia",
+    "kri_rank": 87,
+    "kri_score": 0.709,
+    "life": 0.822,
+    "health": 0.939,
+    "education": 0.851,
+    "protection": 0.957,
+    "environment": 0.286,
+    "indicators": [
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 0.0,
+        "value_female_18": 6.0,
+        "year": 2017,
+        "data_source": "RPN 2017, Sample Survey of the Reproductive Plans of the Population"
+      }
+    ]
+  },
+  {
+    "country": "Rwanda",
+    "kri_rank": 127,
+    "kri_score": 0.602,
+    "life": 0.621,
+    "health": 0.738,
+    "education": 0.634,
+    "protection": 0.653,
+    "environment": 0.417
+  },
+  {
+    "country": "Saint Kitts and Nevis",
+    "kri_rank": 152,
+    "kri_score": 0.53,
+    "life": 0.73,
+    "health": 0.961,
+    "education": 0.788,
+    "protection": 0.143,
+    "environment": 5.0
+  },
+  {
+    "country": "Saint Lucia",
+    "kri_rank": 95,
+    "kri_score": 0.694,
+    "life": 0.765,
+    "health": 0.862,
+    "education": 0.655,
+    "protection": 0.892,
+    "environment": 0.417,
+    "indicators": [
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 4.0,
+        "value_female_18": 24.0,
+        "year": 2012,
+        "data_source": "MICS 2012"
+      },
+      {
+        "indicator_type": "violent_discipline",
+        "value_total": 67.5,
+        "value_male": 70.9,
+        "value_female": 63.8,
+        "year": 2012,
+        "data_source": "MICS 2012"
+      }
+    ]
+  },
+  {
+    "country": "Saint Vincent and the Grenadines 0,764",
+    "kri_rank": 52,
+    "kri_score": 0.785,
+    "life": 0.94,
+    "health": 0.79,
+    "education": 0.583,
+    "protection": 4.0,
+    "environment": 53.0
+  },
+  {
+    "country": "Samoa",
+    "kri_rank": 75,
+    "kri_score": 0.729,
+    "life": 0.809,
+    "health": 0.93,
+    "education": 0.625,
+    "protection": 0.731,
+    "environment": 0.6
+  },
+  {
+    "country": "San Marino",
+    "kri_rank": 55,
+    "kri_score": 0.761,
+    "life": 0.924,
+    "health": 0.973,
+    "education": 0.623,
+    "protection": 0.6,
+    "environment": 6.0
+  },
+  {
+    "country": "Sao Tome and Principe",
+    "kri_rank": 169,
+    "kri_score": 0.461,
+    "life": 0.737,
+    "health": 0.679,
+    "education": 0.738,
+    "protection": 0.791,
+    "environment": 0.071,
+    "indicators": [
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 5.0,
+        "value_female_18": 28.0,
+        "year": 2019,
+        "data_source": "MICS 2019"
+      },
+      {
+        "indicator_type": "male_child_marriage",
+        "value_male_18": 3.0,
+        "year": 2019,
+        "data_source": "MICS 2019"
+      },
+      {
+        "indicator_type": "violent_discipline",
+        "value_total": 83.5,
+        "value_male": 84.4,
+        "value_female": 82.4,
+        "year": 2019,
+        "data_source": "MICS 2019"
+      }
+    ]
+  },
+  {
+    "country": "Saudi Arabia",
+    "kri_rank": 148,
+    "kri_score": 0.556,
+    "life": 0.891,
+    "health": 0.958,
+    "education": 0.894,
+    "protection": 0.98,
+    "environment": 0.071
+  },
+  {
+    "country": "Senegal",
+    "kri_rank": 120,
+    "kri_score": 0.612,
+    "life": 0.633,
+    "health": 0.706,
+    "education": 0.443,
+    "protection": 0.651,
+    "environment": 0.667
+  },
+  {
+    "country": "Seychelles",
+    "kri_rank": 140,
+    "kri_score": 0.572,
+    "life": 0.817,
+    "health": 0.978,
+    "education": 0.626,
+    "protection": 0.214,
+    "environment": 0.5
+  },
+  {
+    "country": "Sierra Leone",
+    "kri_rank": 184,
+    "kri_score": 0.337,
+    "life": 0.319,
+    "health": 0.556,
+    "education": 0.533,
+    "protection": 0.64,
+    "environment": 0.071,
+    "indicators": [
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 9.0,
+        "value_female_18": 30.0,
+        "year": 2019,
+        "data_source": "DHS 2019"
+      },
+      {
+        "indicator_type": "male_child_marriage",
+        "value_male_18": 4.0,
+        "year": 2019,
+        "data_source": "DHS 2019"
+      },
+      {
+        "indicator_type": "violent_discipline",
+        "value_total": 86.5,
+        "value_male": 87.0,
+        "value_female": 86.0,
+        "year": 2017,
+        "data_source": "MICS 2017"
+      },
+      {
+        "indicator_type": "fgm",
+        "value_girls_0_14": 8.0,
+        "value_urban": 6.0,
+        "value_rural": 9.0,
+        "year": 2019,
+        "data_source": "DHS 2019"
+      }
+    ]
+  },
+  {
+    "country": "Singapore",
+    "kri_rank": 35,
+    "kri_score": 0.789,
+    "life": 0.965,
+    "health": 0.99,
+    "education": 0.9,
+    "protection": 0.996,
+    "environment": 0.357
+  },
+  {
+    "country": "Slovakia",
+    "kri_rank": 90,
+    "kri_score": 0.704,
+    "life": 0.877,
+    "health": 0.977,
+    "education": 0.744,
+    "protection": 0.946,
+    "environment": 0.286
+  },
+  {
+    "country": "Slovenia",
+    "kri_rank": 6,
+    "kri_score": 0.861,
+    "life": 0.945,
+    "health": 0.984,
+    "education": 0.897,
+    "protection": 0.994,
+    "environment": 0.571
+  },
+  {
+    "country": "Solomon Islands",
+    "kri_rank": 149,
+    "kri_score": 0.548,
+    "life": 0.761,
+    "health": 0.57,
+    "education": 0.528,
+    "protection": 0.719,
+    "environment": 0.3,
+    "indicators": [
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 6.0,
+        "value_female_18": 21.0,
+        "year": 2015,
+        "data_source": "DHS 2015"
+      },
+      {
+        "indicator_type": "male_child_marriage",
+        "value_male_18": 4.0,
+        "year": 2015,
+        "data_source": "DHS 2015"
+      },
+      {
+        "indicator_type": "violent_discipline",
+        "value_total": 85.5,
+        "value_male": 86.2,
+        "value_female": 84.7,
+        "year": 2015,
+        "data_source": "DHS 2015"
+      }
+    ]
+  },
+  {
+    "country": "Somalia",
+    "kri_rank": 183,
+    "kri_score": 0.348,
+    "life": 0.202,
+    "health": 0.389,
+    "education": 0.321,
+    "protection": 0.583,
+    "environment": 0.5
+  },
+  {
+    "country": "South Africa",
+    "kri_rank": 93,
+    "kri_score": 0.697,
+    "life": 0.639,
+    "health": 0.854,
+    "education": 0.718,
+    "protection": 0.837,
+    "environment": 0.5,
+    "indicators": [
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 1.0,
+        "value_female_18": 4.0,
+        "year": 2016,
+        "data_source": "DHS 2016"
+      },
+      {
+        "indicator_type": "male_child_marriage",
+        "value_male_18": 1.0,
+        "year": 2016,
+        "data_source": "DHS 2016"
+      }
+    ]
+  },
+  {
+    "country": "South Korea",
+    "kri_rank": 15,
+    "kri_score": 0.835,
+    "life": 0.972,
+    "health": 0.993,
+    "education": 0.862,
+    "protection": 0.583,
+    "environment": 3.0
+  },
+  {
+    "country": "South Sudan",
+    "kri_rank": 193,
+    "kri_score": 0.224,
+    "life": 0.073,
+    "health": 0.298,
+    "education": 0.187,
+    "protection": 0.336,
+    "environment": 0.417,
+    "indicators": [
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 9.0,
+        "value_female_18": 52.0,
+        "year": 2010,
+        "data_source": "SHHS-2 2010"
+      }
+    ]
+  },
+  {
+    "country": "Spain",
+    "kri_rank": 64,
+    "kri_score": 0.741,
+    "life": 0.966,
+    "health": 0.99,
+    "education": 0.944,
+    "protection": 0.987,
+    "environment": 0.25
+  },
+  {
+    "country": "Sri Lanka",
+    "kri_rank": 151,
+    "kri_score": 0.532,
+    "life": 0.882,
+    "health": 0.817,
+    "education": 0.743,
+    "protection": 0.954,
+    "environment": 0.083,
+    "indicators": [
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 1.0,
+        "value_female_18": 10.0,
+        "year": 2016,
+        "data_source": "DHS 2016"
+      },
+      {
+        "indicator_type": "violent_discipline",
+        "value_total": 50.8,
+        "value_male": 53.4,
+        "value_female": 48.2,
+        "year": 2019,
+        "data_source": "HIES 2019"
+      }
+    ]
+  },
+  {
+    "country": "Sudan",
+    "kri_rank": 178,
+    "kri_score": 0.408,
+    "life": 0.564,
+    "health": 0.439,
+    "education": 0.432,
+    "protection": 0.634,
+    "environment": 0.167
+  },
+  {
+    "country": "Suriname",
+    "kri_rank": 114,
+    "kri_score": 0.645,
+    "life": 0.772,
+    "health": 0.86,
+    "education": 0.575,
+    "protection": 0.88,
+    "environment": 0.333
+  },
+  {
+    "country": "Sweden",
+    "kri_rank": 78,
+    "kri_score": 0.725,
+    "life": 0.967,
+    "health": 0.972,
+    "education": 1.0,
+    "protection": 0.993,
+    "environment": 0.214
+  },
+  {
+    "country": "Switzerland",
+    "kri_rank": 32,
+    "kri_score": 0.792,
+    "life": 0.973,
+    "health": 0.99,
+    "education": 0.907,
+    "protection": 0.997,
+    "environment": 0.357
+  },
+  {
+    "country": "Syria",
+    "kri_rank": 155,
+    "kri_score": 0.52,
+    "life": 0.793,
+    "health": 0.756,
+    "education": 0.512,
+    "protection": 0.867,
+    "environment": 0.143,
+    "indicators": [
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 3.0,
+        "value_female_18": 13.0,
+        "year": 2006,
+        "data_source": "MICS 2006"
+      },
+      {
+        "indicator_type": "violent_discipline",
+        "value_total": 88.5,
+        "value_male": 89.5,
+        "value_female": 87.5,
+        "year": 2006,
+        "data_source": "MICS 2006"
+      }
+    ]
+  },
+  {
+    "country": "Tajikistan",
+    "kri_rank": 99,
+    "kri_score": 0.682,
+    "life": 0.765,
+    "health": 0.871,
+    "education": 0.597,
+    "protection": 0.866,
+    "environment": 0.429
+  },
+  {
+    "country": "Thailand",
+    "kri_rank": 5,
+    "kri_score": 0.867,
+    "life": 0.901,
+    "health": 0.944,
+    "education": 0.84,
+    "protection": 0.916,
+    "environment": 0.75
+  },
+  {
+    "country": "The Bahamas",
+    "kri_rank": 141,
+    "kri_score": 0.568,
+    "life": 0.803,
+    "health": 0.912,
+    "education": 0.25,
+    "protection": 0.5,
+    "environment": 0.5
+  },
+  {
+    "country": "Togo",
+    "kri_rank": 167,
+    "kri_score": 0.465,
+    "life": 0.47,
+    "health": 0.499,
+    "education": 0.606,
+    "protection": 0.533,
+    "environment": 0.286
+  },
+  {
+    "country": "Tonga",
+    "kri_rank": 57,
+    "kri_score": 0.759,
+    "life": 0.789,
+    "health": 0.977,
+    "education": 0.846,
+    "protection": 0.772,
+    "environment": 0.5
+  },
+  {
+    "country": "Trinidad and Tobago",
+    "kri_rank": 45,
+    "kri_score": 0.776,
+    "life": 0.821,
+    "health": 0.948,
+    "education": 0.774,
+    "protection": 0.935,
+    "environment": 0.5,
+    "indicators": [
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 1.0,
+        "value_female_18": 4.0,
+        "year": 2022,
+        "data_source": "MICS 2022"
+      },
+      {
+        "indicator_type": "violent_discipline",
+        "value_total": 67.2,
+        "value_male": 69.5,
+        "value_female": 65.0,
+        "year": 2022,
+        "data_source": "MICS 2022"
+      }
+    ]
+  },
+  {
+    "country": "Tunisia",
+    "kri_rank": 59,
+    "kri_score": 0.748,
+    "life": 0.826,
+    "health": 0.962,
+    "education": 0.723,
+    "protection": 0.982,
+    "environment": 0.417
+  },
+  {
+    "country": "Turkey",
+    "kri_rank": 113,
+    "kri_score": 0.646,
+    "life": 0.875,
+    "health": 0.969,
+    "education": 0.987,
+    "protection": 0.939,
+    "environment": 0.143
+  },
+  {
+    "country": "Turkmenistan",
+    "kri_rank": 33,
+    "kri_score": 0.791,
+    "life": 0.716,
+    "health": 0.978,
+    "education": 0.714,
+    "protection": 0.962,
+    "environment": 0.643
+  },
+  {
+    "country": "Tuvalu",
+    "kri_rank": 115,
+    "kri_score": 0.643,
+    "life": 0.594,
+    "health": 0.914,
+    "education": 0.529,
+    "protection": 0.892,
+    "environment": 0.429
+  },
+  {
+    "country": "Uganda",
+    "kri_rank": 156,
+    "kri_score": 0.519,
+    "life": 0.572,
+    "health": 0.555,
+    "education": 0.573,
+    "protection": 0.415,
+    "environment": 0.5
+  },
+  {
+    "country": "Ukraine",
+    "kri_rank": 26,
+    "kri_score": 0.804,
+    "life": 0.834,
+    "health": 0.875,
+    "education": 0.832,
+    "protection": 0.95,
+    "environment": 0.583
+  },
+  {
+    "country": "United Arab Emirates",
+    "kri_rank": 81,
+    "kri_score": 0.718,
+    "life": 0.912,
+    "health": 0.997,
+    "education": 0.793,
+    "protection": 0.93,
+    "environment": 0.286
+  },
+  {
+    "country": "United Kingdom",
+    "kri_rank": 137,
+    "kri_score": 0.581,
+    "life": 0.938,
+    "health": 0.97,
+    "education": 0.892,
+    "protection": 0.975,
+    "environment": 0.083,
+    "indicators": [
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": null,
+        "value_female_18": 0.0,
+        "year": 2021,
+        "data_source": "Office for National Statistics"
+      }
+    ]
+  },
+  {
+    "country": "United Republic of Tanzania",
+    "kri_rank": 150,
+    "kri_score": 0.534,
+    "life": 0.605,
+    "health": 0.549,
+    "education": 0.517,
+    "protection": 0.38,
+    "environment": 0.667,
+    "indicators": [
+      {
+        "indicator_type": "female_child_marriage",
+        "value_female_15": 5.0,
+        "value_female_18": 29.0,
+        "year": 2022,
+        "data_source": "DHS 2022"
+      },
+      {
+        "indicator_type": "male_child_marriage",
+        "value_male_18": 4.0,
+        "year": 2022,
+        "data_source": "DHS 2022"
+      },
+      {
+        "indicator_type": "fgm",
+        "value_girls_0_14": 1.0,
+        "value_urban": 0.0,
+        "value_rural": 1.0,
+        "year": 2022,
+        "data_source": "DHS 2022"
+      }
+    ]
+  },
+  {
+    "country": "Uruguay",
+    "kri_rank": 23,
+    "kri_score": 0.81,
+    "life": 0.878,
+    "health": 0.977,
+    "education": 0.781,
+    "protection": 0.912,
+    "environment": 0.571
+  },
+  {
+    "country": "Uzbekistan",
+    "kri_rank": 97,
+    "kri_score": 0.69,
+    "life": 0.805,
+    "health": 0.966,
+    "education": 0.69,
+    "protection": 0.817,
+    "environment": 0.357
+  },
+  {
+    "country": "Vanuatu",
+    "kri_rank": 126,
+    "kri_score": 0.603,
+    "life": 0.757,
+    "health": 0.673,
+    "education": 0.631,
+    "protection": 0.621,
+    "environment": 0.4
+  },
+  {
+    "country": "Venezuela",
+    "kri_rank": 105,
+    "kri_score": 0.659,
+    "life": 0.71,
+    "health": 0.855,
+    "education": 0.582,
+    "protection": 0.704,
+    "environment": 0.5
+  },
+  {
+    "country": "Viet Nam",
+    "kri_rank": 107,
+    "kri_score": 0.657,
+    "life": 0.788,
+    "health": 0.871,
+    "education": 0.693,
+    "protection": 0.903,
+    "environment": 0.286
+  },
+  {
+    "country": "Yemen",
+    "kri_rank": 172,
+    "kri_score": 0.453,
+    "life": 0.552,
+    "health": 0.412,
+    "education": 0.334,
+    "protection": 0.504,
+    "environment": 0.5
+  },
+  {
+    "country": "Zambia",
+    "kri_rank": 159,
+    "kri_score": 0.496,
+    "life": 0.552,
+    "health": 0.605,
+    "education": 0.616,
+    "protection": 0.339,
+    "environment": 0.429
+  },
+  {
+    "country": "Zimbabwe",
+    "kri_rank": 143,
+    "kri_score": 0.568,
+    "life": 0.496,
+    "health": 0.601,
+    "education": 0.663,
+    "protection": 0.51,
+    "environment": 0.583
+  }
+]
