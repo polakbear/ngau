@@ -94,3 +94,67 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+#tooltip {
+  position: absolute;
+  background: rgba(10, 10, 10, 0.55);
+  color: #f8f8f8;
+  padding: 12px 14px;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 14px;
+  pointer-events: none;
+  max-width: 260px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  line-height: 1.5;
+  z-index: 1000;
+}
+
+.tooltip-header {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+.tooltip-score {
+  margin-bottom: 6px;
+}
+
+.tooltip-rank {
+  font-size: 13px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.tooltip-metrics .label {
+  font-weight: 600;
+  color: #80e1ff;
+}
+
+.legend {
+  font-family: "Segoe UI", sans-serif;
+  font-size: 13px;
+  color: #ddd;
+  margin-top: 12px;
+  max-width: 300px;
+}
+
+.legend-bar {
+  display: flex;
+  height: 12px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+.legend-bar > div {
+  flex: 1;
+}
+
+.legend-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  color: #ccc;
+}

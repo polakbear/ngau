@@ -4,22 +4,35 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/style.css" />
     <title>boo</title>
   </head>
   <body>
     <div id="app">
+      <div class="legend">
+        <div class="legend-bar">
+          <div style="background: #4b5c6b"></div>
+          <div style="background: #5a7d9a"></div>
+          <div style="background: #76b5c5"></div>
+          <div style="background: #2e9c9f"></div>
+          <div style="background: #3fd1c7"></div>
+        </div>
+        <div class="legend-labels">
+          <span>Very Poor</span>
+          <span>Poor</span>
+          <span>Fair</span>
+          <span>Good</span>
+          <span>Excellent</span>
+        </div>
+      </div>
       <div id="globe"></div>
       <div
         id="tooltip"
         style="
           position: absolute;
           display: none;
-          background: rgba(0, 0, 0, 0);
-          color: white;
-          padding: 5px;
-          border-radius: 5px;
           pointer-events: none;
-          font-size: 120px;
+          font-size: 20px;
           font-family: Verdana, Geneva, Tahoma, sans-serif;
         "
       ></div>

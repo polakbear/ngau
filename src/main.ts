@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import Globe from "globe.gl";
-import * as d3chromatic from "d3-scale-chromatic";
+// import * as d3chromatic from "d3-scale-chromatic";
+import * as d3 from "d3-scale";
 
 interface IndicatorEntry {
   indicator_type: string;
@@ -38,6 +39,11 @@ const normalize = (str: string) =>
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/[^a-z]/g, "");
+
+const childRightsColorScale = d3
+  .scaleLinear<string>()
+  .domain([0.0, 0.2, 0.4, 0.6, 0.8, 1.0])
+  .range(["#4b5c6b", "#4b5c6b", "#5a7d9a", "#76b5c5", "#2e9c9f", "#3fd1c7"]);
 
 let data: CountryData[] = [];
 
@@ -79,7 +85,7 @@ function renderGlobe(geoJson: any) {
   const world = new Globe(globeElement)
     .globeImageUrl("")
     .showAtmosphere(true)
-    .atmosphereColor("#ff5500")
+    .atmosphereColor("#4b5c6b")
     .atmosphereAltitude(0.45);
 
   scene.add(world);
@@ -89,22 +95,43 @@ function renderGlobe(geoJson: any) {
     .polygonsData(geoJson.features)
     .polygonCapColor((feat: any) => {
       const score = getKriScore(feat);
-      return score === null ? "#646464" : scoreToColor(score);
+      return score === null ? "#646464" : childRightsColorScale(score);
     })
     .polygonSideColor(() => "rgba(0, 0, 0, 0.05)")
-    .polygonStrokeColor((feat: any) => {
-      const score = getKriScore(feat);
-      return score === null ? "#646464" : scoreToBorderColor(score);
-    })
+    .polygonStrokeColor(() => "#000000")
     .polygonsTransitionDuration(200)
-    .onPolygonHover((polygon: object | null, prevPolygon: object | null) => {
+    .onPolygonHover((polygon: object | null, _prevPolygon: object | null) => {
       const hoverD = polygon as GeoJsonFeature | null;
-      console.log(hoverD);
+      // console.log(hoverD);
       if (hoverD) {
         const countryName = hoverD.properties.ADMIN || "Unknown";
-        tooltip.style.display = "block";
-        tooltip.innerHTML = countryName;
+        const country = data.find(
+          (d: any) => normalize(d.country) === normalize(countryName)
+        );
 
+        tooltip.style.display = "block";
+        tooltip.innerHTML = `
+  <div class="tooltip-header">${countryName}</div>
+  <div class="tooltip-score">
+    <span class="label">KRI Score:</span> <span class="value">${
+      country?.kri_score ?? "N/A"
+    }</span>
+  </div>
+  <div class="tooltip-rank">Rank: ${country?.kri_rank ?? "N/A"}</div>
+  <div class="tooltip-metrics">
+    <div><span class="label">Life:</span> ${country?.life ?? "N/A"}</div>
+    <div><span class="label">Health:</span> ${country?.health ?? "N/A"}</div>
+    <div><span class="label">Education:</span> ${
+      country?.education ?? "N/A"
+    }</div>
+    <div><span class="label">Protection:</span> ${
+      country?.protection ?? "N/A"
+    }</div>
+    <div><span class="label">Environment:</span> ${
+      country?.environment ?? "N/A"
+    }</div>
+  </div>
+`;
         // Update tooltip position
         document.addEventListener("mousemove", (event) => {
           tooltip.style.left = `${event.pageX + 10}px`;
@@ -123,13 +150,9 @@ function getKriScore(feat: any): number | null {
   return country?.kri_score ?? null;
 }
 
-function scoreToColor(score: number | null): string {
-  if (score === null) return "#646464"; // Default gray for null scores
-  const normalizedScore = Math.max(0, Math.min(1, score)); // Clamp score between 0 and 1
-  const reversedScore = normalizedScore; // Reverse the score
-  return d3chromatic.interpolateInferno(reversedScore);
-}
-
-function scoreToBorderColor(score: number | null): string {
-  return "#000";
-}
+// function scoreToColor(score: number | null): string {
+//   if (score === null) return "#646464"; // Default gray for null scores
+//   const normalizedScore = Math.max(0, Math.min(1, score)); // Clamp score between 0 and 1
+//   const reversedScore = normalizedScore; // Reverse the score
+//   return d3chromatic.interpolateInferno(reversedScore);
+// }
