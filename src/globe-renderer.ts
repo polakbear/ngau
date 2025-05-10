@@ -1,4 +1,3 @@
-import * as THREE from "three";
 import Globe from "globe.gl";
 import { CountryData, GeoJsonFeature } from "./types";
 import { normalize } from "./utils";
@@ -14,22 +13,9 @@ const childRightsColorScale = d3
 export function createGlobe(
   geoJson: any,
   data: CountryData[],
-  tooltip: HTMLElement
+  tooltip: HTMLElement,
+  infoPanel: HTMLElement
 ) {
-  const scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x000000);
-
-  const renderer = new THREE.WebGLRenderer({ antialias: true });
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  document.body.appendChild(renderer.domElement);
-
-  const ambientLight = new THREE.AmbientLight(0xffffff, 1);
-  scene.add(ambientLight);
-
-  const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-  directionalLight.position.set(0, 1, 1).normalize();
-  scene.add(directionalLight);
-
   const globeElement = document.getElementById("globe");
   if (!globeElement) {
     throw new Error('Element with id "globe" not found');
@@ -43,7 +29,6 @@ export function createGlobe(
   const world = new Globe(globeElement)
     .globeImageUrl("")
     .showAtmosphere(true)
-    // .atmosphereColor("#4b5c6b")
     .atmosphereColor("#2e9c9f")
     .atmosphereAltitude(0.45)
     .polygonsData(geoJson.features)
@@ -54,27 +39,43 @@ export function createGlobe(
     .polygonSideColor(() => "rgba(0, 0, 0, 0.05)")
     .polygonStrokeColor(() => "#000000")
     .polygonsTransitionDuration(200)
+    .onPolygonClick((polygon: object | null, _prevPolygon: object | null) => {
+      const clicked = polygon as GeoJsonFeature | null;
+
+      if (clicked) {
+        const countryName = clicked.properties.ADMIN || "Unknown";
+        const country = data.find(
+          (d: any) => normalize(d.country) === normalize(countryName)
+        );
+      
+        if (country) {
+          tooltip.style.display = "none"; // hide floating tooltip
+          infoPanel.style.display = "block";
+          infoPanel.innerHTML = generateTooltipContent(countryName, country);
+        }
+      }
+    })
     .onPolygonHover((polygon: object | null, _prevPolygon: object | null) => {
       const hoverD = polygon as GeoJsonFeature | null;
-
-      if (hoverD) {
+    
+      if (hoverD && infoPanel.innerHTML === '') {
         const countryName = hoverD.properties.ADMIN || "Unknown";
         const country = data.find(
           (d: any) => normalize(d.country) === normalize(countryName)
         );
+    
         if (country) {
           tooltip.style.display = "block";
           tooltip.innerHTML = generateTooltipContent(countryName, country);
         }
       } else {
-        tooltip.style.display = "block";
+        // Hide tooltip if nothing hovered or a country is selected
+        tooltip.style.display = "none";
       }
-
-      // Highlight the hovered polygon
+    
       return world.polygonAltitude((d) => (d === hoverD ? 0.05 : 0.01));
     });
 
-  scene.add(world);
   return world;
 }
 

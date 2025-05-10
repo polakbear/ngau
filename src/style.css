@@ -1,4 +1,5 @@
-/* Global styles */
+@import '@fortawesome/fontawesome-free/css/all.min.css'; 
+
 :root {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -26,75 +27,163 @@ body {
   text-align: center;
 }
 
-/* Tooltip styles */
+/* Tooltip container */
 #tooltip {
   position: absolute;
-  background: rgba(10, 10, 10, 0.55);
-  color: #f8f8f8;
-  padding: 12px 14px;
-  font-family: "Segoe UI", sans-serif;
+  background: rgba(15, 15, 15, 0.7);
+  border: 1px solid rgba(100, 255, 255, 0.1);
+  color: #f0f0f0;
+  padding: 16px 20px;
+  font-family: 'IBM Plex Sans', 'Segoe UI', sans-serif;
   font-size: 14px;
   pointer-events: none;
-  /* max-width: 320px; */
-  width: 300px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
-  line-height: 1.5;
+  max-width: 320px;
+  border-radius: 12px;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+    0 10px 40px rgba(0, 255, 255, 0.07),
+    0 0 12px rgba(0, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  line-height: 1.6;
   z-index: 1000;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Header row: Badge + Country name */
+.tooltip-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.tooltip-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(63, 209, 199, 0.1);
+  color: #3fd1c7;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 2px 8px;
+  border: 1px solid rgba(63, 209, 199, 0.25);
+  border-radius: 2px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin: 4px 0;
+}
+
+.badge-divider {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.badge-qual {
+  display: inline-block;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  margin-top: 2px;
+  display: inline-block;
 }
 
 .tooltip-header {
   font-size: 16px;
   font-weight: bold;
-  margin-bottom: 6px;
   color: #fff;
+  margin: 0;
+  text-align: right;
+  flex: 1;
+  white-space: normal;
+  word-break: break-word;
 }
 
-.tooltip-score-row,
-.tooltip-row {
+/* Two-column metrics layout */
+.tooltip-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.tooltip-metric {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 10px;
-  margin-bottom: 6px;
 }
 
-.tooltip-score-row .label,
-.tooltip-row .left {
+.metric-label {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 12px;
+  flex-shrink: 0;
+  color: #80e1ff;
+  width: 70px; /* Or try 80px */
+  font-size: 20px;
+  flex-shrink: 0;
+  
 }
 
-.tooltip-score-row .right,
-.tooltip-row .right {
+.metric-info {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  gap: 4px; /* was 2px — adds breathing room */
 }
 
-.label {
-  font-weight: 600;
-  color: #80e1ff;
+.metric-info .bar-container {
+  width: 64px; /* reduced from 72px */
+  max-width: 100%;
 }
 
+/* Qualitative badge inside metrics */
+.qual {
+  font-size: 11px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 12px;
+}
+
+/* Numeric styling */
 .value {
-  font-weight: 500;
-  color: #ffffff;
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--value-color, #ffffff);
+  background: linear-gradient(to right, #80e1ff, #3fd1c7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   min-width: 40px;
   text-align: right;
 }
 
-.qual {
-  font-size: 11px;
-  color: #aaa;
-  margin-top: 2px;
+/* Bar styling */
+.bar-container {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
 }
 
+.bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(
+    to right,
+    var(--bar-color, #3fd1c7),
+    rgba(255, 255, 255, 0.15)
+  );
+  transition: width 0.3s ease;
+}
+
+/* Subtitle and violations section */
 .tooltip-subtitle {
   font-size: 13px;
   font-weight: bold;
-  margin-top: 10px;
+  margin-top: 12px;
   margin-bottom: 4px;
   color: #89cfff;
   text-transform: uppercase;
@@ -105,14 +194,90 @@ body {
   margin-bottom: 6px;
 }
 
-/* Icon styles */
+.tooltip-section:not(:last-of-type)::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.05);
+  margin: 12px 0;
+}
+
+/* Icon styling */
 .icon svg,
 .tooltip-row svg {
   width: 14px;
   height: 14px;
   fill: #89cfff;
   flex-shrink: 0;
-  vertical-align: middle;
+}
+
+/* Make the metrics a single column with tighter spacing */
+.tooltip-metrics-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;           /* smaller gap between metrics */
+  margin-bottom: 8px; /* reduce bottom margin */
+}
+
+/* Shrink overall tooltip text and padding */
+#tooltip {
+  font-size: 12px;    /* reduce base font size */
+  padding: 12px 14px; /* tighten inner padding */
+  width: 300px;       /* slightly narrower if you like */
+}
+
+/* Tighter header row */
+.tooltip-top-row {
+  margin-bottom: 8px;
+}
+
+/* Smaller badge & country text */
+.tooltip-badge {
+  font-size: 12px;
+  padding: 2px 8px;
+}
+.tooltip-header {
+  font-size: 14px;
+}
+
+/* Metric row tighter */
+.tooltip-metric {
+  gap: 4px;           /* less space between icon/label and info */
+  align-items: center;
+}
+
+/* Smaller metric label */
+.metric-label span {
+  font-size: 12px;
+}
+
+/* Smaller values & quality pills */
+.metric-info .value {
+  font-size: 12px;
+}
+
+.metric-info .qual {
+  font-size: 10px;
+  padding: 1px 4px;
+  border-radius: 3px; /* reduced from 12px */
+  background: rgba(255, 255, 255, 0.08); /* less intense background */
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* Slimmer bars */
+.bar-container {
+  height: 4px;
+}
+
+.bar-fill {
+  /* no changes, inherits width */
+}
+
+/* Reduce subtitle spacing */
+.tooltip-subtitle {
+  margin: 8px 0 4px;
+  font-size: 12px;
 }
 
 /* Legend styles */
@@ -143,22 +308,24 @@ body {
   color: #ccc;
 }
 
-.tooltip-header {
-  position: relative;
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #fff;
+.tooltip-metric .metric-label i {
+  font-size: 20px;       /* ↑ icon size */
+  color: #80e1ff;
+  width: 16px;
+  text-align: center;
 }
 
-.tooltip-badge {
-  position: absolute;
-  top: 0;
-  right: 0;
-  color: #fff;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 4px 8px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+#info-panel {
+  position: fixed;
+  right: 24px;
+  top: 24px;
+  width: 320px;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  border-radius: 12px;
+  padding: 16px;
+  z-index: 999;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
 }

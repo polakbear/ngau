@@ -13,7 +13,11 @@ async function initialize() {
     if (!tooltip) {
       throw new Error('Element with id "tooltip" not found');
     }
-    createGlobe(geoJson, data, tooltip);
+    const infoPanel = document.getElementById("info-panel");
+    if (!infoPanel) {
+      throw new Error('Element with id "tooltip" not found');
+    }
+    createGlobe(geoJson, data, tooltip, infoPanel);
   } catch (error) {
     console.error("Error initializing the application:", error);
   }
