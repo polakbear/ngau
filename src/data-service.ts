@@ -1,4 +1,5 @@
 import { CountryData } from "./types";
+import * as d3 from 'd3-geo';
 
 export async function fetchData(url: string): Promise<any> {
   const response = await fetch(url);
@@ -14,5 +15,8 @@ export async function loadData(): Promise<{
 }> {
   const data = await fetchData("/data.json");
   const geoJson = await fetchData("/countries.geojson");
+  geoJson.features.forEach((f: any) => {
+    f.__centroid = d3.geoCentroid(f);
+  });
   return { data, geoJson };
 }

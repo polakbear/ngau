@@ -73,8 +73,7 @@ export function createGlobe(
         depthWrite: false
       });
     })
-    .polygonSideColor(() => "rgba(0, 0, 0, 0.05)")
-    // .polygonStrokeColor(() => "#000000")
+    .polygonSideColor(() => "rgba(0, 0, 0, 0.05)")    
     .polygonsTransitionDuration(200)
     .onPolygonClick((polygon: object | null) => {
       const clicked = polygon as GeoJsonFeature | null;
@@ -143,7 +142,7 @@ export function createGlobe(
       }
     
       return world.polygonAltitude((d) => (d === hoverD ? 0.05 : 0.01));
-    });    
+    });
   return world;
 }
 
