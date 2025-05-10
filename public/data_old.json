@@ -13,13 +13,7 @@
         "indicator_type": "fgm",
         "value_total": 1
       }
-    ],
-    "ranking_kri": 194,
-    "ranking_life": 176,
-    "ranking_health": 156,
-    "ranking_education": 186,
-    "ranking_protection": 144,
-    "ranking_child_rights_environment": 193
+    ]
   },
   {
     "country": "Albania",
@@ -29,13 +23,7 @@
     "health": 0.939,
     "education": 0.694,
     "protection": 0.951,
-    "environment": 0.071,
-    "ranking_kri": 154,
-    "ranking_life": 49,
-    "ranking_health": 65,
-    "ranking_education": 95,
-    "ranking_protection": 50,
-    "ranking_child_rights_environment": 184
+    "environment": 0.071
   },
   {
     "country": "Algeria",
@@ -45,13 +33,7 @@
     "health": 0.873,
     "education": 0.723,
     "protection": 0.97,
-    "environment": 0.5,
-    "ranking_kri": 56,
-    "ranking_life": 81,
-    "ranking_health": 101,
-    "ranking_education": 81,
-    "ranking_protection": 40,
-    "ranking_child_rights_environment": 58
+    "environment": 0.5
   },
   {
     "country": "Andorra",
@@ -61,13 +43,7 @@
     "health": 0.997,
     "education": null,
     "protection": null,
-    "environment": 0.583,
-    "ranking_kri": 24,
-    "ranking_life": 33,
-    "ranking_health": 5,
-    "ranking_education": null,
-    "ranking_protection": null,
-    "ranking_child_rights_environment": 32
+    "environment": 0.583
   },
   {
     "country": "Angola",
@@ -77,13 +53,7 @@
     "health": 0.43,
     "education": 0.599,
     "protection": 0.377,
-    "environment": 0.571,
-    "ranking_kri": 163,
-    "ranking_life": 169,
-    "ranking_health": 183,
-    "ranking_education": 136,
-    "ranking_protection": 164,
-    "ranking_child_rights_environment": 47
+    "environment": 0.571
   },
   {
     "country": "Antigua and Barbuda",
@@ -93,13 +63,7 @@
     "health": 0.982,
     "education": 0.654,
     "protection": 0.0,
-    "environment": 0.667,
-    "ranking_kri": 34,
-    "ranking_life": 39,
-    "ranking_health": 32,
-    "ranking_education": 116,
-    "ranking_protection": null,
-    "ranking_child_rights_environment": 6
+    "environment": 0.667
   },
   {
     "country": "Argentina",
@@ -109,13 +73,7 @@
     "health": 0.928,
     "education": 0.86,
     "protection": 0.866,
-    "environment": 0.3,
-    "ranking_kri": 84,
-    "ranking_life": 59,
-    "ranking_health": 78,
-    "ranking_education": 26,
-    "ranking_protection": 87,
-    "ranking_child_rights_environment": 136
+    "environment": 0.3
   },
   {
     "country": "Armenia",
@@ -125,13 +83,7 @@
     "health": 0.957,
     "education": 0.649,
     "protection": 0.939,
-    "environment": 0.167,
-    "ranking_kri": 125,
-    "ranking_life": 76,
-    "ranking_health": 57,
-    "ranking_education": 118,
-    "ranking_protection": 58,
-    "ranking_child_rights_environment": 168
+    "environment": 0.167
   },
   {
     "country": "Australia",
@@ -141,13 +93,7 @@
     "health": 0.99,
     "education": 1.0,
     "protection": 0.977,
-    "environment": 0.071,
-    "ranking_kri": 135,
-    "ranking_life": 3,
-    "ranking_health": 17,
-    "ranking_education": 1,
-    "ranking_protection": 30,
-    "ranking_child_rights_environment": 185
+    "environment": 0.071
   },
   {
     "country": "Austria",
@@ -157,13 +103,7 @@
     "health": 0.987,
     "education": 0.841,
     "protection": 0.988,
-    "environment": 0.583,
-    "ranking_kri": 10,
-    "ranking_life": 21,
-    "ranking_health": 23,
-    "ranking_education": 36,
-    "ranking_protection": 15,
-    "ranking_child_rights_environment": 33
+    "environment": 0.583
   },
   {
     "country": "Azerbaijan",
@@ -173,13 +113,7 @@
     "health": 0.934,
     "education": 0.74,
     "protection": 0.873,
-    "environment": 0.429,
-    "ranking_kri": 77,
-    "ranking_life": 111,
-    "ranking_health": 73,
-    "ranking_education": 74,
-    "ranking_protection": 84,
-    "ranking_child_rights_environment": 86
+    "environment": 0.429
   },
   {
     "country": "Bahrain",
@@ -189,13 +123,7 @@
     "health": 1.0,
     "education": 0.835,
     "protection": 0.967,
-    "environment": 0.429,
-    "ranking_kri": 29,
-    "ranking_life": 38,
-    "ranking_health": 1,
-    "ranking_education": 39,
-    "ranking_protection": 42,
-    "ranking_child_rights_environment": 87
+    "environment": 0.429
   },
   {
     "country": "Bangladesh",
@@ -205,13 +133,7 @@
     "health": 0.756,
     "education": 0.625,
     "protection": 0.692,
-    "environment": 0.643,
-    "ranking_kri": 96,
-    "ranking_life": 120,
-    "ranking_health": 134,
-    "ranking_education": 129,
-    "ranking_protection": 122,
-    "ranking_child_rights_environment": 17
+    "environment": 0.643
   },
   {
     "country": "Barbados",
@@ -221,13 +143,7 @@
     "health": 0.938,
     "education": 0.603,
     "protection": 0.918,
-    "environment": 0.667,
-    "ranking_kri": 36,
-    "ranking_life": 53,
-    "ranking_health": 67,
-    "ranking_education": 134,
-    "ranking_protection": 67,
-    "ranking_child_rights_environment": 7
+    "environment": 0.667
   },
   {
     "country": "Belarus",
@@ -237,13 +153,7 @@
     "health": 0.997,
     "education": 0.824,
     "protection": 0.954,
-    "environment": 0.286,
-    "ranking_kri": 79,
-    "ranking_life": 64,
-    "ranking_health": 6,
-    "ranking_education": 44,
-    "ranking_protection": 47,
-    "ranking_child_rights_environment": 139
+    "environment": 0.286
   },
   {
     "country": "Belgium",
@@ -253,13 +163,7 @@
     "health": 0.986,
     "education": 1.0,
     "protection": 0.99,
-    "environment": 0.5,
-    "ranking_kri": 8,
-    "ranking_life": 20,
-    "ranking_health": 25,
-    "ranking_education": 2,
-    "ranking_protection": 12,
-    "ranking_child_rights_environment": 59
+    "environment": 0.5
   },
   {
     "country": "Belize",
@@ -269,13 +173,7 @@
     "health": 0.887,
     "education": 0.687,
     "protection": 0.874,
-    "environment": 0.429,
-    "ranking_kri": 85,
-    "ranking_life": 107,
-    "ranking_health": 98,
-    "ranking_education": 102,
-    "ranking_protection": 83,
-    "ranking_child_rights_environment": 88
+    "environment": 0.429
   },
   {
     "country": "Benin",
@@ -285,13 +183,7 @@
     "health": 0.469,
     "education": 0.497,
     "protection": 0.617,
-    "environment": 0.417,
-    "ranking_kri": 168,
-    "ranking_life": 180,
-    "ranking_health": 179,
-    "ranking_education": 171,
-    "ranking_protection": 139,
-    "ranking_child_rights_environment": 104
+    "environment": 0.417
   },
   {
     "country": "Bhutan",
@@ -301,13 +193,7 @@
     "health": 0.912,
     "education": 0.687,
     "protection": 0.937,
-    "environment": 0.357,
-    "ranking_kri": 94,
-    "ranking_life": 113,
-    "ranking_health": 87,
-    "ranking_education": 101,
-    "ranking_protection": 60,
-    "ranking_child_rights_environment": 117
+    "environment": 0.357
   },
   {
     "country": "Bolivia",
@@ -365,13 +251,7 @@
         "year": 2012,
         "data_source": "MICS 2011-12"
       }
-    ],
-    "ranking_kri": 49,
-    "ranking_life": 50,
-    "ranking_health": 123,
-    "ranking_education": 77,
-    "ranking_protection": 32,
-    "ranking_child_rights_environment": 60
+    ]
   },
   {
     "country": "Botswana",
@@ -381,13 +261,7 @@
     "health": 0.86,
     "education": 0.676,
     "protection": 0.832,
-    "environment": 0.571,
-    "ranking_kri": 92,
-    "ranking_life": 147,
-    "ranking_health": 110,
-    "ranking_education": 108,
-    "ranking_protection": 97,
-    "ranking_child_rights_environment": 48
+    "environment": 0.571
   },
   {
     "country": "Brazil",
@@ -397,13 +271,7 @@
     "health": 0.91,
     "education": 0.81,
     "protection": 0.868,
-    "environment": 0.25,
-    "ranking_kri": 102,
-    "ranking_life": 88,
-    "ranking_health": 88,
-    "ranking_education": 47,
-    "ranking_protection": 85,
-    "ranking_child_rights_environment": 156
+    "environment": 0.25
   },
   {
     "country": "Brunei",
@@ -423,13 +291,7 @@
     "health": 0.931,
     "education": 0.742,
     "protection": 0.921,
-    "environment": 0.583,
-    "ranking_kri": 30,
-    "ranking_life": 68,
-    "ranking_health": 76,
-    "ranking_education": 73,
-    "ranking_protection": 66,
-    "ranking_child_rights_environment": 34
+    "environment": 0.583
   },
   {
     "country": "Burkina Faso",
@@ -470,13 +332,7 @@
         "year": 2021,
         "data_source": "DHS 2021"
       }
-    ],
-    "ranking_kri": 166,
-    "ranking_life": 178,
-    "ranking_health": 181,
-    "ranking_education": 166,
-    "ranking_protection": 155,
-    "ranking_child_rights_environment": 62
+    ]
   },
   {
     "country": "Burundi",
@@ -486,13 +342,7 @@
     "health": 0.507,
     "education": 0.581,
     "protection": 0.634,
-    "environment": 0.643,
-    "ranking_kri": 144,
-    "ranking_life": 173,
-    "ranking_health": 176,
-    "ranking_education": 143,
-    "ranking_protection": 133,
-    "ranking_child_rights_environment": 19
+    "environment": 0.643
   },
   {
     "country": "Cabo Verde",
@@ -517,13 +367,7 @@
         "year": 2018,
         "data_source": "DHS 2018"
       }
-    ],
-    "ranking_kri": 50,
-    "ranking_life": 72,
-    "ranking_health": 102,
-    "ranking_education": 110,
-    "ranking_protection": 96,
-    "ranking_child_rights_environment": 20
+    ]
   },
   {
     "country": "Cambodia",
@@ -533,13 +377,7 @@
     "health": 0.709,
     "education": 0.588,
     "protection": 0.738,
-    "environment": 0.071,
-    "ranking_kri": 176,
-    "ranking_life": 128,
-    "ranking_health": 139,
-    "ranking_education": 140,
-    "ranking_protection": 115,
-    "ranking_child_rights_environment": 186
+    "environment": 0.071
   },
   {
     "country": "Cameroon",
@@ -549,13 +387,7 @@
     "health": 0.571,
     "education": 0.647,
     "protection": 0.416,
-    "environment": 0.357,
-    "ranking_kri": 165,
-    "ranking_life": 177,
-    "ranking_health": 165,
-    "ranking_education": 119,
-    "ranking_protection": 159,
-    "ranking_child_rights_environment": 118
+    "environment": 0.357
   },
   {
     "country": "Canada",
@@ -565,13 +397,7 @@
     "health": 0.971,
     "education": 0.846,
     "protection": 0.979,
-    "environment": 0.286,
-    "ranking_kri": 66,
-    "ranking_life": 17,
-    "ranking_health": 43,
-    "ranking_education": 33,
-    "ranking_protection": 28,
-    "ranking_child_rights_environment": 140
+    "environment": 0.286
   },
   {
     "country": "Central African Republic",
@@ -581,13 +407,7 @@
     "health": 0.236,
     "education": 0.285,
     "protection": 0.291,
-    "environment": 0.417,
-    "ranking_kri": 191,
-    "ranking_life": 190,
-    "ranking_health": 194,
-    "ranking_education": 184,
-    "ranking_protection": 168,
-    "ranking_child_rights_environment": 105
+    "environment": 0.417
   },
   {
     "country": "Chad",
@@ -620,13 +440,7 @@
         "year": 2019,
         "data_source": "MICS 2019"
       }
-    ],
-    "ranking_kri": 192,
-    "ranking_life": 192,
-    "ranking_health": 187,
-    "ranking_education": 185,
-    "ranking_protection": 170,
-    "ranking_child_rights_environment": 21
+    ]
   },
   {
     "country": "Chile",
@@ -636,13 +450,7 @@
     "health": 0.984,
     "education": 0.899,
     "protection": 0.888,
-    "environment": 0.357,
-    "ranking_kri": 53,
-    "ranking_life": 34,
-    "ranking_health": 26,
-    "ranking_education": 19,
-    "ranking_protection": 79,
-    "ranking_child_rights_environment": 119
+    "environment": 0.357
   },
   {
     "country": "China",
@@ -652,13 +460,7 @@
     "health": 0.965,
     "education": 0.722,
     "protection": 0.286,
-    "environment": 0.286,
-    "ranking_kri": 110,
-    "ranking_life": 42,
-    "ranking_health": 50,
-    "ranking_education": 83,
-    "ranking_protection": null,
-    "ranking_child_rights_environment": 141
+    "environment": 0.286
   },
   {
     "country": "Colombia",
@@ -668,13 +470,7 @@
     "health": 0.925,
     "education": 0.776,
     "protection": 0.846,
-    "environment": 0.571,
-    "ranking_kri": 44,
-    "ranking_life": 85,
-    "ranking_health": 80,
-    "ranking_education": 61,
-    "ranking_protection": 93,
-    "ranking_child_rights_environment": 49
+    "environment": 0.571
   },
   {
     "country": "Comoros",
@@ -684,13 +480,7 @@
     "health": 0.619,
     "education": 0.64,
     "protection": 0.649,
-    "environment": 0.1,
-    "ranking_kri": 177,
-    "ranking_life": 154,
-    "ranking_health": 155,
-    "ranking_education": 122,
-    "ranking_protection": 129,
-    "ranking_child_rights_environment": 180
+    "environment": 0.1
   },
   {
     "country": "Cook Islands",
@@ -700,13 +490,7 @@
     "health": 0.819,
     "education": 0.0,
     "protection": 0.429,
-    "environment": 7.0,
-    "ranking_kri": 106,
-    "ranking_life": 91,
-    "ranking_health": 124,
-    "ranking_education": null,
-    "ranking_protection": null,
-    "ranking_child_rights_environment": 89
+    "environment": 7.0
   },
   {
     "country": "Costa Rica",
@@ -733,13 +517,7 @@
         "year": 2018,
         "data_source": "MICS 2018"
       }
-    ],
-    "ranking_kri": 60,
-    "ranking_life": 47,
-    "ranking_health": 59,
-    "ranking_education": 28,
-    "ranking_protection": 75,
-    "ranking_child_rights_environment": 121
+    ]
   },
   {
     "country": "Croatia",
@@ -749,13 +527,7 @@
     "health": 0.933,
     "education": 0.737,
     "protection": 0.983,
-    "environment": 0.286,
-    "ranking_kri": 88,
-    "ranking_life": 40,
-    "ranking_health": 75,
-    "ranking_education": 76,
-    "ranking_protection": 22,
-    "ranking_child_rights_environment": 143
+    "environment": 0.286
   },
   {
     "country": "Cuba",
@@ -765,13 +537,7 @@
     "health": 0.943,
     "education": 0.719,
     "protection": 0.891,
-    "environment": 0.571,
-    "ranking_kri": 38,
-    "ranking_life": 65,
-    "ranking_health": 63,
-    "ranking_education": 84,
-    "ranking_protection": 78,
-    "ranking_child_rights_environment": 50
+    "environment": 0.571
   },
   {
     "country": "Cyprus",
@@ -781,13 +547,7 @@
     "health": 0.956,
     "education": 0.868,
     "protection": 0.988,
-    "environment": 0.357,
-    "ranking_kri": 47,
-    "ranking_life": 29,
-    "ranking_health": 58,
-    "ranking_education": 23,
-    "ranking_protection": 16,
-    "ranking_child_rights_environment": 122
+    "environment": 0.357
   },
   {
     "country": "Czechia",
@@ -797,13 +557,7 @@
     "health": 0.993,
     "education": 0.832,
     "protection": 0.977,
-    "environment": 0.571,
-    "ranking_kri": 14,
-    "ranking_life": 32,
-    "ranking_health": 10,
-    "ranking_education": 43,
-    "ranking_protection": 31,
-    "ranking_child_rights_environment": 51
+    "environment": 0.571
   },
   {
     "country": "Democratic Republic of the Congo",
@@ -813,13 +567,7 @@
     "health": 0.266,
     "education": 0.533,
     "protection": 0.494,
-    "environment": 0.143,
-    "ranking_kri": 186,
-    "ranking_life": 181,
-    "ranking_health": 192,
-    "ranking_education": 159,
-    "ranking_protection": 153,
-    "ranking_child_rights_environment": 173
+    "environment": 0.143
   },
   {
     "country": "Denmark",
@@ -829,13 +577,7 @@
     "health": 0.987,
     "education": 1.0,
     "protection": 0.996,
-    "environment": 0.5,
-    "ranking_kri": 9,
-    "ranking_life": 23,
-    "ranking_health": 24,
-    "ranking_education": 3,
-    "ranking_protection": 2,
-    "ranking_child_rights_environment": 63
+    "environment": 0.5
   },
   {
     "country": "Djibouti",
@@ -862,13 +604,7 @@
         "year": 2019,
         "data_source": "EVFF 2019"
       }
-    ],
-    "ranking_kri": 158,
-    "ranking_life": 163,
-    "ranking_health": 161,
-    "ranking_education": 176,
-    "ranking_protection": 70,
-    "ranking_child_rights_environment": 144
+    ]
   },
   {
     "country": "Dominica",
@@ -878,13 +614,7 @@
     "health": 0.85,
     "education": 0.58,
     "protection": 0.4,
-    "environment": 0.5,
-    "ranking_kri": 128,
-    "ranking_life": 137,
-    "ranking_health": 117,
-    "ranking_education": 144,
-    "ranking_protection": null,
-    "ranking_child_rights_environment": 114
+    "environment": 0.5
   },
   {
     "country": "Dominican Republic",
@@ -917,13 +647,7 @@
         "year": 2019,
         "data_source": "MICS 2019"
       }
-    ],
-    "ranking_kri": 118,
-    "ranking_life": 121,
-    "ranking_health": 82,
-    "ranking_education": 103,
-    "ranking_protection": 99,
-    "ranking_child_rights_environment": 157
+    ]
   },
   {
     "country": "East Timor",
@@ -958,13 +682,7 @@
     "health": 0.866,
     "education": 0.774,
     "protection": 0.784,
-    "environment": 0.429,
-    "ranking_kri": 82,
-    "ranking_life": 77,
-    "ranking_health": 107,
-    "ranking_education": 63,
-    "ranking_protection": 107,
-    "ranking_child_rights_environment": 90
+    "environment": 0.429
   },
   {
     "country": "Egypt",
@@ -974,13 +692,7 @@
     "health": 0.937,
     "education": 0.765,
     "protection": 0.886,
-    "environment": 0.643,
-    "ranking_kri": 28,
-    "ranking_life": 103,
-    "ranking_health": 69,
-    "ranking_education": 65,
-    "ranking_protection": 80,
-    "ranking_child_rights_environment": 22
+    "environment": 0.643
   },
   {
     "country": "El Salvador",
@@ -1007,13 +719,7 @@
         "year": 2021,
         "data_source": "NHS 2021"
       }
-    ],
-    "ranking_kri": 185,
-    "ranking_life": 95,
-    "ranking_health": 119,
-    "ranking_education": 93,
-    "ranking_protection": 94,
-    "ranking_child_rights_environment": 194
+    ]
   },
   {
     "country": "Equatorial Guinea",
@@ -1038,13 +744,7 @@
         "year": 2011,
         "data_source": "DHS 2011"
       }
-    ],
-    "ranking_kri": 190,
-    "ranking_life": 175,
-    "ranking_health": 174,
-    "ranking_education": null,
-    "ranking_protection": 162,
-    "ranking_child_rights_environment": 187
+    ]
   },
   {
     "country": "Eritrea",
@@ -1054,13 +754,7 @@
     "health": 0.409,
     "education": 0.392,
     "protection": 0.0,
-    "environment": 0.429,
-    "ranking_kri": 171,
-    "ranking_life": 146,
-    "ranking_health": 185,
-    "ranking_education": 180,
-    "ranking_protection": null,
-    "ranking_child_rights_environment": 91
+    "environment": 0.429
   },
   {
     "country": "Estonia",
@@ -1070,13 +764,7 @@
     "health": 0.955,
     "education": 0.777,
     "protection": 0.981,
-    "environment": 0.5,
-    "ranking_kri": 27,
-    "ranking_life": 37,
-    "ranking_health": 60,
-    "ranking_education": 60,
-    "ranking_protection": 25,
-    "ranking_child_rights_environment": 64
+    "environment": 0.5
   },
   {
     "country": "Eswatini",
@@ -1086,13 +774,7 @@
     "health": 0.723,
     "education": 0.705,
     "protection": 0.664,
-    "environment": 0.429,
-    "ranking_kri": 131,
-    "ranking_life": 170,
-    "ranking_health": 138,
-    "ranking_education": 94,
-    "ranking_protection": 124,
-    "ranking_child_rights_environment": 92
+    "environment": 0.429
   },
   {
     "country": "Ethiopia",
@@ -1102,13 +784,7 @@
     "health": 0.322,
     "education": 0.534,
     "protection": 0.222,
-    "environment": 0.5,
-    "ranking_kri": 179,
-    "ranking_life": 150,
-    "ranking_health": 188,
-    "ranking_education": 157,
-    "ranking_protection": 169,
-    "ranking_child_rights_environment": 65
+    "environment": 0.5
   },
   {
     "country": "Fiji",
@@ -1118,13 +794,7 @@
     "health": 0.935,
     "education": 0.79,
     "protection": 0.801,
-    "environment": 0.5,
-    "ranking_kri": 70,
-    "ranking_life": 126,
-    "ranking_health": 71,
-    "ranking_education": 54,
-    "ranking_protection": 104,
-    "ranking_child_rights_environment": 66
+    "environment": 0.5
   },
   {
     "country": "Finland",
@@ -1134,13 +804,7 @@
     "health": 0.983,
     "education": 1.0,
     "protection": 0.992,
-    "environment": 0.5,
-    "ranking_kri": 7,
-    "ranking_life": 14,
-    "ranking_health": 29,
-    "ranking_education": 4,
-    "ranking_protection": 10,
-    "ranking_child_rights_environment": 67
+    "environment": 0.5
   },
   {
     "country": "France",
@@ -1150,13 +814,7 @@
     "health": 0.978,
     "education": 0.835,
     "protection": 0.985,
-    "environment": 0.5,
-    "ranking_kri": 17,
-    "ranking_life": 16,
-    "ranking_health": 34,
-    "ranking_education": 40,
-    "ranking_protection": 20,
-    "ranking_child_rights_environment": 68
+    "environment": 0.5
   },
   {
     "country": "Gabon",
@@ -1166,13 +824,7 @@
     "health": 0.659,
     "education": 0.679,
     "protection": 0.696,
-    "environment": 0.333,
-    "ranking_kri": 139,
-    "ranking_life": 142,
-    "ranking_health": 151,
-    "ranking_education": 106,
-    "ranking_protection": 121,
-    "ranking_child_rights_environment": 132
+    "environment": 0.333
   },
   {
     "country": "Gambia",
@@ -1182,13 +834,7 @@
     "health": 0.665,
     "education": 0.413,
     "protection": 0.616,
-    "environment": 0.429,
-    "ranking_kri": 157,
-    "ranking_life": 167,
-    "ranking_health": 150,
-    "ranking_education": 178,
-    "ranking_protection": 140,
-    "ranking_child_rights_environment": 93
+    "environment": 0.429
   },
   {
     "country": "Georgia",
@@ -1198,13 +844,7 @@
     "health": 0.907,
     "education": 0.821,
     "protection": 0.941,
-    "environment": 0.5,
-    "ranking_kri": 41,
-    "ranking_life": 78,
-    "ranking_health": 90,
-    "ranking_education": 46,
-    "ranking_protection": 57,
-    "ranking_child_rights_environment": 69
+    "environment": 0.5
   },
   {
     "country": "Germany",
@@ -1214,13 +854,7 @@
     "health": 0.992,
     "education": 0.946,
     "protection": 0.99,
-    "environment": 0.583,
-    "ranking_kri": 4,
-    "ranking_life": 26,
-    "ranking_health": 14,
-    "ranking_education": 14,
-    "ranking_protection": 13,
-    "ranking_child_rights_environment": 35
+    "environment": 0.583
   },
   {
     "country": "Ghana",
@@ -1230,13 +864,7 @@
     "health": 0.669,
     "education": 0.678,
     "protection": 0.647,
-    "environment": 0.417,
-    "ranking_kri": 133,
-    "ranking_life": 151,
-    "ranking_health": 148,
-    "ranking_education": 107,
-    "ranking_protection": 130,
-    "ranking_child_rights_environment": 106
+    "environment": 0.417
   },
   {
     "country": "Greece",
@@ -1246,13 +874,7 @@
     "health": 0.993,
     "education": 1.0,
     "protection": 0.984,
-    "environment": 0.571,
-    "ranking_kri": 3,
-    "ranking_life": 28,
-    "ranking_health": 11,
-    "ranking_education": 5,
-    "ranking_protection": 21,
-    "ranking_child_rights_environment": 52
+    "environment": 0.571
   },
   {
     "country": "Grenada",
@@ -1262,13 +884,7 @@
     "health": 0.869,
     "education": 1.0,
     "protection": 0.4,
-    "environment": 0.5,
-    "ranking_kri": 67,
-    "ranking_life": 69,
-    "ranking_health": 105,
-    "ranking_education": 6,
-    "ranking_protection": null,
-    "ranking_child_rights_environment": 115
+    "environment": 0.5
   },
   {
     "country": "Guatemala",
@@ -1278,13 +894,7 @@
     "health": 0.765,
     "education": 0.59,
     "protection": 0.78,
-    "environment": 0.214,
-    "ranking_kri": 145,
-    "ranking_life": 122,
-    "ranking_health": 133,
-    "ranking_education": 138,
-    "ranking_protection": 109,
-    "ranking_child_rights_environment": 162
+    "environment": 0.214
   },
   {
     "country": "Guinea",
@@ -1294,13 +904,7 @@
     "health": 0.467,
     "education": 0.404,
     "protection": 0.524,
-    "environment": 0.071,
-    "ranking_kri": 189,
-    "ranking_life": 188,
-    "ranking_health": 180,
-    "ranking_education": 179,
-    "ranking_protection": 150,
-    "ranking_child_rights_environment": 188
+    "environment": 0.071
   },
   {
     "country": "Guinea-Bissau",
@@ -1341,13 +945,7 @@
         "year": 19,
         "data_source": "MICS 2018-19"
       }
-    ],
-    "ranking_kri": 181,
-    "ranking_life": 184,
-    "ranking_health": 178,
-    "ranking_education": 163,
-    "ranking_protection": 148,
-    "ranking_child_rights_environment": 169
+    ]
   },
   {
     "country": "Guyana",
@@ -1357,13 +955,7 @@
     "health": 0.89,
     "education": 0.667,
     "protection": 0.78,
-    "environment": 0.667,
-    "ranking_kri": 72,
-    "ranking_life": 133,
-    "ranking_health": 97,
-    "ranking_education": 111,
-    "ranking_protection": 110,
-    "ranking_child_rights_environment": 8
+    "environment": 0.667
   },
   {
     "country": "Haiti",
@@ -1373,13 +965,7 @@
     "health": 0.557,
     "education": 0.463,
     "protection": 0.61,
-    "environment": 0.357,
-    "ranking_kri": 162,
-    "ranking_life": 165,
-    "ranking_health": 168,
-    "ranking_education": 173,
-    "ranking_protection": 141,
-    "ranking_child_rights_environment": 123
+    "environment": 0.357
   },
   {
     "country": "Honduras",
@@ -1389,13 +975,7 @@
     "health": 0.841,
     "education": 0.543,
     "protection": 0.816,
-    "environment": 0.643,
-    "ranking_kri": 83,
-    "ranking_life": 109,
-    "ranking_health": 120,
-    "ranking_education": 156,
-    "ranking_protection": 103,
-    "ranking_child_rights_environment": 23
+    "environment": 0.643
   },
   {
     "country": "Hungary",
@@ -1405,13 +985,7 @@
     "health": 0.993,
     "education": 0.803,
     "protection": 0.954,
-    "environment": 0.429,
-    "ranking_kri": 43,
-    "ranking_life": 54,
-    "ranking_health": 12,
-    "ranking_education": 51,
-    "ranking_protection": 48,
-    "ranking_child_rights_environment": 94
+    "environment": 0.429
   },
   {
     "country": "Iceland",
@@ -1421,13 +995,7 @@
     "health": 0.969,
     "education": 1.0,
     "protection": 0.989,
-    "environment": 0.583,
-    "ranking_kri": 2,
-    "ranking_life": 12,
-    "ranking_health": 46,
-    "ranking_education": 7,
-    "ranking_protection": 14,
-    "ranking_child_rights_environment": 36
+    "environment": 0.583
   },
   {
     "country": "India",
@@ -1437,13 +1005,7 @@
     "health": 0.707,
     "education": 0.661,
     "protection": 0.923,
-    "environment": 0.429,
-    "ranking_kri": 103,
-    "ranking_life": 132,
-    "ranking_health": 140,
-    "ranking_education": 113,
-    "ranking_protection": 65,
-    "ranking_child_rights_environment": 95
+    "environment": 0.429
   },
   {
     "country": "Indonesia",
@@ -1453,13 +1015,7 @@
     "health": 0.796,
     "education": 0.76,
     "protection": 0.821,
-    "environment": 0.333,
-    "ranking_kri": 108,
-    "ranking_life": 129,
-    "ranking_health": 128,
-    "ranking_education": 68,
-    "ranking_protection": 100,
-    "ranking_child_rights_environment": 133
+    "environment": 0.333
   },
   {
     "country": "Iran",
@@ -1488,13 +1044,7 @@
     "health": 0.937,
     "education": 0.601,
     "protection": 0.631,
-    "environment": 0.071,
-    "ranking_kri": 170,
-    "ranking_life": 118,
-    "ranking_health": 70,
-    "ranking_education": 135,
-    "ranking_protection": 135,
-    "ranking_child_rights_environment": 189
+    "environment": 0.071
   },
   {
     "country": "Ireland",
@@ -1504,13 +1054,7 @@
     "health": 0.91,
     "education": 1.0,
     "protection": 0.988,
-    "environment": 0.25,
-    "ranking_kri": 71,
-    "ranking_life": 18,
-    "ranking_health": 89,
-    "ranking_education": 8,
-    "ranking_protection": 17,
-    "ranking_child_rights_environment": 158
+    "environment": 0.25
   },
   {
     "country": "Israel",
@@ -1520,13 +1064,7 @@
     "health": 1.0,
     "education": 0.804,
     "protection": 0.983,
-    "environment": 0.286,
-    "ranking_kri": 68,
-    "ranking_life": 15,
-    "ranking_health": 2,
-    "ranking_education": 50,
-    "ranking_protection": 23,
-    "ranking_child_rights_environment": 146
+    "environment": 0.286
   },
   {
     "country": "Italy",
@@ -1536,13 +1074,7 @@
     "health": 0.983,
     "education": 0.858,
     "protection": 0.991,
-    "environment": 0.5,
-    "ranking_kri": 16,
-    "ranking_life": 10,
-    "ranking_health": 30,
-    "ranking_education": 27,
-    "ranking_protection": 11,
-    "ranking_child_rights_environment": 70
+    "environment": 0.5
   },
   {
     "country": "Ivory Coast",
@@ -1593,13 +1125,7 @@
     "health": 0.893,
     "education": 0.708,
     "protection": 0.908,
-    "environment": 0.5,
-    "ranking_kri": 61,
-    "ranking_life": 104,
-    "ranking_health": 96,
-    "ranking_education": 92,
-    "ranking_protection": 73,
-    "ranking_child_rights_environment": 71
+    "environment": 0.5
   },
   {
     "country": "Japan",
@@ -1609,13 +1135,7 @@
     "health": 0.997,
     "education": 0.847,
     "protection": 0.994,
-    "environment": 0.429,
-    "ranking_kri": 22,
-    "ranking_life": 2,
-    "ranking_health": 7,
-    "ranking_education": 31,
-    "ranking_protection": 6,
-    "ranking_child_rights_environment": 96
+    "environment": 0.429
   },
   {
     "country": "Jordan",
@@ -1625,13 +1145,7 @@
     "health": 0.913,
     "education": 0.577,
     "protection": 0.946,
-    "environment": 0.357,
-    "ranking_kri": 98,
-    "ranking_life": 73,
-    "ranking_health": 84,
-    "ranking_education": 147,
-    "ranking_protection": 54,
-    "ranking_child_rights_environment": 124
+    "environment": 0.357
   },
   {
     "country": "Kazakhstan",
@@ -1641,13 +1155,7 @@
     "health": 0.962,
     "education": 0.842,
     "protection": 0.95,
-    "environment": 0.583,
-    "ranking_kri": 21,
-    "ranking_life": 93,
-    "ranking_health": 52,
-    "ranking_education": 35,
-    "ranking_protection": 51,
-    "ranking_child_rights_environment": 37
+    "environment": 0.583
   },
   {
     "country": "Kenya",
@@ -1657,13 +1165,7 @@
     "health": 0.596,
     "education": 0.561,
     "protection": 0.629,
-    "environment": 0.5,
-    "ranking_kri": 147,
-    "ranking_life": 166,
-    "ranking_health": 160,
-    "ranking_education": 153,
-    "ranking_protection": 136,
-    "ranking_child_rights_environment": 72
+    "environment": 0.5
   },
   {
     "country": "Kiribati",
@@ -1673,13 +1175,7 @@
     "health": 0.677,
     "education": 0.586,
     "protection": 0.781,
-    "environment": 0.417,
-    "ranking_kri": 121,
-    "ranking_life": 136,
-    "ranking_health": 146,
-    "ranking_education": 141,
-    "ranking_protection": 108,
-    "ranking_child_rights_environment": 107
+    "environment": 0.417
   },
   {
     "country": "Kuwait",
@@ -1689,13 +1185,7 @@
     "health": 0.984,
     "education": 0.645,
     "protection": 0.5,
-    "environment": 0.5,
-    "ranking_kri": 73,
-    "ranking_life": 41,
-    "ranking_health": 27,
-    "ranking_education": 120,
-    "ranking_protection": null,
-    "ranking_child_rights_environment": 73
+    "environment": 0.5
   },
   {
     "country": "Kyrgyzstan",
@@ -1705,13 +1195,7 @@
     "health": 0.935,
     "education": 0.708,
     "protection": 0.786,
-    "environment": 0.429,
-    "ranking_kri": 89,
-    "ranking_life": 108,
-    "ranking_health": 72,
-    "ranking_education": 91,
-    "ranking_protection": 106,
-    "ranking_child_rights_environment": 97
+    "environment": 0.429
   },
   {
     "country": "Laos",
@@ -1731,13 +1215,7 @@
     "health": 0.967,
     "education": 0.823,
     "protection": 0.971,
-    "environment": 0.643,
-    "ranking_kri": 12,
-    "ranking_life": 62,
-    "ranking_health": 48,
-    "ranking_education": 45,
-    "ranking_protection": 39,
-    "ranking_child_rights_environment": 24
+    "environment": 0.643
   },
   {
     "country": "Lebanon",
@@ -1747,13 +1225,7 @@
     "health": 0.869,
     "education": 0.617,
     "protection": 0.961,
-    "environment": 0.583,
-    "ranking_kri": 51,
-    "ranking_life": 60,
-    "ranking_health": 106,
-    "ranking_education": 131,
-    "ranking_protection": 44,
-    "ranking_child_rights_environment": 38
+    "environment": 0.583
   },
   {
     "country": "Lesotho",
@@ -1763,13 +1235,7 @@
     "health": 0.651,
     "education": 0.625,
     "protection": 0.652,
-    "environment": 0.357,
-    "ranking_kri": 161,
-    "ranking_life": 186,
-    "ranking_health": 152,
-    "ranking_education": 127,
-    "ranking_protection": 127,
-    "ranking_child_rights_environment": 125
+    "environment": 0.357
   },
   {
     "country": "Liberia",
@@ -1779,13 +1245,7 @@
     "health": 0.574,
     "education": 0.551,
     "protection": 0.44,
-    "environment": 0.5,
-    "ranking_kri": 164,
-    "ranking_life": 182,
-    "ranking_health": 164,
-    "ranking_education": 154,
-    "ranking_protection": 156,
-    "ranking_child_rights_environment": 74
+    "environment": 0.5
   },
   {
     "country": "Libya",
@@ -1795,13 +1255,7 @@
     "health": 0.839,
     "education": 0.693,
     "protection": 0.0,
-    "environment": 0.429,
-    "ranking_kri": 100,
-    "ranking_life": 86,
-    "ranking_health": 121,
-    "ranking_education": 97,
-    "ranking_protection": null,
-    "ranking_child_rights_environment": 98
+    "environment": 0.429
   },
   {
     "country": "Liechtenstein",
@@ -1811,13 +1265,7 @@
     "health": 1.0,
     "education": 0.717,
     "protection": null,
-    "environment": 0.667,
-    "ranking_kri": 40,
-    "ranking_life": null,
-    "ranking_health": 3,
-    "ranking_education": 88,
-    "ranking_protection": null,
-    "ranking_child_rights_environment": 9
+    "environment": 0.667
   },
   {
     "country": "Lithuania",
@@ -1827,13 +1275,7 @@
     "health": 0.934,
     "education": 0.847,
     "protection": 0.976,
-    "environment": 0.167,
-    "ranking_kri": 112,
-    "ranking_life": 56,
-    "ranking_health": 74,
-    "ranking_education": 32,
-    "ranking_protection": 33,
-    "ranking_child_rights_environment": 170
+    "environment": 0.167
   },
   {
     "country": "Luxembourg",
@@ -1843,13 +1285,7 @@
     "health": 0.991,
     "education": 0.804,
     "protection": 0.993,
-    "environment": 0.714,
-    "ranking_kri": 1,
-    "ranking_life": 13,
-    "ranking_health": 16,
-    "ranking_education": 49,
-    "ranking_protection": 8,
-    "ranking_child_rights_environment": 2
+    "environment": 0.714
   },
   {
     "country": "Madagascar",
@@ -1859,13 +1295,7 @@
     "health": 0.305,
     "education": 0.57,
     "protection": 0.426,
-    "environment": 0.083,
-    "ranking_kri": 188,
-    "ranking_life": 172,
-    "ranking_health": 189,
-    "ranking_education": 150,
-    "ranking_protection": 157,
-    "ranking_child_rights_environment": 181
+    "environment": 0.083
   },
   {
     "country": "Malawi",
@@ -1875,13 +1305,7 @@
     "health": 0.629,
     "education": 0.693,
     "protection": 0.592,
-    "environment": 0.667,
-    "ranking_kri": 119,
-    "ranking_life": 162,
-    "ranking_health": 153,
-    "ranking_education": 96,
-    "ranking_protection": 142,
-    "ranking_child_rights_environment": 10
+    "environment": 0.667
   },
   {
     "country": "Malaysia",
@@ -1891,13 +1315,7 @@
     "health": 0.882,
     "education": 0.682,
     "protection": 0.0,
-    "environment": 0.667,
-    "ranking_kri": 48,
-    "ranking_life": 61,
-    "ranking_health": 99,
-    "ranking_education": 105,
-    "ranking_protection": 0,
-    "ranking_child_rights_environment": 11
+    "environment": 0.667
   },
   {
     "country": "Maldives",
@@ -1907,13 +1325,7 @@
     "health": 0.905,
     "education": 0.577,
     "protection": 0.975,
-    "environment": 0.143,
-    "ranking_kri": 136,
-    "ranking_life": 35,
-    "ranking_health": 91,
-    "ranking_education": 145,
-    "ranking_protection": 35,
-    "ranking_child_rights_environment": 174
+    "environment": 0.143
   },
   {
     "country": "Mali",
@@ -1923,13 +1335,7 @@
     "health": 0.611,
     "education": 0.352,
     "protection": 0.628,
-    "environment": 0.667,
-    "ranking_kri": 160,
-    "ranking_life": 183,
-    "ranking_health": 157,
-    "ranking_education": 181,
-    "ranking_protection": 137,
-    "ranking_child_rights_environment": 12
+    "environment": 0.667
   },
   {
     "country": "Malta",
@@ -1939,13 +1345,7 @@
     "health": 0.99,
     "education": 0.865,
     "protection": 0.976,
-    "environment": 0.429,
-    "ranking_kri": 25,
-    "ranking_life": 8,
-    "ranking_health": 18,
-    "ranking_education": 24,
-    "ranking_protection": 34,
-    "ranking_child_rights_environment": 99
+    "environment": 0.429
   },
   {
     "country": "Marshall Islands",
@@ -1970,13 +1370,7 @@
         "year": 2007,
         "data_source": "DHS 2007"
       }
-    ],
-    "ranking_kri": 130,
-    "ranking_life": 156,
-    "ranking_health": 132,
-    "ranking_education": 152,
-    "ranking_protection": null,
-    "ranking_child_rights_environment": 75
+    ]
   },
   {
     "country": "Mauritania",
@@ -1986,13 +1380,7 @@
     "health": 0.584,
     "education": 0.509,
     "protection": 0.591,
-    "environment": 0.714,
-    "ranking_kri": 134,
-    "ranking_life": 164,
-    "ranking_health": 163,
-    "ranking_education": 169,
-    "ranking_protection": 143,
-    "ranking_child_rights_environment": 3
+    "environment": 0.714
   },
   {
     "country": "Mauritius",
@@ -2002,13 +1390,7 @@
     "health": 0.98,
     "education": 0.747,
     "protection": 0.0,
-    "environment": 0.286,
-    "ranking_kri": 116,
-    "ranking_life": 89,
-    "ranking_health": 33,
-    "ranking_education": 70,
-    "ranking_protection": null,
-    "ranking_child_rights_environment": 147
+    "environment": 0.286
   },
   {
     "country": "Mexico",
@@ -2018,13 +1400,7 @@
     "health": 0.92,
     "education": 0.782,
     "protection": 0.859,
-    "environment": 0.583,
-    "ranking_kri": 42,
-    "ranking_life": 99,
-    "ranking_health": 81,
-    "ranking_education": 58,
-    "ranking_protection": 91,
-    "ranking_child_rights_environment": 39
+    "environment": 0.583
   },
   {
     "country": "Micronesia (Federated States of)",
@@ -2034,13 +1410,7 @@
     "health": 0.813,
     "education": 0.0,
     "protection": 0.143,
-    "environment": 6.0,
-    "ranking_kri": 174,
-    "ranking_life": 117,
-    "ranking_health": 126,
-    "ranking_education": null,
-    "ranking_protection": null,
-    "ranking_child_rights_environment": 175
+    "environment": 6.0
   },
   {
     "country": "Moldova",
@@ -2083,13 +1453,7 @@
     "health": 0.963,
     "education": null,
     "protection": null,
-    "environment": 0.583,
-    "ranking_kri": 18,
-    "ranking_life": 1,
-    "ranking_health": 51,
-    "ranking_education": null,
-    "ranking_protection": null,
-    "ranking_child_rights_environment": 40
+    "environment": 0.583
   },
   {
     "country": "Mongolia",
@@ -2099,13 +1463,7 @@
     "health": 0.83,
     "education": 0.755,
     "protection": 0.855,
-    "environment": 0.417,
-    "ranking_kri": 86,
-    "ranking_life": 98,
-    "ranking_health": 122,
-    "ranking_education": 69,
-    "ranking_protection": 92,
-    "ranking_child_rights_environment": 108
+    "environment": 0.417
   },
   {
     "country": "Montenegro",
@@ -2115,13 +1473,7 @@
     "health": 0.8,
     "education": 0.774,
     "protection": 0.93,
-    "environment": 0.571,
-    "ranking_kri": 39,
-    "ranking_life": 43,
-    "ranking_health": 127,
-    "ranking_education": 62,
-    "ranking_protection": 62,
-    "ranking_child_rights_environment": 54
+    "environment": 0.571
   },
   {
     "country": "Morocco",
@@ -2131,13 +1483,7 @@
     "health": 0.898,
     "education": 0.761,
     "protection": 0.918,
-    "environment": 0.5,
-    "ranking_kri": 54,
-    "ranking_life": 87,
-    "ranking_health": 94,
-    "ranking_education": 67,
-    "ranking_protection": 68,
-    "ranking_child_rights_environment": 76
+    "environment": 0.5
   },
   {
     "country": "Mozambique",
@@ -2147,13 +1493,7 @@
     "health": 0.555,
     "education": 0.524,
     "protection": 0.561,
-    "environment": 0.214,
-    "ranking_kri": 175,
-    "ranking_life": 168,
-    "ranking_health": 170,
-    "ranking_education": 162,
-    "ranking_protection": 147,
-    "ranking_child_rights_environment": 163
+    "environment": 0.214
   },
   {
     "country": "Myanmar",
@@ -2163,13 +1503,7 @@
     "health": 0.678,
     "education": 0.589,
     "protection": 0.826,
-    "environment": 0.357,
-    "ranking_kri": 129,
-    "ranking_life": 141,
-    "ranking_health": 145,
-    "ranking_education": 139,
-    "ranking_protection": 98,
-    "ranking_child_rights_environment": 126
+    "environment": 0.357
   },
   {
     "country": "Namibia",
@@ -2179,13 +1513,7 @@
     "health": 0.666,
     "education": 0.67,
     "protection": 0.754,
-    "environment": 0.7,
-    "ranking_kri": 101,
-    "ranking_life": 157,
-    "ranking_health": 149,
-    "ranking_education": 109,
-    "ranking_protection": 113,
-    "ranking_child_rights_environment": 4
+    "environment": 0.7
   },
   {
     "country": "Nauru",
@@ -2195,13 +1523,7 @@
     "health": 0.856,
     "education": 0.478,
     "protection": 0.5,
-    "environment": 0.5,
-    "ranking_kri": 138,
-    "ranking_life": 159,
-    "ranking_health": 112,
-    "ranking_education": 172,
-    "ranking_protection": null,
-    "ranking_child_rights_environment": 77
+    "environment": 0.5
   },
   {
     "country": "Nepal",
@@ -2211,13 +1533,7 @@
     "health": 0.772,
     "education": 0.719,
     "protection": 0.64,
-    "environment": 0.333,
-    "ranking_kri": 124,
-    "ranking_life": 131,
-    "ranking_health": 131,
-    "ranking_education": 85,
-    "ranking_protection": 131,
-    "ranking_child_rights_environment": 134
+    "environment": 0.333
   },
   {
     "country": "Netherlands",
@@ -2227,13 +1543,7 @@
     "health": 0.958,
     "education": 1.0,
     "protection": 0.996,
-    "environment": 0.417,
-    "ranking_kri": 19,
-    "ranking_life": 22,
-    "ranking_health": 55,
-    "ranking_education": 9,
-    "ranking_protection": 3,
-    "ranking_child_rights_environment": 109
+    "environment": 0.417
   },
   {
     "country": "New Zealand",
@@ -2243,13 +1553,7 @@
     "health": 0.97,
     "education": 1.0,
     "protection": 0.974,
-    "environment": 0.25,
-    "ranking_kri": 62,
-    "ranking_life": 19,
-    "ranking_health": 44,
-    "ranking_education": 10,
-    "ranking_protection": 37,
-    "ranking_child_rights_environment": 159
+    "environment": 0.25
   },
   {
     "country": "Nicaragua",
@@ -2259,13 +1563,7 @@
     "health": 0.787,
     "education": 0.709,
     "protection": 0.729,
-    "environment": 0.643,
-    "ranking_kri": 69,
-    "ranking_life": 80,
-    "ranking_health": 130,
-    "ranking_education": 90,
-    "ranking_protection": 117,
-    "ranking_child_rights_environment": 25
+    "environment": 0.643
   },
   {
     "country": "Niger",
@@ -2275,13 +1573,7 @@
     "health": 0.27,
     "education": 0.315,
     "protection": 0.413,
-    "environment": 0.286,
-    "ranking_kri": 187,
-    "ranking_life": 187,
-    "ranking_health": 191,
-    "ranking_education": 183,
-    "ranking_protection": 161,
-    "ranking_child_rights_environment": 148
+    "environment": 0.286
   },
   {
     "country": "Nigeria",
@@ -2291,13 +1583,7 @@
     "health": 0.56,
     "education": 0.5,
     "protection": 0.453,
-    "environment": 0.643,
-    "ranking_kri": 182,
-    "ranking_life": 193,
-    "ranking_health": 167,
-    "ranking_education": 170,
-    "ranking_protection": 154,
-    "ranking_child_rights_environment": 26
+    "environment": 0.643
   },
   {
     "country": "North Korea",
@@ -2334,13 +1620,7 @@
         "year": 2019,
         "data_source": "MICS 2018-19"
       }
-    ],
-    "ranking_kri": 58,
-    "ranking_life": 58,
-    "ranking_health": 85,
-    "ranking_education": 78,
-    "ranking_protection": 45,
-    "ranking_child_rights_environment": 100
+    ]
   },
   {
     "country": "Norway",
@@ -2350,13 +1630,7 @@
     "health": 0.983,
     "education": 0.954,
     "protection": 0.996,
-    "environment": 0.5,
-    "ranking_kri": 11,
-    "ranking_life": 6,
-    "ranking_health": 31,
-    "ranking_education": 13,
-    "ranking_protection": 4,
-    "ranking_child_rights_environment": 78
+    "environment": 0.5
   },
   {
     "country": "Oman",
@@ -2366,13 +1640,7 @@
     "health": 0.896,
     "education": 0.788,
     "protection": 0.972,
-    "environment": 0.357,
-    "ranking_kri": 76,
-    "ranking_life": 71,
-    "ranking_health": 95,
-    "ranking_education": 57,
-    "ranking_protection": 38,
-    "ranking_child_rights_environment": 127
+    "environment": 0.357
   },
   {
     "country": "Pakistan",
@@ -2382,13 +1650,7 @@
     "health": 0.695,
     "education": 0.426,
     "protection": 0.656,
-    "environment": 0.357,
-    "ranking_kri": 153,
-    "ranking_life": 152,
-    "ranking_health": 143,
-    "ranking_education": 177,
-    "ranking_protection": 125,
-    "ranking_child_rights_environment": 128
+    "environment": 0.357
   },
   {
     "country": "Palau",
@@ -2398,13 +1660,7 @@
     "health": 0.99,
     "education": 0.848,
     "protection": 0.3,
-    "environment": 0.7,
-    "ranking_kri": 117,
-    "ranking_life": 139,
-    "ranking_health": 19,
-    "ranking_education": 30,
-    "ranking_protection": null,
-    "ranking_child_rights_environment": 137
+    "environment": 0.7
   },
   {
     "country": "Palestine",
@@ -2441,13 +1697,7 @@
     "health": 0.905,
     "education": 0.653,
     "protection": 0.861,
-    "environment": 0.167,
-    "ranking_kri": 132,
-    "ranking_life": 66,
-    "ranking_health": 92,
-    "ranking_education": 117,
-    "ranking_protection": 89,
-    "ranking_child_rights_environment": 171
+    "environment": 0.167
   },
   {
     "country": "Papua New Guinea",
@@ -2472,13 +1722,7 @@
         "year": 2018,
         "data_source": "DHS 2016-18"
       }
-    ],
-    "ranking_kri": 180,
-    "ranking_life": 143,
-    "ranking_health": 193,
-    "ranking_education": 164,
-    "ranking_protection": 158,
-    "ranking_child_rights_environment": 164
+    ]
   },
   {
     "country": "Paraguay",
@@ -2488,13 +1732,7 @@
     "health": 0.863,
     "education": 0.643,
     "protection": 0.672,
-    "environment": 0.667,
-    "ranking_kri": 80,
-    "ranking_life": 110,
-    "ranking_health": 108,
-    "ranking_education": 121,
-    "ranking_protection": 123,
-    "ranking_child_rights_environment": 13
+    "environment": 0.667
   },
   {
     "country": "Peru",
@@ -2504,13 +1742,7 @@
     "health": 0.844,
     "education": 0.838,
     "protection": 0.821,
-    "environment": 0.643,
-    "ranking_kri": 37,
-    "ranking_life": 90,
-    "ranking_health": 118,
-    "ranking_education": 38,
-    "ranking_protection": 101,
-    "ranking_child_rights_environment": 27
+    "environment": 0.643
   },
   {
     "country": "Philippines",
@@ -2520,13 +1752,7 @@
     "health": 0.728,
     "education": 0.689,
     "protection": 0.861,
-    "environment": 0.643,
-    "ranking_kri": 74,
-    "ranking_life": 123,
-    "ranking_health": 137,
-    "ranking_education": 100,
-    "ranking_protection": 90,
-    "ranking_child_rights_environment": 28
+    "environment": 0.643
   },
   {
     "country": "Poland",
@@ -2536,13 +1762,7 @@
     "health": 0.852,
     "education": 0.793,
     "protection": 0.979,
-    "environment": 0.143,
-    "ranking_kri": 123,
-    "ranking_life": 45,
-    "ranking_health": 116,
-    "ranking_education": 52,
-    "ranking_protection": 29,
-    "ranking_child_rights_environment": 176
+    "environment": 0.143
   },
   {
     "country": "Portugal",
@@ -2552,13 +1772,7 @@
     "health": 0.992,
     "education": 0.922,
     "protection": 0.986,
-    "environment": 0.5,
-    "ranking_kri": 13,
-    "ranking_life": 25,
-    "ranking_health": 15,
-    "ranking_education": 16,
-    "ranking_protection": 19,
-    "ranking_child_rights_environment": 79
+    "environment": 0.5
   },
   {
     "country": "Qatar",
@@ -2568,13 +1782,7 @@
     "health": 1.0,
     "education": 0.577,
     "protection": 0.98,
-    "environment": 0.7,
-    "ranking_kri": 20,
-    "ranking_life": 31,
-    "ranking_health": 4,
-    "ranking_education": 146,
-    "ranking_protection": 26,
-    "ranking_child_rights_environment": 5
+    "environment": 0.7
   },
   {
     "country": "Republic of Serbia",
@@ -2604,13 +1812,7 @@
     "health": 0.903,
     "education": 0.731,
     "protection": 0.925,
-    "environment": 0.214,
-    "ranking_kri": 111,
-    "ranking_life": 63,
-    "ranking_health": 93,
-    "ranking_education": 79,
-    "ranking_protection": 64,
-    "ranking_child_rights_environment": 165
+    "environment": 0.214
   },
   {
     "country": "Russia",
@@ -2621,11 +1823,6 @@
     "education": 0.851,
     "protection": 0.957,
     "environment": 0.286,
-    "ranking_life": 82,
-    "ranking_health": 66,
-    "ranking_education": 29,
-    "ranking_protection": 46,
-    "ranking_child_rights_environment": 149,
     "indicators": [
       {
         "indicator_type": "female_child_marriage",
@@ -2644,13 +1841,7 @@
     "health": 0.738,
     "education": 0.634,
     "protection": 0.653,
-    "environment": 0.417,
-    "ranking_kri": 127,
-    "ranking_life": 144,
-    "ranking_health": 136,
-    "ranking_education": 123,
-    "ranking_protection": 126,
-    "ranking_child_rights_environment": 110
+    "environment": 0.417
   },
   {
     "country": "Saint Kitts and Nevis",
@@ -2660,13 +1851,7 @@
     "health": 0.961,
     "education": 0.788,
     "protection": 0.143,
-    "environment": 5.0,
-    "ranking_kri": 152,
-    "ranking_life": 125,
-    "ranking_health": 54,
-    "ranking_education": 56,
-    "ranking_protection": null,
-    "ranking_child_rights_environment": 177
+    "environment": 5.0
   },
   {
     "country": "Saint Lucia",
@@ -2693,13 +1878,7 @@
         "year": 2012,
         "data_source": "MICS 2012"
       }
-    ],
-    "ranking_kri": 95,
-    "ranking_life": 114,
-    "ranking_health": 109,
-    "ranking_education": 115,
-    "ranking_protection": 76,
-    "ranking_child_rights_environment": 111
+    ]
   },
   {
     "country": "Saint Vincent and the Grenadines 0,764",
@@ -2719,13 +1898,7 @@
     "health": 0.93,
     "education": 0.625,
     "protection": 0.731,
-    "environment": 0.6,
-    "ranking_kri": 75,
-    "ranking_life": 92,
-    "ranking_health": 77,
-    "ranking_education": 128,
-    "ranking_protection": 116,
-    "ranking_child_rights_environment": 30
+    "environment": 0.6
   },
   {
     "country": "San Marino",
@@ -2735,13 +1908,7 @@
     "health": 0.973,
     "education": 0.623,
     "protection": 0.6,
-    "environment": 6.0,
-    "ranking_kri": 55,
-    "ranking_life": 30,
-    "ranking_health": 41,
-    "ranking_education": 130,
-    "ranking_protection": null,
-    "ranking_child_rights_environment": 31
+    "environment": 6.0
   },
   {
     "country": "Sao Tome and Principe",
@@ -2774,13 +1941,7 @@
         "year": 2019,
         "data_source": "MICS 2019"
       }
-    ],
-    "ranking_kri": 169,
-    "ranking_life": 124,
-    "ranking_health": 144,
-    "ranking_education": 75,
-    "ranking_protection": 105,
-    "ranking_child_rights_environment": 190
+    ]
   },
   {
     "country": "Saudi Arabia",
@@ -2790,13 +1951,7 @@
     "health": 0.958,
     "education": 0.894,
     "protection": 0.98,
-    "environment": 0.071,
-    "ranking_kri": 148,
-    "ranking_life": 46,
-    "ranking_health": 56,
-    "ranking_education": 21,
-    "ranking_protection": 27,
-    "ranking_child_rights_environment": 191
+    "environment": 0.071
   },
   {
     "country": "Senegal",
@@ -2806,13 +1961,7 @@
     "health": 0.706,
     "education": 0.443,
     "protection": 0.651,
-    "environment": 0.667,
-    "ranking_kri": 120,
-    "ranking_life": 140,
-    "ranking_health": 141,
-    "ranking_education": 174,
-    "ranking_protection": 128,
-    "ranking_child_rights_environment": 14
+    "environment": 0.667
   },
   {
     "country": "Seychelles",
@@ -2822,13 +1971,7 @@
     "health": 0.978,
     "education": 0.626,
     "protection": 0.214,
-    "environment": 0.5,
-    "ranking_kri": 140,
-    "ranking_life": 84,
-    "ranking_health": 35,
-    "ranking_education": 125,
-    "ranking_protection": null,
-    "ranking_child_rights_environment": 166
+    "environment": 0.5
   },
   {
     "country": "Sierra Leone",
@@ -2869,13 +2012,7 @@
         "year": 2019,
         "data_source": "DHS 2019"
       }
-    ],
-    "ranking_kri": 184,
-    "ranking_life": 185,
-    "ranking_health": 169,
-    "ranking_education": 158,
-    "ranking_protection": 132,
-    "ranking_child_rights_environment": 192
+    ]
   },
   {
     "country": "Singapore",
@@ -2885,13 +2022,7 @@
     "health": 0.99,
     "education": 0.9,
     "protection": 0.996,
-    "environment": 0.357,
-    "ranking_kri": 35,
-    "ranking_life": 11,
-    "ranking_health": 20,
-    "ranking_education": 18,
-    "ranking_protection": 5,
-    "ranking_child_rights_environment": 129
+    "environment": 0.357
   },
   {
     "country": "Slovakia",
@@ -2901,13 +2032,7 @@
     "health": 0.977,
     "education": 0.744,
     "protection": 0.946,
-    "environment": 0.286,
-    "ranking_kri": 90,
-    "ranking_life": 52,
-    "ranking_health": 37,
-    "ranking_education": 71,
-    "ranking_protection": 55,
-    "ranking_child_rights_environment": 150
+    "environment": 0.286
   },
   {
     "country": "Slovenia",
@@ -2917,13 +2042,7 @@
     "health": 0.984,
     "education": 0.897,
     "protection": 0.994,
-    "environment": 0.571,
-    "ranking_kri": 6,
-    "ranking_life": 24,
-    "ranking_health": 28,
-    "ranking_education": 20,
-    "ranking_protection": 7,
-    "ranking_child_rights_environment": 56
+    "environment": 0.571
   },
   {
     "country": "Solomon Islands",
@@ -2956,13 +2075,7 @@
         "year": 2015,
         "data_source": "DHS 2015"
       }
-    ],
-    "ranking_kri": 149,
-    "ranking_life": 116,
-    "ranking_health": 166,
-    "ranking_education": 161,
-    "ranking_protection": 119,
-    "ranking_child_rights_environment": 138
+    ]
   },
   {
     "country": "Somalia",
@@ -2972,13 +2085,7 @@
     "health": 0.389,
     "education": 0.321,
     "protection": 0.583,
-    "environment": 0.5,
-    "ranking_kri": 183,
-    "ranking_life": 189,
-    "ranking_health": 186,
-    "ranking_education": null,
-    "ranking_protection": 167,
-    "ranking_child_rights_environment": 44
+    "environment": 0.5
   },
   {
     "country": "South Africa",
@@ -3003,13 +2110,7 @@
         "year": 2016,
         "data_source": "DHS 2016"
       }
-    ],
-    "ranking_kri": 93,
-    "ranking_life": 138,
-    "ranking_health": 114,
-    "ranking_education": 87,
-    "ranking_protection": 95,
-    "ranking_child_rights_environment": 80
+    ]
   },
   {
     "country": "South Korea",
@@ -3038,13 +2139,7 @@
         "year": 2010,
         "data_source": "SHHS-2 2010"
       }
-    ],
-    "ranking_kri": 193,
-    "ranking_life": 191,
-    "ranking_health": 190,
-    "ranking_education": 187,
-    "ranking_protection": 166,
-    "ranking_child_rights_environment": 112
+    ]
   },
   {
     "country": "Spain",
@@ -3054,13 +2149,7 @@
     "health": 0.99,
     "education": 0.944,
     "protection": 0.987,
-    "environment": 0.25,
-    "ranking_kri": 64,
-    "ranking_life": 9,
-    "ranking_health": 21,
-    "ranking_education": 15,
-    "ranking_protection": 18,
-    "ranking_child_rights_environment": 160
+    "environment": 0.25
   },
   {
     "country": "Sri Lanka",
@@ -3087,13 +2176,7 @@
         "year": 2019,
         "data_source": "HIES 2019"
       }
-    ],
-    "ranking_kri": 151,
-    "ranking_life": 48,
-    "ranking_health": 125,
-    "ranking_education": 72,
-    "ranking_protection": 49,
-    "ranking_child_rights_environment": 182
+    ]
   },
   {
     "country": "Sudan",
@@ -3103,13 +2186,7 @@
     "health": 0.439,
     "education": 0.432,
     "protection": 0.634,
-    "environment": 0.167,
-    "ranking_kri": 178,
-    "ranking_life": 158,
-    "ranking_health": 182,
-    "ranking_education": 175,
-    "ranking_protection": 134,
-    "ranking_child_rights_environment": 172
+    "environment": 0.167
   },
   {
     "country": "Suriname",
@@ -3119,13 +2196,7 @@
     "health": 0.86,
     "education": 0.575,
     "protection": 0.88,
-    "environment": 0.333,
-    "ranking_kri": 114,
-    "ranking_life": 112,
-    "ranking_health": 111,
-    "ranking_education": 148,
-    "ranking_protection": 81,
-    "ranking_child_rights_environment": 135
+    "environment": 0.333
   },
   {
     "country": "Sweden",
@@ -3135,13 +2206,7 @@
     "health": 0.972,
     "education": 1.0,
     "protection": 0.993,
-    "environment": 0.214,
-    "ranking_kri": 78,
-    "ranking_life": 7,
-    "ranking_health": 42,
-    "ranking_education": 11,
-    "ranking_protection": 9,
-    "ranking_child_rights_environment": 167
+    "environment": 0.214
   },
   {
     "country": "Switzerland",
@@ -3151,13 +2216,7 @@
     "health": 0.99,
     "education": 0.907,
     "protection": 0.997,
-    "environment": 0.357,
-    "ranking_kri": 32,
-    "ranking_life": 4,
-    "ranking_health": 22,
-    "ranking_education": 17,
-    "ranking_protection": 1,
-    "ranking_child_rights_environment": 130
+    "environment": 0.357
   },
   {
     "country": "Syria",
@@ -3194,13 +2253,7 @@
     "health": 0.871,
     "education": 0.597,
     "protection": 0.866,
-    "environment": 0.429,
-    "ranking_kri": 99,
-    "ranking_life": 115,
-    "ranking_health": 103,
-    "ranking_education": 137,
-    "ranking_protection": 88,
-    "ranking_child_rights_environment": 101
+    "environment": 0.429
   },
   {
     "country": "Thailand",
@@ -3210,13 +2263,7 @@
     "health": 0.944,
     "education": 0.84,
     "protection": 0.916,
-    "environment": 0.75,
-    "ranking_kri": 5,
-    "ranking_life": 44,
-    "ranking_health": 62,
-    "ranking_education": 37,
-    "ranking_protection": 69,
-    "ranking_child_rights_environment": 1
+    "environment": 0.75
   },
   {
     "country": "The Bahamas",
@@ -3236,13 +2283,7 @@
     "health": 0.499,
     "education": 0.606,
     "protection": 0.533,
-    "environment": 0.286,
-    "ranking_kri": 167,
-    "ranking_life": 174,
-    "ranking_health": 177,
-    "ranking_education": 133,
-    "ranking_protection": 149,
-    "ranking_child_rights_environment": 152
+    "environment": 0.286
   },
   {
     "country": "Tonga",
@@ -3252,13 +2293,7 @@
     "health": 0.977,
     "education": 0.846,
     "protection": 0.772,
-    "environment": 0.5,
-    "ranking_kri": 57,
-    "ranking_life": 102,
-    "ranking_health": 38,
-    "ranking_education": 34,
-    "ranking_protection": 112,
-    "ranking_child_rights_environment": 81
+    "environment": 0.5
   },
   {
     "country": "Trinidad and Tobago",
@@ -3285,13 +2320,7 @@
         "year": 2022,
         "data_source": "MICS 2022"
       }
-    ],
-    "ranking_kri": 45,
-    "ranking_life": 83,
-    "ranking_health": 61,
-    "ranking_education": 64,
-    "ranking_protection": 61,
-    "ranking_child_rights_environment": 82
+    ]
   },
   {
     "country": "Tunisia",
@@ -3301,13 +2330,7 @@
     "health": 0.962,
     "education": 0.723,
     "protection": 0.982,
-    "environment": 0.417,
-    "ranking_kri": 59,
-    "ranking_life": 79,
-    "ranking_health": 53,
-    "ranking_education": 82,
-    "ranking_protection": 24,
-    "ranking_child_rights_environment": 113
+    "environment": 0.417
   },
   {
     "country": "Turkey",
@@ -3317,13 +2340,7 @@
     "health": 0.969,
     "education": 0.987,
     "protection": 0.939,
-    "environment": 0.143,
-    "ranking_kri": 113,
-    "ranking_life": 55,
-    "ranking_health": 47,
-    "ranking_education": 12,
-    "ranking_protection": 59,
-    "ranking_child_rights_environment": 179
+    "environment": 0.143
   },
   {
     "country": "Turkmenistan",
@@ -3333,13 +2350,7 @@
     "health": 0.978,
     "education": 0.714,
     "protection": 0.962,
-    "environment": 0.643,
-    "ranking_kri": 33,
-    "ranking_life": 127,
-    "ranking_health": 36,
-    "ranking_education": 89,
-    "ranking_protection": 43,
-    "ranking_child_rights_environment": 29
+    "environment": 0.643
   },
   {
     "country": "Tuvalu",
@@ -3349,13 +2360,7 @@
     "health": 0.914,
     "education": 0.529,
     "protection": 0.892,
-    "environment": 0.429,
-    "ranking_kri": 115,
-    "ranking_life": 149,
-    "ranking_health": 83,
-    "ranking_education": 160,
-    "ranking_protection": 77,
-    "ranking_child_rights_environment": 102
+    "environment": 0.429
   },
   {
     "country": "Uganda",
@@ -3365,13 +2370,7 @@
     "health": 0.555,
     "education": 0.573,
     "protection": 0.415,
-    "environment": 0.5,
-    "ranking_kri": 156,
-    "ranking_life": 155,
-    "ranking_health": 171,
-    "ranking_education": 149,
-    "ranking_protection": 160,
-    "ranking_child_rights_environment": 83
+    "environment": 0.5
   },
   {
     "country": "Ukraine",
@@ -3381,13 +2380,7 @@
     "health": 0.875,
     "education": 0.832,
     "protection": 0.95,
-    "environment": 0.583,
-    "ranking_kri": 26,
-    "ranking_life": 74,
-    "ranking_health": 100,
-    "ranking_education": 42,
-    "ranking_protection": 52,
-    "ranking_child_rights_environment": 45
+    "environment": 0.583
   },
   {
     "country": "United Arab Emirates",
@@ -3397,13 +2390,7 @@
     "health": 0.997,
     "education": 0.793,
     "protection": 0.93,
-    "environment": 0.286,
-    "ranking_kri": 81,
-    "ranking_life": 36,
-    "ranking_health": 8,
-    "ranking_education": 53,
-    "ranking_protection": 63,
-    "ranking_child_rights_environment": 153
+    "environment": 0.286
   },
   {
     "country": "United Kingdom",
@@ -3422,13 +2409,7 @@
         "year": 2021,
         "data_source": "Office for National Statistics"
       }
-    ],
-    "ranking_kri": 137,
-    "ranking_life": 27,
-    "ranking_health": 45,
-    "ranking_education": 22,
-    "ranking_protection": 36,
-    "ranking_child_rights_environment": 183
+    ]
   },
   {
     "country": "United Republic of Tanzania",
@@ -3461,13 +2442,7 @@
         "year": 2022,
         "data_source": "DHS 2022"
       }
-    ],
-    "ranking_kri": 150,
-    "ranking_life": 148,
-    "ranking_health": 172,
-    "ranking_education": 167,
-    "ranking_protection": 163,
-    "ranking_child_rights_environment": 16
+    ]
   },
   {
     "country": "Uruguay",
@@ -3477,13 +2452,7 @@
     "health": 0.977,
     "education": 0.781,
     "protection": 0.912,
-    "environment": 0.571,
-    "ranking_kri": 23,
-    "ranking_life": 51,
-    "ranking_health": 39,
-    "ranking_education": 59,
-    "ranking_protection": 71,
-    "ranking_child_rights_environment": 57
+    "environment": 0.571
   },
   {
     "country": "Uzbekistan",
@@ -3493,13 +2462,7 @@
     "health": 0.966,
     "education": 0.69,
     "protection": 0.817,
-    "environment": 0.357,
-    "ranking_kri": 97,
-    "ranking_life": 96,
-    "ranking_health": 49,
-    "ranking_education": 99,
-    "ranking_protection": 102,
-    "ranking_child_rights_environment": 131
+    "environment": 0.357
   },
   {
     "country": "Vanuatu",
@@ -3509,13 +2472,7 @@
     "health": 0.673,
     "education": 0.631,
     "protection": 0.621,
-    "environment": 0.4,
-    "ranking_kri": 126,
-    "ranking_life": 119,
-    "ranking_health": 147,
-    "ranking_education": 124,
-    "ranking_protection": 138,
-    "ranking_child_rights_environment": 116
+    "environment": 0.4
   },
   {
     "country": "Venezuela",
@@ -3535,13 +2492,7 @@
     "health": 0.871,
     "education": 0.693,
     "protection": 0.903,
-    "environment": 0.286,
-    "ranking_kri": 107,
-    "ranking_life": 105,
-    "ranking_health": 104,
-    "ranking_education": 98,
-    "ranking_protection": 74,
-    "ranking_child_rights_environment": 154
+    "environment": 0.286
   },
   {
     "country": "Yemen",
@@ -3551,13 +2502,7 @@
     "health": 0.412,
     "education": 0.334,
     "protection": 0.504,
-    "environment": 0.5,
-    "ranking_kri": 172,
-    "ranking_life": 160,
-    "ranking_health": 184,
-    "ranking_education": 182,
-    "ranking_protection": 152,
-    "ranking_child_rights_environment": 85
+    "environment": 0.5
   },
   {
     "country": "Zambia",
@@ -3567,13 +2512,7 @@
     "health": 0.605,
     "education": 0.616,
     "protection": 0.339,
-    "environment": 0.429,
-    "ranking_kri": 159,
-    "ranking_life": 161,
-    "ranking_health": 158,
-    "ranking_education": 132,
-    "ranking_protection": 165,
-    "ranking_child_rights_environment": 103
+    "environment": 0.429
   },
   {
     "country": "Zimbabwe",
@@ -3583,12 +2522,6 @@
     "health": 0.601,
     "education": 0.663,
     "protection": 0.51,
-    "environment": 0.583,
-    "ranking_kri": 143,
-    "ranking_life": 171,
-    "ranking_health": 159,
-    "ranking_education": 112,
-    "ranking_protection": 151,
-    "ranking_child_rights_environment": 46
+    "environment": 0.583
   }
 ]

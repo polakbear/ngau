@@ -3,22 +3,32 @@ import { rankLabel, scoreClass, scoreLabel } from "./score-utils";
 import { CountryData, Nullable } from "./types";
 
 
-function buildMetricRow(iconClass: string, label: string, value: Nullable): string {
-    return `
-      <div class="tooltip-metric">
-        <div class="metric-label"><i class="${iconClass}"></i><span>${label}</span></div>
-        <div class="metric-info">
-          <span class="value">${value != null ? value.toFixed(3) : 'N/A'}</span>
-          <span class="qual ${scoreClass(value)}">${scoreLabel(value)}</span>
-          <div class="bar-container">
-            <div class="bar-fill"
-                 style="width: 0%; --bar-color: ${getBarColor(value)};"
-                 data-score="${value || 0}">
-            </div>
+function buildMetricRow(iconClass: string, label: string, value: Nullable, rank: Nullable): string {
+  const quality = scoreLabel(value);
+  const qualityClass = scoreClass(value);
+  const rankDisplay = rank != null ? `Rank ${rank}` : '';
+  const showBadge = rankDisplay || quality;
+
+  return `
+    <div class="tooltip-metric">
+      <div class="metric-label"><i class="${iconClass}"></i><span>${label}</span></div>
+      <div class="metric-info">
+        ${showBadge ? `
+          <div class="split-badge">
+            <span class="split-left">${rankDisplay}</span>
+            <span class="split-right ${qualityClass}">${quality}</span>
+          </div>` : ''
+        }
+        <span class="value">${value != null ? value.toFixed(3) : 'N/A'}</span>
+        <div class="bar-container">
+          <div class="bar-fill"
+               style="width: 0%; --bar-color: ${getBarColor(value)};"
+               data-score="${value || 0}">
           </div>
         </div>
       </div>
-    `;
+    </div>
+  `;
 }
 
 // Main tooltip content generator
@@ -60,14 +70,13 @@ export function generateTooltipContent(
 </div>
 
     <!-- Metrics -->
-    <div class="tooltip-metrics-grid">
-      ${buildMetricRow('fa fa-seedling', 'Life', country?.life)}
-      ${buildMetricRow('fa fa-heart', 'Health', country?.health)}
-      ${buildMetricRow('fa fa-graduation-cap', 'Education', country?.education)}
-      ${buildMetricRow('fa fa-shield-alt', 'Protection', country?.protection)}
-      ${buildMetricRow('fa fa-globe', 'Environment', country?.environment)}
-    </div>
-
+<div class="tooltip-metrics-grid">
+  ${buildMetricRow('fa fa-seedling', 'Life', country?.life, country?.ranking_life)}
+  ${buildMetricRow('fa fa-heart', 'Health', country?.health, country?.ranking_health)}
+  ${buildMetricRow('fa fa-graduation-cap', 'Education', country?.education, country?.ranking_education)}
+  ${buildMetricRow('fa fa-shield-alt', 'Protection', country?.protection, country?.ranking_protection)}
+  ${buildMetricRow('fa fa-globe', 'Environment', country?.environment, country?.ranking_child_rights_environment)}
+</div>
     <!-- Child Rights Violations -->
     ${hasViolations ? `
       <div class="tooltip-subtitle">Child Rights Violations</div>

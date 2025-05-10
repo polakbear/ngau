@@ -12,10 +12,15 @@ export interface CountryData {
   kri_score: number | null;
   kri_rank?: number;
   life?: number | null;
+  ranking_life?: number;
   health?: number | null;
+  ranking_health?: number;
   education?: number | null;
+  ranking_education?: number;
   protection?: number | null;
+  ranking_protection?: number;
   environment?: number | null;
+  ranking_child_rights_environment?: number;
   indicators?: IndicatorEntry[];
 }
 

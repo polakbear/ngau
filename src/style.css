@@ -352,7 +352,7 @@ canvas {
   justify-content: space-between;
   width: 220px;
   margin: 0 auto;
-  font-size: 11px;
+  font-size: 12px;
   color: #ccc;
 }
 
@@ -382,8 +382,72 @@ canvas {
   font-family: 'Segoe UI', 'IBM Plex Sans', sans-serif;
 }
 
-.qual.qual--very-poor { background: #4b5c6b; color: #fff; }
-.qual.qual--poor      { background: #5a7d9a; color: #fff; }
-.qual.qual--fair      { background: #76b5c5; color: #000; }
-.qual.qual--good      { background: #2e9c9f; color: #000; }
-.qual.qual--excellent { background: #3fd1c7; color: #000; }
+.split-right.qual--very-poor { background: #4b5c6b; color: #fff; }
+.split-right.qual--poor      { background: #5a7d9a; color: #fff; }
+.split-right.qual--fair      { background: #76b5c5; color: #000; }
+.split-right.qual--good      { background: #2e9c9f; color: #000; }
+.split-right.qual--excellent { background: #3fd1c7; color: #000; }
+
+.rank-label {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 2px;
+}
+
+.metric-rankline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 2px;
+  margin-top: 4px;
+}
+
+.rank-badge {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 4px;
+  border-radius: 4px;
+  font-weight: 500;
+  color: #fff;
+  font-size: 14px;
+}
+
+.split-badge {
+  display: flex;
+  border-radius: 4px;
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 4px 0 2px;
+  width: fit-content;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.split-badge span {
+  padding: 2px 6px;
+  color: #fff;
+}
+
+.split-left {
+  background: rgba(255, 255, 255, 0.08);
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.split-right {
+  background-color: var(--badge-color, rgba(255,255,255,0.08));
+}
+
+.legend-methodology {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 0.75rem;
+  max-width: 220px;;
+  text-align: left;   /* 👈 override inherited center alignment */
+  line-height: 1.4;
+}
+
+.methodology-section {
+  margin-top: 0.5rem;
+  line-height: 1.3;
+  display: block
+}
