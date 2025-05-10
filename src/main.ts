@@ -1,6 +1,7 @@
 import { loadData } from "./data-service";
 import { createGlobe } from "./globe-renderer";
 import { CountryData } from "./types";
+import { inject } from '@vercel/analytics';
 
 let data: CountryData[] = [];
 
@@ -45,3 +46,4 @@ async function initialize() {
 }
 
 initialize();
+inject();
