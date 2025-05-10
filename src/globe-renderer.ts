@@ -46,18 +46,19 @@ export function createGlobe(
     .atmosphereColor("#2e9c9f")
     .atmosphereAltitude(0.45)
     .polygonsData(geoJson.features)
-    .polygonCapColor((d: any) => {
-      const score = getKriScore(d, data);
-      const baseColor = score === null ? "#646464" : childRightsColorScale(score);
-      return baseColor;
-    })
+    // .polygonCapColor((d: any) => {
+    //   const score = getKriScore(d, data);
+    //   const baseColor = score === null ? "#646464" : childRightsColorScale(score);
+    //   return baseColor;
+    // })
+    .polygonCapColor(() => 'rgba(0,0,0,0)')
         // .polygonCapColor((feat: any) => {
     //   const score = getKriScore(feat, data);
     //   return score === null ? "#646464" : childRightsColorScale(score);
     // })
     .polygonCapMaterial((d: any) => {
       const score = getKriScore(d, data);
-      const baseColor = score === null ? "#646464" : childRightsColorScale(score);
+      const isNoData = score === null;
       const isHovered = hoverD && d === hoverD;
     
       const opacity = !hoverD
@@ -66,6 +67,34 @@ export function createGlobe(
         ? 1
         : 1 - 0.75 * desaturationProgress;
     
+      if (isNoData) {
+        // Create a striped texture for no-data countries
+        const stripeCanvas = document.createElement('canvas');
+        stripeCanvas.width = 64;
+        stripeCanvas.height = 64;
+        const ctx = stripeCanvas.getContext('2d')!;
+        ctx.fillStyle = '#ddd';
+        ctx.fillRect(0, 0, 64, 64);
+        ctx.strokeStyle = '#888';
+        ctx.lineWidth = 5;
+        ctx.beginPath();
+        ctx.moveTo(0, 64);
+        ctx.lineTo(64, 0);
+        ctx.stroke();
+    
+        const texture = new THREE.CanvasTexture(stripeCanvas);
+        texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+        texture.repeat.set(30, 30);
+    
+        return new THREE.MeshLambertMaterial({
+          map: texture,
+          transparent: true,
+          opacity,
+          depthWrite: false
+        });
+      }
+    
+      const baseColor = childRightsColorScale(score);
       return new THREE.MeshLambertMaterial({
         color: new THREE.Color(baseColor),
         transparent: true,
