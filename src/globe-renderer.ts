@@ -1,14 +1,10 @@
 import Globe from "globe.gl";
 import { CountryData, GeoJsonFeature } from "./types";
 import { normalize } from "./utils";
-import * as d3 from "d3-scale";
 import { generateTooltipContent } from "./tooltip";
 import * as THREE from 'three';
+import { childRightsColorScale } from "./color-utils";
 
-const childRightsColorScale = d3
-  .scaleLinear<string>()
-  .domain([0.0, 0.2, 0.4, 0.6, 0.8, 1.0])
-  .range(["#4b5c6b", "#4b5c6b", "#5a7d9a", "#76b5c5", "#2e9c9f", "#3fd1c7"]);
 
 let desaturationProgress = 0;
 

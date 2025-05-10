@@ -27,3 +27,5 @@ export interface GeoJsonFeature {
     NAME_LONG: string;
   };
 }
+
+export type Nullable = number | null | undefined;
