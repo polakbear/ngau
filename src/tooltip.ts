@@ -1,13 +1,3 @@
-import {
-  svgLife,
-  svgHealth,
-  svgHat,
-  svgShield,
-  svgPlanet,
-  svgMarriage,
-  svgLabor,
-  svgFGM,
-} from "./icons";
 import { CountryData } from "./types";
 import * as d3 from "d3-scale";
 
@@ -33,6 +23,15 @@ function scoreLabel(score: Nullable): string {
   return "Excellent";
 }
 
+function scoreClass(score: Nullable): string {
+  if (score == null) return 'qual--na';
+  if (score < 0.2) return 'qual--very-poor';
+  if (score < 0.4) return 'qual--poor';
+  if (score < 0.6) return 'qual--fair';
+  if (score < 0.8) return 'qual--good';
+  return 'qual--excellent';
+}
+
 // Returns hex color for a score bar
 function getBarColor(score: Nullable): string {
   if (score == null) return '#444';
@@ -47,10 +46,10 @@ function getBarColor(score: Nullable): string {
 function rankLabel(rank: number, total: number): string {
   const p = rank / total;
   if (p <= 0.1) return 'Top 10%';
-  if (p <= 0.25) return 'Top Quartile';
-  if (p >= 0.9) return 'Bottom 10%';
-  if (p >= 0.75) return 'Bottom Quartile';
-  return 'Middle';
+  if (p <= 0.3) return 'Above Average';
+  if (p <= 0.7) return 'Middle';
+  if (p <= 0.9) return 'Below Average';
+  return 'Bottom 10%';
 }
 
 const childRightsColorScale = d3
@@ -58,32 +57,31 @@ const childRightsColorScale = d3
   .domain([0.0, 0.2, 0.4, 0.6, 0.8, 1.0])
   .range(["#4b5c6b", "#4b5c6b", "#5a7d9a", "#76b5c5", "#2e9c9f", "#3fd1c7"]);
 
-// Builds a metric cell for the grid
-function buildMetricRow(icon: string, label: string, value: Nullable): string {
-  const barColor = getBarColor(value);
-  const qualColor = getContrastingTextColor(barColor);
-
-  return `
-    <div class="tooltip-metric">
-      <div class="metric-label"><i class="fas fa-${icon}"></i><span>${label}</span></div>
-      <div class="metric-info">
-        <span class="value">${value != null ? value.toFixed(3) : 'N/A'}</span>
-        <span class="qual" style="background-color: ${barColor}; color: ${qualColor};">
-          ${scoreLabel(value)}
-        </span>
-        <div class="bar-container">
-          <div class="bar-fill" style="width: ${(value || 0) * 100}%; --bar-color: ${getBarColor(value)};"></div>
+  function buildMetricRow(iconClass: string, label: string, value: Nullable): string {
+    return `
+      <div class="tooltip-metric">
+        <div class="metric-label"><i class="${iconClass}"></i><span>${label}</span></div>
+        <div class="metric-info">
+          <span class="value">${value != null ? value.toFixed(3) : 'N/A'}</span>
+          <span class="qual ${scoreClass(value)}">${scoreLabel(value)}</span>
+          <div class="bar-container">
+            <div class="bar-fill"
+                 style="width: 0%; --bar-color: ${getBarColor(value)};"
+                 data-score="${value || 0}">
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  `;
-}
+    `;
+  }
 
 // Main tooltip content generator
 export function generateTooltipContent(
   countryName: string,
-  country: CountryData | undefined
+  country: CountryData | undefined,
+  options: { closeButton?: boolean, animateBars?: boolean } = {}
 ): string {
+  const { closeButton = false } = options;
   const total = 198;
   const kri = country?.kri_score ?? null;
   const rank = country?.kri_rank ?? null;
@@ -99,7 +97,6 @@ export function generateTooltipContent(
 
   const bgColor = childRightsColorScale(kri ?? 0);
   const textColor = getContrastingTextColor(bgColor);
-
   return `
     
 <div class="tooltip-top-row" style="flex-direction: column; align-items: flex-start; margin-bottom: 8px;">
@@ -118,21 +115,32 @@ export function generateTooltipContent(
 
     <!-- Metrics -->
     <div class="tooltip-metrics-grid">
-      ${buildMetricRow('seedling', 'Life', country?.life)}
-      ${buildMetricRow('heart', 'Health', country?.health)}
-      ${buildMetricRow('graduation-cap', 'Education', country?.education)}
-      ${buildMetricRow('shield-alt', 'Protection', country?.protection)}
-      ${buildMetricRow('globe', 'Environment', country?.environment)}
+      ${buildMetricRow('fa fa-seedling', 'Life', country?.life)}
+      ${buildMetricRow('fa fa-heart', 'Health', country?.health)}
+      ${buildMetricRow('fa fa-graduation-cap', 'Education', country?.education)}
+      ${buildMetricRow('fa fa-shield-alt', 'Protection', country?.protection)}
+      ${buildMetricRow('fa fa-globe', 'Environment', country?.environment)}
     </div>
 
     <!-- Child Rights Violations -->
     ${hasViolations ? `
       <div class="tooltip-subtitle">Child Rights Violations</div>
       <div class="tooltip-section">
-        ${cm != null ? `<div class="tooltip-row"><span class="left">${svgMarriage()}<span>Child Marriage</span></span><span class="value">${cm}%</span></div>` : ''}
-        ${cl != null ? `<div class="tooltip-row"><span class="left">${svgLabor()}<span>Child Labor</span></span><span class="value">${cl}%</span></div>` : ''}
-        ${fg != null ? `<div class="tooltip-row"><span class="left">${svgFGM()}<span>FGM Prevalence</span></span><span class="value">${fg}%</span></div>` : ''}
+        ${cm != null ? `<div class="tooltip-row"><span class="left"><i class="fas fa-triangle-exclamation"></i><span>Child Marriage</span></span><span class="value">${cm}%</span></div>` : ''}
+        ${cl != null ? `<div class="tooltip-row"><span class="left"><i class="fas fa-triangle-exclamation"></i><span>Child Labor</span></span><span class="value">${cl}%</span></div>` : ''}
+        ${fg != null ? `<div class="tooltip-row"><span class="left"><i class="fas fa-triangle-exclamation"></i><span>FGM Prevalence</span></span><span class="value">${fg}%</span></div>` : ''}
       </div>
     ` : ''}
+
+    ${closeButton ? `
+      <div style="text-align: right; margin-top: 12px;">
+        <button id="close-info" style="
+          background: none;
+          color: #89cfff;
+          border: none;
+          cursor: pointer;
+          font-size: 13px;
+        ">Close</button>
+      </div>` : ''}
   `;
 }

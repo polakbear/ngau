@@ -5,26 +5,51 @@
   line-height: 1.5;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #000;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-body {
+html, body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #0a1d26 0%, #000000 100%);
+}
+
+#globe {
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+#globe canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  background-color: transparent !important;
+}
+canvas {
+  background-color: transparent !important;
+}
+
+#globe {
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(ellipse at center, #0a1d26 0%, #000000 100%);
 }
 
 #app {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  padding: 0;
 }
 
 /* Tooltip container */
@@ -79,12 +104,13 @@ body {
 
 .badge-qual {
   display: inline-block;
-  font-size: 11px;
-  padding: 2px 6px;
+  font-size: 14px;
+  padding: 4px 8px;
   border-radius: 4px;
   font-weight: 600;
-  margin-top: 2px;
+  margin-top: 4px;
   display: inline-block;
+  line-height: 1.2;;
 }
 
 .tooltip-header {
@@ -139,11 +165,12 @@ body {
 
 /* Qualitative badge inside metrics */
 .qual {
-  font-size: 11px;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 2px 6px;
-  border-radius: 12px;
+  font-size: 13px;
+  padding: 3px 6px;
+  border-radius: 2px;
+  font-weight: 600;
+  line-height: 1.2;
+  display: inline-block;
 }
 
 /* Numeric styling */
@@ -163,7 +190,7 @@ body {
 /* Bar styling */
 .bar-container {
   height: 6px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15); 
   border-radius: 3px;
   overflow: hidden;
 }
@@ -176,7 +203,7 @@ body {
     var(--bar-color, #3fd1c7),
     rgba(255, 255, 255, 0.15)
   );
-  transition: width 0.3s ease;
+  transition: width 0.4s ease-in-out;
 }
 
 /* Subtitle and violations section */
@@ -233,22 +260,24 @@ body {
 
 /* Smaller badge & country text */
 .tooltip-badge {
-  font-size: 12px;
-  padding: 2px 8px;
+  font-size: 14px;
+  padding: 4px 10px;
+  gap: 8px; 
 }
+
 .tooltip-header {
   font-size: 14px;
 }
 
 /* Metric row tighter */
 .tooltip-metric {
-  gap: 4px;           /* less space between icon/label and info */
+  gap: 4px;          
   align-items: center;
 }
 
 /* Smaller metric label */
 .metric-label span {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 /* Smaller values & quality pills */
@@ -257,8 +286,8 @@ body {
 }
 
 .metric-info .qual {
-  font-size: 10px;
-  padding: 1px 4px;
+  font-size: 14px;
+  padding: 4px 8px;
   border-radius: 3px; /* reduced from 12px */
   background: rgba(255, 255, 255, 0.08); /* less intense background */
   font-weight: 500;
@@ -271,7 +300,14 @@ body {
 }
 
 .bar-fill {
-  /* no changes, inherits width */
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(
+    to right,
+    var(--bar-color, #3fd1c7),
+    rgba(255, 255, 255, 0.25) /* was 0.15 */
+  );
+  transition: width 0.3s ease;
 }
 
 /* Reduce subtitle spacing */
@@ -282,18 +318,28 @@ body {
 
 /* Legend styles */
 .legend {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 10;
   font-family: "Segoe UI", sans-serif;
   font-size: 13px;
   color: #ddd;
-  margin-top: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 10px 14px;
+  border-radius: 8px;
   max-width: 300px;
+  text-align: center;
 }
 
 .legend-bar {
   display: flex;
+  justify-content: space-between;
   height: 12px;
   border-radius: 4px;
   overflow: hidden;
+  width: 220px;
+  margin: 0 auto 6px auto;
   box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5);
 }
 
@@ -304,9 +350,12 @@ body {
 .legend-labels {
   display: flex;
   justify-content: space-between;
-  margin-top: 6px;
+  width: 220px;
+  margin: 0 auto;
+  font-size: 11px;
   color: #ccc;
 }
+
 
 .tooltip-metric .metric-label i {
   font-size: 20px;       /* ↑ icon size */
@@ -321,11 +370,20 @@ body {
   top: 24px;
   width: 320px;
   background: rgba(0, 0, 0, 0.9);
-  color: white;
+  color: #f0f0f0; /* brighter text */
+  font-size: 14px; /* larger text */
+  line-height: 1.5;
   border-radius: 12px;
-  padding: 16px;
+  padding: 20px;
   z-index: 999;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+  font-family: 'Segoe UI', 'IBM Plex Sans', sans-serif;
 }
+
+.qual.qual--very-poor { background: #4b5c6b; color: #fff; }
+.qual.qual--poor      { background: #5a7d9a; color: #fff; }
+.qual.qual--fair      { background: #76b5c5; color: #000; }
+.qual.qual--good      { background: #2e9c9f; color: #000; }
+.qual.qual--excellent { background: #3fd1c7; color: #000; }
