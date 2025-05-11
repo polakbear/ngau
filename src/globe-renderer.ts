@@ -3,7 +3,7 @@ import { CountryData, GeoJsonFeature } from "./types";
 import { normalize } from "./utils";
 import { generateTooltipContent } from "./tooltip";
 import * as THREE from 'three';
-import { childRightsColorScale } from "./color-utils";
+import { childRightsColorScale } from "./utils/color-utils";
 
 
 let desaturationProgress = 0;

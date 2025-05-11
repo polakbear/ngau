@@ -1,4 +1,4 @@
-import { Nullable } from "./types";
+import { Nullable } from "../types";
 
 export function scoreLabel(score: Nullable): string {
   if (score == null) return "N/A";

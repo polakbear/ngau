@@ -1,5 +1,5 @@
 import * as d3 from "d3-scale";
-import { Nullable } from "./types";
+import { Nullable } from "../types";
 
 export const childRightsColorScale = d3
   .scaleLinear<string>()

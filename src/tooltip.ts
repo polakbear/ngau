@@ -1,5 +1,5 @@
-import { childRightsColorScale, getBarColor, getContrastingTextColor } from "./color-utils";
-import { rankLabel, scoreClass, scoreLabel } from "./score-utils";
+import { childRightsColorScale, getBarColor, getContrastingTextColor } from "./utils/color-utils";
+import { rankLabel, scoreClass, scoreLabel } from "./utils/score-utils";
 import { CountryData, Nullable } from "./types";
 
 
