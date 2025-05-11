@@ -2610,7 +2610,13 @@
     "health": 0.926,
     "education": 0.728,
     "protection": 0.911,
-    "environment": 0.583
+    "environment": 0.583,
+    "ranking_life": 57,
+    "ranking_health": 79,
+    "ranking_education": 80,
+    "ranking_protection": 72,
+    "ranking_child_rights_environment": 43
+
   },
   {
     "country": "Republic of the Congo",
@@ -2620,7 +2626,13 @@
     "health": 0.518,
     "education": 0.684,
     "protection": 0.727,
-    "environment": 0.357
+    "environment": 0.357,
+    "ranking_life": 153,
+    "ranking_health": 175,
+    "ranking_education": 104,
+    "ranking_protection": 118,
+    "ranking_child_rights_environment": 120
+
   },
   {
     "country": "Romania",
@@ -2728,7 +2740,7 @@
     "ranking_child_rights_environment": 111
   },
   {
-    "country": "Saint Vincent and the Grenadines 0,764",
+    "country": "Saint Vincent and the Grenadines",
     "kri_rank": 52,
     "kri_score": 0.785,
     "life": 0.94,
@@ -3060,8 +3072,14 @@
     "life": 0.972,
     "health": 0.993,
     "education": 0.862,
-    "protection": 0.583,
-    "environment": 3.0
+    "protection": null,
+    "environment": 0.583,
+    "ranking_life": 5,
+    "ranking_health": 13,
+    "ranking_education": 25,
+    "ranking_protection": null,
+    "ranking_child_rights_environment": 41
+
   },
   {
     "country": "South Sudan",
