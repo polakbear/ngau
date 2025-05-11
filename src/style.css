@@ -271,6 +271,14 @@ canvas {
   overflow-y: auto;
   box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
   font-family: 'Segoe UI', 'IBM Plex Sans', sans-serif;
+  
+  @media (max-width: 768px) {
+    top: 430px;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(90vw, 320px);
+  }
 }
 
 .legend-methodology {
@@ -379,6 +387,112 @@ canvas {
 
 .methodology-toggle:hover {
   color: #0cb5a9;
+}
+
+.take-action-tab {
+  position: fixed;
+  right: 16px;
+  top: 16px;
+  font-size: 14px;
+  color: #ccc;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 6px 8px;
+  border-bottom: 2px solid transparent;
+  z-index: 30;
+  font-family: 'Segoe UI', sans-serif;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  
+  @media (max-width: 768px) {
+    position: fixed;
+    top: 60px;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.take-action-tab:hover {
+  color: #0cb5a9;
+}
+
+.take-action-tab.active {
+  color: #0cb5a9;
+  border-bottom: 2px solid #0cb5a9;
+}
+
+.organizations-panel {
+  display: none;
+  position: fixed;
+  right: 16px;
+  top: 60px;
+  width: 320px;
+  background: rgba(15, 23, 42, 0.85);
+  color: #f0f0f0;
+  font-size: 14px;
+  line-height: 1.5;
+  border-radius: 12px;
+  padding: 20px;
+  z-index: 999;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  
+  @media (max-width: 768px) {
+    top: 100px;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(90vw, 320px);
+  }
+}
+
+.organizations-panel.active {
+  display: block;
+}
+
+.organization-item {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.organization-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.organization-name {
+  font-weight: bold;
+  font-size: 16px;
+  color: #0cb5a9;
+  margin-bottom: 8px;
+}
+
+.organization-description {
+  margin-bottom: 8px;
+}
+
+.organization-link {
+  display: inline-block;
+  padding: 6px 12px;
+  background: rgba(12, 181, 169, 0.2);
+  border: 1px solid rgba(12, 181, 169, 0.4);
+  color: #0cb5a9;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.organization-link:hover {
+  background: rgba(12, 181, 169, 0.3);
 }
 
 @media (max-width: 768px) {

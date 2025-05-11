@@ -5,6 +5,7 @@ import { inject } from '@vercel/analytics';
 import { getElementById } from './utils/dom';
 import { createLegend } from './legend';
 import { createScoreTabs } from './score-tabs';
+import { createOrganizationsPanel, createTakeActionTab } from './organizations';
 import { onScoreChange, setScoreType } from './score-state';
 import { createPolygonMaterial } from './utils/poly';
 
@@ -30,14 +31,33 @@ async function initialize() {
 
     app.prepend(createLegend());
     document.body.appendChild(createScoreTabs());
+    document.body.appendChild(createTakeActionTab());
+    document.body.appendChild(createOrganizationsPanel());
 
     const tooltip = getElementById<HTMLDivElement>('tooltip');
     const infoPanel = getElementById<HTMLDivElement>('info-panel');
     const toggle = getElementById<HTMLDivElement>('toggle-methodology');
-    const panel = getElementById<HTMLDivElement>('methodology-panel');
+    const methodologyPanel =
+      getElementById<HTMLDivElement>('methodology-panel');
+    const takeActionTab = getElementById<HTMLButtonElement>('take-action-tab');
+    const organizationsPanel = getElementById<HTMLDivElement>(
+      'organizations-panel'
+    );
 
     toggle.addEventListener('click', () => {
-      panel?.classList.toggle('active');
+      methodologyPanel?.classList.toggle('active');
+      if (organizationsPanel?.classList.contains('active')) {
+        organizationsPanel.classList.remove('active');
+        takeActionTab?.classList.remove('active');
+      }
+    });
+
+    takeActionTab.addEventListener('click', () => {
+      takeActionTab.classList.toggle('active');
+      organizationsPanel?.classList.toggle('active');
+      if (methodologyPanel?.classList.contains('active')) {
+        methodologyPanel.classList.remove('active');
+      }
     });
 
     document.querySelectorAll('.score-tab').forEach((tab) => {
