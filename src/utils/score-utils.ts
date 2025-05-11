@@ -1,4 +1,5 @@
-import { Nullable } from "../types";
+import { CountryData, Nullable } from "../types";
+import { normalize } from "./utils";
 
 export function scoreLabel(score: Nullable): string {
   if (score == null) return "N/A";
@@ -25,4 +26,10 @@ export  function rankLabel(rank: number, total: number): string {
   if (p <= 0.7) return 'Middle';
   if (p <= 0.9) return 'Below Average';
   return 'Bottom 10%';
+}
+
+export function getKriScore(feat: any, data: CountryData[]): number | null {
+  const countryName = normalize(feat.properties.ADMIN);
+  const country = data.find((d) => normalize(d.country) === countryName);
+  return country?.kri_score ?? null;
 }
