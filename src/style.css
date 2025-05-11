@@ -456,7 +456,15 @@ canvas {
   text-align: center;
   margin-top: 8px;
   line-height: 1.4;
-
+  
+  @media (min-width: 769px) {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    text-align: right;
+    margin-top: 0;
+    z-index: 10;
+  }
 }
 
 .data-sources a {
@@ -483,11 +491,9 @@ canvas {
   background: transparent;
   border-radius: 8px;
   font-family: 'Segoe UI', sans-serif;
-  bottom: 24px;
+  top: 16px;
 
   @media (max-width: 768px) {
-    top: 16px;
-    bottom: auto;
     padding: 6px;
     gap: 4px;
     width: auto;

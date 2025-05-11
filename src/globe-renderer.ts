@@ -74,7 +74,6 @@ export function createGlobe(
     .globeImageUrl('')
     .showAtmosphere(true)
     .atmosphereColor('#3fd1c7')
-    .globeOffset([0, -150])
     .polygonStrokeColor(() => 'rgba(255,255,255,0.1)')
     .polygonCapColor(() => 'rgba(0,0,0,0)')
     .atmosphereAltitude(mobileMode ? 0.2 : 0.25)
@@ -91,6 +90,9 @@ export function createGlobe(
     .onPolygonHover(handlePolygonHover(hoverConfig))
     .backgroundColor('#0a1d26');
 
+  if (mobileMode) {
+    world.globeOffset([0, -150]);
+  }
   requestAnimationFrame(() => {
     world.pointOfView({ lat: 20, lng: 0, altitude: mobileMode ? 4 : 2.5 }, 0);
   });
