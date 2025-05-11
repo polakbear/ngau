@@ -40,7 +40,6 @@ export function createGlobe(
   const globeElement = document.getElementById('globe');
   if (!globeElement) throw new Error('Element with id "globe" not found');
 
-  // Initialize tooltip state
   tooltip.style.display = 'none';
 
   setupListeners(tooltip, infoPanel);
@@ -49,7 +48,6 @@ export function createGlobe(
   const getHoverD = () => hoverD;
   const setHoverD = (d: GeoJsonFeature | null) => {
     hoverD = d;
-    // Ensure tooltip is hidden when no country is hovered
     if (!d) {
       tooltip.style.display = 'none';
     }
@@ -76,6 +74,7 @@ export function createGlobe(
     .globeImageUrl('')
     .showAtmosphere(true)
     .atmosphereColor('#3fd1c7')
+    .globeOffset([0, -150])
     .polygonStrokeColor(() => 'rgba(255,255,255,0.1)')
     .polygonCapColor(() => 'rgba(0,0,0,0)')
     .atmosphereAltitude(mobileMode ? 0.2 : 0.25)
@@ -92,12 +91,10 @@ export function createGlobe(
     .onPolygonHover(handlePolygonHover(hoverConfig))
     .backgroundColor('#0a1d26');
 
-  // Set initial point of view
   requestAnimationFrame(() => {
     world.pointOfView({ lat: 20, lng: 0, altitude: mobileMode ? 4 : 2.5 }, 0);
   });
 
-  // resolves when the globe is ready
   const globeReady = new Promise<void>((resolve) => {
     const checkGlobe = () => {
       if (world.scene()) {
