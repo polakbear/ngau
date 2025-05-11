@@ -77,6 +77,8 @@ export function createGlobe(
     .globeImageUrl('')
     .showAtmosphere(true)
     .atmosphereColor('#3fd1c7')
+    .polygonStrokeColor(() => 'rgba(255,255,255,0.1)')
+    .polygonCapColor(() => 'rgba(0,0,0,0)')
     .atmosphereAltitude(mobileMode ? 0.2 : 0.25)
     .polygonsData(geoJson.features)
     .polygonCapMaterial((d: any) =>
