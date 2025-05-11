@@ -2,20 +2,21 @@
 
 import { CountryData } from './types';
 
-let currentScoreType: keyof CountryData = 'environment';
+type ScoreType = keyof CountryData | 'overall';
+let currentScoreType: ScoreType = 'overall';
 
-const listeners: ((score: keyof CountryData) => void)[] = [];
+const listeners: ((score: ScoreType) => void)[] = [];
 
-export function getScoreType(): keyof CountryData {
+export function getScoreType(): ScoreType {
   return currentScoreType;
 }
 
-export function setScoreType(score: keyof CountryData) {
+export function setScoreType(score: ScoreType) {
   if (score === currentScoreType) return;
   currentScoreType = score;
   listeners.forEach((cb) => cb(currentScoreType));
 }
 
-export function onScoreChange(callback: (score: keyof CountryData) => void) {
+export function onScoreChange(callback: (score: ScoreType) => void) {
   listeners.push(callback);
 }

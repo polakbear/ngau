@@ -5,32 +5,24 @@ import { CountryData } from './types';
 import { inject } from '@vercel/analytics';
 import { getElementById, setupSearchInput } from './utils/dom';
 import { createLegend } from './legend';
-import { onScoreChange, setScoreType, getScoreType } from './score-state';
-import { normalize } from './utils/utils';
-import { getColor } from './utils/color';
+import { onScoreChange, setScoreType } from './score-state';
+import { createPolygonMaterial } from './utils/poly';
 
 let data: CountryData[] = [];
 let geoJson: any;
 let world: any;
 
 function applyPolygonColors() {
-  world.polygonCapColor((feat: any) => {
-    const countryName = feat.properties?.ADMIN;
-    const country = data.find(
-      (d) => normalize(d.country) === normalize(countryName)
-    );
-    if (!country) return 'gray';
+  // Update polygon materials with current score type
+  world.polygonCapMaterial((d: any) => createPolygonMaterial(d, data, null, 0));
 
-    const rawScore = country[getScoreType()];
-    const score = typeof rawScore === 'number' ? rawScore : undefined;
-
-    return getColor(score);
+  // Force globe to reapply materials
+  const features = world.polygonsData();
+  world.polygonsTransitionDuration(0);
+  requestAnimationFrame(() => {
+    world.polygonsData(features);
+    world.polygonsTransitionDuration(300);
   });
-
-  world.polygonCapMaterial(world.polygonCapMaterial());
-  world.polygonsData([]);
-  world.polygonsData([...geoJson.features]);
-  world.re;
 }
 
 async function initialize() {
@@ -54,12 +46,15 @@ async function initialize() {
         const score = (tab as HTMLElement).dataset.score as keyof CountryData;
         if (!score) return;
 
-        setScoreType(score);
-
+        // First update UI
         document
           .querySelectorAll('.score-tab')
           .forEach((el) => el.classList.remove('active'));
         tab.classList.add('active');
+
+        // Then update the data and globe
+        setScoreType(score);
+        setTimeout(() => applyPolygonColors(), 0); // Force into next event loop tick
 
         document
           .querySelectorAll('.methodology-section')

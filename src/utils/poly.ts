@@ -1,10 +1,10 @@
 import * as THREE from 'three';
 import { childRightsColorScale } from './color';
-import { getKriScore } from './score';
 import { normalize } from './utils';
 import { generateTooltipContent } from '../tooltip';
 import { GeoJsonFeature, CountryData, HoverHandlerOptions } from '../types';
 import { animateDesaturation } from '../globe-renderer';
+import { getScoreType } from '../score-state';
 
 export function createPolygonMaterial(
   d: any,
@@ -12,14 +12,10 @@ export function createPolygonMaterial(
   hoverD: any,
   desaturationProgress: number
 ): THREE.MeshLambertMaterial {
-  const score = getKriScore(d, data);
-  const isNoData = score === null;
-  const isHovered = hoverD && d === hoverD;
-
-  const opacity = !hoverD ? 1 : isHovered ? 1 : 1 - 0.75 * desaturationProgress;
-
-  if (isNoData) {
-    // Create a striped texture for no-data countries
+  const countryName = normalize(d.properties.ADMIN);
+  const country = data.find((d) => normalize(d.country) === countryName);
+  if (!country) {
+    // Create striped texture for no-data countries
     const stripeCanvas = document.createElement('canvas');
     stripeCanvas.width = 64;
     stripeCanvas.height = 64;
@@ -40,12 +36,24 @@ export function createPolygonMaterial(
     return new THREE.MeshLambertMaterial({
       map: texture,
       transparent: true,
-      opacity,
+      opacity: !hoverD ? 1 : 0.25,
       depthWrite: false,
     });
   }
 
-  const baseColor = childRightsColorScale(score);
+  // Get the score based on the current score type
+  const scoreType = getScoreType();
+  // Use kri_score for 'overall', otherwise use the score type directly
+  const rawScore =
+    scoreType === 'overall'
+      ? country.kri_score
+      : country[scoreType as keyof CountryData];
+  const score = typeof rawScore === 'number' ? rawScore : null;
+
+  const isHovered = hoverD && d === hoverD;
+  const opacity = !hoverD ? 1 : isHovered ? 1 : 1 - 0.75 * desaturationProgress;
+
+  const baseColor = childRightsColorScale(score ?? 0);
   return new THREE.MeshLambertMaterial({
     color: new THREE.Color(baseColor),
     transparent: true,
