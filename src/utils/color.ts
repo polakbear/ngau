@@ -38,10 +38,10 @@ export function getColorFromRank(rank: number | null, total: number): string {
   if (rank === null) return colors.noData;
   const percentile = (total - rank) / total;
 
-  if (percentile >= 0.8) return colors.excellent;
+  if (percentile >= 0.9) return colors.excellent;
   if (percentile >= 0.6) return colors.good;
   if (percentile >= 0.4) return colors.fair;
-  if (percentile >= 0.2) return colors.poor;
+  if (percentile >= 0.1) return colors.poor;
   return colors.veryPoor;
 }
 

@@ -75,7 +75,8 @@ export function createGlobe(
     .polygonCapMaterial((d: any) =>
       createPolygonMaterial(d, data, hoverD, desaturationProgress)
     )
-    .polygonSideColor(() => 'rgba(0, 0, 0, 0.05)')
+    .polygonSideColor(() => '#000000')
+    .polygonAltitude((d: any) => (d === hoverD ? 0.02 : 0.01))
     .polygonsTransitionDuration(300)
     .onPolygonClick((polygon: object | null) =>
       handlePolygonClick(polygon, data, tooltip, infoPanel)
@@ -101,7 +102,7 @@ export function animateDesaturation(
   const start = performance.now();
   const from = desaturationProgress;
   const to = target;
-  const easing = to > from ? (t: number) => t * t : (t: number) => t * (2 - t);
+  const easing = (t: number) => t * (2 - t); // smooth easing
 
   function update(now: number) {
     const elapsed = now - start;

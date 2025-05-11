@@ -6,6 +6,40 @@ import { GeoJsonFeature, CountryData, HoverHandlerOptions } from '../types';
 import { animateDesaturation } from '../globe-renderer';
 import { getScoreType } from '../score-state';
 
+// Create a reusable striped texture
+let stripedTexture: THREE.CanvasTexture | null = null;
+
+function createStripedTexture() {
+  if (stripedTexture) return stripedTexture;
+
+  const stripeCanvas = document.createElement('canvas');
+  stripeCanvas.width = 64;
+  stripeCanvas.height = 64;
+  const ctx = stripeCanvas.getContext('2d')!;
+
+  // Fill with white
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(0, 0, 64, 64);
+
+  // Add diagonal gray stripes
+  ctx.strokeStyle = '#888888';
+  ctx.lineWidth = 4;
+
+  // Draw multiple diagonal lines
+  for (let i = -64; i < 64; i += 12) {
+    ctx.beginPath();
+    ctx.moveTo(i, 64);
+    ctx.lineTo(i + 64, 0);
+    ctx.stroke();
+  }
+
+  stripedTexture = new THREE.CanvasTexture(stripeCanvas);
+  stripedTexture.wrapS = stripedTexture.wrapT = THREE.RepeatWrapping;
+  stripedTexture.repeat.set(8, 8);
+
+  return stripedTexture;
+}
+
 export function createPolygonMaterial(
   d: any,
   data: any[],
@@ -14,25 +48,22 @@ export function createPolygonMaterial(
 ): THREE.MeshLambertMaterial {
   const countryName = normalize(d.properties.ADMIN);
   const country = data.find((d) => normalize(d.country) === countryName);
-  if (!country) {
-    // Create striped texture for no-data countries
-    const stripeCanvas = document.createElement('canvas');
-    stripeCanvas.width = 64;
-    stripeCanvas.height = 64;
-    const ctx = stripeCanvas.getContext('2d')!;
-    ctx.fillStyle = '#ddd';
-    ctx.fillRect(0, 0, 64, 64);
-    ctx.strokeStyle = '#888';
-    ctx.lineWidth = 5;
-    ctx.beginPath();
-    ctx.moveTo(0, 64);
-    ctx.lineTo(64, 0);
-    ctx.stroke();
 
-    const texture = new THREE.CanvasTexture(stripeCanvas);
-    texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-    texture.repeat.set(30, 30);
+  // Get the score based on the current score type
+  let score = null;
+  if (country) {
+    const scoreType = getScoreType();
+    // Use kri_score for 'overall', otherwise use the score type directly
+    const rawScore =
+      scoreType === 'overall'
+        ? country.kri_score
+        : country[scoreType as keyof CountryData];
+    score = typeof rawScore === 'number' ? rawScore : null;
+  }
 
+  // If no country found or score is null, use striped pattern
+  if (score === null) {
+    const texture = createStripedTexture();
     return new THREE.MeshLambertMaterial({
       map: texture,
       transparent: true,
@@ -41,19 +72,10 @@ export function createPolygonMaterial(
     });
   }
 
-  // Get the score based on the current score type
-  const scoreType = getScoreType();
-  // Use kri_score for 'overall', otherwise use the score type directly
-  const rawScore =
-    scoreType === 'overall'
-      ? country.kri_score
-      : country[scoreType as keyof CountryData];
-  const score = typeof rawScore === 'number' ? rawScore : null;
-
   const isHovered = hoverD && d === hoverD;
-  const opacity = !hoverD ? 1 : isHovered ? 1 : 1 - 0.75 * desaturationProgress;
+  const opacity = !hoverD ? 1 : isHovered ? 1 : 1 - 0.7 * desaturationProgress;
 
-  const baseColor = childRightsColorScale(score ?? 0);
+  const baseColor = childRightsColorScale(score);
   return new THREE.MeshLambertMaterial({
     color: new THREE.Color(baseColor),
     transparent: true,

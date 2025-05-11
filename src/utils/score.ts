@@ -9,11 +9,11 @@ export function getPerformanceLabel(
   if (rank === null) return 'N/A';
   const percentile = (total - rank) / total;
 
-  if (percentile >= 0.8) return 'Excellent';
-  if (percentile >= 0.6) return 'Good';
-  if (percentile >= 0.4) return 'Fair';
-  if (percentile >= 0.2) return 'Poor';
-  return 'Very Poor';
+  if (percentile >= 0.9) return 'Top 10%';
+  if (percentile >= 0.6) return 'Above Average';
+  if (percentile >= 0.4) return 'Average';
+  if (percentile >= 0.1) return 'Below Average';
+  return 'Bottom 10%';
 }
 
 // Get CSS class based on rank position
@@ -22,18 +22,19 @@ export function getPerformanceClass(
   total: number
 ): string {
   if (rank === null) return 'qual--na';
-  const label = getPerformanceLabel(rank, total)
-    .toLowerCase()
-    .replace(' ', '-');
-  return `qual--${label}`;
+  const percentile = (total - rank) / total;
+
+  if (percentile >= 0.9) return 'qual--excellent';
+  if (percentile >= 0.6) return 'qual--good';
+  if (percentile >= 0.4) return 'qual--fair';
+  if (percentile >= 0.1) return 'qual--poor';
+  return 'qual--very-poor';
 }
 
 // Get intuitive label that shows both rank and relative standing
 export function getFullLabel(rank: number | null, total: number): string {
   if (rank === null) return 'No Data';
-  const label = getPerformanceLabel(rank, total);
-  const percentile = Math.round(((total - rank) / total) * 100);
-  return `${label} (Top ${100 - percentile}%)`;
+  return getPerformanceLabel(rank, total);
 }
 
 // Legacy functions maintained for backward compatibility
