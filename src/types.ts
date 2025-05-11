@@ -34,3 +34,18 @@ export interface GeoJsonFeature {
 }
 
 export type Nullable = number | null | undefined;
+
+export interface HoverHandlerOptions {
+  world: any;
+  data: CountryData[];
+  tooltip: HTMLElement;
+  infoPanel: HTMLElement;
+  getHoverD: () => GeoJsonFeature | null;
+  setHoverD: (d: GeoJsonFeature | null) => void;
+  animateDesaturation: (
+    world: any,
+    target: number,
+    duration?: number,
+    onComplete?: () => void
+  ) => void;
+}

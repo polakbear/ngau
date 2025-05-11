@@ -42,19 +42,17 @@ function buildMetricRow(
   `;
 }
 
-// Main tooltip content generator
 export function generateTooltipContent(
   countryName: string,
   country: CountryData | undefined,
   options: { closeButton?: boolean; animateBars?: boolean } = {}
 ): string {
   const { closeButton = false } = options;
-  const total = 198;
+  const total = 194;
   const kri = country?.kri_score ?? null;
   const rank = country?.kri_rank ?? null;
   const rankQual = rank != null ? rankLabel(rank, total) : '';
 
-  // Child rights indicators
   const findValue = (type: string) =>
     country?.indicators?.find((i) => i.type === type)?.value_total;
   const cm = findValue('child_marriage');
@@ -88,7 +86,6 @@ export function generateTooltipContent(
   ${buildMetricRow('fa fa-shield-alt', 'Protection', country?.protection, country?.ranking_protection)}
   ${buildMetricRow('fa fa-globe', 'Environment', country?.environment, country?.ranking_child_rights_environment)}
 </div>
-    <!-- Child Rights Violations -->
     ${
       hasViolations
         ? `

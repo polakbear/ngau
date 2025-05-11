@@ -3,8 +3,7 @@ import { childRightsColorScale } from './color-utils';
 import { getKriScore } from './score-utils';
 import { normalize } from './utils';
 import { generateTooltipContent } from '../tooltip';
-import { GeoJsonFeature, CountryData } from '../types';
-import { animateDesaturation } from './animation-utils';
+import { GeoJsonFeature, CountryData, HoverHandlerOptions } from '../types';
 
 export function createPolygonMaterial(
   d: any,
@@ -86,57 +85,58 @@ export function handlePolygonClick(
   }
 }
 
-export function handlePolygonHover(
-  polygon: object | null,
-  data: CountryData[],
-  tooltip: HTMLElement,
-  infoPanel: HTMLElement,
-  world: any,
-  hoverD: GeoJsonFeature | null,
-  desaturationProgress: number
-): GeoJsonFeature | null {
-  const prevHover = hoverD;
-  const newHover = polygon as GeoJsonFeature | null;
+export function handlePolygonHover({
+  world,
+  data,
+  tooltip,
+  infoPanel,
+  getHoverD,
+  setHoverD,
+  animateDesaturation,
+}: HoverHandlerOptions) {
+  return (polygon: object | null) => {
+    const prevHover = getHoverD();
+    const newHover = polygon as GeoJsonFeature | null;
 
-  const hadHover = !!prevHover;
-  const hasHover = !!newHover;
+    const hadHover = !!prevHover;
+    const hasHover = !!newHover;
 
-  // Trigger fade transitions
-  if (hasHover && !hadHover) {
-    hoverD = newHover; // Set early so polygonCapMaterial knows which one to highlight
-    animateDesaturation(world, 1, 200, desaturationProgress);
-  } else if (!hasHover && hadHover) {
-    animateDesaturation(world, 0, 400, desaturationProgress, () => {
-      hoverD = null;
-      world.polygonCapMaterial(world.polygonCapMaterial());
-    });
-  } else {
-    hoverD = newHover;
-  }
-
-  // Tooltip logic
-  if (newHover && infoPanel.innerHTML === '') {
-    const countryName = newHover.properties.ADMIN || 'Unknown';
-    const country = data.find(
-      (d) => normalize(d.country) === normalize(countryName)
-    );
-
-    if (country) {
-      tooltip.style.display = 'block';
-      tooltip.innerHTML = generateTooltipContent(countryName, country);
-
-      requestAnimationFrame(() => {
-        const bars = tooltip.querySelectorAll('.bar-fill');
-        bars.forEach((bar) => {
-          const score = parseFloat(bar.getAttribute('data-score') || '0');
-          (bar as HTMLElement).style.width = `${score * 100}%`;
-        });
+    if (hasHover && !hadHover) {
+      setHoverD(newHover);
+      animateDesaturation(world, 1, 200);
+    } else if (!hasHover && hadHover) {
+      animateDesaturation(world, 0, 400, () => {
+        setHoverD(null);
+        world.polygonCapMaterial(world.polygonCapMaterial());
       });
+    } else {
+      setHoverD(newHover);
     }
-  } else {
-    tooltip.style.display = 'none';
-  }
 
-  world.polygonAltitude((d: GeoJsonFeature) => (d === hoverD ? 0.05 : 0.01));
-  return hoverD;
+    if (newHover && infoPanel.innerHTML === '') {
+      const countryName = newHover.properties.ADMIN || 'Unknown';
+      const country = data.find(
+        (d) => normalize(d.country) === normalize(countryName)
+      );
+
+      if (country) {
+        tooltip.style.display = 'block';
+        tooltip.innerHTML = generateTooltipContent(countryName, country);
+
+        requestAnimationFrame(() => {
+          const bars = tooltip.querySelectorAll('.bar-fill');
+          bars.forEach((bar) => {
+            const score = parseFloat(bar.getAttribute('data-score') || '0');
+            (bar as HTMLElement).style.width = `${score * 100}%`;
+          });
+        });
+      }
+    } else {
+      tooltip.style.display = 'none';
+    }
+
+    return world.polygonAltitude((d: GeoJsonFeature) =>
+      d === newHover ? 0.05 : 0.01
+    );
+  };
 }

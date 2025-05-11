@@ -1079,7 +1079,7 @@
     "ranking_child_rights_environment": 64
   },
   {
-    "country": "Eswatini",
+    "country": "Swaziland",
     "kri_rank": 131,
     "kri_score": 0.591,
     "life": 0.497,
@@ -1682,6 +1682,16 @@
     "ranking_child_rights_environment": 107
   },
   {
+    "country": "Kosovo",
+    "kri_rank": null,
+    "kri_score": null,
+    "life":null,
+    "health": null,
+    "education": null,
+    "protection": null,
+    "environment":null
+  },
+  {
     "country": "Kuwait",
     "kri_rank": 73,
     "kri_score": 0.732,
@@ -2234,6 +2244,16 @@
     "ranking_education": 9,
     "ranking_protection": 3,
     "ranking_child_rights_environment": 109
+  },
+    {
+    "country": "New Caledonia",
+    "kri_rank": null,
+    "kri_score": null,
+    "life":null,
+    "health": null,
+    "education": null,
+    "protection": null,
+    "environment":null
   },
   {
     "country": "New Zealand",
@@ -2980,6 +3000,22 @@
     "ranking_protection": 167,
     "ranking_child_rights_environment": 44
   },
+   {
+    "country": "Somaliland",
+    "kri_rank": 183,
+    "kri_score": 0.348,
+    "life": 0.202,
+    "health": 0.389,
+    "education": 0.321,
+    "protection": 0.583,
+    "environment": 0.5,
+    "ranking_kri": 183,
+    "ranking_life": 189,
+    "ranking_health": 186,
+    "ranking_education": null,
+    "ranking_protection": 167,
+    "ranking_child_rights_environment": 44
+  },
   {
     "country": "South Africa",
     "kri_rank": 93,
@@ -3185,6 +3221,16 @@
         "data_source": "MICS 2006"
       }
     ]
+  },
+  {
+    "country": "Taiwan",
+    "kri_rank": null,
+    "kri_score": null,
+    "life": null,
+    "health": null,
+    "education": null,
+    "protection": null,
+    "environment": null
   },
   {
     "country": "Tajikistan",
@@ -3470,6 +3516,16 @@
     "ranking_child_rights_environment": 16
   },
   {
+    "country": "United States of America",
+    "kri_rank": null,
+    "kri_score": null,
+    "life":null,
+    "health": null,
+    "education": null,
+    "protection": null,
+    "environment":null
+  },
+  {
     "country": "Uruguay",
     "kri_rank": 23,
     "kri_score": 0.81,
@@ -3542,6 +3598,16 @@
     "ranking_education": 98,
     "ranking_protection": 74,
     "ranking_child_rights_environment": 154
+  },
+    {
+    "country": "Western Sahara",  
+    "kri_rank": null,
+    "kri_score": null,
+    "life":null,
+    "health": null,
+    "education": null,
+    "protection": null,
+    "environment":null
   },
   {
     "country": "Yemen",
