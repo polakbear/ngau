@@ -8,11 +8,11 @@ export function createLegend(): HTMLElement {
       <div class="legend-bar">
         <div style="background: repeating-linear-gradient(
             45deg, #eee, #eee 4px, #bbb 4px, #bbb 8px);"></div>
-        <div style="background: #4b5c6b"></div>
-        <div style="background: #5a7d9a"></div>
-        <div style="background: #76b5c5"></div>
-        <div style="background: #2e9c9f"></div>
-        <div style="background: #3fd1c7"></div>
+        <div style="background: #394655"></div>
+        <div style="background: #486985"></div>
+        <div style="background: #5c9db4"></div>
+        <div style="background: #238d87"></div>
+        <div style="background: #0cb5a9"></div>
       </div>
       <div class="legend-row">
         <div class="legend-labels">

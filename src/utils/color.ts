@@ -2,12 +2,12 @@ import * as d3 from 'd3-scale';
 import { Nullable } from '../types';
 
 export const colors = {
-  excellent: '#3fd1c7',
-  good: '#2e9c9f',
-  fair: '#76b5c5',
-  poor: '#5a7d9a',
-  veryPoor: '#4b5c6b',
-  noData: '#444444',
+  excellent: '#0cb5a9',
+  good: '#238d87',
+  fair: '#5c9db4',
+  poor: '#486985',
+  veryPoor: '#394655',
+  noData: '#383838',
 };
 
 export const childRightsColorScale = d3
