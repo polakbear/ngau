@@ -1,4 +1,3 @@
-// main.ts
 import { loadData } from './data-service';
 import { createGlobe } from './globe-renderer';
 import { CountryData } from './types';
@@ -14,10 +13,8 @@ let geoJson: any;
 let world: any;
 
 function applyPolygonColors() {
-  // Update polygon materials with current score type
   world.polygonCapMaterial((d: any) => createPolygonMaterial(d, data, null, 0));
 
-  // Force globe to reapply materials
   const features = world.polygonsData();
   world.polygonsTransitionDuration(0);
   requestAnimationFrame(() => {
@@ -48,7 +45,6 @@ async function initialize() {
         const score = (tab as HTMLElement).dataset.score as keyof CountryData;
         if (!score) return;
 
-        // First update UI
         document
           .querySelectorAll('.score-tab')
           .forEach((el) => el.classList.remove('active'));
@@ -75,12 +71,9 @@ async function initialize() {
 
     world = createGlobe(geoJson, data, tooltip, infoPanel);
 
-    // Wait for the globe to be ready before calculating centroids and setting up interactions
     world.onGlobeLoaded(() => {
-      // Calculate centroids for each country using polygon coordinates
       geoJson.features.forEach((f: any) => {
         if (f.geometry && f.geometry.coordinates) {
-          // For polygons with multiple parts, use the first/largest part
           const coords = f.geometry.coordinates[0][0];
           let sumLng = 0,
             sumLat = 0;
@@ -92,7 +85,6 @@ async function initialize() {
         }
       });
 
-      // Apply initial colors and set up color updates
       applyPolygonColors();
       onScoreChange(applyPolygonColors);
     });

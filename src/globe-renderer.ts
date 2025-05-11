@@ -1,4 +1,3 @@
-// globe-renderer.ts
 import Globe from 'globe.gl';
 import { CountryData, GeoJsonFeature } from './types';
 import {
@@ -98,7 +97,7 @@ export function createGlobe(
     world.pointOfView({ lat: 20, lng: 0, altitude: mobileMode ? 4 : 2.5 }, 0);
   });
 
-  // Create a promise that resolves when the globe is ready
+  // resolves when the globe is ready
   const globeReady = new Promise<void>((resolve) => {
     const checkGlobe = () => {
       if (world.scene()) {
@@ -110,7 +109,6 @@ export function createGlobe(
     checkGlobe();
   });
 
-  // Add onGlobeLoaded method to the world object
   const originalWorld = world;
   const enhancedWorld = Object.assign(originalWorld, {
     onGlobeLoaded: (callback: () => void) => {

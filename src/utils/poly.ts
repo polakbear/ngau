@@ -6,7 +6,6 @@ import { GeoJsonFeature, CountryData, HoverHandlerOptions } from '../types';
 import { animateDesaturation } from '../globe-renderer';
 import { getScoreType } from '../score-state';
 
-// Create a reusable striped texture
 let stripedTexture: THREE.CanvasTexture | null = null;
 
 function createStripedTexture() {
@@ -25,7 +24,6 @@ function createStripedTexture() {
   ctx.strokeStyle = '#888888';
   ctx.lineWidth = 4;
 
-  // Draw multiple diagonal lines
   for (let i = -64; i < 64; i += 12) {
     ctx.beginPath();
     ctx.moveTo(i, 64);
@@ -49,11 +47,9 @@ export function createPolygonMaterial(
   const countryName = normalize(d.properties.ADMIN);
   const country = data.find((d) => normalize(d.country) === countryName);
 
-  // Get the score based on the current score type
   let score = null;
   if (country) {
     const scoreType = getScoreType();
-    // Use kri_score for 'overall', otherwise use the score type directly
     const rawScore =
       scoreType === 'overall'
         ? country.kri_score
@@ -61,7 +57,6 @@ export function createPolygonMaterial(
     score = typeof rawScore === 'number' ? rawScore : null;
   }
 
-  // If no country found or score is null, use striped pattern
   if (score === null) {
     const texture = createStripedTexture();
     return new THREE.MeshLambertMaterial({

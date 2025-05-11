@@ -1,5 +1,3 @@
-// src/state/score-state.ts
-
 import { CountryData } from './types';
 
 type ScoreType = keyof CountryData | 'overall';
