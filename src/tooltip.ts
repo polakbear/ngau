@@ -1,9 +1,17 @@
-import { childRightsColorScale, getBarColor, getContrastingTextColor } from "./utils/color-utils";
-import { rankLabel, scoreClass, scoreLabel } from "./utils/score-utils";
-import { CountryData, Nullable } from "./types";
+import {
+  childRightsColorScale,
+  getBarColor,
+  getContrastingTextColor,
+} from './utils/color-utils';
+import { rankLabel, scoreClass, scoreLabel } from './utils/score-utils';
+import { CountryData, Nullable } from './types';
 
-
-function buildMetricRow(iconClass: string, label: string, value: Nullable, rank: Nullable): string {
+function buildMetricRow(
+  iconClass: string,
+  label: string,
+  value: Nullable,
+  rank: Nullable
+): string {
   const quality = scoreLabel(value);
   const qualityClass = scoreClass(value);
   const rankDisplay = rank != null ? `Rank ${rank}` : '';
@@ -13,11 +21,14 @@ function buildMetricRow(iconClass: string, label: string, value: Nullable, rank:
     <div class="tooltip-metric">
       <div class="metric-label"><i class="${iconClass}"></i><span>${label}</span></div>
       <div class="metric-info">
-        ${showBadge ? `
+        ${
+          showBadge
+            ? `
           <div class="split-badge">
             <span class="split-left">${rankDisplay}</span>
             <span class="split-right ${qualityClass}">${quality}</span>
-          </div>` : ''
+          </div>`
+            : ''
         }
         <span class="value">${value != null ? value.toFixed(3) : 'N/A'}</span>
         <div class="bar-container">
@@ -35,7 +46,7 @@ function buildMetricRow(iconClass: string, label: string, value: Nullable, rank:
 export function generateTooltipContent(
   countryName: string,
   country: CountryData | undefined,
-  options: { closeButton?: boolean, animateBars?: boolean } = {}
+  options: { closeButton?: boolean; animateBars?: boolean } = {}
 ): string {
   const { closeButton = false } = options;
   const total = 198;
@@ -45,7 +56,7 @@ export function generateTooltipContent(
 
   // Child rights indicators
   const findValue = (type: string) =>
-    country?.indicators?.find(i => i.type === type)?.value_total;
+    country?.indicators?.find((i) => i.type === type)?.value_total;
   const cm = findValue('child_marriage');
   const cl = findValue('child_labor');
   const fg = findValue('fgm_prevalence');
@@ -78,16 +89,22 @@ export function generateTooltipContent(
   ${buildMetricRow('fa fa-globe', 'Environment', country?.environment, country?.ranking_child_rights_environment)}
 </div>
     <!-- Child Rights Violations -->
-    ${hasViolations ? `
+    ${
+      hasViolations
+        ? `
       <div class="tooltip-subtitle">Child Rights Violations</div>
       <div class="tooltip-section">
         ${cm != null ? `<div class="tooltip-row"><span class="left"><i class="fas fa-triangle-exclamation"></i><span>Child Marriage</span></span><span class="value">${cm}%</span></div>` : ''}
         ${cl != null ? `<div class="tooltip-row"><span class="left"><i class="fas fa-triangle-exclamation"></i><span>Child Labor</span></span><span class="value">${cl}%</span></div>` : ''}
         ${fg != null ? `<div class="tooltip-row"><span class="left"><i class="fas fa-triangle-exclamation"></i><span>FGM Prevalence</span></span><span class="value">${fg}%</span></div>` : ''}
       </div>
-    ` : ''}
+    `
+        : ''
+    }
 
-    ${closeButton ? `
+    ${
+      closeButton
+        ? `
       <div style="text-align: right; margin-top: 12px;">
         <button id="close-info" style="
           background: none;
@@ -96,6 +113,8 @@ export function generateTooltipContent(
           cursor: pointer;
           font-size: 13px;
         ">Close</button>
-      </div>` : ''}
+      </div>`
+        : ''
+    }
   `;
 }

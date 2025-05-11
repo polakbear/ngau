@@ -1,13 +1,13 @@
-import { CountryData, Nullable } from "../types";
-import { normalize } from "./utils";
+import { CountryData, Nullable } from '../types';
+import { normalize } from './utils';
 
 export function scoreLabel(score: Nullable): string {
-  if (score == null) return "N/A";
-  if (score < 0.2) return "Very Poor";
-  if (score < 0.4) return "Poor";
-  if (score < 0.6) return "Fair";
-  if (score < 0.8) return "Good";
-  return "Excellent";
+  if (score == null) return 'N/A';
+  if (score < 0.2) return 'Very Poor';
+  if (score < 0.4) return 'Poor';
+  if (score < 0.6) return 'Fair';
+  if (score < 0.8) return 'Good';
+  return 'Excellent';
 }
 
 export function scoreClass(score: Nullable): string {
@@ -19,7 +19,7 @@ export function scoreClass(score: Nullable): string {
   return 'qual--excellent';
 }
 
-export  function rankLabel(rank: number, total: number): string {
+export function rankLabel(rank: number, total: number): string {
   const p = rank / total;
   if (p <= 0.1) return 'Top 10%';
   if (p <= 0.3) return 'Above Average';

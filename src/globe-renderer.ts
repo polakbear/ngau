@@ -1,15 +1,33 @@
-import Globe from "globe.gl";
-import { CountryData, GeoJsonFeature } from "./types";
-import { normalize } from "./utils/utils";
-import { generateTooltipContent } from "./tooltip";
-import * as THREE from 'three';
-import { childRightsColorScale } from "./utils/color-utils";
-import { getKriScore } from "./utils/score-utils";
-import { createPolygonMaterial, handlePolygonClick, handlePolygonHover } from "./utils/polygon-utils";
-import { animateDesaturation } from "./utils/animation-utils";
-
+import Globe from 'globe.gl';
+import { CountryData, GeoJsonFeature } from './types';
+import {
+  createPolygonMaterial,
+  handlePolygonClick,
+  handlePolygonHover,
+} from './utils/polygon-utils';
 
 let desaturationProgress = 0;
+
+function setupListeners(tooltip: HTMLElement, infoPanel: HTMLElement): void {
+  document.addEventListener('mousemove', (event) => {
+    tooltip.style.left = `${event.pageX + 10}px`;
+    tooltip.style.top = `${event.pageY + 10}px`;
+  });
+
+  document.addEventListener('click', (e) => {
+    if ((e.target as HTMLElement).id === 'close-info') {
+      infoPanel.innerHTML = '';
+      infoPanel.style.display = 'none';
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      infoPanel.innerHTML = '';
+      infoPanel.style.display = 'none';
+    }
+  });
+}
 
 export function createGlobe(
   geoJson: any,
@@ -17,48 +35,30 @@ export function createGlobe(
   tooltip: HTMLElement,
   infoPanel: HTMLElement
 ) {
-  const globeElement = document.getElementById("globe");
+  const globeElement = document.getElementById('globe');
   if (!globeElement) {
     throw new Error('Element with id "globe" not found');
   }
 
-  document.addEventListener("mousemove", (event) => {
-    tooltip.style.left = `${event.pageX + 10}px`;
-    tooltip.style.top = `${event.pageY + 10}px`;
-  });
-
-  document.addEventListener("click", (e) => {
-    if ((e.target as HTMLElement).id === "close-info") {
-      infoPanel.innerHTML = "";
-      infoPanel.style.display = "none";
-    }
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      infoPanel.innerHTML = "";
-      infoPanel.style.display = "none";
-    }
-  });
-
+  setupListeners(tooltip, infoPanel);
   let hoverD: GeoJsonFeature | null = null;
 
   const world = new Globe(globeElement)
-    .globeImageUrl("")
+    .globeImageUrl('')
     .showAtmosphere(true)
-    .atmosphereColor("#2e9c9f")
+    .atmosphereColor('#2e9c9f')
     .atmosphereAltitude(0.45)
     .polygonsData(geoJson.features)
     .polygonCapColor(() => 'rgba(0,0,0,0)')
     .polygonCapMaterial((d: any) =>
       createPolygonMaterial(d, data, hoverD, desaturationProgress)
     )
-    .polygonSideColor(() => "rgba(0, 0, 0, 0.05)")    
+    .polygonSideColor(() => 'rgba(0, 0, 0, 0.05)')
     .polygonsTransitionDuration(200)
     .onPolygonClick((polygon: object | null) =>
       handlePolygonClick(polygon, data, tooltip, infoPanel)
     )
-  .onPolygonHover((polygon: object | null) => {
+    .onPolygonHover((polygon: object | null) => {
       hoverD = handlePolygonHover(
         polygon,
         data,
@@ -71,7 +71,3 @@ export function createGlobe(
     });
   return world;
 }
-
-
-
-

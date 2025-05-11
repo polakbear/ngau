@@ -7,10 +7,13 @@ export default defineConfig({
     viteStaticCopy({
       targets: [
         {
-          src: path.resolve(__dirname, 'node_modules/@fortawesome/fontawesome-free/webfonts'),
-          dest: '' // puts them into dist/webfonts/
-        }
-      ]
-    })
-  ]
+          src: path.resolve(
+            __dirname,
+            'node_modules/@fortawesome/fontawesome-free/webfonts'
+          ),
+          dest: '', // puts them into dist/webfonts/
+        },
+      ],
+    }),
+  ],
 });

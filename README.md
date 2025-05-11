@@ -14,8 +14,8 @@ It’s not affiliated with any organization.
 
 ## Sources
 
-- KidsRights Index 2024  
-- UNICEF Reports 
+- KidsRights Index 2024
+- UNICEF Reports
 - DHS & MICS Surveys
 
 ---
@@ -24,8 +24,8 @@ It’s not affiliated with any organization.
 
 This project uses [Vite](https://vitejs.dev/) for development.
 
-1. Clone the repository  
-2. Install dependencies  
+1. Clone the repository
+2. Install dependencies
 3. Start the dev server
 
 ```bash
@@ -47,9 +47,9 @@ Then open http://localhost:5173 in your browser.
 - [ ] Visualize indicators in tooltip and info panel
 - [ ] Improve mobile layout and responsiveness
 - [ ] Add optional map layer for organizational presence
-- [ ] Explore justice-related indicators  
-  - Age of criminal responsibility  
-  - Juvenile incarceration  
+- [ ] Explore justice-related indicators
+  - Age of criminal responsibility
+  - Juvenile incarceration
   - Legal protections for children
 - [ ] Explore time-based comparisons (e.g. trends since 2010)
 - [ ] Consider light/dark mode toggle

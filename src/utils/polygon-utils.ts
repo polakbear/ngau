@@ -16,11 +16,7 @@ export function createPolygonMaterial(
   const isNoData = score === null;
   const isHovered = hoverD && d === hoverD;
 
-  const opacity = !hoverD
-    ? 1
-    : isHovered
-    ? 1
-    : 1 - 0.75 * desaturationProgress;
+  const opacity = !hoverD ? 1 : isHovered ? 1 : 1 - 0.75 * desaturationProgress;
 
   if (isNoData) {
     // Create a striped texture for no-data countries
@@ -119,27 +115,28 @@ export function handlePolygonHover(
   }
 
   // Tooltip logic
-  if (newHover && infoPanel.innerHTML === "") {
-    const countryName = newHover.properties.ADMIN || "Unknown";
-    const country = data.find((d) => normalize(d.country) === normalize(countryName));
+  if (newHover && infoPanel.innerHTML === '') {
+    const countryName = newHover.properties.ADMIN || 'Unknown';
+    const country = data.find(
+      (d) => normalize(d.country) === normalize(countryName)
+    );
 
     if (country) {
-      tooltip.style.display = "block";
+      tooltip.style.display = 'block';
       tooltip.innerHTML = generateTooltipContent(countryName, country);
 
       requestAnimationFrame(() => {
-        const bars = tooltip.querySelectorAll(".bar-fill");
+        const bars = tooltip.querySelectorAll('.bar-fill');
         bars.forEach((bar) => {
-          const score = parseFloat(bar.getAttribute("data-score") || "0");
+          const score = parseFloat(bar.getAttribute('data-score') || '0');
           (bar as HTMLElement).style.width = `${score * 100}%`;
         });
       });
     }
   } else {
-    tooltip.style.display = "none";
+    tooltip.style.display = 'none';
   }
 
   world.polygonAltitude((d: GeoJsonFeature) => (d === hoverD ? 0.05 : 0.01));
   return hoverD;
 }
-

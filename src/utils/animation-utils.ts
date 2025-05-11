@@ -6,7 +6,13 @@ function easeOut(t: number): number {
   return t * (2 - t);
 }
 
-export function animateDesaturation(world: any, target: number, duration = 400, desaturationProgress: number = 0, onComplete?: () => void) {
+export function animateDesaturation(
+  world: any,
+  target: number,
+  duration = 400,
+  desaturationProgress: number = 0,
+  onComplete?: () => void
+) {
   const start = performance.now();
   const from = desaturationProgress;
   const to = target;
