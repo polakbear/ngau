@@ -155,7 +155,7 @@ canvas {
 .metric-label {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   color: #80e1ff;
   width: 100px;
   flex-shrink: 0;
@@ -165,7 +165,7 @@ canvas {
 .metric-label i {
   width: 20px;
   text-align: center;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .metric-label span {
