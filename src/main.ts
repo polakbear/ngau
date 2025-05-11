@@ -5,6 +5,7 @@ import { CountryData } from './types';
 import { inject } from '@vercel/analytics';
 import { getElementById } from './utils/dom';
 import { createLegend } from './legend';
+import { createScoreTabs } from './score-tabs';
 import { onScoreChange, setScoreType } from './score-state';
 import { createPolygonMaterial } from './utils/poly';
 
@@ -38,6 +39,7 @@ async function initialize() {
     document.body.appendChild(disclaimer);
 
     app.prepend(createLegend());
+    document.body.appendChild(createScoreTabs());
 
     const tooltip = getElementById<HTMLDivElement>('tooltip');
     const infoPanel = getElementById<HTMLDivElement>('info-panel');

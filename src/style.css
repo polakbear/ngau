@@ -306,7 +306,19 @@ canvas {
   top: 16px;
   left: 16px;
   z-index: 10;
+  
+  @media (max-width: 768px) {
+    top: auto;
+    bottom: 24px;
+  }
   font-family: 'Segoe UI', sans-serif;
+
+  @media (max-width: 768px) {
+    top: auto;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
   font-size: 13px;
   color: #ddd;
   background: transparent;
@@ -454,7 +466,7 @@ canvas {
   pointer-events: none;
 
   @media (max-width: 768px) {
-    bottom: 80px;  /* Changed from 'bottom: auto' to position above the score tabs */
+    bottom: 100px;
     right: 16px;
     font-size: 10px;
     max-width: 160px;
@@ -477,23 +489,25 @@ canvas {
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-  top: 24px;
   left: 50%;
+  transform: translateX(-50%);
   padding: 6px 12px;
   gap: 8px;
   z-index: 20;
   background: transparent;
-  transform: translateX(-50%);
   border-radius: 8px;
   font-family: 'Segoe UI', sans-serif;
+  bottom: 24px;
 
   @media (max-width: 768px) {
-    top: auto;
-    bottom: 16px;
+    top: 16px;
+    bottom: auto;
     padding: 6px;
     gap: 4px;
     width: auto;
-    background: transparent;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    z-index: 30;
   }
 }
 

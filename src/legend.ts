@@ -1,18 +1,8 @@
-// src/ui/legend.ts
-
 export function createLegend(): HTMLElement {
   const legend = document.createElement('div');
   legend.className = 'legend';
 
   legend.innerHTML = `
-    <div class="score-tabs-container">
-      <button class="score-tab active" data-score="overall">Overall</button>
-      <button class="score-tab" data-score="life">Life</button>
-      <button class="score-tab" data-score="health">Health</button>
-      <button class="score-tab" data-score="education">Education</button>
-      <button class="score-tab" data-score="protection">Protection</button>
-      <button class="score-tab" data-score="environment">Environment</button>
-    </div>
     <div class="legend-container">
       <div class="legend-scale">
       <div class="legend-bar">
