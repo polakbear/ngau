@@ -1027,9 +1027,9 @@
     "kri_score": 0.29,
     "life": 0.469,
     "health": 0.54,
-    "education": 0.391,
-    "protection": 0.071,
-    "environment": 5.0,
+    "education": null,
+    "protection": 0.391,
+    "environment": 0.071,
     "indicators": [
       {
         "indicator_type": "female_child_marriage",
