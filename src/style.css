@@ -32,7 +32,6 @@ body {
   top: 0;
   left: 0;
   z-index: 0;
-  /* background: radial-gradient(ellipse at center, rgba(63, 209, 199, 0.1) 0%, #000000 100%); */
 }
 
 #globe canvas {

@@ -1,4 +1,5 @@
 // src/ui/legend.ts
+import { colors } from './utils/color';
 
 export function createLegend(): HTMLElement {
   const legend = document.createElement('div');
@@ -11,14 +12,14 @@ export function createLegend(): HTMLElement {
       placeholder="Search a country..."
       class="search-input"
     />
-<div class="score-tabs-container">
-  <button class="score-tab active" data-score="overall">Overall</button>
-  <button class="score-tab" data-score="life">Life</button>
-  <button class="score-tab" data-score="health">Health</button>
-  <button class="score-tab" data-score="education">Education</button>
-  <button class="score-tab" data-score="protection">Protection</button>
-  <button class="score-tab" data-score="environment">Environment</button>
-</div>
+    <div class="score-tabs-container">
+      <button class="score-tab active" data-score="overall">Overall</button>
+      <button class="score-tab" data-score="life">Life</button>
+      <button class="score-tab" data-score="health">Health</button>
+      <button class="score-tab" data-score="education">Education</button>
+      <button class="score-tab" data-score="protection">Protection</button>
+      <button class="score-tab" data-score="environment">Environment</button>
+    </div>
     <button id="toggle-methodology" class="methodology-toggle">Methodology ⓘ</button>
     <div class="legend-scale">
       <div class="legend-bar">
@@ -42,32 +43,36 @@ export function createLegend(): HTMLElement {
         <span>No data</span>
       </div>
     </div>
-<div class="legend-methodology hidden-on-mobile" id="methodology-panel">
-  <div class="methodology-section methodology-life">
-    <strong>Life:</strong>
-    Under-5 mortality, life expectancy, maternal mortality
-  </div>
+    <div class="legend-methodology hidden-on-mobile" id="methodology-panel">
+      <div class="methodology-section methodology-overall">
+        <strong>Overall (KRI Score):</strong>
+        Combined measure of child rights implementation
+      </div>
+      <div class="methodology-section methodology-life">
+        <strong>Life:</strong>
+        Under-5 mortality, life expectancy, maternal mortality
+      </div>
 
-  <div class="methodology-section methodology-health">
-    <strong>Health:</strong>
-    Underweight children, immunization, sanitation, water access
-  </div>
+      <div class="methodology-section methodology-health">
+        <strong>Health:</strong>
+        Underweight children, immunization, sanitation, water access
+      </div>
 
-  <div class="methodology-section methodology-education">
-    <strong>Education:</strong>
-    Schooling for girls and boys, gender gap
-  </div>
+      <div class="methodology-section methodology-education">
+        <strong>Education:</strong>
+        Schooling for girls and boys, gender gap
+      </div>
 
-  <div class="methodology-section methodology-protection">
-    <strong>Protection:</strong>
-    Child labour, adolescent birth rate, birth registration
-  </div>
+      <div class="methodology-section methodology-protection">
+        <strong>Protection:</strong>
+        Child labour, adolescent birth rate, birth registration
+      </div>
 
-  <div class="methodology-section methodology-environment">
-    <strong>Environment:</strong>
-    Equal treatment, child voice, funding, detailed data, cooperation with child rights groups
-  </div>
-</div>
+      <div class="methodology-section methodology-environment">
+        <strong>Environment:</strong>
+        Equal treatment, child voice, funding, detailed data, cooperation with child rights groups
+      </div>
+    </div>
 
   `;
 

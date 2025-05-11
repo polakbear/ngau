@@ -1,9 +1,14 @@
 import {
   childRightsColorScale,
-  getBarColor,
+  getColorFromRank,
   getContrastingTextColor,
+  getBarColor,
 } from './utils/color';
-import { rankLabel, scoreClass, scoreLabel } from './utils/score';
+import {
+  getPerformanceLabel,
+  getPerformanceClass,
+  getFullLabel,
+} from './utils/score';
 import { CountryData, Nullable } from './types';
 
 function buildMetricRow(
@@ -12,24 +17,19 @@ function buildMetricRow(
   value: Nullable,
   rank: Nullable
 ): string {
-  const quality = scoreLabel(value);
-  const qualityClass = scoreClass(value);
-  const rankDisplay = rank != null ? `Rank ${rank}` : '';
-  const showBadge = rankDisplay || quality;
+  const total = 194;
+  const performance = getPerformanceLabel(rank ?? null, total);
+  const performanceClass = getPerformanceClass(rank ?? null, total);
+  const color = getColorFromRank(rank ?? null, total);
 
   return `
     <div class="tooltip-metric">
       <div class="metric-label"><i class="${iconClass}"></i><span>${label}</span></div>
       <div class="metric-info">
-        ${
-          showBadge
-            ? `
-          <div class="split-badge">
-            <span class="split-left">${rankDisplay}</span>
-            <span class="split-right ${qualityClass}">${quality}</span>
-          </div>`
-            : ''
-        }
+        <div class="split-badge">
+          ${rank != null ? `<span class="split-left">Rank ${rank}</span>` : ''}
+          <span class="split-right" style="background-color: ${color}; color: ${getContrastingTextColor(color)}">${performance}</span>
+        </div>
         <span class="value">${value != null ? value.toFixed(3) : 'N/A'}</span>
         <div class="bar-container">
           <div class="bar-fill"
@@ -51,7 +51,7 @@ export function generateTooltipContent(
   const total = 194;
   const kri = country?.kri_score ?? null;
   const rank = country?.kri_rank ?? null;
-  const rankQual = rank != null ? rankLabel(rank, total) : '';
+  const rankQual = rank != null ? getFullLabel(rank, total) : '';
 
   const findValue = (type: string) =>
     country?.indicators?.find((i) => i.type === type)?.value_total;

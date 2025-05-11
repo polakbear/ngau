@@ -1,10 +1,28 @@
 import * as d3 from 'd3-scale';
 import { Nullable } from '../types';
 
+// Common color palette for all visualizations
+export const colors = {
+  excellent: '#3fd1c7',
+  good: '#2e9c9f',
+  fair: '#76b5c5',
+  poor: '#5a7d9a',
+  veryPoor: '#4b5c6b',
+  noData: '#444444',
+};
+
+// Color scale for continuous values (like polygons)
 export const childRightsColorScale = d3
   .scaleLinear<string>()
   .domain([0.0, 0.2, 0.4, 0.6, 0.8, 1.0])
-  .range(['#4b5c6b', '#4b5c6b', '#5a7d9a', '#76b5c5', '#2e9c9f', '#3fd1c7']);
+  .range([
+    colors.veryPoor,
+    colors.veryPoor,
+    colors.poor,
+    colors.fair,
+    colors.good,
+    colors.excellent,
+  ]);
 
 export function getContrastingTextColor(bg: string): string {
   // Remove leading # and parse RGB hex
@@ -15,21 +33,26 @@ export function getContrastingTextColor(bg: string): string {
   return brightness > 140 ? '#000' : '#fff';
 }
 
-export function getBarColor(score: Nullable): string {
-  if (score == null) return '#444';
-  if (score < 0.2) return '#4b5c6b';
-  if (score < 0.4) return '#5a7d9a';
-  if (score < 0.6) return '#76b5c5';
-  if (score < 0.8) return '#2e9c9f';
-  return '#3fd1c7';
+// Get color based on rank percentile
+export function getColorFromRank(rank: number | null, total: number): string {
+  if (rank === null) return colors.noData;
+  const percentile = (total - rank) / total;
+
+  if (percentile >= 0.8) return colors.excellent;
+  if (percentile >= 0.6) return colors.good;
+  if (percentile >= 0.4) return colors.fair;
+  if (percentile >= 0.2) return colors.poor;
+  return colors.veryPoor;
 }
 
-export function getColor(score?: number): string {
-  if (score === undefined || isNaN(score)) return '#444';
+// For bar charts and other visualizations
+export function getBarColor(score: Nullable): string {
+  if (score == null) return colors.noData;
+  return childRightsColorScale(score);
+}
 
-  if (score >= 0.9) return '#3fd1c7'; // Excellent
-  if (score >= 0.75) return '#2e9c9f'; // Good
-  if (score >= 0.5) return '#76b5c5'; // Fair
-  if (score >= 0.25) return '#5a7d9a'; // Poor
-  return '#4b5c6b'; // Very Poor
+// For polygons
+export function getColor(score?: number): string {
+  if (score === undefined || isNaN(score)) return colors.noData;
+  return childRightsColorScale(score);
 }
