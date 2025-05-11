@@ -46,7 +46,15 @@ Then open http://localhost:5173 in your browser.
 - [ ] Finalize indicator data structure (child marriage, labor, FGM, etc.)
 - [ ] Visualize indicators in tooltip and info panel
 - [ ] Improve mobile layout and responsiveness
-- [ ] Add optional map layer for organizational presence + links
-- [ ] Explore adding justice-related indicators (e.g. juvenile incarceration, criminal age)
-- [ ] Consider static fallback or offline mode
-
+- [ ] Add optional map layer for organizational presence
+- [ ] Explore justice-related indicators  
+  - Age of criminal responsibility  
+  - Juvenile incarceration  
+  - Legal protections for children
+- [ ] Explore time-based comparisons (e.g. trends since 2010)
+- [ ] Consider light/dark mode toggle
+- [ ] Add “bright spots” layer (countries showing progress or strong youth engagement)
+- [ ] Add country search improvements (autocomplete, smarter matching)
+- [ ] Explore “story” view: link to human stories or context behind the numbers
+- [ ] Optional: overlay risk data (conflict, climate, displacement)
+- [ ] Consider basic offline/static fallback
