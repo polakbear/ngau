@@ -39,12 +39,14 @@ Then open http://localhost:5173 in your browser.
 
 ## Roadmap
 
-- [x] Visualize KidsRights Index and child rights indicators
-- [x] Add tooltip and info panel for each country
-- [x] Show presence/absence of data clearly
-- [ ] Add visual score toggle (life, health, education, etc.)
-- [ ] Include organizations working on child rights
-- [ ] Mobile layout improvements
-- [ ] Organization map layer (by country)
-- [ ] Add justice-related indicators (e.g. juvenile incarceration, age of criminal responsibility)
-- [ ] Basic offline/static fallback
+- [x] Visualize KidsRights Index core scores
+- [x] Add tooltip and info panel for country-level info
+- [x] Display child rights violations (where data exists)
+- [ ] Implement visual score toggle (life, health, education, etc.)
+- [ ] Finalize indicator data structure (child marriage, labor, FGM, etc.)
+- [ ] Visualize indicators in tooltip and info panel
+- [ ] Improve mobile layout and responsiveness
+- [ ] Add optional map layer for organizational presence + links
+- [ ] Explore adding justice-related indicators (e.g. juvenile incarceration, criminal age)
+- [ ] Consider static fallback or offline mode
+
