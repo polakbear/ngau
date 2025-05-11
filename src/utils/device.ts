@@ -1,3 +1,6 @@
 export function detectMobileMode(): boolean {
-  return window.innerWidth < 768 || 'ontouchstart' in window;
+  // Check for mobile or tablet devices using regex
+  const userAgent = navigator.userAgent.toLowerCase();
+  const mobileRegex = /(android|iphone|ipad|ipod|blackberry|windows phone)/;
+  return mobileRegex.test(userAgent);
 }

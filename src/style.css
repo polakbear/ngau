@@ -57,18 +57,25 @@ canvas {
   background: rgba(15, 15, 15, 0.7);
   border: 1px solid rgba(100, 255, 255, 0.1);
   color: #f0f0f0;
-  padding: 20px 24px 24px;
+  padding: 16px 20px 20px;
   font-family: 'IBM Plex Sans', 'Segoe UI', sans-serif;
   font-size: 14px;
   pointer-events: none;
   max-width: 340px;
-  width: 340px;;
+  width: calc(100vw - 32px);
   border-radius: 12px;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05) inset, 0 10px 40px rgba(0, 255, 255, 0.07), 0 0 12px rgba(0, 255, 255, 0.1);
   backdrop-filter: blur(8px);
   line-height: 1.6;
   z-index: 1000;
   transition: opacity 0.2s ease, transform 0.2s ease;
+  
+  @media (max-width: 768px) {
+    left: 16px !important;
+    right: 16px;
+    width: auto;
+    transform: none !important;
+  }
 }
 
 .tooltip-top-row {
@@ -436,6 +443,14 @@ canvas {
   z-index: 10;
   line-height: 1.4;
   pointer-events: none;
+
+  @media (max-width: 768px) {
+    bottom: auto;
+    top: 16px;
+    right: 16px;
+    font-size: 10px;
+    max-width: 160px;
+  }
 }
 
 .data-sources a {
@@ -452,17 +467,26 @@ canvas {
 .score-tabs-container {
   position: fixed;
   display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
   top: 24px;
   left: 50%;
   padding: 6px 12px;
-  gap: 12px;
+  gap: 8px;
   z-index: 20;
   background: transparent;
-  box-shadow: none;
-  backdrop-filter: none;
   transform: translateX(-50%);
-  border-radius: 4px;
+  border-radius: 8px;
   font-family: 'Segoe UI', sans-serif;
+
+  @media (max-width: 768px) {
+    top: auto;
+    bottom: 16px;
+    padding: 6px;
+    gap: 4px;
+    width: auto;
+    background: transparent;
+  }
 }
 
 .score-tab {
@@ -473,6 +497,12 @@ canvas {
   cursor: pointer;
   padding: 6px 8px;
   border-bottom: 2px solid transparent;
+
+  @media (max-width: 768px) {
+    font-size: 12.5px;
+    padding: 4px 6px;
+    letter-spacing: -0.1px;
+  }
 }
 
 .score-tab.active {
@@ -541,6 +571,12 @@ canvas {
   border: 1px solid rgba(255, 255, 255, 0.1);
   height: 24px;
   min-width: 160px;
+
+  @media (max-width: 768px) {
+    min-width: 140px;
+    font-size: 12px;
+    height: 22px;
+  }
 }
 
 .split-badge span {
