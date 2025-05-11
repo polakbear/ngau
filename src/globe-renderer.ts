@@ -87,11 +87,13 @@ export function createGlobe(
     .onPolygonClick((polygon: object | null) =>
       handlePolygonClick(polygon, data, tooltip, infoPanel)
     )
-    .onPolygonHover(handlePolygonHover(hoverConfig))
     .backgroundColor('#0a1d26');
 
   if (mobileMode) {
     world.globeOffset([0, -150]);
+  }
+  if (!mobileMode) {
+    world.onPolygonHover(handlePolygonHover(hoverConfig));
   }
   requestAnimationFrame(() => {
     world.pointOfView({ lat: 20, lng: 0, altitude: mobileMode ? 4 : 2.5 }, 0);
