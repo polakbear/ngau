@@ -41,12 +41,19 @@ export function createGlobe(
   const globeElement = document.getElementById('globe');
   if (!globeElement) throw new Error('Element with id "globe" not found');
 
+  // Initialize tooltip state
+  tooltip.style.display = 'none';
+
   setupListeners(tooltip, infoPanel);
 
   let hoverD: GeoJsonFeature | null = null;
   const getHoverD = () => hoverD;
   const setHoverD = (d: GeoJsonFeature | null) => {
     hoverD = d;
+    // Ensure tooltip is hidden when no country is hovered
+    if (!d) {
+      tooltip.style.display = 'none';
+    }
   };
 
   const world = new Globe(globeElement);
