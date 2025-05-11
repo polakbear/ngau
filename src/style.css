@@ -306,7 +306,7 @@ canvas {
   font-family: 'Segoe UI', sans-serif;
   font-size: 13px;
   color: #ddd;
-  background: rgba(0, 0, 0, 0.3);
+  background: transparent;
   padding: 10px 14px;
   border-radius: 8px;
   max-width: 300px;
@@ -314,56 +314,61 @@ canvas {
   text-align: center;
 }
 
+.legend-container {
+  position: relative;
+}
+
 .legend-scale {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 0;
   width: 100%;
   margin-top: 8px;
 }
 
 .legend-bar {
-  display: contents;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
   height: 12px;
   border-radius: 4px;
   overflow: hidden;
   box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5);
 }
 
-.legend-bar > div {
-  height: 12px;
+.legend-row {
+  position: relative;
+  margin-top: 4px;
 }
 
 .legend-labels {
-  display: contents;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+  flex: 1;
 }
 
 .legend-labels > span {
   font-size: 12px;
   color: #ccc;
   text-align: center;
-  margin-top: 4px;
 }
 
 .methodology-toggle {
-  display: none;
+  position: fixed;
+  right: 16px;
+  top: 16px;
+  font-size: 14px;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  padding: 0;
+}
+
+.methodology-toggle:hover {
+  color: #3fd1c7;
 }
 
 @media (max-width: 768px) {
   .methodology-toggle {
-    display: block;
-    margin-top: 12px;
-    font-size: 0.85rem;
-    background: rgba(255, 255, 255, 0.08);
-    color: white;
-    padding: 8px 12px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    cursor: pointer;
-    width: 100%;
-    text-align: center;
-    backdrop-filter: blur(6px);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    font-size: 14px;
   }
 
   .legend-methodology {
@@ -445,8 +450,7 @@ canvas {
   pointer-events: none;
 
   @media (max-width: 768px) {
-    bottom: auto;
-    top: 16px;
+    bottom: 80px;  /* Changed from 'bottom: auto' to position above the score tabs */
     right: 16px;
     font-size: 10px;
     max-width: 160px;

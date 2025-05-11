@@ -13,28 +13,28 @@ export function createLegend(): HTMLElement {
       <button class="score-tab" data-score="protection">Protection</button>
       <button class="score-tab" data-score="environment">Environment</button>
     </div>
-    <button id="toggle-methodology" class="methodology-toggle">Methodology ⓘ</button>
-    <div class="legend-scale">
+    <div class="legend-container">
+      <div class="legend-scale">
       <div class="legend-bar">
+        <div style="background: repeating-linear-gradient(
+            45deg, #eee, #eee 4px, #bbb 4px, #bbb 8px);"></div>
         <div style="background: #4b5c6b"></div>
         <div style="background: #5a7d9a"></div>
         <div style="background: #76b5c5"></div>
         <div style="background: #2e9c9f"></div>
         <div style="background: #3fd1c7"></div>
-        <div style="
-          background: repeating-linear-gradient(
-            45deg, #eee, #eee 4px, #bbb 4px, #bbb 8px
-          );">
+      </div>
+      <div class="legend-row">
+        <div class="legend-labels">
+          <span>No data</span>
+          <span>Very Poor</span>
+          <span>Poor</span>
+          <span>Fair</span>
+          <span>Good</span>
+          <span>Excellent</span>
         </div>
       </div>
-      <div class="legend-labels">
-        <span>Very Poor</span>
-        <span>Poor</span>
-        <span>Fair</span>
-        <span>Good</span>
-        <span>Excellent</span>
-        <span>No data</span>
-      </div>
+      <span id="toggle-methodology" class="methodology-toggle" role="button" tabindex="0" aria-label="Show methodology">ⓘ</span>
     </div>
     <div class="legend-methodology hidden-on-mobile" id="methodology-panel">
       <div class="methodology-section methodology-overall">
