@@ -1,3 +1,4 @@
+// globe-renderer.ts
 import Globe from 'globe.gl';
 import { CountryData, GeoJsonFeature } from './types';
 import {
@@ -37,11 +38,8 @@ export function createGlobe(
   infoPanel: HTMLElement
 ) {
   const mobileMode = detectMobileMode();
-  console.log('Mobile mode:', mobileMode);
   const globeElement = document.getElementById('globe');
-  if (!globeElement) {
-    throw new Error('Element with id "globe" not found');
-  }
+  if (!globeElement) throw new Error('Element with id "globe" not found');
 
   setupListeners(tooltip, infoPanel);
 
@@ -52,10 +50,12 @@ export function createGlobe(
   };
 
   const world = new Globe(globeElement);
+
   if (mobileMode) {
     const renderer = world.renderer?.();
     renderer?.setPixelRatio(1);
   }
+
   const hoverConfig = {
     world,
     data,
@@ -69,33 +69,27 @@ export function createGlobe(
   world
     .globeImageUrl('')
     .showAtmosphere(true)
-    .atmosphereColor('#2e9c9f')
-    .atmosphereAltitude(mobileMode ? 0.2 : 0.45)
+    .atmosphereColor('#3fd1c7')
+    .atmosphereAltitude(mobileMode ? 0.2 : 0.25)
     .polygonsData(geoJson.features)
-    .polygonCapColor(() => 'rgba(0,0,0,0)')
     .polygonCapMaterial((d: any) =>
       createPolygonMaterial(d, data, hoverD, desaturationProgress)
     )
     .polygonSideColor(() => 'rgba(0, 0, 0, 0.05)')
-    .polygonsTransitionDuration(200)
+    .polygonsTransitionDuration(300)
     .onPolygonClick((polygon: object | null) =>
       handlePolygonClick(polygon, data, tooltip, infoPanel)
-    );
-  world.onPolygonHover(handlePolygonHover(hoverConfig));
+    )
+    .onPolygonHover(handlePolygonHover(hoverConfig))
+    .backgroundColor('#0a1d26');
+
   if (mobileMode) {
     requestAnimationFrame(() => {
       world.pointOfView({ lat: 20, lng: 0, altitude: 4 }, 0);
     });
   }
+
   return world;
-}
-
-function easeIn(t: number): number {
-  return t * t;
-}
-
-function easeOut(t: number): number {
-  return t * (2 - t);
 }
 
 export function animateDesaturation(
@@ -107,20 +101,15 @@ export function animateDesaturation(
   const start = performance.now();
   const from = desaturationProgress;
   const to = target;
-  const easing = to > from ? easeIn : easeOut;
+  const easing = to > from ? (t: number) => t * t : (t: number) => t * (2 - t);
 
   function update(now: number) {
     const elapsed = now - start;
     const t = Math.min(elapsed / duration, 1);
     desaturationProgress = from + (to - from) * easing(t);
-
     world.polygonCapMaterial(world.polygonCapMaterial());
-
-    if (t < 1) {
-      requestAnimationFrame(update);
-    } else {
-      if (onComplete) onComplete();
-    }
+    if (t < 1) requestAnimationFrame(update);
+    else onComplete?.();
   }
 
   requestAnimationFrame(update);

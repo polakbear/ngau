@@ -23,3 +23,13 @@ export function getBarColor(score: Nullable): string {
   if (score < 0.8) return '#2e9c9f';
   return '#3fd1c7';
 }
+
+export function getColor(score?: number): string {
+  if (score === undefined || isNaN(score)) return '#444';
+
+  if (score >= 0.9) return '#3fd1c7'; // Excellent
+  if (score >= 0.75) return '#2e9c9f'; // Good
+  if (score >= 0.5) return '#76b5c5'; // Fair
+  if (score >= 0.25) return '#5a7d9a'; // Poor
+  return '#4b5c6b'; // Very Poor
+}

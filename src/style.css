@@ -17,7 +17,11 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: radial-gradient(circle at center, #0a1d26 0%, #000000 100%);
+  background: radial-gradient(
+    circle at center,
+    rgba(63, 209, 199, 0.2) 0%,
+    #011412 100%
+  );
 }
 
 #globe {
@@ -28,6 +32,7 @@ body {
   top: 0;
   left: 0;
   z-index: 0;
+  /* background: radial-gradient(ellipse at center, rgba(63, 209, 199, 0.1) 0%, #000000 100%); */
 }
 
 #globe canvas {
@@ -36,14 +41,9 @@ body {
   display: block;
   background-color: transparent !important;
 }
+
 canvas {
   background-color: transparent !important;
-}
-
-#globe {
-  width: 100vw;
-  height: 100vh;
-  background: radial-gradient(ellipse at center, #0a1d26 0%, #000000 100%);
 }
 
 #app {
@@ -53,31 +53,25 @@ canvas {
   padding: 0;
 }
 
-/* Tooltip container */
 #tooltip {
   position: absolute;
   background: rgba(15, 15, 15, 0.7);
   border: 1px solid rgba(100, 255, 255, 0.1);
   color: #f0f0f0;
-  padding: 16px 20px;
+  padding: 16px 24px;
   font-family: 'IBM Plex Sans', 'Segoe UI', sans-serif;
   font-size: 14px;
   pointer-events: none;
-  max-width: 320px;
+  max-width: 340px;
+  width: 340px;;
   border-radius: 12px;
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.05) inset,
-    0 10px 40px rgba(0, 255, 255, 0.07),
-    0 0 12px rgba(0, 255, 255, 0.1);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05) inset, 0 10px 40px rgba(0, 255, 255, 0.07), 0 0 12px rgba(0, 255, 255, 0.1);
   backdrop-filter: blur(8px);
   line-height: 1.6;
   z-index: 1000;
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-/* Header row: Badge + Country name */
 .tooltip-top-row {
   display: flex;
   justify-content: space-between;
@@ -112,7 +106,6 @@ canvas {
   border-radius: 4px;
   font-weight: 600;
   margin-top: 4px;
-  display: inline-block;
   line-height: 1.2;
 }
 
@@ -127,19 +120,18 @@ canvas {
   word-break: break-word;
 }
 
-/* Two-column metrics layout */
 .tooltip-metrics-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 8px;
-  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 8px;
 }
 
 .tooltip-metric {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 10px;
+  align-items: center;
+  gap: 4px;
 }
 
 .metric-label {
@@ -148,39 +140,31 @@ canvas {
   gap: 12px;
   flex-shrink: 0;
   color: #80e1ff;
-  width: 70px; /* Or try 80px */
+  width: 70px;
   font-size: 20px;
-  flex-shrink: 0;
+}
+
+.metric-label span {
+  font-size: 14px;
 }
 
 .metric-info {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 4px; /* was 2px — adds breathing room */
+  gap: 4px;
 }
 
 .metric-info .bar-container {
-  width: 64px; /* reduced from 72px */
+  width: 72px; 
   max-width: 100%;
 }
 
-/* Qualitative badge inside metrics */
-.qual {
-  font-size: 13px;
-  padding: 3px 6px;
-  border-radius: 2px;
-  font-weight: 600;
-  line-height: 1.2;
-  display: inline-block;
-}
-
-/* Numeric styling */
-.value {
+.metric-info .value {
   font-feature-settings: 'tnum';
   font-variant-numeric: tabular-nums;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 12px;
   color: var(--value-color, #ffffff);
   background: linear-gradient(to right, #80e1ff, #3fd1c7);
   -webkit-background-clip: text;
@@ -189,9 +173,17 @@ canvas {
   text-align: right;
 }
 
-/* Bar styling */
+.metric-info .qual {
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
 .bar-container {
-  height: 6px;
+  height: 4px;
   background: rgba(255, 255, 255, 0.15);
   border-radius: 3px;
   overflow: hidden;
@@ -200,20 +192,14 @@ canvas {
 .bar-fill {
   height: 100%;
   border-radius: 3px;
-  background: linear-gradient(
-    to right,
-    var(--bar-color, #3fd1c7),
-    rgba(255, 255, 255, 0.15)
-  );
-  transition: width 0.4s ease-in-out;
+  background: linear-gradient(to right, var(--bar-color, #3fd1c7), rgba(255, 255, 255, 0.25));
+  transition: width 0.3s ease;
 }
 
-/* Subtitle and violations section */
 .tooltip-subtitle {
-  font-size: 13px;
+  margin: 8px 0 4px;
+  font-size: 12px;
   font-weight: bold;
-  margin-top: 12px;
-  margin-bottom: 4px;
   color: #89cfff;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -231,95 +217,8 @@ canvas {
   margin: 12px 0;
 }
 
-/* Icon styling */
-.icon svg,
-.tooltip-row svg {
-  width: 14px;
-  height: 14px;
-  fill: #89cfff;
-  flex-shrink: 0;
-}
-
-/* Make the metrics a single column with tighter spacing */
-.tooltip-metrics-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 6px; /* smaller gap between metrics */
-  margin-bottom: 8px; /* reduce bottom margin */
-}
-
-/* Shrink overall tooltip text and padding */
-#tooltip {
-  font-size: 12px; /* reduce base font size */
-  padding: 12px 14px; /* tighten inner padding */
-  width: 300px; /* slightly narrower if you like */
-}
-
-/* Tighter header row */
-.tooltip-top-row {
-  margin-bottom: 8px;
-}
-
-/* Smaller badge & country text */
-.tooltip-badge {
-  font-size: 14px;
-  padding: 4px 10px;
-  gap: 8px;
-}
-
-.tooltip-header {
-  font-size: 14px;
-}
-
-/* Metric row tighter */
-.tooltip-metric {
-  gap: 4px;
-  align-items: center;
-}
-
-/* Smaller metric label */
-.metric-label span {
-  font-size: 14px;
-}
-
-/* Smaller values & quality pills */
-.metric-info .value {
-  font-size: 12px;
-}
-
-.metric-info .qual {
-  font-size: 14px;
-  padding: 4px 8px;
-  border-radius: 3px; /* reduced from 12px */
-  background: rgba(255, 255, 255, 0.08); /* less intense background */
-  font-weight: 500;
-  line-height: 1.2;
-}
-
-/* Slimmer bars */
-.bar-container {
-  height: 4px;
-}
-
-.bar-fill {
-  height: 100%;
-  border-radius: 3px;
-  background: linear-gradient(
-    to right,
-    var(--bar-color, #3fd1c7),
-    rgba(255, 255, 255, 0.25) /* was 0.15 */
-  );
-  transition: width 0.3s ease;
-}
-
-/* Reduce subtitle spacing */
-.tooltip-subtitle {
-  margin: 8px 0 4px;
-  font-size: 12px;
-}
-
 .tooltip-metric .metric-label i {
-  font-size: 20px; /* ↑ icon size */
+  font-size: 20px;
   color: #80e1ff;
   width: 16px;
   text-align: center;
@@ -331,8 +230,8 @@ canvas {
   top: 24px;
   width: 320px;
   background: rgba(0, 0, 0, 0.9);
-  color: #f0f0f0; /* brighter text */
-  font-size: 14px; /* larger text */
+  color: #f0f0f0;
+  font-size: 14px;
   line-height: 1.5;
   border-radius: 12px;
   padding: 20px;
@@ -343,6 +242,213 @@ canvas {
   font-family: 'Segoe UI', 'IBM Plex Sans', sans-serif;
 }
 
+.legend-methodology {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 0.75rem;
+  max-width: 220px;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.methodology-section {
+  position: relative;
+  margin-top: 0.5rem;
+  line-height: 1.3;
+  display: block;
+  padding: 6px 10px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.methodology-section.highlighted {
+  background: rgba(63, 209, 199, 0.1);
+  border-color: rgba(63, 209, 199, 0.4);
+}
+
+.search-input {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  z-index: 20;
+}
+
+.legend {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 10;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 13px;
+  color: #ddd;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 10px 14px;
+  border-radius: 8px;
+  max-width: 300px;
+  width: 300px;
+  text-align: center;
+}
+
+.legend-scale {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.legend-bar {
+  display: contents;
+  height: 12px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+.legend-bar > div {
+  height: 12px;
+}
+
+.legend-labels {
+  display: contents;
+}
+
+.legend-labels > span {
+  font-size: 12px;
+  color: #ccc;
+  text-align: center;
+  margin-top: 4px;
+}
+
+.methodology-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .methodology-toggle {
+    display: block;
+    margin-top: 12px;
+    font-size: 0.85rem;
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  .legend-methodology {
+    display: none;
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(90vw, 300px);
+    max-width: min(90vw, 300px);
+    z-index: 999;
+    padding: 16px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #f0f0f0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05) inset, 0 8px 30px rgba(0, 255, 255, 0.05), 0 0 12px rgba(0, 255, 255, 0.1);
+    max-height: 60vh;
+    overflow-y: auto;
+    text-align: left;
+  }
+
+  .legend-methodology.active {
+    display: block;
+  }
+
+  .methodology-section strong {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 4px;
+    color: #3fd1c7;
+    font-weight: 600;
+  }
+
+  .methodology-section strong:first-of-type {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 769px) {
+  .methodology-toggle {
+    display: none;
+  }
+
+  .legend-methodology {
+    display: block;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 12px;
+    text-align: left;
+    line-height: 1.4;
+    max-width: 300px;
+  }
+
+  .methodology-section strong {
+    color: #3fd1c7;
+    font-weight: 600;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 4px;
+  }
+}
+
+.score-tabs-container {
+  position: fixed;
+  display: flex;
+  top: 24px;
+  left: 50%;
+  padding: 6px 12px;
+  gap: 12px;
+  z-index: 20;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  transform: translateX(-50%);
+  border-radius: 4px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.score-tab {
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-bottom: 2px solid transparent;
+}
+
+.score-tab.active {
+  color: #3fd1c7;
+  border-bottom: 2px solid #3fd1c7;
+}
+.qual {
+  font-size: 13px;
+  padding: 3px 6px;
+  border-radius: 2px;
+  font-weight: 600;
+  line-height: 1.2;
+  display: inline-block;
+}
 .split-right.qual--very-poor {
   background: #4b5c6b;
   color: #fff;
@@ -411,178 +517,4 @@ canvas {
 
 .split-right {
   background-color: var(--badge-color, rgba(255, 255, 255, 0.08));
-}
-
-.legend-methodology {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.8);
-  margin-top: 0.75rem;
-  max-width: 220px;
-  text-align: left; /* 👈 override inherited center alignment */
-  line-height: 1.4;
-}
-
-.methodology-section {
-  margin-top: 0.5rem;
-  line-height: 1.3;
-  display: block;
-}
-.search-input {
-  position: fixed;
-  top: 16px;
-  right: 16px;
-  padding: 6px 10px;
-  font-size: 0.8rem;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-  z-index: 20;
-}
-
-.legend {
-  position: fixed;
-  top: 16px;
-  left: 16px;
-  z-index: 10;
-  font-family: 'Segoe UI', sans-serif;
-  font-size: 13px;
-  color: #ddd;
-  background: rgba(0, 0, 0, 0.3);
-  padding: 10px 14px;
-  border-radius: 8px;
-  max-width: 300px;
-  width: 300px;
-  text-align: center;
-}
-
-/* Grid layout for bar + labels */
-.legend-scale {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 0;
-  width: 100%;
-  margin-top: 8px;
-}
-
-.legend-bar {
-  display: contents; /* let grid define layout */
-  height: 12px;
-  border-radius: 4px;
-  overflow: hidden;
-  box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5);
-}
-
-.legend-bar > div {
-  height: 12px;
-}
-
-/* Optional spacing tweak */
-.legend-labels {
-  display: contents;
-}
-
-.legend-labels > span {
-  font-size: 12px;
-  color: #ccc;
-  text-align: center;
-  margin-top: 4px;
-}
-
-/* ─────────────────────────────────────────────
-   Methodology Toggle Button (Mobile Only)
-──────────────────────────────────────────── */
-.methodology-toggle {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .methodology-toggle {
-    display: block;
-    margin-top: 12px;
-    font-size: 0.85rem;
-    background: rgba(255, 255, 255, 0.08);
-    color: white;
-    padding: 8px 12px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    cursor: pointer;
-    width: 100%;
-    text-align: center;
-    backdrop-filter: blur(6px);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  }
-
-  .legend-methodology {
-    display: none;
-    position: absolute;
-    top: 90px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(90vw, 300px);
-    max-width: min(90vw, 300px);
-    z-index: 999;
-    padding: 16px;
-    border-radius: 12px;
-    background: rgba(0, 0, 0, 0.7);
-    color: #f0f0f0;
-    font-size: 0.85rem;
-    line-height: 1.5;
-    backdrop-filter: blur(10px);
-    box-shadow:
-      0 0 0 1px rgba(255, 255, 255, 0.05) inset,
-      0 8px 30px rgba(0, 255, 255, 0.05),
-      0 0 12px rgba(0, 255, 255, 0.1);
-    max-height: 60vh;
-    overflow-y: auto;
-    text-align: left;
-  }
-
-  .legend-methodology.active {
-    display: block;
-  }
-
-  .methodology-section {
-    margin: 0;
-    padding: 0;
-  }
-
-  .methodology-section strong {
-    display: block;
-    margin-top: 12px;
-    margin-bottom: 4px;
-    color: #3fd1c7; /* ✅ Accent color */
-    font-weight: 600;
-  }
-
-  .methodology-section strong:first-of-type {
-    margin-top: 0;
-  }
-}
-
-/* ─────────────────────────────────────────────
-   Desktop Methodology Styles (Unchanged)
-──────────────────────────────────────────── */
-@media (min-width: 769px) {
-  .methodology-toggle {
-    display: none;
-  }
-
-  .legend-methodology {
-    display: block;
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.8);
-    margin-top: 12px;
-    text-align: left;
-    line-height: 1.4;
-    max-width: 300px;
-  }
-
-  .methodology-section strong {
-    color: #3fd1c7; /* ✅ Accent color for desktop too */
-    font-weight: 600;
-    display: block;
-    margin-top: 10px;
-    margin-bottom: 4px;
-  }
 }

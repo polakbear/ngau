@@ -143,12 +143,18 @@ function updateTooltip(
   tooltip: HTMLElement,
   infoPanel: HTMLElement
 ) {
+  // Hide if no hover or info panel is open
   if (!hover || infoPanel.innerHTML !== '') {
     tooltip.style.display = 'none';
     return;
   }
 
-  const countryName = hover.properties?.ADMIN || 'Unknown';
+  const countryName = hover.properties?.ADMIN?.trim();
+  if (!countryName) {
+    tooltip.style.display = 'none';
+    return;
+  }
+
   const country = data.find(
     (d) => normalize(d.country) === normalize(countryName)
   );
@@ -158,8 +164,8 @@ function updateTooltip(
     return;
   }
 
-  tooltip.style.display = 'block';
   tooltip.innerHTML = generateTooltipContent(countryName, country);
+  tooltip.style.display = 'block';
 
   requestAnimationFrame(() => {
     const bars = tooltip.querySelectorAll('.bar-fill');

@@ -5,70 +5,10 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/src/style.css" />
-    <title>boo</title>
+    <title>Ngau</title>
   </head>
   <body>
     <div id="app">
-      <div class="legend">
-        <input
-          type="text"
-          id="country-search"
-          placeholder="Search a country..."
-          class="search-input"
-        />
-        <button id="toggle-methodology" class="methodology-toggle">
-          Methodology ⓘ
-        </button>
-        <div class="legend-scale">
-          <div class="legend-bar">
-            <div style="background: #4b5c6b"></div>
-            <div style="background: #5a7d9a"></div>
-            <div style="background: #76b5c5"></div>
-            <div style="background: #2e9c9f"></div>
-            <div style="background: #3fd1c7"></div>
-            <div
-              style="
-                background: repeating-linear-gradient(
-                  45deg,
-                  #eee,
-                  #eee 4px,
-                  #bbb 4px,
-                  #bbb 8px
-                );
-              "
-            ></div>
-          </div>
-          <div class="legend-labels">
-            <span>Very Poor</span>
-            <span>Poor</span>
-            <span>Fair</span>
-            <span>Good</span>
-            <span>Excellent</span>
-            <span>No data</span>
-          </div>
-        </div>
-
-        <div class="legend-methodology hidden-on-mobile" id="methodology-panel">
-          <div class="methodology-section">
-            <strong>Life:</strong>
-            Under-5 mortality, life expectancy, maternal mortality<br /><br />
-
-            <strong>Health:</strong>
-            Underweight children, immunization, sanitation, water access<br /><br />
-
-            <strong>Education:</strong>
-            Schooling for girls and boys, gender gap<br /><br />
-
-            <strong>Protection:</strong>
-            Child labour, adolescent birth rate, birth registration<br /><br />
-
-            <strong>Environment:</strong>
-            Equal treatment, child voice, funding, detailed data, cooperation
-            with child rights groups
-          </div>
-        </div>
-      </div>
-
       <div id="globe"></div>
       <div id="tooltip"></div>
       <div id="info-panel" style="display: none"></div>
