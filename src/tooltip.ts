@@ -2,8 +2,8 @@ import {
   childRightsColorScale,
   getBarColor,
   getContrastingTextColor,
-} from './utils/color-utils';
-import { rankLabel, scoreClass, scoreLabel } from './utils/score-utils';
+} from './utils/color';
+import { rankLabel, scoreClass, scoreLabel } from './utils/score';
 import { CountryData, Nullable } from './types';
 
 function buildMetricRow(

@@ -1,6 +1,6 @@
 import * as THREE from 'three';
-import { childRightsColorScale } from './color-utils';
-import { getKriScore } from './score-utils';
+import { childRightsColorScale } from './color';
+import { getKriScore } from './score';
 import { normalize } from './utils';
 import { generateTooltipContent } from '../tooltip';
 import { GeoJsonFeature, CountryData, HoverHandlerOptions } from '../types';
