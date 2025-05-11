@@ -19,3 +19,17 @@ It’s not affiliated with any organization.
 - DHS & MICS Surveys
 
 ---
+
+## How to run locally
+
+This project uses [Vite](https://vitejs.dev/) for development.
+
+1. Clone the repository  
+2. Install dependencies  
+3. Start the dev server
+
+```bash
+git clone https://github.com/polakbear/ngau.git
+cd ngau
+npm install
+npm run dev
