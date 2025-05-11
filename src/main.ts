@@ -14,6 +14,12 @@ async function initialize() {
     const tooltip = getElementById<HTMLDivElement>('tooltip');
     const infoPanel = getElementById<HTMLDivElement>('info-panel');
     const input = getElementById<HTMLInputElement>('country-search');
+    const toggle = getElementById<HTMLDivElement>('toggle-methodology');
+    const panel = getElementById<HTMLDivElement>('methodology-panel');
+
+    toggle.addEventListener('click', () => {
+      panel?.classList.toggle('active');
+    });
 
     const world = createGlobe(geoJson, data, tooltip, infoPanel);
 

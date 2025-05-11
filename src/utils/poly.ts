@@ -4,6 +4,7 @@ import { getKriScore } from './score';
 import { normalize } from './utils';
 import { generateTooltipContent } from '../tooltip';
 import { GeoJsonFeature, CountryData, HoverHandlerOptions } from '../types';
+import { animateDesaturation } from '../globe-renderer';
 
 export function createPolygonMaterial(
   d: any,
@@ -98,45 +99,73 @@ export function handlePolygonHover({
     const prevHover = getHoverD();
     const newHover = polygon as GeoJsonFeature | null;
 
-    const hadHover = !!prevHover;
-    const hasHover = !!newHover;
-
-    if (hasHover && !hadHover) {
-      setHoverD(newHover);
-      animateDesaturation(world, 1, 200);
-    } else if (!hasHover && hadHover) {
-      animateDesaturation(world, 0, 400, () => {
-        setHoverD(null);
-        world.polygonCapMaterial(world.polygonCapMaterial());
-      });
-    } else {
-      setHoverD(newHover);
-    }
-
-    if (newHover && infoPanel.innerHTML === '') {
-      const countryName = newHover.properties.ADMIN || 'Unknown';
-      const country = data.find(
-        (d) => normalize(d.country) === normalize(countryName)
-      );
-
-      if (country) {
-        tooltip.style.display = 'block';
-        tooltip.innerHTML = generateTooltipContent(countryName, country);
-
-        requestAnimationFrame(() => {
-          const bars = tooltip.querySelectorAll('.bar-fill');
-          bars.forEach((bar) => {
-            const score = parseFloat(bar.getAttribute('data-score') || '0');
-            (bar as HTMLElement).style.width = `${score * 100}%`;
-          });
-        });
-      }
-    } else {
-      tooltip.style.display = 'none';
-    }
+    updateHoverState(
+      prevHover,
+      newHover,
+      world,
+      setHoverD,
+      animateDesaturation
+    );
+    updateTooltip(newHover, data, tooltip, infoPanel);
 
     return world.polygonAltitude((d: GeoJsonFeature) =>
       d === newHover ? 0.05 : 0.01
     );
   };
+}
+
+function updateHoverState(
+  prev: GeoJsonFeature | null,
+  next: GeoJsonFeature | null,
+  world: any,
+  setHoverD: (d: GeoJsonFeature | null) => void,
+  animate: typeof animateDesaturation
+) {
+  const hadHover = !!prev;
+  const hasHover = !!next;
+
+  if (hasHover && !hadHover) {
+    setHoverD(next);
+    animate(world, 1, 200);
+  } else if (!hasHover && hadHover) {
+    animate(world, 0, 400, () => {
+      setHoverD(null);
+      world.polygonCapMaterial(world.polygonCapMaterial());
+    });
+  } else {
+    setHoverD(next);
+  }
+}
+
+function updateTooltip(
+  hover: GeoJsonFeature | null,
+  data: CountryData[],
+  tooltip: HTMLElement,
+  infoPanel: HTMLElement
+) {
+  if (!hover || infoPanel.innerHTML !== '') {
+    tooltip.style.display = 'none';
+    return;
+  }
+
+  const countryName = hover.properties?.ADMIN || 'Unknown';
+  const country = data.find(
+    (d) => normalize(d.country) === normalize(countryName)
+  );
+
+  if (!country) {
+    tooltip.style.display = 'none';
+    return;
+  }
+
+  tooltip.style.display = 'block';
+  tooltip.innerHTML = generateTooltipContent(countryName, country);
+
+  requestAnimationFrame(() => {
+    const bars = tooltip.querySelectorAll('.bar-fill');
+    bars.forEach((bar) => {
+      const score = parseFloat(bar.getAttribute('data-score') || '0');
+      (bar as HTMLElement).style.width = `${score * 100}%`;
+    });
+  });
 }

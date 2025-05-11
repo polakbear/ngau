@@ -5,20 +5,11 @@ import {
   handlePolygonClick,
   handlePolygonHover,
 } from './utils/poly';
+import { detectMobileMode } from './utils/device';
 
 let desaturationProgress = 0;
 
-export function createGlobe(
-  geoJson: any,
-  data: CountryData[],
-  tooltip: HTMLElement,
-  infoPanel: HTMLElement
-) {
-  const globeElement = document.getElementById('globe');
-  if (!globeElement) {
-    throw new Error('Element with id "globe" not found');
-  }
-
+function setupListeners(tooltip: HTMLElement, infoPanel: HTMLElement): void {
   document.addEventListener('mousemove', (event) => {
     tooltip.style.left = `${event.pageX + 10}px`;
     tooltip.style.top = `${event.pageY + 10}px`;
@@ -37,6 +28,22 @@ export function createGlobe(
       infoPanel.style.display = 'none';
     }
   });
+}
+
+export function createGlobe(
+  geoJson: any,
+  data: CountryData[],
+  tooltip: HTMLElement,
+  infoPanel: HTMLElement
+) {
+  const mobileMode = detectMobileMode();
+  console.log('Mobile mode:', mobileMode);
+  const globeElement = document.getElementById('globe');
+  if (!globeElement) {
+    throw new Error('Element with id "globe" not found');
+  }
+
+  setupListeners(tooltip, infoPanel);
 
   let hoverD: GeoJsonFeature | null = null;
   const getHoverD = () => hoverD;
@@ -45,6 +52,10 @@ export function createGlobe(
   };
 
   const world = new Globe(globeElement);
+  if (mobileMode) {
+    const renderer = world.renderer?.();
+    renderer?.setPixelRatio(1);
+  }
   const hoverConfig = {
     world,
     data,
@@ -59,7 +70,7 @@ export function createGlobe(
     .globeImageUrl('')
     .showAtmosphere(true)
     .atmosphereColor('#2e9c9f')
-    .atmosphereAltitude(0.45)
+    .atmosphereAltitude(mobileMode ? 0.2 : 0.45)
     .polygonsData(geoJson.features)
     .polygonCapColor(() => 'rgba(0,0,0,0)')
     .polygonCapMaterial((d: any) =>
@@ -71,6 +82,11 @@ export function createGlobe(
       handlePolygonClick(polygon, data, tooltip, infoPanel)
     );
   world.onPolygonHover(handlePolygonHover(hoverConfig));
+  if (mobileMode) {
+    requestAnimationFrame(() => {
+      world.pointOfView({ lat: 20, lng: 0, altitude: 4 }, 0);
+    });
+  }
   return world;
 }
 
@@ -82,7 +98,7 @@ function easeOut(t: number): number {
   return t * (2 - t);
 }
 
-function animateDesaturation(
+export function animateDesaturation(
   world: any,
   target: number,
   duration = 400,

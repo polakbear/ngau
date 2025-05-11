@@ -488,3 +488,101 @@ canvas {
   text-align: center;
   margin-top: 4px;
 }
+
+/* ─────────────────────────────────────────────
+   Methodology Toggle Button (Mobile Only)
+──────────────────────────────────────────── */
+.methodology-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .methodology-toggle {
+    display: block;
+    margin-top: 12px;
+    font-size: 0.85rem;
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  .legend-methodology {
+    display: none;
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(90vw, 300px);
+    max-width: min(90vw, 300px);
+    z-index: 999;
+    padding: 16px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #f0f0f0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    backdrop-filter: blur(10px);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+      0 8px 30px rgba(0, 255, 255, 0.05),
+      0 0 12px rgba(0, 255, 255, 0.1);
+    max-height: 60vh;
+    overflow-y: auto;
+    text-align: left;
+  }
+
+  .legend-methodology.active {
+    display: block;
+  }
+
+  .methodology-section {
+    margin: 0;
+    padding: 0;
+  }
+
+  .methodology-section strong {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 4px;
+    color: #3fd1c7; /* ✅ Accent color */
+    font-weight: 600;
+  }
+
+  .methodology-section strong:first-of-type {
+    margin-top: 0;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   Desktop Methodology Styles (Unchanged)
+──────────────────────────────────────────── */
+@media (min-width: 769px) {
+  .methodology-toggle {
+    display: none;
+  }
+
+  .legend-methodology {
+    display: block;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 12px;
+    text-align: left;
+    line-height: 1.4;
+    max-width: 300px;
+  }
+
+  .methodology-section strong {
+    color: #3fd1c7; /* ✅ Accent color for desktop too */
+    font-weight: 600;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 4px;
+  }
+}
