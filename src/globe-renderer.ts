@@ -4,7 +4,7 @@ import {
   createPolygonMaterial,
   handlePolygonClick,
   handlePolygonHover,
-} from './utils/polygon-utils';
+} from './utils/poly';
 
 let desaturationProgress = 0;
 

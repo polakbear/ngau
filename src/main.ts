@@ -2,7 +2,7 @@ import { loadData } from './data-service';
 import { createGlobe } from './globe-renderer';
 import { CountryData } from './types';
 import { inject } from '@vercel/analytics';
-import { getElementById, setupSearchInput } from './utils/dom-utils';
+import { getElementById, setupSearchInput } from './utils/dom';
 
 let data: CountryData[] = [];
 
