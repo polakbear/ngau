@@ -24,6 +24,9 @@ export function createLegend(): HTMLElement {
           <span>Excellent</span>
         </div>
       </div>
+      <div class="data-sources">
+        Data sources: <a href="https://www.kidsrights.org/" target="_blank" rel="noopener">Kids Rights Index</a>, <a href="https://data.unicef.org/" target="_blank" rel="noopener">UNICEF datasets</a>
+      </div>
       <span id="toggle-methodology" class="methodology-toggle" role="button" tabindex="0" aria-label="Show methodology">ⓘ</span>
     </div>
     <div class="legend-methodology hidden-on-mobile" id="methodology-panel">

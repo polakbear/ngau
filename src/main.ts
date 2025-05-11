@@ -31,13 +31,6 @@ async function initialize() {
     const app = document.getElementById('app');
     if (!app) throw new Error('App container not found');
 
-    // Add the data sources disclaimer
-    const disclaimer = document.createElement('div');
-    disclaimer.className = 'data-sources';
-    disclaimer.innerHTML =
-      'Data sources: <a href="https://www.kidsrights.org/" target="_blank" rel="noopener">Kids Rights Index</a>, <a href="https://data.unicef.org/" target="_blank" rel="noopener">UNICEF datasets</a>';
-    document.body.appendChild(disclaimer);
-
     app.prepend(createLegend());
     document.body.appendChild(createScoreTabs());
 
