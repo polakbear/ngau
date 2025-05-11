@@ -2333,7 +2333,12 @@
     "health": 0.626,
     "education": 0.564,
     "protection": 0.97,
-    "environment": 0.214
+    "environment": 0.214,
+    "ranking_life": 94,
+    "ranking_health": 154,
+    "ranking_education": 151,
+    "ranking_protection": 41,
+    "ranking_child_rights_environment": 161
   },
   {
     "country": "North Macedonia",
