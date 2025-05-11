@@ -318,6 +318,12 @@
     "education": 0.833,
     "protection": 0.774,
     "environment": 0.643,
+    "ranking_kri": 65,
+    "ranking_life": 135,
+    "ranking_health": 129,
+    "ranking_education": 41,
+    "ranking_protection": 111,
+    "ranking_child_rights_environment": 18,
     "indicators": [
       {
         "indicator_type": "female_child_marriage",

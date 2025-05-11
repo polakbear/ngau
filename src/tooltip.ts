@@ -66,6 +66,7 @@ export function generateTooltipContent(
 
   <div class="tooltip-badges-row">
     <div class="tooltip-badge">
+      <i class="fa fa-star" style="color: #3fd1c7; margin-right: 4px;"></i>
       <strong>KRI</strong> ${kri != null ? kri.toFixed(3) : 'N/A'}
       <span class="badge-divider">|</span>
       <strong>Rank</strong> ${rank != null ? rank : 'N/A'} / ${total}
