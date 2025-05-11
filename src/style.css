@@ -64,12 +64,17 @@ canvas {
   max-width: 340px;
   width: calc(100vw - 32px);
   border-radius: 12px;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05) inset, 0 10px 40px rgba(0, 255, 255, 0.07), 0 0 12px rgba(0, 255, 255, 0.1);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+    0 10px 40px rgba(0, 255, 255, 0.07),
+    0 0 12px rgba(0, 255, 255, 0.1);
   backdrop-filter: blur(8px);
   line-height: 1.6;
   z-index: 1000;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+
   @media (max-width: 768px) {
     left: 16px !important;
     right: 16px;
@@ -223,7 +228,11 @@ canvas {
 .bar-fill {
   height: 100%;
   border-radius: 3px;
-  background: linear-gradient(to right, var(--bar-color, #3fd1c7), rgba(255, 255, 255, 0.25));
+  background: linear-gradient(
+    to right,
+    var(--bar-color, #3fd1c7),
+    rgba(255, 255, 255, 0.25)
+  );
   transition: width 0.3s ease;
 }
 
@@ -271,7 +280,7 @@ canvas {
   overflow-y: auto;
   box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
   font-family: 'Segoe UI', 'IBM Plex Sans', sans-serif;
-  
+
   @media (max-width: 768px) {
     top: 430px;
     right: auto;
@@ -314,7 +323,7 @@ canvas {
   top: 16px;
   left: 16px;
   z-index: 10;
-  
+
   @media (max-width: 768px) {
     top: auto;
     bottom: 24px;
@@ -405,7 +414,7 @@ canvas {
   border-top: none;
   border-left: none;
   border-right: none;
-  
+
   @media (max-width: 768px) {
     position: fixed;
     top: 60px;
@@ -442,7 +451,7 @@ canvas {
   box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  
+
   @media (max-width: 768px) {
     top: 100px;
     right: auto;
@@ -517,7 +526,9 @@ canvas {
     line-height: 1.5;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
     max-height: 60vh;
     overflow-y: auto;
     text-align: left;
@@ -570,7 +581,7 @@ canvas {
   text-align: center;
   margin-top: 8px;
   line-height: 1.4;
-  
+
   @media (min-width: 769px) {
     position: fixed;
     bottom: 24px;
@@ -731,5 +742,5 @@ canvas {
   flex: 1;
   justify-content: center;
   min-width: 80px;
-  max-width: 80px;;
+  max-width: 80px;
 }
