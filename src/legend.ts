@@ -1,17 +1,10 @@
 // src/ui/legend.ts
-import { colors } from './utils/color';
 
 export function createLegend(): HTMLElement {
   const legend = document.createElement('div');
   legend.className = 'legend';
 
   legend.innerHTML = `
-    <input
-      type="text"
-      id="country-search"
-      placeholder="Search a country..."
-      class="search-input"
-    />
     <div class="score-tabs-container">
       <button class="score-tab active" data-score="overall">Overall</button>
       <button class="score-tab" data-score="life">Life</button>

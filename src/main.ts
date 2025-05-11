@@ -3,7 +3,7 @@ import { loadData } from './data-service';
 import { createGlobe } from './globe-renderer';
 import { CountryData } from './types';
 import { inject } from '@vercel/analytics';
-import { getElementById, setupSearchInput } from './utils/dom';
+import { getElementById } from './utils/dom';
 import { createLegend } from './legend';
 import { onScoreChange, setScoreType } from './score-state';
 import { createPolygonMaterial } from './utils/poly';
@@ -33,7 +33,6 @@ async function initialize() {
 
     const tooltip = getElementById<HTMLDivElement>('tooltip');
     const infoPanel = getElementById<HTMLDivElement>('info-panel');
-    const input = getElementById<HTMLInputElement>('country-search');
     const toggle = getElementById<HTMLDivElement>('toggle-methodology');
     const panel = getElementById<HTMLDivElement>('methodology-panel');
 
@@ -72,15 +71,28 @@ async function initialize() {
     geoJson = result.geoJson;
 
     world = createGlobe(geoJson, data, tooltip, infoPanel);
+
+    // Wait for the globe to be ready before calculating centroids and setting up interactions
     world.onGlobeLoaded(() => {
-      // Apply the color changes once the globe is loaded
+      // Calculate centroids for each country using polygon coordinates
+      geoJson.features.forEach((f: any) => {
+        if (f.geometry && f.geometry.coordinates) {
+          // For polygons with multiple parts, use the first/largest part
+          const coords = f.geometry.coordinates[0][0];
+          let sumLng = 0,
+            sumLat = 0;
+          coords.forEach((coord: number[]) => {
+            sumLng += coord[0];
+            sumLat += coord[1];
+          });
+          f.__centroid = [sumLng / coords.length, sumLat / coords.length];
+        }
+      });
+
+      // Apply initial colors and set up color updates
       applyPolygonColors();
+      onScoreChange(applyPolygonColors);
     });
-
-    applyPolygonColors();
-    onScoreChange(applyPolygonColors);
-
-    setupSearchInput(input, geoJson, world);
   } catch (error) {
     console.error('Error initializing the application:', error);
   }

@@ -4,11 +4,7 @@ import {
   getContrastingTextColor,
   getBarColor,
 } from './utils/color';
-import {
-  getPerformanceLabel,
-  getPerformanceClass,
-  getFullLabel,
-} from './utils/score';
+import { getPerformanceLabel, getFullLabel } from './utils/score';
 import { CountryData, Nullable } from './types';
 
 function buildMetricRow(
@@ -19,18 +15,19 @@ function buildMetricRow(
 ): string {
   const total = 194;
   const performance = getPerformanceLabel(rank ?? null, total);
-  const performanceClass = getPerformanceClass(rank ?? null, total);
   const color = getColorFromRank(rank ?? null, total);
 
   return `
     <div class="tooltip-metric">
       <div class="metric-label"><i class="${iconClass}"></i><span>${label}</span></div>
       <div class="metric-info">
-        <div class="split-badge">
-          ${rank != null ? `<span class="split-left">Rank ${rank}</span>` : ''}
-          <span class="split-right" style="background-color: ${color}; color: ${getContrastingTextColor(color)}">${performance}</span>
+        <div class="metric-row">
+          <div class="split-badge">
+            ${rank != null ? `<span class="split-left">Rank ${rank.toString().padStart(3, '\u00A0')}</span>` : ''}
+            <span class="split-right" style="background-color: ${color}; color: ${getContrastingTextColor(color)}">${performance}</span>
+          </div>
+          <span class="value">${value != null ? value.toFixed(3) : 'N/A'}</span>
         </div>
-        <span class="value">${value != null ? value.toFixed(3) : 'N/A'}</span>
         <div class="bar-container">
           <div class="bar-fill"
                style="width: 0%; --bar-color: ${getBarColor(value)};"
@@ -67,15 +64,17 @@ export function generateTooltipContent(
 <div class="tooltip-top-row" style="flex-direction: column; align-items: flex-start; margin-bottom: 8px;">
   <div class="tooltip-header">${countryName}</div>
 
-  <div class="tooltip-badge" style="margin: 4px 0;">
-    <strong>KRI</strong> ${kri != null ? kri.toFixed(3) : 'N/A'}
-    <span class="badge-divider">|</span>
-    <strong>Rank</strong> ${rank != null ? rank : 'N/A'} / ${total}
-  </div>
+  <div class="tooltip-badges-row">
+    <div class="tooltip-badge">
+      <strong>KRI</strong> ${kri != null ? kri.toFixed(3) : 'N/A'}
+      <span class="badge-divider">|</span>
+      <strong>Rank</strong> ${rank != null ? rank : 'N/A'} / ${total}
+    </div>
 
-<div class="badge-qual" style="background-color: ${bgColor}; color: ${textColor};">
-  ${rankQual}
-</div>
+    <div class="badge-qual" style="background-color: ${bgColor}; color: ${textColor};">
+      ${rankQual}
+    </div>
+  </div>
 </div>
 
     <!-- Metrics -->

@@ -1,7 +1,6 @@
 import { CountryData, Nullable } from '../types';
 import { normalize } from './utils';
 
-// Get performance label based on rank position
 export function getPerformanceLabel(
   rank: number | null,
   total: number
@@ -16,28 +15,11 @@ export function getPerformanceLabel(
   return 'Bottom 10%';
 }
 
-// Get CSS class based on rank position
-export function getPerformanceClass(
-  rank: number | null,
-  total: number
-): string {
-  if (rank === null) return 'qual--na';
-  const percentile = (total - rank) / total;
-
-  if (percentile >= 0.9) return 'qual--excellent';
-  if (percentile >= 0.6) return 'qual--good';
-  if (percentile >= 0.4) return 'qual--fair';
-  if (percentile >= 0.1) return 'qual--poor';
-  return 'qual--very-poor';
-}
-
-// Get intuitive label that shows both rank and relative standing
 export function getFullLabel(rank: number | null, total: number): string {
   if (rank === null) return 'No Data';
   return getPerformanceLabel(rank, total);
 }
 
-// Legacy functions maintained for backward compatibility
 export function scoreLabel(score: Nullable): string {
   if (score == null) return 'N/A';
   if (score < 0.2) return 'Very Poor';

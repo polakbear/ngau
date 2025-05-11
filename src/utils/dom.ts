@@ -21,8 +21,13 @@ export function setupSearchInput(
 
       if (match && match.__centroid) {
         const [lng, lat] = match.__centroid;
-        world.pointOfView({ lat, lng, altitude: 1.0 }, 1000);
+        // Start from a slightly higher altitude and zoom in smoothly
+        world.pointOfView({ lat, lng, altitude: 2.5 }, 0);
+        setTimeout(() => {
+          world.pointOfView({ lat, lng, altitude: 1.5 }, 1000);
+        }, 50);
         input.value = '';
+        input.blur(); // Remove focus from input
       } else {
         console.log('Country not found');
       }

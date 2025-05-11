@@ -84,13 +84,32 @@ export function createGlobe(
     .onPolygonHover(handlePolygonHover(hoverConfig))
     .backgroundColor('#0a1d26');
 
-  if (mobileMode) {
-    requestAnimationFrame(() => {
-      world.pointOfView({ lat: 20, lng: 0, altitude: 4 }, 0);
-    });
-  }
+  // Set initial point of view
+  requestAnimationFrame(() => {
+    world.pointOfView({ lat: 20, lng: 0, altitude: mobileMode ? 4 : 2.5 }, 0);
+  });
 
-  return world;
+  // Create a promise that resolves when the globe is ready
+  const globeReady = new Promise<void>((resolve) => {
+    const checkGlobe = () => {
+      if (world.scene()) {
+        resolve();
+      } else {
+        requestAnimationFrame(checkGlobe);
+      }
+    };
+    checkGlobe();
+  });
+
+  // Add onGlobeLoaded method to the world object
+  const originalWorld = world;
+  const enhancedWorld = Object.assign(originalWorld, {
+    onGlobeLoaded: (callback: () => void) => {
+      globeReady.then(callback);
+    },
+  });
+
+  return enhancedWorld;
 }
 
 export function animateDesaturation(
