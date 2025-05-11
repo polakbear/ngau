@@ -1695,7 +1695,13 @@
     "health": null,
     "education": null,
     "protection": null,
-    "environment":null
+    "environment":null,
+    "ranking_kri": null,
+    "ranking_life": null,
+    "ranking_health": null,
+    "ranking_education": null,
+    "ranking_protection": null,
+    "ranking_child_rights_environment": null    
   },
   {
     "country": "Kuwait",
@@ -2259,7 +2265,13 @@
     "health": null,
     "education": null,
     "protection": null,
-    "environment":null
+    "environment":null,
+    "ranking_kri": null,
+    "ranking_life": null,
+    "ranking_health": null,
+    "ranking_education": null,
+    "ranking_protection": null,
+    "ranking_child_rights_environment": null
   },
   {
     "country": "New Zealand",
@@ -2747,12 +2759,17 @@
   {
     "country": "Saint Vincent and the Grenadines",
     "kri_rank": 52,
-    "kri_score": 0.785,
-    "life": 0.94,
-    "health": 0.79,
-    "education": 0.583,
-    "protection": 4.0,
-    "environment": 53.0
+    "kri_score": 0.764,
+    "life": 0.785,
+    "health": 0.940,
+    "education": 0.790,
+    "protection": null,
+    "environment": 0.583,
+    "ranking_life": 106,
+    "ranking_health": 64,
+    "ranking_education": 55,
+    "ranking_protection": null,
+    "ranking_child_rights_environment": 42
   },
   {
     "country": "Samoa",
@@ -3259,7 +3276,13 @@
     "health": null,
     "education": null,
     "protection": null,
-    "environment": null
+    "environment": null,
+    "ranking_kri": null,
+    "ranking_life": null,
+    "ranking_health": null,
+    "ranking_education": null,
+    "ranking_protection": null,
+    "ranking_child_rights_environment": null
   },
   {
     "country": "Tajikistan",
@@ -3299,9 +3322,14 @@
     "kri_score": 0.568,
     "life": 0.803,
     "health": 0.912,
-    "education": 0.25,
-    "protection": 0.5,
-    "environment": 0.5
+    "education": null,
+    "protection": null,
+    "environment": 0.25,
+    "ranking_life": 97,
+    "ranking_health": 86,
+    "ranking_education": null,
+    "ranking_protection": null,
+    "ranking_child_rights_environment": 155
   },
   {
     "country": "Togo",
@@ -3552,7 +3580,13 @@
     "health": null,
     "education": null,
     "protection": null,
-    "environment":null
+    "environment":null,
+    "ranking_kri": null,
+    "ranking_life": null,
+    "ranking_health": null,
+    "ranking_education": null,
+    "ranking_protection": null,
+    "ranking_child_rights_environment": null
   },
   {
     "country": "Uruguay",
@@ -3610,7 +3644,12 @@
     "health": 0.855,
     "education": 0.582,
     "protection": 0.704,
-    "environment": 0.5
+    "environment": 0.5,
+    "ranking_life": 130,
+    "ranking_health": 113,
+    "ranking_education": 142,
+    "ranking_protection": 120,
+    "ranking_child_rights_environment": 84
   },
   {
     "country": "Viet Nam",
@@ -3636,7 +3675,13 @@
     "health": null,
     "education": null,
     "protection": null,
-    "environment":null
+    "environment":null,
+    "ranking_kri": null,
+    "ranking_life": null,
+    "ranking_health": null,
+    "ranking_education": null,
+    "ranking_protection": null,
+    "ranking_child_rights_environment": null
   },
   {
     "country": "Yemen",
