@@ -1,5 +1,7 @@
 import { colors, rankBasedColorScale } from './utils/color';
 
+const MAX_RANK = 194;
+
 export function createLegend(): HTMLElement {
   const legend = document.createElement('div');
   legend.className = 'legend';
