@@ -25,10 +25,11 @@ function createStripedTexture() {
   const g = parseInt(baseColor.substr(2, 2), 16);
   const b = parseInt(baseColor.substr(4, 2), 16);
 
-  // Lighten by 15%
-  const lighterR = Math.min(255, r + 38);
-  const lighterG = Math.min(255, g + 38);
-  const lighterB = Math.min(255, b + 38);
+  // Lighten by 15% (15% of 255 is approximately 38)
+  const LIGHTENING_FACTOR = 38; // Derived from 15% of the maximum RGB value (255)
+  const lighterR = Math.min(255, r + LIGHTENING_FACTOR);
+  const lighterG = Math.min(255, g + LIGHTENING_FACTOR);
+  const lighterB = Math.min(255, b + LIGHTENING_FACTOR);
 
   const lighterColor = `#${lighterR.toString(16).padStart(2, '0')}${lighterG.toString(16).padStart(2, '0')}${lighterB.toString(16).padStart(2, '0')}`;
 
