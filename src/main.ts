@@ -78,9 +78,8 @@ async function initialize() {
           .querySelectorAll('.methodology-section')
           .forEach((el) => el.classList.remove('highlighted'));
 
-        const section = document.querySelector(
-          `.methodology-${score.toLowerCase()}`
-        );
+        const sectionName = score.toLowerCase().replace('ranking_', '');
+        const section = document.querySelector(`.methodology-${sectionName}`);
         section?.classList.add('highlighted');
       });
     });

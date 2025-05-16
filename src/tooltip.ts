@@ -1,8 +1,8 @@
 import {
-  childRightsColorScale,
   getColorFromRank,
   getContrastingTextColor,
   getBarColor,
+  rankBasedColorScale,
 } from './utils/color';
 import { getPerformanceLabel, getFullLabel } from './utils/score';
 import { CountryData, Nullable } from './types';
@@ -26,7 +26,7 @@ function buildMetricRow(
             ${rank != null ? `<span class="split-left">Rank ${rank.toString().padStart(3, '\u00A0')}</span>` : ''}
             <span class="split-right" style="background-color: ${color}; color: ${getContrastingTextColor(color)}">${performance}</span>
           </div>
-          <span class="value">${value != null ? value.toFixed(3) : 'N/A'}</span>
+          <span class="value">${value != null ? value.toFixed(3) : ''}</span>
         </div>
         <div class="bar-container">
           <div class="bar-fill"
@@ -57,7 +57,7 @@ export function generateTooltipContent(
   const fg = findValue('fgm_prevalence');
   const hasViolations = cm != null || cl != null || fg != null;
 
-  const bgColor = childRightsColorScale(kri ?? 0);
+  const bgColor = rankBasedColorScale(rank ?? 0);
   const textColor = getContrastingTextColor(bgColor);
   return `
     
@@ -84,7 +84,7 @@ export function generateTooltipContent(
   ${buildMetricRow('fa fa-heart', 'Health', country?.health, country?.ranking_health)}
   ${buildMetricRow('fa fa-graduation-cap', 'Education', country?.education, country?.ranking_education)}
   ${buildMetricRow('fa fa-shield-alt', 'Protection', country?.protection, country?.ranking_protection)}
-  ${buildMetricRow('fa fa-globe', 'Environment', country?.environment, country?.ranking_child_rights_environment)}
+  ${buildMetricRow('fa fa-globe', 'Environment', country?.environment, country?.ranking_environment)}
 </div>
     ${
       hasViolations

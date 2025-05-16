@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { childRightsColorScale } from './color';
+import { rankBasedColorScale } from './color';
 import { normalize } from './utils';
 import { generateTooltipContent } from '../tooltip';
 import { GeoJsonFeature, CountryData, HoverHandlerOptions } from '../types';
@@ -52,7 +52,7 @@ export function createPolygonMaterial(
     const scoreType = getScoreType();
     const rawScore =
       scoreType === 'overall'
-        ? country.kri_score
+        ? country.kri_rank
         : country[scoreType as keyof CountryData];
     score = typeof rawScore === 'number' ? rawScore : null;
   }
@@ -70,7 +70,9 @@ export function createPolygonMaterial(
   const isHovered = hoverD && d === hoverD;
   const opacity = !hoverD ? 1 : isHovered ? 1 : 1 - 0.7 * desaturationProgress;
 
-  const baseColor = childRightsColorScale(score);
+  // const baseColor = childRightsColorScale(score);
+  const baseColor = rankBasedColorScale(score);
+
   return new THREE.MeshLambertMaterial({
     color: new THREE.Color(baseColor),
     transparent: true,
