@@ -41,18 +41,21 @@ function buildMetricRow(
 function buildIndicatorProgressBar(
   label: string,
   value: number,
-  maxValue: number = 100
+  maxValue: number = 100,
+  compact: boolean = false,
+  customClass: string = ''
 ): string {
   const percentage = Math.min(100, (value / maxValue) * 100);
+  const labelClass = compact ? 'indicator-label compact' : 'indicator-label';
 
   return `
     <div class="indicator-item">
-      <div class="indicator-label">${label}</div>
+      <div class="${labelClass}">${label}</div>
       <div class="indicator-value-bar">
         <div class="indicator-bar-container">
-          <div class="indicator-bar-fill" style="width: 0%;" data-percentage="${percentage}"></div>
+          <div class="indicator-bar-fill ${customClass}" style="width: 0%;" data-percentage="${percentage}"></div>
         </div>
-        <span class="indicator-value">${value}%</span>
+        <span class="indicator-value">${value}<span style="font-size: 9px; opacity: 0.8;">%</span></span>
       </div>
     </div>
   `;
@@ -65,62 +68,95 @@ function generateIndicatorSection(
 
   let html = '';
 
-  // female child marriage indicators
+  // Get female and male child marriage indicators
   const femaleChildMarriage = indicators.find(
     (i) => i.indicator_type === 'female_child_marriage'
   );
-  if (femaleChildMarriage) {
-    html += `<div class="indicator-section">
-      <div class="indicator-title">
-        <i class="fas fa-ring"></i> Child Marriage (Female)
-      </div>
-      <div class="indicator-content">`;
-
-    if (
-      femaleChildMarriage.value_female_15 !== null &&
-      femaleChildMarriage.value_female_15 !== undefined
-    ) {
-      html += buildIndicatorProgressBar(
-        'Married by age 15',
-        femaleChildMarriage.value_female_15
-      );
-    }
-
-    if (
-      femaleChildMarriage.value_female_18 !== null &&
-      femaleChildMarriage.value_female_18 !== undefined
-    ) {
-      html += buildIndicatorProgressBar(
-        'Married by age 18',
-        femaleChildMarriage.value_female_18
-      );
-    }
-
-    html += `
-        <div class="indicator-source">
-          Source: ${femaleChildMarriage.data_source || 'Not specified'} (${femaleChildMarriage.year || 'Year not specified'})
-        </div>
-      </div>
-    </div>`;
-  }
-
-  // male child marriage indicators
   const maleChildMarriage = indicators.find(
     (i) => i.indicator_type === 'male_child_marriage'
   );
-  if (
-    maleChildMarriage &&
-    maleChildMarriage.value_male_18 !== null &&
-    maleChildMarriage.value_male_18 !== undefined
-  ) {
+
+  // If we have either female or male child marriage indicators, we'll show them side by side
+  if (femaleChildMarriage || maleChildMarriage) {
+    const femaleSources = femaleChildMarriage
+      ? `${femaleChildMarriage.data_source || 'Not specified'} (${femaleChildMarriage.year || 'Year not specified'})`
+      : '';
+    const maleSources = maleChildMarriage
+      ? `${maleChildMarriage.data_source || 'Not specified'} (${maleChildMarriage.year || 'Year not specified'})`
+      : '';
+
+    // Determine the source text to display (use female source if available, otherwise male)
+    const sourceText = femaleSources || maleSources;
+
     html += `<div class="indicator-section">
       <div class="indicator-title">
-        <i class="fas fa-ring"></i> Child Marriage (Male)
+        <i class="fas fa-ring"></i> Child Marriage
       </div>
-      <div class="indicator-content">
-        ${buildIndicatorProgressBar('Married by age 18', maleChildMarriage.value_male_18)}
-        <div class="indicator-source">
-          Source: ${maleChildMarriage.data_source || 'Not specified'} (${maleChildMarriage.year || 'Year not specified'})
+      <div class="child-marriage-grid">
+        <div class="child-marriage-column">
+          <div class="child-marriage-title">
+            <i class="fas fa-venus" style="color: #ff9f43;"></i> Female
+          </div>`;
+
+    // Add female child marriage indicators if available
+    if (femaleChildMarriage) {
+      if (
+        femaleChildMarriage.value_female_15 !== null &&
+        femaleChildMarriage.value_female_15 !== undefined
+      ) {
+        html += buildIndicatorProgressBar(
+          '<i class="fas fa-child" style="font-size: 10px; margin-right: 4px; color: #ff9f43;"></i>By age 15',
+          femaleChildMarriage.value_female_15,
+          100,
+          false,
+          'female-bar'
+        );
+      }
+
+      if (
+        femaleChildMarriage.value_female_18 !== null &&
+        femaleChildMarriage.value_female_18 !== undefined
+      ) {
+        html += buildIndicatorProgressBar(
+          '<i class="fas fa-female" style="font-size: 10px; margin-right: 4px; color: #ff9f43;"></i>By age 18',
+          femaleChildMarriage.value_female_18,
+          100,
+          false,
+          'female-bar'
+        );
+      }
+    } else {
+      html += `<div class="indicator-item">
+        <div class="indicator-label"><i class="fas fa-exclamation-circle" style="font-size: 10px; margin-right: 4px; opacity: 0.7; color: #ff9f43;"></i>No data available</div>
+      </div>`;
+    }
+
+    html += `</div>
+        <div class="child-marriage-column">
+          <div class="child-marriage-title">
+            <i class="fas fa-mars" style="color: #ff9f43;"></i> Male
+          </div>`;
+
+    // Add male child marriage indicators if available
+    if (
+      maleChildMarriage &&
+      maleChildMarriage.value_male_18 !== null &&
+      maleChildMarriage.value_male_18 !== undefined
+    ) {
+      html += buildIndicatorProgressBar(
+        '<i class="fas fa-male" style="font-size: 10px; margin-right: 4px; color: #ff9f43;"></i>By age 18',
+        maleChildMarriage.value_male_18,
+        100,
+        false,
+        'male-bar'
+      );
+    } else {
+      html += `<div class="indicator-item"><div class="indicator-label"><i class="fas fa-exclamation-circle" style="font-size: 10px; margin-right: 4px; opacity: 0.7; color: #ff9f43;"></i>No data available</div></div>`;
+    }
+
+    html += `</div>
+        <div class="child-marriage-source">
+          <i class="fas fa-info-circle" style="font-size: 9px; margin-right: 3px; color: #ff9f43;"></i> Source: ${sourceText}
         </div>
       </div>
     </div>`;
