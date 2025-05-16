@@ -40,19 +40,20 @@ Then open http://localhost:5173 in your browser.
 - [x] Visualize KidsRights Index core scores
 - [x] Add tooltip and info panel for country-level info
 - [x] Display child rights violations (where data exists)
-- [ ] Implement visual score toggle (life, health, education, etc.)
-- [ ] Finalize indicator data structure (child marriage, labor, FGM, etc.)
-- [ ] Visualize indicators in tooltip and info panel
+- [x] Implement visual score toggle (life, health, education, etc.)
+- [x] Finalize indicator data structure (child marriage, labor, FGM, etc.)
+- [x] Visualize indicators in tooltip and info panel
+- [ ] Fill in data for (child marriage, labor, FGM, etc.)
 - [ ] Improve mobile layout and responsiveness
 - [ ] Add optional map layer for organizational presence
 - [ ] Explore justice-related indicators
   - Age of criminal responsibility
   - Juvenile incarceration
   - Legal protections for children
-- [ ] Explore time-based comparisons (e.g. trends since 2010)
 - [ ] Consider light/dark mode toggle
 - [ ] Add “bright spots” layer (countries showing progress or strong youth engagement)
 - [ ] Add country search improvements (autocomplete, smarter matching)
 - [ ] Explore “story” view: link to human stories or context behind the numbers
 - [ ] Optional: overlay risk data (conflict, climate, displacement)
+- [ ] Explore time-based comparisons (e.g. trends since 2010)
 - [ ] Consider basic offline/static fallback
