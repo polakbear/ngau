@@ -1,8 +1,14 @@
 export interface IndicatorEntry {
-  type: string;
-  value_total: number;
+  indicator_type: string;
+  value_total?: number;
   value_female?: number | null;
   value_male?: number | null;
+  value_female_15?: number | null;
+  value_female_18?: number | null;
+  value_male_18?: number | null;
+  value_girls_0_14?: number | null;
+  value_urban?: number | null;
+  value_rural?: number | null;
   year?: number;
   data_source?: string;
 }
