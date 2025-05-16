@@ -68,7 +68,7 @@ export function createLegend(): HTMLElement {
       </div>
 
       <div class="methodology-section methodology-environment">
-        <strong>Empowerment & Equality:</strong>
+        <strong>Empowerment:</strong>
         Equal treatment, child voice, funding, detailed data, cooperation with child rights groups
       </div>
     </div>
