@@ -287,7 +287,7 @@ export function generateTooltipContent(
   ${buildMetricRow('fa fa-heart', 'Health', country?.health, country?.ranking_health)}
   ${buildMetricRow('fa fa-graduation-cap', 'Education', country?.education, country?.ranking_education)}
   ${buildMetricRow('fa fa-shield-alt', 'Protection', country?.protection, country?.ranking_protection)}
-  ${buildMetricRow('fa fa-globe', 'Environment', country?.environment, country?.ranking_environment)}
+  ${buildMetricRow('fa fa-globe', 'Empowerment & Equality', country?.environment, country?.ranking_environment)}
 </div>
 
 ${
