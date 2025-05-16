@@ -76,7 +76,6 @@ function generateIndicatorSection(
     (i) => i.indicator_type === 'male_child_marriage'
   );
 
-  // If we have either female or male child marriage indicators, we'll show them side by side
   if (femaleChildMarriage || maleChildMarriage) {
     const femaleSources = femaleChildMarriage
       ? `${femaleChildMarriage.data_source || 'Not specified'} (${femaleChildMarriage.year || 'Year not specified'})`
@@ -85,8 +84,7 @@ function generateIndicatorSection(
       ? `${maleChildMarriage.data_source || 'Not specified'} (${maleChildMarriage.year || 'Year not specified'})`
       : '';
 
-    // Determine the source text to display (use female source if available, otherwise male)
-    const sourceText = femaleSources || maleSources;
+    const sourceText = femaleSources + maleSources;
 
     html += `<div class="indicator-section">
       <div class="indicator-title">
@@ -98,11 +96,11 @@ function generateIndicatorSection(
             <i class="fas fa-venus" style="color: #ff9f43;"></i> Female
           </div>`;
 
-    // Add female child marriage indicators if available
     if (femaleChildMarriage) {
       if (
         femaleChildMarriage.value_female_15 !== null &&
-        femaleChildMarriage.value_female_15 !== undefined
+        femaleChildMarriage.value_female_15 !== undefined &&
+        femaleChildMarriage.value_female_15 !== 0
       ) {
         html += buildIndicatorProgressBar(
           '<i class="fas fa-child" style="font-size: 10px; margin-right: 4px; color: #ff9f43;"></i>By age 15',
@@ -137,11 +135,11 @@ function generateIndicatorSection(
             <i class="fas fa-mars" style="color: #ff9f43;"></i> Male
           </div>`;
 
-    // Add male child marriage indicators if available
     if (
       maleChildMarriage &&
       maleChildMarriage.value_male_18 !== null &&
-      maleChildMarriage.value_male_18 !== undefined
+      maleChildMarriage.value_male_18 !== undefined &&
+      maleChildMarriage.value_male_18 !== 0
     ) {
       html += buildIndicatorProgressBar(
         '<i class="fas fa-male" style="font-size: 10px; margin-right: 4px; color: #ff9f43;"></i>By age 18',
@@ -162,7 +160,7 @@ function generateIndicatorSection(
     </div>`;
   }
 
-  // Process violent discipline indicators
+  // violent discipline indicators
   const violentDiscipline = indicators.find(
     (i) => i.indicator_type === 'violent_discipline'
   );
@@ -295,7 +293,7 @@ export function generateTooltipContent(
 </div>
 
 ${
-  hasIndicators
+  hasIndicators && closeButton
     ? `
 <div class="tooltip-subtitle">Indicators</div>
 ${generateIndicatorSection(country?.indicators)}
