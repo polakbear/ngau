@@ -127,6 +127,33 @@ canvas {
   text-align: center;
 }
 
+/* Badge quality styles - disabled since we now use inline styles with rankBasedColorScale
+.badge-qual.qual--very-poor {
+  background: #2a3342;
+  color: #fff;
+}
+
+.badge-qual.qual--poor {
+  background: #375571;
+  color: #fff;
+}
+
+.badge-qual.qual--fair {
+  background: #4991a8;
+  color: #000;
+}
+
+.badge-qual.qual--good {
+  background: #19837d;
+  color: #000;
+}
+
+.badge-qual.qual--excellent {
+  background: #0aa99e;
+  color: #000;
+}
+*/
+
 .tooltip-header {
   font-size: 16px;
   font-weight: bold;
@@ -336,10 +363,10 @@ canvas {
   width: 100%;
   background: repeating-linear-gradient(
     45deg,
-    #383838,
-    #383838 4px,
-    #444 4px,
-    #444 8px
+    var(--no-data-color, #383838),
+    var(--no-data-color, #383838) 4px,
+    var(--no-data-color-light, #444) 4px,
+    var(--no-data-color-light, #444) 8px
   );
 }
 
@@ -572,31 +599,6 @@ canvas {
   display: inline-block;
 }
 
-.split-right.qual--very-poor {
-  background: #2a3342;
-  color: #fff;
-}
-
-.split-right.qual--poor {
-  background: #375571;
-  color: #fff;
-}
-
-.split-right.qual--fair {
-  background: #4991a8;
-  color: #000;
-}
-
-.split-right.qual--good {
-  background: #19837d;
-  color: #000;
-}
-
-.split-right.qual--excellent {
-  background: #0aa99e;
-  color: #000;
-}
-
 .rank-label {
   font-size: 0.65rem;
   color: rgba(255, 255, 255, 0.5);
@@ -680,7 +682,6 @@ canvas {
   color: #0cb5a9;
 }
 
-/* Indicators section styles */
 .indicators-container {
   margin-top: 12px;
   display: flex;

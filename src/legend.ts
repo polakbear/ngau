@@ -1,15 +1,27 @@
-import { colors } from './utils/color';
+import { colors, rankBasedColorScale } from './utils/color';
 
 export function createLegend(): HTMLElement {
   const legend = document.createElement('div');
   legend.className = 'legend';
 
+  // use rankBasedColorScale for legend gradient
+  const colorStops = [];
+  const numStops = 20;
+
+  for (let i = 0; i < numStops; i++) {
+    const rank = Math.round(1 + (i * (194 - 1)) / (numStops - 1)); // Sample from rank 1 to 194
+    const percent = (i / (numStops - 1)) * 100;
+    colorStops.push(`${rankBasedColorScale(rank)} ${percent}%`);
+  }
+
+  const gradientCSS = colorStops.join(', ');
+
   legend.innerHTML = `
     <div class="legend-container">
       <div class="legend-scale">
       <div class="legend-bar">
-        <div class="legend-no-data"></div>
-        <div class="legend-gradient" style="background: linear-gradient(to right, ${colors.veryPoor}, ${colors.poor}, ${colors.fair}, ${colors.good}, ${colors.excellent});"></div>
+        <div class="legend-no-data" style="--no-data-color: ${colors.noData}; --no-data-color-light: #444;"></div>
+        <div class="legend-gradient" style="background: linear-gradient(to right, ${gradientCSS});"></div>
       </div>
       <div class="legend-row">
         <div class="legend-labels">

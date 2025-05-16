@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { rankBasedColorScale } from './color';
+import { rankBasedColorScale, colors } from './color';
 import { normalize } from './utils';
 import { generateTooltipContent } from '../tooltip';
 import { GeoJsonFeature, CountryData, HoverHandlerOptions } from '../types';
@@ -17,12 +17,22 @@ function createStripedTexture() {
   stripeCanvas.height = 64;
   const ctx = stripeCanvas.getContext('2d')!;
 
-  // Fill with white
-  ctx.fillStyle = '#ffffff';
+  ctx.fillStyle = colors.noData;
   ctx.fillRect(0, 0, 64, 64);
 
-  // Add diagonal gray stripes
-  ctx.strokeStyle = '#888888';
+  const baseColor = colors.noData.replace('#', '');
+  const r = parseInt(baseColor.substr(0, 2), 16);
+  const g = parseInt(baseColor.substr(2, 2), 16);
+  const b = parseInt(baseColor.substr(4, 2), 16);
+
+  // Lighten by 15%
+  const lighterR = Math.min(255, r + 38);
+  const lighterG = Math.min(255, g + 38);
+  const lighterB = Math.min(255, b + 38);
+
+  const lighterColor = `#${lighterR.toString(16).padStart(2, '0')}${lighterG.toString(16).padStart(2, '0')}${lighterB.toString(16).padStart(2, '0')}`;
+
+  ctx.strokeStyle = lighterColor;
   ctx.lineWidth = 4;
 
   for (let i = -64; i < 64; i += 12) {
@@ -70,6 +80,8 @@ export function createPolygonMaterial(
 
   const isHovered = hoverD && d === hoverD;
   const opacity = !hoverD ? 1 : isHovered ? 1 : 1 - 0.7 * desaturationProgress;
+
+  // Use rankBasedColorScale for smooth gradient coloring
   const baseColor = rankBasedColorScale(rank);
 
   return new THREE.MeshLambertMaterial({
