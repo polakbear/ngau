@@ -39,7 +39,6 @@ function buildMetricRow(
   `;
 }
 
-// Function to build indicator progress bar
 function buildIndicatorProgressBar(
   label: string,
   value: number,
@@ -60,7 +59,6 @@ function buildIndicatorProgressBar(
   `;
 }
 
-// Generate HTML for specific indicator types
 function generateIndicatorSection(
   indicators: IndicatorEntry[] | undefined
 ): string {
@@ -218,10 +216,8 @@ export function generateTooltipContent(
   const rank = country?.kri_rank ?? null;
   const rankQual = rank != null ? getFullLabel(rank, total) : '';
 
-  // Check for indicators
   const hasIndicators = country?.indicators && country.indicators.length > 0;
 
-  // Legacy indicators for backward compatibility
   const findValue = (type: string) =>
     country?.indicators?.find((i) => i.indicator_type === type)?.value_total;
   const cm = findValue('child_marriage');
