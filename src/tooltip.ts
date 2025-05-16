@@ -30,7 +30,7 @@ function buildMetricRow(
         </div>
         <div class="bar-container">
           <div class="bar-fill"
-               style="width: 0%; --bar-color: ${getBarColor(value)};"
+               style="width: 0%; --bar-color: ${getBarColor(rank)};"
                data-score="${value || 0}">
           </div>
         </div>

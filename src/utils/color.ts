@@ -10,11 +10,6 @@ export const colors = {
   noData: '#383838',
 };
 
-const childRightsColorScale = d3
-  .scaleLinear<string>()
-  .domain([0.0, 1.0])
-  .range([colors.veryPoor, colors.excellent]);
-
 export const rankBasedColorScale = d3
   .scaleLinear<string>()
   .domain([1, 194])
@@ -41,5 +36,5 @@ export function getColorFromRank(rank: number | null, total: number): string {
 
 export function getBarColor(score: Nullable): string {
   if (score == null) return colors.noData;
-  return childRightsColorScale(score);
+  return rankBasedColorScale(score);
 }
