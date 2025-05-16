@@ -8,12 +8,6 @@
     "education": 0.258,
     "protection": 0.586,
     "environment": 0.01,
-    "indicators": [
-      {
-        "indicator_type": "fgm",
-        "value_total": 1
-      }
-    ],
     "ranking_kri": 194,
     "ranking_life": 176,
     "ranking_health": 156,
