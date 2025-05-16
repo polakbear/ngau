@@ -9,7 +9,7 @@ export function createLegend(): HTMLElement {
   const numStops = 20;
 
   for (let i = 0; i < numStops; i++) {
-    const rank = Math.round(1 + (i * (194 - 1)) / (numStops - 1)); // Sample from rank 1 to 194
+    const rank = Math.round(1 + (i * (MAX_RANK - 1)) / (numStops - 1)); // Sample from rank 1 to MAX_RANK
     const percent = (i / (numStops - 1)) * 100;
     colorStops.push(`${rankBasedColorScale(rank)} ${percent}%`);
   }
