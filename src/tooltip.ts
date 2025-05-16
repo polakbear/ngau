@@ -84,7 +84,7 @@ function generateIndicatorSection(
       ? `${maleChildMarriage.data_source || 'Not specified'} (${maleChildMarriage.year || 'Year not specified'})`
       : '';
 
-    const sourceText = femaleSources + maleSources;
+    const sourceText = [femaleSources, maleSources].filter(Boolean).join(' | ');
 
     html += `<div class="indicator-section">
       <div class="indicator-title">
