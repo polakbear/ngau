@@ -11,7 +11,7 @@ export function createLegend(): HTMLElement {
   const numStops = 20;
 
   for (let i = 0; i < numStops; i++) {
-    const rank = Math.round(1 + (i * (MAX_RANK - 1)) / (numStops - 1)); // Sample from rank 1 to MAX_RANK
+    const rank = Math.round(MAX_RANK - (i * (MAX_RANK - 1)) / (numStops - 1));
     const percent = (i / (numStops - 1)) * 100;
     colorStops.push(`${rankBasedColorScale(rank)} ${percent}%`);
   }
