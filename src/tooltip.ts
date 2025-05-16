@@ -210,9 +210,9 @@ function generateIndicatorSection(
 export function generateTooltipContent(
   countryName: string,
   country: CountryData | undefined,
-  options: { closeButton?: boolean; animateBars?: boolean } = {}
+  options: { closeButton?: boolean } = {}
 ): string {
-  const { closeButton = false, animateBars = true } = options;
+  const { closeButton = false } = options;
   const total = 194;
   const kri = country?.kri_score ?? null;
   const rank = country?.kri_rank ?? null;
