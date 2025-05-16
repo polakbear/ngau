@@ -1,27 +1,40 @@
+import { colors, rankBasedColorScale } from './utils/color';
+
+const MAX_RANK = 194;
+
 export function createLegend(): HTMLElement {
   const legend = document.createElement('div');
   legend.className = 'legend';
+
+  // use rankBasedColorScale for legend gradient
+  const colorStops = [];
+  const numStops = 20;
+
+  for (let i = 0; i < numStops; i++) {
+    const rank = Math.round(1 + (i * (MAX_RANK - 1)) / (numStops - 1)); // Sample from rank 1 to MAX_RANK
+    const percent = (i / (numStops - 1)) * 100;
+    colorStops.push(`${rankBasedColorScale(rank)} ${percent}%`);
+  }
+
+  const gradientCSS = colorStops.join(', ');
 
   legend.innerHTML = `
     <div class="legend-container">
       <div class="legend-scale">
       <div class="legend-bar">
-        <div style="background: repeating-linear-gradient(
-            45deg, #eee, #eee 4px, #bbb 4px, #bbb 8px);"></div>
-        <div style="background: #394655"></div>
-        <div style="background: #486985"></div>
-        <div style="background: #5c9db4"></div>
-        <div style="background: #238d87"></div>
-        <div style="background: #0cb5a9"></div>
+        <div class="legend-no-data" style="--no-data-color: ${colors.noData}; --no-data-color-light: #444;"></div>
+        <div class="legend-gradient" style="background: linear-gradient(to right, ${gradientCSS});"></div>
       </div>
       <div class="legend-row">
         <div class="legend-labels">
-          <span>No data</span>
-          <span>Very Poor</span>
-          <span>Poor</span>
-          <span>Fair</span>
-          <span>Good</span>
-          <span>Excellent</span>
+          <span class="legend-label-nodata">No data</span>
+          <div class="legend-gradient-labels">
+            <span class="legend-label-verypoor">Very Poor</span>
+            <span class="legend-label-poor">Poor</span>
+            <span class="legend-label-fair">Fair</span>
+            <span class="legend-label-good">Good</span>
+            <span class="legend-label-excellent">Excellent</span>
+          </div>
         </div>
       </div>
       <div class="data-sources">

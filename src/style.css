@@ -21,8 +21,8 @@ body {
   overflow: hidden;
   background: radial-gradient(
     circle at center,
-    rgba(63, 209, 199, 0.2) 0%,
-    #011412 100%
+    rgba(63, 209, 199, 0.08) 0%,
+    #000a06 100%
   );
 }
 
@@ -58,8 +58,8 @@ canvas {
 /* tooltip */
 #tooltip {
   position: absolute;
-  background: rgba(15, 15, 15, 0.7);
-  border: 1px solid rgba(100, 255, 255, 0.1);
+  background: rgba(5, 5, 5, 0.95);
+  border: 1px solid rgba(80, 220, 220, 0.05);
   color: #f0f0f0;
   padding: 16px 20px 20px;
   font-family: 'IBM Plex Sans', 'Segoe UI', sans-serif;
@@ -69,9 +69,9 @@ canvas {
   width: calc(100vw - 32px);
   border-radius: 12px;
   box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.05) inset,
-    0 10px 40px rgba(0, 255, 255, 0.07),
-    0 0 12px rgba(0, 255, 255, 0.1);
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset,
+    0 10px 40px rgba(0, 255, 255, 0.03),
+    0 0 12px rgba(0, 255, 255, 0.05);
   backdrop-filter: blur(8px);
   line-height: 1.6;
   z-index: 1000;
@@ -98,12 +98,12 @@ canvas {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(63, 209, 199, 0.1);
+  background: rgba(63, 209, 199, 0.04);
   color: #3fd1c7;
   font-weight: 600;
   font-size: 12px;
   padding: 2px 8px;
-  border: 1px solid rgba(63, 209, 199, 0.25);
+  border: 1px solid rgba(63, 209, 199, 0.15);
   border-radius: 2px;
   white-space: nowrap;
   flex-shrink: 0;
@@ -126,6 +126,33 @@ canvas {
   min-width: 95px;
   text-align: center;
 }
+
+/* Badge quality styles - disabled since we now use inline styles with rankBasedColorScale
+.badge-qual.qual--very-poor {
+  background: #2a3342;
+  color: #fff;
+}
+
+.badge-qual.qual--poor {
+  background: #375571;
+  color: #fff;
+}
+
+.badge-qual.qual--fair {
+  background: #4991a8;
+  color: #000;
+}
+
+.badge-qual.qual--good {
+  background: #19837d;
+  color: #000;
+}
+
+.badge-qual.qual--excellent {
+  background: #0aa99e;
+  color: #000;
+}
+*/
 
 .tooltip-header {
   font-size: 16px;
@@ -220,7 +247,7 @@ canvas {
 /* bar container and fill */
 .bar-container {
   height: 4px;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 3px;
   overflow: hidden;
   margin-bottom: 2px;
@@ -271,7 +298,7 @@ canvas {
   right: 24px;
   top: 24px;
   width: 320px;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.97);
   color: #f0f0f0;
   font-size: 14px;
   line-height: 1.5;
@@ -280,7 +307,7 @@ canvas {
   z-index: 999;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.08);
   font-family: 'Segoe UI', 'IBM Plex Sans', sans-serif;
 }
 
@@ -299,7 +326,7 @@ canvas {
   font-family: 'Segoe UI', sans-serif;
   font-size: 13px;
   color: #ddd;
-  background: transparent;
+  background: rgba(0, 0, 0, 0.3);
   padding: 10px 14px;
   border-radius: 8px;
   max-width: 300px;
@@ -318,12 +345,29 @@ canvas {
 
 .legend-bar {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: 1fr 5fr;
   gap: 0;
   height: 12px;
   border-radius: 2px;
   overflow: hidden;
   box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+.legend-gradient {
+  width: 100%;
+  height: 100%;
+}
+
+.legend-no-data {
+  height: 100%;
+  width: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--no-data-color, #383838),
+    var(--no-data-color, #383838) 4px,
+    var(--no-data-color-light, #444) 4px,
+    var(--no-data-color-light, #444) 8px
+  );
 }
 
 .legend-row {
@@ -333,15 +377,50 @@ canvas {
 
 .legend-labels {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: 1fr 5fr;
   gap: 0;
   flex: 1;
 }
 
-.legend-labels > span {
+.legend-label-nodata {
   font-size: 12px;
   color: #ccc;
   text-align: center;
+}
+
+.legend-gradient-labels {
+  position: relative;
+  width: 100%;
+  height: 20px;
+}
+
+.legend-gradient-labels span {
+  position: absolute;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: #ccc;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.legend-label-verypoor {
+  left: 10%;
+}
+
+.legend-label-poor {
+  left: 30%;
+}
+
+.legend-label-fair {
+  left: 50%;
+}
+
+.legend-label-good {
+  left: 70%;
+}
+
+.legend-label-excellent {
+  left: 90%;
 }
 
 /* methodology */
@@ -360,16 +439,16 @@ canvas {
   line-height: 1.4;
   display: block;
   padding: 8px 12px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.02);
   border-radius: 8px;
   transition: all 0.25s ease;
   border: 1px solid transparent;
 }
 
 .methodology-section.highlighted {
-  background: rgba(63, 209, 199, 0.15);
-  border-color: rgba(63, 209, 199, 0.6);
-  box-shadow: 0 0 15px rgba(63, 209, 199, 0.15);
+  background: rgba(63, 209, 199, 0.07);
+  border-color: rgba(63, 209, 199, 0.3);
+  box-shadow: 0 0 15px rgba(63, 209, 199, 0.08);
   transform: translateX(4px);
 }
 
@@ -399,7 +478,7 @@ canvas {
   padding: 6px 12px;
   gap: 8px;
   z-index: 20;
-  background: transparent;
+  background: rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   font-family: 'Segoe UI', sans-serif;
   top: 16px;
@@ -454,7 +533,7 @@ canvas {
   right: 16px;
   top: 60px;
   width: 320px;
-  background: rgba(15, 23, 42, 0.85);
+  background: rgba(5, 8, 15, 0.95);
   color: #f0f0f0;
   font-size: 14px;
   line-height: 1.5;
@@ -463,7 +542,7 @@ canvas {
   z-index: 999;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.08);
   backdrop-filter: blur(12px);
 }
 
@@ -474,7 +553,7 @@ canvas {
 .organization-item {
   margin-bottom: 16px;
   padding-bottom: 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .organization-item:last-child {
@@ -497,8 +576,8 @@ canvas {
 .organization-link {
   display: inline-block;
   padding: 6px 12px;
-  background: rgba(12, 181, 169, 0.2);
-  border: 1px solid rgba(12, 181, 169, 0.4);
+  background: rgba(12, 181, 169, 0.1);
+  border: 1px solid rgba(12, 181, 169, 0.2);
   color: #0cb5a9;
   border-radius: 4px;
   text-decoration: none;
@@ -507,7 +586,7 @@ canvas {
 }
 
 .organization-link:hover {
-  background: rgba(12, 181, 169, 0.3);
+  background: rgba(12, 181, 169, 0.2);
 }
 
 /* the rest */
@@ -518,31 +597,6 @@ canvas {
   font-weight: 600;
   line-height: 1.2;
   display: inline-block;
-}
-
-.split-right.qual--very-poor {
-  background: #394655;
-  color: #fff;
-}
-
-.split-right.qual--poor {
-  background: #486985;
-  color: #fff;
-}
-
-.split-right.qual--fair {
-  background: #5c9db4;
-  color: #000;
-}
-
-.split-right.qual--good {
-  background: #238d87;
-  color: #000;
-}
-
-.split-right.qual--excellent {
-  background: #0cb5a9;
-  color: #000;
 }
 
 .rank-label {
@@ -561,7 +615,7 @@ canvas {
 }
 
 .rank-badge {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
   padding: 4px;
   border-radius: 4px;
   font-weight: 500;
@@ -575,7 +629,7 @@ canvas {
   overflow: hidden;
   font-size: 13px;
   font-weight: 500;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   height: 24px;
   min-width: 160px;
 }
@@ -590,8 +644,8 @@ canvas {
 }
 
 .split-left {
-  background: rgba(255, 255, 255, 0.225);
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
   padding-right: 8px !important;
   padding-left: 8px !important;
   min-width: 50px;
@@ -602,7 +656,7 @@ canvas {
 }
 
 .split-right {
-  background-color: var(--badge-color, rgba(255, 255, 255, 0.08));
+  background-color: var(--badge-color, rgba(255, 255, 255, 0.04));
   flex: 1;
   justify-content: center;
   min-width: 80px;
@@ -628,7 +682,6 @@ canvas {
   color: #0cb5a9;
 }
 
-/* Indicators section styles */
 .indicators-container {
   margin-top: 12px;
   display: flex;
@@ -637,7 +690,7 @@ canvas {
 }
 
 .indicator-section {
-  border-left: 2px solid rgba(63, 209, 199, 0.4);
+  border-left: 2px solid rgba(63, 209, 199, 0.25);
   padding-left: 10px;
   margin-bottom: 8px;
 }
@@ -681,7 +734,7 @@ canvas {
 
 .indicator-bar-container {
   height: 6px;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 3px;
   overflow: hidden;
   flex: 1;
@@ -770,7 +823,7 @@ canvas {
     z-index: 999;
     padding: 16px;
     border-radius: 12px;
-    background: rgba(15, 23, 42, 0.85);
+    background: rgba(10, 15, 20, 0.95);
     color: #f0f0f0;
     font-size: 0.85rem;
     line-height: 1.5;

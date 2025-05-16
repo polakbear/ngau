@@ -1,5 +1,4 @@
 import {
-  getColorFromRank,
   getContrastingTextColor,
   getBarColor,
   rankBasedColorScale,
@@ -15,7 +14,7 @@ function buildMetricRow(
 ): string {
   const total = 194;
   const performance = getPerformanceLabel(rank ?? null, total);
-  const color = getColorFromRank(rank ?? null, total);
+  const color = rankBasedColorScale(rank ?? 0);
 
   return `
     <div class="tooltip-metric">
@@ -66,7 +65,7 @@ function generateIndicatorSection(
 
   let html = '';
 
-  // Process female child marriage indicators
+  // female child marriage indicators
   const femaleChildMarriage = indicators.find(
     (i) => i.indicator_type === 'female_child_marriage'
   );
@@ -105,7 +104,7 @@ function generateIndicatorSection(
     </div>`;
   }
 
-  // Process male child marriage indicators
+  // male child marriage indicators
   const maleChildMarriage = indicators.find(
     (i) => i.indicator_type === 'male_child_marriage'
   );
@@ -170,7 +169,7 @@ function generateIndicatorSection(
     </div>`;
   }
 
-  // Process FGM indicators
+  // FGM indicators
   const fgm = indicators.find((i) => i.indicator_type === 'fgm');
   if (fgm) {
     html += `<div class="indicator-section">
@@ -225,9 +224,6 @@ export function generateTooltipContent(
   const fg = findValue('fgm');
   const hasViolations = cm != null || cl != null || fg != null;
 
-  const bgColor = rankBasedColorScale(rank ?? 0);
-  const textColor = getContrastingTextColor(bgColor);
-
   const pinIcon = `<div style="position: absolute; top: 15px; right: 15px;">
       <i class="fas fa-thumbtack pinned-icon" title="Pinned"></i>
     </div>`;
@@ -248,13 +244,12 @@ export function generateTooltipContent(
       <strong>Rank</strong> ${rank != null ? rank : 'N/A'} / ${total}
     </div>
 
-    <div class="badge-qual" style="background-color: ${bgColor}; color: ${textColor};">
+    <div class="badge-qual" style="background-color: ${rankBasedColorScale(rank ?? 0)}; color: ${getContrastingTextColor(rankBasedColorScale(rank ?? 0))}">
       ${rankQual}
     </div>
   </div>
 </div>
 
-<!-- Metrics -->
 <div class="tooltip-metrics-grid">
   ${buildMetricRow('fa fa-seedling', 'Life', country?.life, country?.ranking_life)}
   ${buildMetricRow('fa fa-heart', 'Health', country?.health, country?.ranking_health)}
@@ -302,7 +297,6 @@ ${
   `;
 }
 
-// Function to animate the progress bars
 export function animateIndicatorBars() {
   setTimeout(() => {
     const progressBars = document.querySelectorAll(
@@ -316,17 +310,14 @@ export function animateIndicatorBars() {
   }, 100);
 }
 
-// Function to animate all the bars in the tooltip
 export function animateTooltipBars() {
   setTimeout(() => {
-    // Animate metric bars
     const metricBars = document.querySelectorAll('.bar-fill[data-score]');
     metricBars.forEach((bar) => {
       const score = parseFloat(bar.getAttribute('data-score') || '0');
       (bar as HTMLElement).style.width = `${score * 100}%`;
     });
 
-    // Animate indicator bars
     animateIndicatorBars();
   }, 100);
 }

@@ -8,11 +8,11 @@ export function getPerformanceLabel(
   if (rank === null) return 'N/A';
   const percentile = (total - rank) / total;
 
-  if (percentile >= 0.9) return 'Top 10%';
-  if (percentile >= 0.6) return 'Above Average';
-  if (percentile >= 0.4) return 'Average';
-  if (percentile >= 0.1) return 'Below Average';
-  return 'Bottom 10%';
+  if (percentile >= 0.9) return 'Excellent';
+  if (percentile >= 0.6) return 'Good';
+  if (percentile >= 0.4) return 'Fair';
+  if (percentile >= 0.1) return 'Poor';
+  return 'Very Poor';
 }
 
 export function getFullLabel(rank: number | null, total: number): string {
@@ -22,20 +22,22 @@ export function getFullLabel(rank: number | null, total: number): string {
 
 export function scoreLabel(score: Nullable): string {
   if (score == null) return 'N/A';
-  if (score < 0.2) return 'Very Poor';
-  if (score < 0.4) return 'Poor';
-  if (score < 0.6) return 'Fair';
-  if (score < 0.8) return 'Good';
-  return 'Excellent';
+
+  if (score >= 0.9) return 'Excellent';
+  if (score >= 0.6) return 'Good';
+  if (score >= 0.4) return 'Fair';
+  if (score >= 0.1) return 'Poor';
+  return 'Very Poor';
 }
 
 export function scoreClass(score: Nullable): string {
   if (score == null) return 'qual--na';
-  if (score < 0.2) return 'qual--very-poor';
-  if (score < 0.4) return 'qual--poor';
-  if (score < 0.6) return 'qual--fair';
-  if (score < 0.8) return 'qual--good';
-  return 'qual--excellent';
+
+  if (score >= 0.9) return 'qual--excellent';
+  if (score >= 0.6) return 'qual--good';
+  if (score >= 0.4) return 'qual--fair';
+  if (score >= 0.1) return 'qual--poor';
+  return 'qual--very-poor';
 }
 
 export function rankLabel(rank: number, total: number): string {
