@@ -1,54 +1,11 @@
 import * as THREE from 'three';
-import { rankBasedColorScale, colors } from './color';
+import { rankBasedColorScale } from './color';
 import { normalize } from './utils';
 import { generateTooltipContent } from '../tooltip';
 import { GeoJsonFeature, CountryData, HoverHandlerOptions } from '../types';
 import { animateDesaturation } from '../globe-renderer';
 import { getScoreType } from '../score-state';
 import { detectMobileMode } from './device';
-
-let stripedTexture: THREE.CanvasTexture | null = null;
-
-function createStripedTexture() {
-  if (stripedTexture) return stripedTexture;
-
-  const stripeCanvas = document.createElement('canvas');
-  stripeCanvas.width = 64;
-  stripeCanvas.height = 64;
-  const ctx = stripeCanvas.getContext('2d')!;
-
-  ctx.fillStyle = colors.noData;
-  ctx.fillRect(0, 0, 64, 64);
-
-  const baseColor = colors.noData.replace('#', '');
-  const r = parseInt(baseColor.substr(0, 2), 16);
-  const g = parseInt(baseColor.substr(2, 2), 16);
-  const b = parseInt(baseColor.substr(4, 2), 16);
-
-  // Lighten by 15% (15% of 255 is approximately 38)
-  const LIGHTENING_FACTOR = 38; // Derived from 15% of the maximum RGB value (255)
-  const lighterR = Math.min(255, r + LIGHTENING_FACTOR);
-  const lighterG = Math.min(255, g + LIGHTENING_FACTOR);
-  const lighterB = Math.min(255, b + LIGHTENING_FACTOR);
-
-  const lighterColor = `#${lighterR.toString(16).padStart(2, '0')}${lighterG.toString(16).padStart(2, '0')}${lighterB.toString(16).padStart(2, '0')}`;
-
-  ctx.strokeStyle = lighterColor;
-  ctx.lineWidth = 4;
-
-  for (let i = -64; i < 64; i += 12) {
-    ctx.beginPath();
-    ctx.moveTo(i, 64);
-    ctx.lineTo(i + 64, 0);
-    ctx.stroke();
-  }
-
-  stripedTexture = new THREE.CanvasTexture(stripeCanvas);
-  stripedTexture.wrapS = stripedTexture.wrapT = THREE.RepeatWrapping;
-  stripedTexture.repeat.set(8, 8);
-
-  return stripedTexture;
-}
 
 export function createPolygonMaterial(
   d: any,
@@ -70,9 +27,7 @@ export function createPolygonMaterial(
   }
 
   if (rank === null) {
-    const texture = createStripedTexture();
     return new THREE.MeshLambertMaterial({
-      map: texture,
       transparent: true,
       opacity: !hoverD ? 1 : 0.25,
       depthWrite: false,
@@ -121,7 +76,6 @@ export function handlePolygonClick(
           (bar as HTMLElement).style.width = `${score * 100}%`;
         });
 
-        // Animate indicator progress bars
         const indicatorBars = infoPanel.querySelectorAll(
           '.indicator-bar-fill[data-percentage]'
         );

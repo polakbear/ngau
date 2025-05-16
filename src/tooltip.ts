@@ -2,6 +2,7 @@ import {
   getContrastingTextColor,
   getBarColor,
   rankBasedColorScale,
+  colors,
 } from './utils/color';
 import { getPerformanceLabel, getFullLabel } from './utils/score';
 import { CountryData, Nullable, IndicatorEntry } from './types';
@@ -14,7 +15,7 @@ function buildMetricRow(
 ): string {
   const total = 194;
   const performance = getPerformanceLabel(rank ?? null, total);
-  const color = rankBasedColorScale(rank ?? 0);
+  const color = rank ? rankBasedColorScale(rank) : colors.noData;
 
   return `
     <div class="tooltip-metric">
@@ -68,7 +69,6 @@ function generateIndicatorSection(
 
   let html = '';
 
-  // Get female and male child marriage indicators
   const femaleChildMarriage = indicators.find(
     (i) => i.indicator_type === 'female_child_marriage'
   );
@@ -160,7 +160,6 @@ function generateIndicatorSection(
     </div>`;
   }
 
-  // violent discipline indicators
   const violentDiscipline = indicators.find(
     (i) => i.indicator_type === 'violent_discipline'
   );
@@ -203,7 +202,6 @@ function generateIndicatorSection(
     </div>`;
   }
 
-  // FGM indicators
   const fgm = indicators.find((i) => i.indicator_type === 'fgm');
   if (fgm) {
     html += `<div class="indicator-section">

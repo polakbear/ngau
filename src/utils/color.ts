@@ -7,7 +7,7 @@ export const colors = {
   fair: '#4FB5D9',
   poor: '#375B82',
   veryPoor: '#2A3445',
-  noData: '#383838',
+  noData: '#FEFEFE',
 };
 
 export const rankBasedColorScale = d3
