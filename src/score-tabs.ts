@@ -4,11 +4,11 @@ export function createScoreTabs(): HTMLElement {
 
   container.innerHTML = `
     <button class="score-tab active" data-score="overall">Overall</button>
-    <button class="score-tab" data-score="life">Life</button>
-    <button class="score-tab" data-score="health">Health</button>
-    <button class="score-tab" data-score="education">Education</button>
-    <button class="score-tab" data-score="protection">Protection</button>
-    <button class="score-tab" data-score="environment">Environment</button>
+    <button class="score-tab" data-score="ranking_life">Life</button>
+    <button class="score-tab" data-score="ranking_health">Health</button>
+    <button class="score-tab" data-score="ranking_education">Education</button>
+    <button class="score-tab" data-score="ranking_protection">Protection</button>
+    <button class="score-tab" data-score="ranking_environment">Environment</button>
   `;
 
   return container;

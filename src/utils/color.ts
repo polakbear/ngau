@@ -2,25 +2,18 @@ import * as d3 from 'd3-scale';
 import { Nullable } from '../types';
 
 export const colors = {
-  excellent: '#0cb5a9',
-  good: '#238d87',
-  fair: '#5c9db4',
-  poor: '#486985',
-  veryPoor: '#394655',
+  excellent: '#00C2B2',
+  good: '#1B9C8C',
+  fair: '#4FB5D9',
+  poor: '#375B82',
+  veryPoor: '#2A3445',
   noData: '#383838',
 };
 
-export const childRightsColorScale = d3
+export const rankBasedColorScale = d3
   .scaleLinear<string>()
-  .domain([0.0, 0.2, 0.4, 0.6, 0.8, 1.0])
-  .range([
-    colors.veryPoor,
-    colors.veryPoor,
-    colors.poor,
-    colors.fair,
-    colors.good,
-    colors.excellent,
-  ]);
+  .domain([1, 194])
+  .range([colors.excellent, colors.veryPoor]);
 
 export function getContrastingTextColor(bg: string): string {
   const r = parseInt(bg.slice(1, 3), 16);
@@ -41,12 +34,7 @@ export function getColorFromRank(rank: number | null, total: number): string {
   return colors.veryPoor;
 }
 
-export function getBarColor(score: Nullable): string {
-  if (score == null) return colors.noData;
-  return childRightsColorScale(score);
-}
-
-export function getColor(score?: number): string {
-  if (score === undefined || isNaN(score)) return colors.noData;
-  return childRightsColorScale(score);
+export function getBarColor(rank: Nullable): string {
+  if (rank == null) return colors.noData;
+  return rankBasedColorScale(rank);
 }

@@ -20,7 +20,7 @@ export interface CountryData {
   protection?: number | null;
   ranking_protection?: number;
   environment?: number | null;
-  ranking_child_rights_environment?: number;
+  ranking_environment?: number;
   indicators?: IndicatorEntry[];
 }
 
