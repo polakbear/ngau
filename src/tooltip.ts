@@ -15,7 +15,7 @@ function buildMetricRow(
 ): string {
   const total = 194;
   const performance = getPerformanceLabel(rank ?? null, total);
-  const color = getColorFromRank(rank ?? null, total);
+  const color = rankBasedColorScale(rank ?? 0);
 
   return `
     <div class="tooltip-metric">
