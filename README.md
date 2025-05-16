@@ -1,14 +1,12 @@
-# Ngau
+## An interactive map showing the state of child rights around the world.
 
-An interactive map showing the state of child rights around the world.
+This project started as a way to make sense of scattered, complex data — something visual, straightforward, and easier to explore. It combines the KidsRights Index with global indicators like child marriage, labor, FGM, and violent discipline.
 
-This project started as a way to make sense of complex, scattered data—something visual, grounded, and a little more human. It brings together the KidsRights Index with other global indicators like child marriage, labor, FGM, and violent discipline.
+Some countries have detailed data. Others don’t — and that gap is part of the picture too.
 
-Some countries have detailed data. Others don’t. That absence is part of the story too.
+This map isn’t built for clicks or promotion. It’s a tool for exploring patterns in child rights data, and for anyone curious to better understand how those patterns vary across the world.
 
-This map wasn’t built for clicks or visibility. It was made to explore and to better understand the patterns behind child rights data, and to offer that understanding to others who might want the same.
-
-It’s not affiliated with any organization.
+It’s a personal project, not affiliated with any organization.
 
 ---
 
