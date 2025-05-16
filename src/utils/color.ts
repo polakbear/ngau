@@ -34,7 +34,7 @@ export function getColorFromRank(rank: number | null, total: number): string {
   return colors.veryPoor;
 }
 
-export function getBarColor(score: Nullable): string {
-  if (score == null) return colors.noData;
-  return rankBasedColorScale(score);
+export function getBarColor(rank: Nullable): string {
+  if (rank == null) return colors.noData;
+  return rankBasedColorScale(rank);
 }
