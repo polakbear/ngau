@@ -8,7 +8,7 @@ export function createScoreTabs(): HTMLElement {
     <button class="score-tab" data-score="ranking_health">Health</button>
     <button class="score-tab" data-score="ranking_education">Education</button>
     <button class="score-tab" data-score="ranking_protection">Protection</button>
-    <button class="score-tab" data-score="ranking_environment">Environment</button>
+    <button class="score-tab" data-score="ranking_environment">Empowerment & Equality</button>
   `;
 
   return container;

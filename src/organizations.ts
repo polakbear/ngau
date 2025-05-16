@@ -33,7 +33,7 @@ export function createOrganizationsPanel(): HTMLElement {
       <div class="organization-description">
         Advocates for children's rights worldwide and supports local organizations helping disadvantaged children.
       </div>
-      <a href="https://kidsrights.org/get-involved/" target="_blank" rel="noopener" class="organization-link">Take action</a>
+      <a href="https://www.kidsrights.org/support/" target="_blank" rel="noopener" class="organization-link">Take action</a>
     </div>
   `;
 
