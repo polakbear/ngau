@@ -5,6 +5,7 @@ import { generateTooltipContent } from '../tooltip';
 import { GeoJsonFeature, CountryData, HoverHandlerOptions } from '../types';
 import { animateDesaturation } from '../globe-renderer';
 import { getScoreType } from '../score-state';
+import { detectMobileMode } from './device';
 
 let stripedTexture: THREE.CanvasTexture | null = null;
 
@@ -69,8 +70,6 @@ export function createPolygonMaterial(
 
   const isHovered = hoverD && d === hoverD;
   const opacity = !hoverD ? 1 : isHovered ? 1 : 1 - 0.7 * desaturationProgress;
-
-  // const baseColor = childRightsColorScale(score);
   const baseColor = rankBasedColorScale(rank);
 
   return new THREE.MeshLambertMaterial({
@@ -170,8 +169,14 @@ function updateTooltip(
   tooltip: HTMLElement,
   infoPanel: HTMLElement
 ) {
-  // Hide if no hover or info panel is open
-  if (!hover || infoPanel.innerHTML !== '') {
+  if (!hover) {
+    tooltip.style.display = 'none';
+    return;
+  }
+
+  // on mobile don't show tooltip when info panel is open
+  const isMobile = detectMobileMode();
+  if (isMobile && infoPanel.innerHTML !== '') {
     tooltip.style.display = 'none';
     return;
   }
