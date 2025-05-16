@@ -60,11 +60,21 @@ export function generateTooltipContent(
   const bgColor = rankBasedColorScale(rank ?? 0);
   const textColor = getContrastingTextColor(bgColor);
   return `
+  ${
+    closeButton
+      ? `
+    <div style="position: absolute; top: 15px; right: 15px;">
+      <i class="fas fa-thumbtack pinned-icon" title="Pinned"></i>
+    </div>`
+      : ''
+  }
     
-<div class="tooltip-top-row" style="flex-direction: column; align-items: flex-start; margin-bottom: 8px;">
-  <div class="tooltip-header">${countryName}</div>
+<div class="tooltip-top-row" style="flex-direction: column; align-items: flex-start; margin-bottom: 8px; ${closeButton ? 'padding-right: 30px;' : ''}">
+  <div class="tooltip-header">
+    ${countryName}
+  </div>
 
-  <div class="tooltip-badges-row">
+  <div class="tooltip-badges-row" style="${closeButton ? 'display: flex; flex-wrap: nowrap; justify-content: space-between; width: 100%;' : ''}">
     <div class="tooltip-badge">
       <i class="fa fa-star" style="color: #3fd1c7; margin-right: 4px;"></i>
       <strong>KRI</strong> ${kri != null ? kri.toFixed(3) : 'N/A'}
