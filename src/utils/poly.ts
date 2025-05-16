@@ -107,6 +107,15 @@ export function handlePolygonClick(
           const score = parseFloat(bar.getAttribute('data-score') || '0');
           (bar as HTMLElement).style.width = `${score * 100}%`;
         });
+
+        // Animate indicator progress bars
+        const indicatorBars = infoPanel.querySelectorAll(
+          '.indicator-bar-fill[data-percentage]'
+        );
+        indicatorBars.forEach((bar) => {
+          const percentage = bar.getAttribute('data-percentage') || '0';
+          (bar as HTMLElement).style.width = `${percentage}%`;
+        });
       });
     }
   }
@@ -204,6 +213,15 @@ function updateTooltip(
     bars.forEach((bar) => {
       const score = parseFloat(bar.getAttribute('data-score') || '0');
       (bar as HTMLElement).style.width = `${score * 100}%`;
+    });
+
+    // Animate indicator progress bars
+    const indicatorBars = tooltip.querySelectorAll(
+      '.indicator-bar-fill[data-percentage]'
+    );
+    indicatorBars.forEach((bar) => {
+      const percentage = bar.getAttribute('data-percentage') || '0';
+      (bar as HTMLElement).style.width = `${percentage}%`;
     });
   });
 }
