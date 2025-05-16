@@ -109,7 +109,7 @@ function generateIndicatorSection(
           femaleChildMarriage.value_female_15,
           100,
           false,
-          'female-bar'
+          'indicator-bar-fill'
         );
       }
 
@@ -122,7 +122,7 @@ function generateIndicatorSection(
           femaleChildMarriage.value_female_18,
           100,
           false,
-          'female-bar'
+          'indicator-bar-fill'
         );
       }
     } else {

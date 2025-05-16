@@ -695,7 +695,7 @@ canvas {
 }
 
 .indicator-label {
-  font-size: 12px;
+  font-size: 14px;
   color: rgba(255, 255, 255, 0.8);
 }
 
@@ -707,7 +707,7 @@ canvas {
 
 .indicator-bar-container {
   height: 6px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 3px;
   overflow: hidden;
   flex: 1;
@@ -766,13 +766,11 @@ canvas {
 }
 
 .child-marriage-column:first-child {
-  border-left: 2px solid rgba(255, 159, 67, 0.3);
   margin-right: 8px;
 }
 
 .child-marriage-column:last-child {
   background-color: rgba(255, 159, 67, 0.08);
-  border-left: 2px solid rgba(255, 159, 67, 0.3);
   margin-left: 8px;
 }
 
@@ -787,31 +785,13 @@ canvas {
   border-radius: 50%;
 }
 
-.child-marriage-column:first-child::after {
-  box-shadow: 0 0 0 2px #3fd1c7;
-  background: #3fd1c7;
-}
-
-.child-marriage-column:last-child::after {
-  box-shadow: 0 0 0 2px #ff9f43;
-  background: #ff9f43;
-}
-
 .child-marriage-title {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
   display: flex;
   align-items: center;
   gap: 6px;
   margin-bottom: 4px;
-}
-
-.child-marriage-column:first-child .child-marriage-title {
-  color: #ff9f43;
-}
-
-.child-marriage-column:last-child .child-marriage-title {
-  color: #ff9f43;
 }
 
 .child-marriage-title i {
@@ -827,13 +807,13 @@ canvas {
 }
 
 .child-marriage-grid .indicator-label {
-  font-size: 11px;
+  font-size: 12px;
   display: flex;
   align-items: center;
 }
 
 .child-marriage-grid .indicator-value {
-  font-size: 12px;
+  font-size: 15px;
   min-width: 34px;
   font-weight: bold;
   text-align: right;
@@ -841,24 +821,8 @@ canvas {
   font-variant-numeric: tabular-nums;
 }
 
-.child-marriage-column:first-child .indicator-value {
-  color: #3fd1c7;
-}
-
-.child-marriage-column:last-child .indicator-value {
+.child-marriage-column .indicator-value {
   color: #ff9f43;
-}
-
-.female-bar {
-  background: linear-gradient(to right, #ff9f43, #ee5253) !important;
-  box-shadow: 0 0 4px rgba(255, 159, 67, 0.4);
-  border-radius: 3px;
-}
-
-.male-bar {
-  background: linear-gradient(to right, #ff9f43, #ee5253) !important;
-  box-shadow: 0 0 4px rgba(255, 159, 67, 0.4);
-  border-radius: 3px;
 }
 
 .child-marriage-source {
