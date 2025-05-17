@@ -74,3 +74,5 @@ export interface HoverHandlerOptions {
     onComplete?: () => void
   ) => void;
 }
+
+export type DeviceType = 'desktop' | 'tablet' | 'mobile';

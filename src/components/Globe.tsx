@@ -98,7 +98,10 @@ export default function GlobeComponent() {
   }, [data, scoreType, setTooltip, setInfoPanel]);
 
   return (
-    <div style={{ width: '100vw', height: '100vh', position: 'relative' }}>
+    <div
+      id="globe"
+      style={{ width: '100vw', height: '100vh', position: 'fixed' }}
+    >
       <Globe
         ref={globeRef}
         width={window.innerWidth}

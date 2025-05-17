@@ -8,10 +8,10 @@ import { Sources } from './components/Sources';
 function App() {
   return (
     <ScoreTypeProvider>
-      <Legend />
       <Methodology />
       <ScoreTabs />
       <GlobeComponent />
+      <Legend />
       <Sources />
     </ScoreTypeProvider>
   );
