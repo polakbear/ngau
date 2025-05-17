@@ -92,6 +92,9 @@ canvas {
   align-items: center;
   gap: 12px;
   margin: 4px 0 16px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .tooltip-badge {
@@ -132,7 +135,7 @@ canvas {
   font-weight: bold;
   color: #fff;
   margin: 0;
-  text-align: right;
+  text-align: left;
   flex: 1;
   white-space: normal;
   word-break: break-word;

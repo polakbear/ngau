@@ -1,0 +1,1 @@
+{"root":["./src-vanilla-ts/data-service.ts","./src-vanilla-ts/globe-renderer.ts","./src-vanilla-ts/legend.ts","./src-vanilla-ts/main.ts","./src-vanilla-ts/organizations.ts","./src-vanilla-ts/score-state.ts","./src-vanilla-ts/score-tabs.ts","./src-vanilla-ts/tooltip.ts","./src-vanilla-ts/vite-env.d.ts"],"errors":true,"version":"5.8.3"}
