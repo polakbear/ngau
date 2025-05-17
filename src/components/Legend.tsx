@@ -24,7 +24,6 @@ export function Legend() {
   return (
     <>
       <div className="legend">
-        <div className="legend-title">Kids Rights Index</div>
         <div className="legend-container">
           <div className="legend-scale">
             <div className="legend-bar">
@@ -45,58 +44,6 @@ export function Legend() {
             </div>
           </div>
         </div>
-
-        <button
-          className="methodology-toggle"
-          onClick={() => setShowMethodology(!showMethodology)}
-        >
-          <i className="fas fa-info-circle"></i> Methodology
-        </button>
-
-        <div
-          className={`legend-methodology ${showMethodology ? 'active' : ''}`}
-          id="methodology-panel"
-        >
-          <div className="methodology-section methodology-overall">
-            <strong>Overall (KRI Score):</strong>
-            Combined measure of child rights implementation
-          </div>
-          <div className="methodology-section methodology-life">
-            <strong>Life:</strong>
-            Under-5 mortality, life expectancy, maternal mortality
-          </div>
-          <div className="methodology-section methodology-health">
-            <strong>Health:</strong>
-            Underweight children, immunization, sanitation, water access
-          </div>
-          <div className="methodology-section methodology-education">
-            <strong>Education:</strong>
-            Schooling for girls and boys, gender gap
-          </div>
-          <div className="methodology-section methodology-protection">
-            <strong>Protection:</strong>
-            Child labour, adolescent birth rate, birth registration
-          </div>
-          <div className="methodology-section methodology-environment">
-            <strong>Empowerment:</strong>
-            Child marriage, female genital mutilation, voice of the child
-          </div>
-        </div>
-      </div>
-
-      <div className="data-sources">
-        Data sources:{' '}
-        <a
-          href="https://kidsrights.org/research/kidsrights-index/"
-          target="_blank"
-          rel="noopener"
-        >
-          KidsRights Index
-        </a>
-        ,{' '}
-        <a href="https://data.unicef.org/" target="_blank" rel="noopener">
-          UNICEF
-        </a>
       </div>
     </>
   );

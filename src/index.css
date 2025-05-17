@@ -82,6 +82,9 @@ canvas {
   transition:
     opacity 0.2s ease,
     transform 0.2s ease;
+  width: clamp(280px, calc(100vw - 32px), 340px);
+  max-height: calc(100vh - 180px);
+  overflow-y: auto;
 }
 
 .tooltip-top-row {
@@ -643,11 +646,15 @@ canvas {
 }
 
 .data-sources {
-  font-size: 12px;
+  position: fixed;
   color: rgba(255, 255, 255, 0.6);
-  text-align: center;
+  bottom: 16px;
+  left: 16px;
   margin-top: 8px;
   line-height: 1.4;
+  text-align: center;
+  font-size: 11px;
+  z-index: 10;
 }
 
 .data-sources a {
@@ -842,11 +849,24 @@ canvas {
 /* mq */
 @media (max-width: 768px) {
   #tooltip {
+    bottom: 100px;
+    left: 50% !important;
     left: 16px !important;
     right: 16px;
     width: auto;
     transform: none !important;
   }
+
+  .tooltip-badges-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .split-badge {
+    width: 100%;
+    min-width: unset;
+  }  
 
   #info-panel {
     top: 430px;
@@ -867,6 +887,15 @@ canvas {
     gap: 4px;
     width: auto;
     z-index: 30;
+    max-width: calc(100vw - 32px);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    backdrop-filter: blur(8px);    
+  }
+
+  .score-tabs-container::-webkit-scrollbar {
+    display: none;
   }
 
   .score-tab {
@@ -876,10 +905,12 @@ canvas {
   }
 
   .legend {
-    top: auto;
-    bottom: 24px;
     left: 50%;
     transform: translateX(-50%);
+    bottom: 30px;
+    top: auto;
+    width: calc(100vw - 32px);
+    max-width: 300px;
   }
 
   .methodology-toggle {
@@ -908,7 +939,13 @@ canvas {
     max-height: 60vh;
     overflow-y: auto;
     text-align: left;
+    max-height: 60vh;
+    overflow-y: auto;
   }
+
+  .legend-gradient-labels span {
+    font-size: 10px;
+  }  
 
   .legend-methodology.active {
     display: block;
@@ -943,10 +980,24 @@ canvas {
   }
 
   .data-sources {
-    position: static;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 12px;
     text-align: center;
+    width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
   }
 }
+
+@media (max-width: 480px) {
+  .score-tab {
+    padding: 4px 6px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+}  
 
 @media (min-width: 769px) {
   .methodology-toggle {

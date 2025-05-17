@@ -22,6 +22,7 @@ export default function GlobeComponent() {
   const [infoPanel, setInfoPanel] = useState<InfoPanelState>(null);
 
   const { scoreType } = useScoreType();
+  const mobileMode = detectMobileMode();
 
   const globeRef = useRef<any>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
@@ -35,6 +36,15 @@ export default function GlobeComponent() {
       .then((res) => res.json())
       .then(setData);
   }, []);
+
+  useEffect(() => {
+    if (globeRef.current) {
+      globeRef.current.pointOfView(
+        { lat: 0, lng: 0, altitude: mobileMode ? 4 : 2 },
+        0
+      );
+    }
+  }, [globeRef, mobileMode]);
 
   const mousePositionRef = useRef({ x: 0, y: 0 });
 
@@ -57,8 +67,6 @@ export default function GlobeComponent() {
     window.addEventListener('mousemove', onMouseMove);
     return () => window.removeEventListener('mousemove', onMouseMove);
   }, [tooltip]);
-
-  const mobileMode = detectMobileMode();
 
   const handlePolygonHoverOptimized = useRef(
     createOptimizedPolygonHover({
