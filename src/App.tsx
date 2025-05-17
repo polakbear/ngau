@@ -1,5 +1,5 @@
 import GlobeComponent from './components/Globe';
-import { ScoreTypeProvider } from './ScoreTypeContext';
+import ScoreTypeProvider from './contexts/ScoreTypeProvider';
 import { ScoreTabs } from './components/ScoreTabs';
 import { Legend } from './components/Legend';
 

@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { rankBasedColorScale, colors } from '../utils/color';
+import { rankBasedColorScale } from '../utils/color';
 
 export function Legend() {
   const [showMethodology, setShowMethodology] = useState(false);

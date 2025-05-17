@@ -1,4 +1,4 @@
-import { useScoreType } from '../hooks/useScoreType';
+import useScoreType from '../hooks/useScoreType';
 
 export function ScoreTabs() {
   const { scoreType, setScoreType } = useScoreType();

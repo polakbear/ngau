@@ -1,9 +1,9 @@
 import { useContext } from 'react';
-import { ScoreTypeContext } from '../ScoreTypeContext';
+import {
+  ScoreTypeContext,
+  ScoreTypeContextValue,
+} from '../contexts/ScoreTypeContext';
 
-export function useScoreType() {
-  const ctx = useContext(ScoreTypeContext);
-  if (!ctx)
-    throw new Error('useScoreType must be used within a ScoreTypeProvider');
-  return ctx;
+export default function useScoreType(): ScoreTypeContextValue {
+  return useContext(ScoreTypeContext);
 }

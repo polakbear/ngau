@@ -1,4 +1,3 @@
-import React from 'react';
 import { CountryData } from '../types';
 import MetricRow from './MetricRow';
 import IndicatorSection from './IndicatorSection';

@@ -10,7 +10,7 @@ import { handlePolygonClick } from '../utils/poly';
 import { detectMobileMode } from '../utils/device';
 import { Tooltip } from './Tooltip';
 import { InfoPanel } from './InfoPanel';
-import { useScoreType } from '../hooks/useScoreType';
+import useScoreType from '../hooks/useScoreType';
 import { getOrCreatePolygonMaterial } from './OptimizedPolyMaterial';
 import { createOptimizedPolygonHover } from '../utils/optimized-hover';
 
