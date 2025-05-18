@@ -83,7 +83,7 @@ export function Tooltip({
         />
         <MetricRow
           iconClass="fa fa-globe"
-          label="Environment"
+          label="Empowerment"
           value={country?.environment}
           rank={country?.ranking_environment}
           hideGradientAndRank
@@ -93,7 +93,6 @@ export function Tooltip({
       {/* Indicator Icons */}
       {country.indicators && country.indicators.length > 0 && (
         <div className={styles.indicatorIcons}>
-          <div className={styles.indicatorLabel}>More data available:</div>
           <div className={styles.indicatorList}>
             {country.indicators.some(
               (i) =>
@@ -125,6 +124,11 @@ export function Tooltip({
           </div>
         </div>
       )}
+      <div className={styles.indicatorFooter}>
+        <div className={styles.indicatorLabel}>
+          Click to explore more details
+        </div>
+      </div>
     </div>
   );
 }

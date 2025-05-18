@@ -42,7 +42,7 @@ export function ScoreTabs() {
           className={`${styles.tab} ${scoreType === 'ranking_environment' ? styles.active : ''}`}
           onClick={() => setScoreType('ranking_environment')}
         >
-          Environment
+          Empowerment
         </button>
         <Methodology />
       </div>

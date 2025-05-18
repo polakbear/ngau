@@ -115,20 +115,27 @@
 
 .indicatorIcons {
   padding-top: 12px;
-  margin-top: 12px;
+  margin-top: auto;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 12px;
 }
 
+.indicatorFooter {
+  text-align: center;
+  padding-top: 12px;
+  margin-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .indicatorLabel {
   color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 8px;
   font-size: 11px;
 }
 
 .indicatorList {
   display: flex;
   flex-direction: column;
+  margin-top: 8px;
   gap: 6px;
 }
 
