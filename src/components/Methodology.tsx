@@ -13,25 +13,6 @@ export function Methodology() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const methodologyStyle = {
-    position: 'fixed' as const,
-    top: '80px',
-    left: '20px',
-    background: 'rgba(0, 0, 0, 0.8)',
-    color: 'white',
-    padding: '20px',
-    borderRadius: '8px',
-    maxWidth: '300px',
-    zIndex: 1000,
-    display: isDesktop || showMethodology ? 'block' : 'none',
-    opacity: isDesktop || showMethodology ? 1 : 0,
-    transition: 'opacity 0.3s ease',
-  };
-
-  const sectionStyle = {
-    marginBottom: '15px',
-  };
-
   return (
     <>
       <div
@@ -39,7 +20,6 @@ export function Methodology() {
           isDesktop || showMethodology ? 'active' : ''
         }`}
         id="methodology-panel"
-        style={methodologyStyle}
       >
         <div className="methodology-section methodology-overall">
           <strong>Overall (KRI Score):</strong>

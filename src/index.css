@@ -427,6 +427,30 @@ canvas {
 
 /* methodology */
 .legend-methodology {
+  position: fixed;
+  top: 80px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 300px;
+  z-index: 1000;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.legend-methodology.active {
+  display: block;
+  opacity: 1;
+}
+
+.methodology-section {
+  margin-bottom: 15px;
+}
+
+.legend-methodology {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.8);
   margin-top: 0.75rem;
