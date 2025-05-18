@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import Globe from 'react-globe.gl';
+import { geoCentroid } from 'd3-geo';
 import {
   CountryData,
   GeoJsonFeature,
@@ -14,7 +15,15 @@ import useScoreType from '../hooks/useScoreType';
 import { getOrCreatePolygonMaterial } from './OptimizedPolyMaterial';
 import { createOptimizedPolygonHover } from '../utils/optimized-hover';
 
-export default function GlobeComponent() {
+interface GlobeComponentProps {
+  setGlobeRef: (ref: any) => void;
+  onDataLoaded: (geoJson: any) => void;
+}
+
+export default function GlobeComponent({
+  setGlobeRef,
+  onDataLoaded,
+}: GlobeComponentProps) {
   const [geoJson, setGeoJson] = useState<any>(null);
   const [data, setData] = useState<CountryData[]>([]);
   const [hoverD, setHoverD] = useState<GeoJsonFeature | null>(null);
@@ -35,7 +44,14 @@ export default function GlobeComponent() {
   useEffect(() => {
     fetch('/countries.geojson')
       .then((res) => res.json())
-      .then(setGeoJson);
+      .then((data) => {
+        // calculate centroids for each feature - needed for panning when searching
+        data.features.forEach((f: any) => {
+          f.__centroid = geoCentroid(f);
+        });
+        setGeoJson(data);
+        onDataLoaded(data);
+      });
     fetch('/data.json')
       .then((res) => res.json())
       .then(setData);
@@ -68,12 +84,13 @@ export default function GlobeComponent() {
 
   useEffect(() => {
     if (globeRef.current) {
+      setGlobeRef(globeRef.current);
       globeRef.current.pointOfView(
         { lat: 0, lng: 0, altitude: mobileMode ? 4 : 2 },
         0
       );
     }
-  }, [globeRef, mobileMode]);
+  }, [globeRef, mobileMode, setGlobeRef]);
 
   const mousePositionRef = useRef({ x: 0, y: 0 });
 
@@ -133,8 +150,6 @@ export default function GlobeComponent() {
     >
       <Globe
         ref={globeRef}
-        // width={window.innerWidth}
-        // height={window.innerHeight}
         width={dimensions.width}
         height={dimensions.height}
         polygonsData={geoJson ? geoJson.features : []}

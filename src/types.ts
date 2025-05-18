@@ -30,12 +30,21 @@ export interface CountryData {
   indicators?: IndicatorEntry[];
 }
 
+export interface CentroidCache {
+  [key: string]: [number, number]; // lat, lng
+}
+
 export interface GeoJsonFeature {
   type: string;
   properties: {
     ADMIN: string;
     NAME: string;
     NAME_LONG: string;
+  };
+  bbox?: [number, number, number, number];
+  geometry: {
+    type: string;
+    coordinates: number[][][] | number[][] | number[];
   };
 }
 
