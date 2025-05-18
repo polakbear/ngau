@@ -20,8 +20,6 @@ It’s a personal project, not affiliated with any organization.
 
 ## How to run locally
 
-This project uses [Vite](https://vitejs.dev/) for development.
-
 1. Clone the repository
 2. Install dependencies
 3. Start the dev server
