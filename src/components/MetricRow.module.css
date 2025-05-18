@@ -43,12 +43,14 @@
   align-items: center;
   height: 24px;
   border-radius: 4px;
-  overflow: hidden;
+  overflow: visible;
   font-size: 13px;
   padding: 0 8px;
   margin-left: auto;
   font-weight: 500;
   width: fit-content;
+  position: relative;
+  cursor: pointer;
 }
 
 .rankText {
@@ -86,18 +88,78 @@
 }
 
 .barContainer {
+  height: 20px; /* Increased height to make hovering easier */
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+  width: 235px;
+  margin-left: auto;
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+}
+
+.barBackground {
+  position: absolute;
   height: 4px;
+  width: 100%;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 3px;
-  overflow: hidden;
-  margin-bottom: 2px;
-  width: 235px;
-  margin-top: 2px;
-  margin-left: auto;
+}
+
+.barTooltip {
+  position: absolute;
+  top: -25px; /* Fixed distance from top */
+  transform: translateX(-50%);
+  background: white;
+  color: black;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  pointer-events: none;
+}
+
+.barTooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 4px;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+}
+
+.barContainer:hover .barTooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.badge:hover .barTooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.barTooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 4px;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
 }
 
 .barFill {
-  height: 100%;
+  position: absolute;
+  height: 4px;
   border-radius: 3px;
   background: linear-gradient(
     to right,

@@ -46,11 +46,14 @@ export default function MetricRow({
               <span className={styles.performanceText}>
                 {getPerformanceLabel(rank ?? null, 194)}
               </span>
+              <div className={styles.barTooltip}>
+                KRI Score: {value.toFixed(3)}
+              </div>
             </div>
           )}
         </div>
         {value != null && !hideGradientAndRank && (
-          <div className={styles.barContainer}>
+          <div className={styles.barContainer} title={value.toFixed(3)}>
             <div
               className={styles.barFill}
               style={{
@@ -58,8 +61,17 @@ export default function MetricRow({
                 background: `linear-gradient(to right, ${colors.veryPoor}, ${getBarColor(rank)})`,
                 transition: 'width 0.6s cubic-bezier(.4,0,.2,1)',
               }}
-              data-score={value}
-            ></div>
+            />
+            <div
+              className={styles.barTooltip}
+              style={
+                {
+                  '--tooltip-position': `${value * 100}%`,
+                } as React.CSSProperties
+              }
+            >
+              KRI Score: {value.toFixed(3)}
+            </div>
           </div>
         )}
       </div>

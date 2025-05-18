@@ -33,7 +33,6 @@ export default function ProgressBar({
               width: `${percentage}%`,
               transition: 'width 0.6s cubic-bezier(.4,0,.2,1)',
             }}
-            data-percentage={percentage}
           />
         </div>
         <span className={styles.value}>
