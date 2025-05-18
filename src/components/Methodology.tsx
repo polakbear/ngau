@@ -9,7 +9,7 @@ const methodologyContent = {
   ranking_education: 'Schooling for girls and boys, gender gap',
   ranking_protection: 'Child labour, adolescent birth rate, birth registration',
   ranking_environment:
-    'Environmental sustainability and climate action metrics',
+    'Equal treatment, child voice, funding, detailed data, cooperation with child rights groups',
   organizations: 'Organizations working to protect and support children',
 } as const;
 
