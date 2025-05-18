@@ -113,6 +113,43 @@
   margin: 12px 0;
 }
 
+.indicatorIcons {
+  padding-top: 12px;
+  margin-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 12px;
+}
+
+.indicatorLabel {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 8px;
+  font-size: 11px;
+}
+
+.indicatorList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.indicatorItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ff9f43;
+}
+
+.indicatorItem i {
+  font-size: 12px;
+  width: 14px;
+  text-align: center;
+}
+
+.indicatorItem span {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
 @media (max-width: 767px) {
   .tooltip {
     bottom: 100px;

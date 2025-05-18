@@ -125,6 +125,42 @@ export function Tooltip({
           rank={country?.ranking_environment}
         />
       </div>
+
+      {/* Indicator Icons */}
+      {country.indicators && country.indicators.length > 0 && (
+        <div className={styles.indicatorIcons}>
+          <div className={styles.indicatorLabel}>More data available:</div>
+          <div className={styles.indicatorList}>
+            {country.indicators.some(
+              (i) =>
+                i.indicator_type === 'female_child_marriage' ||
+                i.indicator_type === 'male_child_marriage'
+            ) && (
+              <div className={styles.indicatorItem}>
+                <i className="fas fa-ring" style={{ color: '#ff9f43' }} />
+                <span>Child Marriage</span>
+              </div>
+            )}
+            {country.indicators.some(
+              (i) => i.indicator_type === 'violent_discipline'
+            ) && (
+              <div className={styles.indicatorItem}>
+                <i className="fas fa-hand" style={{ color: '#ff9f43' }} />
+                <span>Violent Discipline</span>
+              </div>
+            )}
+            {country.indicators.some((i) => i.indicator_type === 'fgm') && (
+              <div className={styles.indicatorItem}>
+                <i
+                  className="fas fa-triangle-exclamation"
+                  style={{ color: '#ff9f43' }}
+                />
+                <span>FGM</span>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
