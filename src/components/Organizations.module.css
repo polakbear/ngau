@@ -1,8 +1,7 @@
-
-
 .organizationsPanel {
   position: fixed;
-  right: 120px;
+  right: 50%;
+  transform: translateX(50%);
   top: 120px;
   width: 380px;
   background: rgba(0, 0, 0, 0.80);
@@ -22,7 +21,7 @@
 }
 
 .organizationsPanel.active {
-  right: 0;
+  right: 50%;
 }
 
 .organizationItem {
@@ -84,6 +83,27 @@
     width: min(380px, calc(100vw - 48px));
     max-height: calc(100vh - 300px);
     top: auto;
+    padding: 12px;
+  }
+
+  .organizationItem {
+    padding: 12px 8px;
+  }
+
+  .organizationName {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+
+  .organizationDescription {
+    font-size: 12px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .organizationLink {
+    padding: 4px 10px;
+    font-size: 12px;
   }
 }
 
@@ -92,5 +112,25 @@
     width: calc(100vw - 32px);
     bottom: 130px;
     max-height: calc(100vh - 250px);
+    padding: 10px;
+  }
+
+  .organizationItem {
+    padding: 10px 6px;
+  }
+
+  .organizationName {
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+
+  .organizationDescription {
+    font-size: 11px;
+    margin-bottom: 6px;
+  }
+
+  .organizationLink {
+    padding: 3px 8px;
+    font-size: 11px;
   }
 }
