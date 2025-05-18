@@ -73,104 +73,6 @@ canvas {
   height: 100% !important;
 }
 
-/* tooltip */
-#tooltip {
-  position: absolute;
-  background: rgba(5, 5, 5, 0.95);
-  border: 1px solid rgba(80, 220, 220, 0.05);
-  color: #f0f0f0;
-  padding: 16px 20px 20px;
-  font-family: 'IBM Plex Sans', 'Segoe UI', sans-serif;
-  font-size: 14px;
-  pointer-events: none;
-  max-width: 340px;
-  width: calc(100vw - 32px);
-  border-radius: 12px;
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.02) inset,
-    0 10px 40px rgba(0, 255, 255, 0.03),
-    0 0 12px rgba(0, 255, 255, 0.05);
-  backdrop-filter: blur(8px);
-  line-height: 1.6;
-  z-index: 1000;
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease;
-  width: clamp(280px, calc(100vw - 32px), 340px);
-  max-height: calc(100vh - 180px);
-  overflow-y: auto;
-}
-
-.tooltip-top-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
-}
-
-.tooltip-badges-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 4px 0 16px;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.tooltip-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(63, 209, 199, 0.04);
-  color: #3fd1c7;
-  font-weight: 600;
-  font-size: 12px;
-  padding: 2px 8px;
-  border: 1px solid rgba(63, 209, 199, 0.15);
-  border-radius: 2px;
-  white-space: nowrap;
-  flex-shrink: 0;
-  margin: 0;
-}
-
-.badge-divider {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.badge-qual {
-  display: inline-block;
-  font-size: 12px;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-weight: 600;
-  margin: 0;
-  line-height: 1.2;
-  white-space: nowrap;
-  min-width: 95px;
-  text-align: center;
-}
-
-.tooltip-header {
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff;
-  margin: 0;
-  text-align: left;
-  flex: 1;
-  white-space: normal;
-  word-break: break-word;
-}
-
-.tooltip-metrics-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 16px;
-}
-
-
-
 
 /* bar container and fill */
 .bar-container {
@@ -191,68 +93,6 @@ canvas {
   );
   transition: width 0.3s ease;
 }
-
-.tooltip-subtitle {
-  margin: 8px 0 4px;
-  font-size: 12px;
-  font-weight: bold;
-  color: #89cfff;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.tooltip-section {
-  margin-bottom: 6px;
-}
-
-.tooltip-section:not(:last-of-type)::after {
-  content: '';
-  display: block;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.05);
-  margin: 12px 0;
-}
-
-.tooltip-metric .metric-label i {
-  font-size: 20px;
-  color: #80e1ff;
-  width: 16px;
-  text-align: center;
-}
-
-/* info panel */
-#info-panel {
-  position: fixed;
-  right: 24px;
-  top: 24px;
-  width: 320px;
-  background: rgba(0, 0, 0, 0.97);
-  color: #f0f0f0;
-  font-size: 14px;
-  line-height: 1.5;
-  border-radius: 12px;
-  padding: 20px;
-  z-index: 999;
-  max-height: 90vh;
-  overflow-y: auto;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.08);
-  font-family: 'Segoe UI', 'IBM Plex Sans', sans-serif;
-}
-
-.pinned-icon {
-  color: #3fd1c7;
-  font-size: 1.4em;
-  transform: rotate(45deg);
-}
-
-
-.methodology-section.highlighted {
-  background: rgba(63, 209, 199, 0.07);
-  border-color: rgba(63, 209, 199, 0.3);
-  box-shadow: 0 0 15px rgba(63, 209, 199, 0.08);
-  transform: translateX(4px);
-}
-
 
 
 
@@ -369,55 +209,6 @@ canvas {
   font-size: 14px;
   margin-bottom: 2px;
   margin-top: 4px;
-}
-
-.rank-badge {
-  background: rgba(255, 255, 255, 0.04);
-  padding: 4px;
-  border-radius: 4px;
-  font-weight: 500;
-  color: #fff;
-  font-size: 14px;
-}
-
-.split-badge {
-  display: flex;
-  border-radius: 4px;
-  overflow: hidden;
-  font-size: 13px;
-  font-weight: 500;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  height: 24px;
-  min-width: 160px;
-}
-
-.split-badge span {
-  padding: 2px 8px;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  line-height: 1.2;
-  white-space: nowrap;
-}
-
-.split-left {
-  background: rgba(255, 255, 255, 0.12);
-  border-right: 1px solid rgba(255, 255, 255, 0.05);
-  padding-right: 8px !important;
-  padding-left: 8px !important;
-  min-width: 50px;
-  width: 55px;
-  justify-content: flex-end;
-  font-feature-settings: 'tnum';
-  font-variant-numeric: tabular-nums;
-}
-
-.split-right {
-  background-color: var(--badge-color, rgba(255, 255, 255, 0.04));
-  flex: 1;
-  justify-content: center;
-  min-width: 80px;
-  max-width: 80px;
 }
 
 .data-sources {
@@ -657,25 +448,6 @@ canvas {
     width: 100%;
   }
 
-
-
-  .methodology-toggle {
-    top: 24px;
-    right: 24px;
-  }
-
-  .methodology-section {
-    font-size: 14px;
-    padding: 12px 16px;
-  }
-
-  .legend-methodology {
-    max-height: 70vh;
-    width: 360px;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    padding: 24px;
-  }
 
   #tooltip {
     width: 360px;
