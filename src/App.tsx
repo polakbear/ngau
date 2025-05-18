@@ -16,7 +16,7 @@ function App() {
   const handleCountryFound = useCallback(
     (feature: GeoJsonFeature) => {
       if (globeRef && feature.properties) {
-        const altitude = window.innerWidth <= 768 ? 2 : 1.5;
+        const altitude = 1.7;
         const [lng, lat] = (feature as any).__centroid || [0, 0];
         globeRef.pointOfView(
           {
