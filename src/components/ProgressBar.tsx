@@ -8,6 +8,8 @@ interface ProgressBarProps {
   customClass?: string;
 }
 
+import styles from './ProgressBar.module.css';
+
 export default function ProgressBar({
   label,
   value,
@@ -16,15 +18,17 @@ export default function ProgressBar({
   customClass = '',
 }: ProgressBarProps) {
   const percentage = Math.min(100, (value / max) * 100);
-  const labelClass = compact ? 'indicator-label compact' : 'indicator-label';
+  const labelClass = compact
+    ? `${styles.label} ${styles.compact}`
+    : styles.label;
 
   return (
-    <div className="indicator-item">
+    <div className={styles.item}>
       <div className={labelClass}>{label}</div>
-      <div className="indicator-value-bar">
-        <div className="indicator-bar-container">
+      <div className={styles.valueBar}>
+        <div className={styles.barContainer}>
           <div
-            className={`indicator-bar-fill ${customClass}`}
+            className={`${styles.barFill} ${customClass}`}
             style={{
               width: `${percentage}%`,
               transition: 'width 0.6s cubic-bezier(.4,0,.2,1)',
@@ -32,7 +36,7 @@ export default function ProgressBar({
             data-percentage={percentage}
           />
         </div>
-        <span className="indicator-value">
+        <span className={styles.value}>
           {value}
           <span style={{ fontSize: 9, opacity: 0.8 }}>%</span>
         </span>

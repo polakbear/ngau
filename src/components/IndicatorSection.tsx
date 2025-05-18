@@ -1,5 +1,6 @@
 import { IndicatorEntry } from '../types';
 import ProgressBar from './ProgressBar';
+import styles from './IndicatorSection.module.css';
 
 interface IndicatorSectionProps {
   indicators: IndicatorEntry[] | undefined;
@@ -20,16 +21,16 @@ export default function IndicatorSection({
   const fgm = find('fgm');
 
   return (
-    <div className="indicators-container">
+    <div className={styles.container}>
       {(femaleChildMarriage || maleChildMarriage) && (
-        <div className="indicator-section">
-          <div className="indicator-title">
+        <div className={styles.section}>
+          <div className={styles.title}>
             <i className="fas fa-ring"></i> Child Marriage
           </div>
-          <div className="child-marriage-grid">
+          <div className={styles.childMarriageGrid}>
             {/* Female Column */}
-            <div className="child-marriage-column">
-              <div className="child-marriage-title">
+            <div className={styles.childMarriageColumn}>
+              <div className={styles.childMarriageTitle}>
                 <i className="fas fa-venus" style={{ color: '#ff9f43' }}></i>{' '}
                 Female
               </div>
@@ -51,8 +52,8 @@ export default function IndicatorSection({
                   value={femaleChildMarriage.value_female_15}
                 />
               ) : (
-                <div className="indicator-item">
-                  <div className="indicator-label">
+                <div className={styles.item}>
+                  <div className={styles.label}>
                     <i
                       className="fas fa-exclamation-circle"
                       style={{
@@ -86,8 +87,8 @@ export default function IndicatorSection({
               ) : null}
             </div>
             {/* Male Column */}
-            <div className="child-marriage-column">
-              <div className="child-marriage-title">
+            <div className={styles.childMarriageColumn}>
+              <div className={styles.childMarriageTitle}>
                 <i className="fas fa-mars" style={{ color: '#ff9f43' }}></i>{' '}
                 Male
               </div>
@@ -109,8 +110,8 @@ export default function IndicatorSection({
                   value={maleChildMarriage.value_male_18}
                 />
               ) : (
-                <div className="indicator-item">
-                  <div className="indicator-label">
+                <div className={styles.item}>
+                  <div className={styles.label}>
                     <i
                       className="fas fa-exclamation-circle"
                       style={{
@@ -130,11 +131,11 @@ export default function IndicatorSection({
       )}
 
       {violentDiscipline && (
-        <div className="indicator-section">
-          <div className="indicator-title">
+        <div className={styles.section}>
+          <div className={styles.title}>
             <i className="fas fa-hand"></i> Violent Discipline
           </div>
-          <div className="indicator-content">
+          <div className={styles.content}>
             {violentDiscipline.value_total != null && (
               <ProgressBar
                 label="Total"
@@ -150,7 +151,7 @@ export default function IndicatorSection({
                 value={violentDiscipline.value_female}
               />
             )}
-            <div className="indicator-source">
+            <div className={styles.source}>
               Source: {violentDiscipline.data_source || 'Not specified'} (
               {violentDiscipline.year || 'Year not specified'})
             </div>
@@ -159,12 +160,12 @@ export default function IndicatorSection({
       )}
 
       {fgm && (
-        <div className="indicator-section">
-          <div className="indicator-title">
+        <div className={styles.section}>
+          <div className={styles.title}>
             <i className="fas fa-triangle-exclamation"></i> Female Genital
             Mutilation
           </div>
-          <div className="indicator-content">
+          <div className={styles.content}>
             {fgm.value_girls_0_14 != null && (
               <ProgressBar
                 label="Girls aged 0-14"
@@ -177,7 +178,7 @@ export default function IndicatorSection({
             {fgm.value_rural != null && (
               <ProgressBar label="Rural" value={fgm.value_rural} />
             )}
-            <div className="indicator-source">
+            <div className={styles.source}>
               Source: {fgm.data_source || 'Not specified'} (
               {fgm.year || 'Year not specified'})
             </div>
