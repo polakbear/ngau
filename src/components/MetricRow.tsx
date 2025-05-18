@@ -15,9 +15,6 @@ export default function MetricRow({
   value,
   rank,
 }: MetricRowProps) {
-  const total = 194;
-  const performance = getPerformanceLabel(rank ?? null, total);
-
   return (
     <div className={styles.metric}>
       <div className={styles.label}>
@@ -26,7 +23,9 @@ export default function MetricRow({
       </div>
       <div className={styles.info}>
         <div className={styles.row}>
-          {rank != null && (
+          {value === null || value === undefined ? (
+            <span className={styles.noData}>No data</span>
+          ) : (
             <div
               className={styles.badge}
               style={{
@@ -38,22 +37,25 @@ export default function MetricRow({
                 Rank {String(rank).padStart(3, '\u00A0')}
               </span>
               <span className={styles.divider}>|</span>
-              <span className={styles.performanceText}>{performance}</span>
+              <span className={styles.performanceText}>
+                {getPerformanceLabel(rank ?? null, 194)}
+              </span>
             </div>
           )}
-          {/* Score value removed */}
         </div>
-        <div className={styles.barContainer}>
-          <div
-            className={styles.barFill}
-            style={{
-              width: value != null ? `${value * 100}%` : '0%',
-              background: `linear-gradient(to right, ${colors.veryPoor}, ${getBarColor(rank)})`,
-              transition: 'width 0.6s cubic-bezier(.4,0,.2,1)',
-            }}
-            data-score={value || 0}
-          ></div>
-        </div>
+        {value != null && (
+          <div className={styles.barContainer}>
+            <div
+              className={styles.barFill}
+              style={{
+                width: `${value * 100}%`,
+                background: `linear-gradient(to right, ${colors.veryPoor}, ${getBarColor(rank)})`,
+                transition: 'width 0.6s cubic-bezier(.4,0,.2,1)',
+              }}
+              data-score={value}
+            ></div>
+          </div>
+        )}
       </div>
     </div>
   );
