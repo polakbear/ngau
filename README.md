@@ -43,7 +43,9 @@ Then open http://localhost:5173 in your browser.
 - [x] Implement visual score toggle (life, health, education, etc.)
 - [x] Finalize indicator data structure (child marriage, labor, FGM, etc.)
 - [x] Visualize indicators in tooltip and info panel
+- [x] Add country search (autocomplete, smarter matching)
 - [ ] Fill in data for all relevant countries (child marriage, labor, FGM, etc.)
+- [ ] Accessibility polish (hover/touch, color contrast, ARIA where needed)
 - [ ] Improve mobile layout and responsiveness
 - [ ] Add optional map layer for organizational presence
 - [ ] Explore justice-related indicators
@@ -51,8 +53,10 @@ Then open http://localhost:5173 in your browser.
   - Juvenile incarceration
   - Legal protections for children
 - [ ] Add “bright spots” layer (countries showing progress or strong youth engagement)
-- [ ] Add country search (autocomplete, smarter matching)
 - [ ] Explore “story” view: link to human stories or context behind the numbers
 - [ ] Optional: overlay risk data (conflict, climate, displacement)
 - [ ] Explore time-based comparisons (e.g. trends since 2010)
 - [ ] Consider basic offline/static fallback
+- [ ] Bookmark/share state: ability to link to a specific country or view (e.g. ?country=SE&tab=protection).
+- [ ] Ethics statement - how data is gathered, used, and framed.
+- [ ] Links to concrete UNICEF reports used
