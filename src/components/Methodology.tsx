@@ -3,11 +3,13 @@ import useScoreType from '../hooks/useScoreType';
 
 const methodologyContent = {
   overall: 'Combined measure of child rights implementation',
-  life: 'Under-5 mortality, life expectancy, maternal mortality',
-  health: 'Underweight children, immunization, sanitation, water access',
-  education: 'Schooling for girls and boys, gender gap',
-  protection: 'Child labour, adolescent birth rate, birth registration',
-  environment: 'Environmental sustainability and climate action metrics',
+  ranking_life: 'Under-5 mortality, life expectancy, maternal mortality',
+  ranking_health:
+    'Underweight children, immunization, sanitation, water access',
+  ranking_education: 'Schooling for girls and boys, gender gap',
+  ranking_protection: 'Child labour, adolescent birth rate, birth registration',
+  ranking_environment:
+    'Environmental sustainability and climate action metrics',
 } as const;
 
 type MetricType = keyof typeof methodologyContent;
