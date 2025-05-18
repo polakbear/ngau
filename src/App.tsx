@@ -3,6 +3,7 @@ import ScoreTypeProvider from './contexts/ScoreTypeProvider';
 import { Legend } from './components/Legend';
 import { Sources } from './components/Sources';
 import { TabRow } from './components/TabRow';
+import TakeActionButton from './components/TakeActionButton';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <GlobeComponent />
       <Legend />
       <Sources />
+      <TakeActionButton />
     </ScoreTypeProvider>
   );
 }

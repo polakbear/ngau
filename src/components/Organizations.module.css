@@ -1,26 +1,8 @@
-.takeActionTab {
-  position: fixed;
-  right: -38px;
-  top: 50%;
-  transform: rotate(-90deg);
-  background: #007AFF;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 8px 8px 0 0;
-  cursor: pointer;
-  font-weight: 600;
-  transition: right 0.3s ease;
-  z-index: 10;
-}
 
-.takeActionTab.active {
-  right: 382px;
-}
 
 .organizationsPanel {
   position: fixed;
-  right: 24px;
+  right: 120px;
   top: 120px;
   width: 380px;
   background: rgba(0, 0, 0, 0.80);
@@ -33,7 +15,7 @@
     0 4px 6px rgba(0, 0, 0, 0.1),
     0 1px 3px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  max-height: calc(100vh - 180px);
+  max-height: calc(100vh - 120px);
   overflow-y: auto;
   z-index: 10;
   border-left: 1px solid rgba(255, 255, 255, 0.1);
@@ -91,4 +73,24 @@
 
 .organizationLink:hover {
   background: rgba(63, 209, 199, 0.15);
+}
+
+@media (max-width: 768px) {
+  .organizationsPanel {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 145px;
+    width: min(380px, calc(100vw - 48px));
+    max-height: calc(100vh - 300px);
+    top: auto;
+  }
+}
+
+@media (max-width: 380px) {
+  .organizationsPanel {
+    width: calc(100vw - 32px);
+    bottom: 130px;
+    max-height: calc(100vh - 250px);
+  }
 }
