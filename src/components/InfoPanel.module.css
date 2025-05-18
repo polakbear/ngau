@@ -168,30 +168,133 @@
 
 @media (max-width: 768px) {
   .panel {
-    left: 16px;
-    top: 60px;
-    max-width: calc(100vw - 32px);
-    padding: 16px;
+    left: 10%;
+    top: 120px;
+    max-width: calc(100vw - 16px);
+    padding: 12px;
+    width: 320px;
+    overflow: hidden;
   }
 
   .metricsGrid {
-    gap: 8px;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+
+  .title {
+    font-size: 14px;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    margin: 6px 0 3px;
+    font-size: 11px;
+    letter-spacing: 0.3px;
+  }
+
+  .kriRow {
+    margin: 0 -12px;
+    padding: 6px 12px;
+    width: calc(100% + 24px);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .badge {
+    font-size: 13px;
+    gap: 6px;
+    height: 22px;
+    line-height: 1.2;
+  }
+
+  .performanceBadge {
+    font-size: 13px;
+    padding: 3px 6px;
+    min-width: 65px;
+    margin-left: 8px;
+    line-height: 1.2;
+  }
+
+  .kriLabel, .kriValue {
+    font-size: 13px;
+    line-height: 1.2;
+  }
+
+  .kriDivider {
+    margin: 0 4px;
+  }
+
+  .kriIcon {
+    font-size: 12px;
+    width: 12px;
   }
 }
 
 @media (max-width: 380px) {
   .panel {
-    left: 8px;
-    max-width: calc(100vw - 16px);
-    padding: 12px;
+    left: 4px;
+    max-width: calc(100vw - 8px);
+    padding: 10px;
+    width: calc(100vw - 8px);
+    overflow: hidden;
+  }
+
+  .metricsGrid {
+    gap: 3px;
+    margin-bottom: 8px;
   }
 
   .title {
-    font-size: 16px;
-    margin-bottom: 12px;
+    font-size: 13px;
+    margin-bottom: 10px;
   }
-  
-  .metricsGrid {
-    gap: 6px;
+
+  .subtitle {
+    margin: 4px 0 2px;
+    font-size: 10px;
+  }
+
+  .kriRow {
+    margin: 0 -10px;
+    padding: 5px 10px;
+    width: calc(100% + 20px);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .badge {
+    font-size: 12px;
+    gap: 5px;
+    height: 20px;
+  }
+
+  .performanceBadge {
+    font-size: 11px;
+    padding: 2px 5px;
+    min-width: 60px;
+    margin-left: 6px;
+    height: 20px;
+  }
+
+  .kriLabel, .kriValue {
+    font-size: 12px;
+  }
+
+  .kriDivider {
+    margin: 0 3px;
+  }
+
+  .kriIcon {
+    font-size: 11px;
+    width: 11px;
+  }
+
+  .noDataContainer {
+    padding: 20px 0;
+    height: 60px;
+    font-size: 11px;
   }
 }

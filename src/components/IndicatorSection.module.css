@@ -207,3 +207,223 @@
 .fullWidth {
   grid-column: 1 / span 2;
 }
+
+@media (max-width: 768px) {
+  .container {
+    margin-top: 8px;
+    gap: 12px;
+  }
+
+  .section {
+    padding-left: 8px;
+    padding-bottom: 6px;
+  }
+
+  .section:not(:last-child) {
+    margin-bottom: 6px;
+  }
+
+  .title {
+    font-size: 12px;
+    margin-bottom: 6px;
+    gap: 4px;
+  }
+
+  .title i {
+    font-size: 12px;
+    width: 14px;
+  }
+
+  .content {
+    gap: 3px;
+  }
+
+  .item {
+    gap: 2px;
+  }
+
+  .label {
+    font-size: 12px;
+  }
+
+  .valueBar {
+    gap: 6px;
+  }
+
+  .barContainer {
+    height: 4px;
+  }
+
+  .value {
+    font-size: 13px;
+    min-width: 30px;
+  }
+
+  .source {
+    font-size: 9px;
+    margin-top: 1px;
+    margin-left: 22px;
+  }
+
+  .childMarriageGrid {
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+
+  .childMarriageColumn {
+    gap: 6px;
+    padding: 6px;
+  }
+
+  .childMarriageTitle {
+    font-size: 12px;
+    gap: 4px;
+    margin-bottom: 3px;
+  }
+
+  .childMarriageTitle i {
+    font-size: 11px;
+  }
+
+  .childMarriageGrid .barContainer {
+    height: 4px;
+  }
+
+  .childMarriageGrid .item {
+    margin-bottom: 1px;
+  }
+
+  .childMarriageGrid .label {
+    font-size: 12px;
+  }
+
+  .childMarriageGrid .value {
+    font-size: 13px;
+    min-width: 30px;
+  }
+
+  .childMarriageSource {
+    font-size: 9px;
+    margin-top: 1px;
+  }
+
+  .fgmGrid {
+    gap: 8px;
+    margin: 6px 0;
+  }
+
+  .fgmGrid .barContainer {
+    height: 4px;
+  }
+
+  .fgmTotal {
+    margin-bottom: 3px;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    margin-top: 6px;
+    gap: 8px;
+  }
+
+  .section {
+    padding-left: 6px;
+    padding-bottom: 4px;
+  }
+
+  .section:not(:last-child) {
+    margin-bottom: 4px;
+  }
+
+  .title {
+    font-size: 11px;
+    margin-bottom: 4px;
+    gap: 3px;
+  }
+
+  .title i {
+    font-size: 11px;
+    width: 12px;
+  }
+
+  .content {
+    gap: 2px;
+  }
+
+  .item {
+    gap: 1px;
+  }
+
+  .label {
+    font-size: 11px;
+  }
+
+  .valueBar {
+    gap: 4px;
+  }
+
+  .barContainer {
+    height: 3px;
+  }
+
+  .value {
+    font-size: 12px;
+    min-width: 28px;
+  }
+
+  .source {
+    font-size: 8px;
+    margin-left: 18px;
+  }
+
+  .childMarriageGrid {
+    gap: 6px;
+    margin-bottom: 4px;
+  }
+
+  .childMarriageColumn {
+    gap: 4px;
+    padding: 4px;
+  }
+
+  .childMarriageTitle {
+    font-size: 11px;
+    gap: 3px;
+    margin-bottom: 2px;
+  }
+
+  .childMarriageTitle i {
+    font-size: 10px;
+  }
+
+  .childMarriageGrid .barContainer {
+    height: 3px;
+  }
+
+  .childMarriageGrid .label {
+    font-size: 11px;
+  }
+
+  .childMarriageGrid .value {
+    font-size: 12px;
+    min-width: 28px;
+  }
+
+  .childMarriageSource {
+    font-size: 8px;
+  }
+
+  .fgmGrid {
+    gap: 6px;
+    margin: 4px 0;
+  }
+
+  .fgmGrid .barContainer {
+    height: 3px;
+  }
+
+  .fgmTotal {
+    margin-bottom: 2px;
+  }
+}
