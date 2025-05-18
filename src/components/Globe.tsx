@@ -20,6 +20,10 @@ export default function GlobeComponent() {
   const [hoverD, setHoverD] = useState<GeoJsonFeature | null>(null);
   const [tooltip, setTooltip] = useState<TooltipState>(null);
   const [infoPanel, setInfoPanel] = useState<InfoPanelState>(null);
+  const [dimensions, setDimensions] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
 
   const { scoreType } = useScoreType();
   const mobileMode = detectMobileMode();
@@ -35,6 +39,32 @@ export default function GlobeComponent() {
     fetch('/data.json')
       .then((res) => res.json())
       .then(setData);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const newDimensions = {
+        width: window.innerWidth,
+        height: window.innerHeight,
+      };
+      setDimensions(newDimensions);
+    };
+
+    // Initial size setup
+    handleResize();
+
+    // Add throttled event listener
+    let timeoutId: NodeJS.Timeout;
+    const throttledResize = () => {
+      if (timeoutId) clearTimeout(timeoutId);
+      timeoutId = setTimeout(handleResize, 100);
+    };
+
+    window.addEventListener('resize', throttledResize);
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId);
+      window.removeEventListener('resize', throttledResize);
+    };
   }, []);
 
   useEffect(() => {
@@ -104,8 +134,10 @@ export default function GlobeComponent() {
     >
       <Globe
         ref={globeRef}
-        width={window.innerWidth}
-        height={window.innerHeight}
+        // width={window.innerWidth}
+        // height={window.innerHeight}
+        width={dimensions.width}
+        height={dimensions.height}
         polygonsData={geoJson ? geoJson.features : []}
         polygonCapMaterial={getPolygonCapMaterial}
         polygonSideColor={() => '#000000'}
@@ -135,8 +167,8 @@ export default function GlobeComponent() {
           borderRadius: '12px',
           boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
           backdropFilter: 'blur(8px)',
-          width: '320px',
-          maxWidth: '320px',
+          maxWidth: '90vw',
+          // maxWidth: '320px',
           willChange: 'transform',
           transform: 'translateZ(0)',
         }}

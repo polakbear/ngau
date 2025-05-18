@@ -802,7 +802,6 @@ canvas {
 }
 
 .child-marriage-column:last-child {
-  background-color: rgba(255, 159, 67, 0.08);
   margin-left: 8px;
 }
 
@@ -839,7 +838,7 @@ canvas {
 }
 
 .child-marriage-grid .indicator-label {
-  font-size: 12px;
+  font-size: 14px;
   display: flex;
   align-items: center;
 }

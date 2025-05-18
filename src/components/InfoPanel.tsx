@@ -16,7 +16,7 @@ export function InfoPanel({
       <button onClick={onClose} style={{ float: 'right' }}>
         ✖
       </button>
-      <h2>{countryName}</h2>
+      <h4>{countryName}</h4>
       {/* <pre>{JSON.stringify(country, null, 2)}</pre> */}
       <div className="tooltip-metrics-grid">
         <MetricRow
