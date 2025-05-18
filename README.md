@@ -43,16 +43,17 @@ Then open http://localhost:5173 in your browser.
 - [x] Visualize indicators in tooltip and info panel
 - [x] Add country search (autocomplete, smarter matching)
 - [ ] Fill in data for all relevant countries (child marriage, labor, FGM, etc.)
-- [ ] Accessibility polish (hover/touch, color contrast, ARIA where needed)
+- [ ] Accessibility polish (hover/touch, color contrast, ARIA?)
 - [ ] Improve mobile layout and responsiveness
 - [ ] Add optional map layer for organizational presence
+- [ ] Explore more data sources and/or reports
 - [ ] Explore justice-related indicators
   - Age of criminal responsibility
   - Juvenile incarceration
   - Legal protections for children
 - [ ] Add “bright spots” layer (countries showing progress or strong youth engagement)
 - [ ] Explore “story” view: link to human stories or context behind the numbers
-- [ ] Optional: overlay risk data (conflict, climate, displacement)
+- [ ] Overlay risk data (conflict, climate, displacement)
 - [ ] Explore time-based comparisons (e.g. trends since 2010)
 - [ ] Consider basic offline/static fallback
 - [ ] Bookmark/share state: ability to link to a specific country or view (e.g. ?country=SE&tab=protection).
