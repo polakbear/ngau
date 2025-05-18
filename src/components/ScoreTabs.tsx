@@ -1,5 +1,6 @@
 import useScoreType from '../hooks/useScoreType';
 import styles from './ScoreTabs.module.css';
+import { Methodology } from './Methodology';
 
 export function ScoreTabs() {
   const { scoreType, setScoreType } = useScoreType();
@@ -8,8 +9,8 @@ export function ScoreTabs() {
     <div className={styles.container}>
       <div className={styles.tabsContainer}>
         <button
-          className={`${styles.tab} ${scoreType === 'overall' ? styles.active : ''}`}
-          onClick={() => setScoreType('overall')}
+          className={`${styles.tab} ${scoreType === 'kri_score' ? styles.active : ''}`}
+          onClick={() => setScoreType('kri_score')}
         >
           Overall
         </button>
@@ -41,8 +42,9 @@ export function ScoreTabs() {
           className={`${styles.tab} ${scoreType === 'ranking_environment' ? styles.active : ''}`}
           onClick={() => setScoreType('ranking_environment')}
         >
-          Empowerment
+          Environment
         </button>
+        <Methodology />
       </div>
     </div>
   );

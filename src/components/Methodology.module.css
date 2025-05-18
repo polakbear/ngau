@@ -1,23 +1,16 @@
 .container {
-  position: fixed;
-  top: 70px;
-  right: 16px;
-  color: white;
-  padding: 20px;
-  border-radius: 8px;
-  max-width: 300px;
-  z-index: 1000;
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  background: rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 
-    0 4px 6px rgba(0, 0, 0, 0.1),
-    0 1px 3px rgba(0, 0, 0, 0.08);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 8px 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
+  z-index: 19;
+  text-align: center;
+  margin-top: 4px;
 }
 
 .container.active {
@@ -28,24 +21,13 @@
 }
 
 .section {
-  position: relative;
-  margin-bottom: 15px;
-  padding: 8px 12px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 6px;
-  transition: background-color 0.2s ease;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.section:hover {
-  background: rgba(255, 255, 255, 0.08);
+  padding: 0 16px;
+  line-height: 1.4;
 }
 
 .section strong {
-  display: block;
-  margin-bottom: 4px;
   color: #3fd1c7;
-  font-size: 14px;
+  font-weight: 500;
 }
 
 .section:last-child {

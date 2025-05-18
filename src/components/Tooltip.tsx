@@ -23,7 +23,7 @@ export function Tooltip({
     return (
       <div className={styles.tooltip}>
         {closeButton && (
-          <div style={{ position: 'absolute', top: 12, right: 12 }}>
+          <div className={styles.closeButton}>
             <button onClick={onClose} className="pinned-icon" title="Pinned">
               <i className="fas fa-thumbtack" />
             </button>
@@ -31,23 +31,9 @@ export function Tooltip({
         )}
 
         <div className={styles.header}>{countryName}</div>
-        <div
-          style={{
-            color: '#888',
-            marginTop: '30px',
-            textAlign: 'center',
-            padding: '40px 0',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            height: '100px',
-          }}
-        >
+        <div className={styles.noDataContainer}>
           <div>
-            <i
-              className="fas fa-info-circle"
-              style={{ marginRight: '8px', opacity: 0.6 }}
-            ></i>
+            <i className={`fas fa-info-circle ${styles.noDataIcon}`}></i>
             No data provided
           </div>
         </div>
@@ -69,23 +55,11 @@ export function Tooltip({
 
       <div className={styles.badgesRow}>
         <div className={styles.badge}>
-          <i
-            className="fa fa-star"
-            style={{
-              color: '#3fd1c7',
-              width: '10px',
-              textAlign: 'center',
-              fontSize: '10px',
-              marginRight: 4,
-            }}
-          />
-          <strong style={{ marginRight: '2px', fontSize: '10px' }}>KRI</strong>{' '}
+          <i className={`fa fa-star ${styles.kriIcon}`} />
+          <strong className={styles.scoreText}>KRI</strong>{' '}
           {kri != null ? kri.toFixed(3) : 'N/A'}
           <span className={styles.divider}>|</span>
-          <strong style={{ marginRight: '2px', fontSize: '10px' }}>
-            Rank
-          </strong>{' '}
-          {rank} / {total}
+          <strong className={styles.scoreText}>Rank</strong> {rank} / {total}
         </div>
         <div
           className={styles.qualBadge}

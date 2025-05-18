@@ -150,6 +150,41 @@
   opacity: 0.9;
 }
 
+.closeButton {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.noDataContainer {
+  color: #888;
+  margin-top: 30px;
+  text-align: center;
+  padding: 40px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+}
+
+.noDataIcon {
+  margin-right: 8px;
+  opacity: 0.6;
+}
+
+.kriIcon {
+  color: #3fd1c7;
+  width: 10px;
+  text-align: center;
+  font-size: 10px;
+  margin-right: 4px;
+}
+
+.scoreText {
+  margin-right: 2px;
+  font-size: 10px;
+}
+
 @media (max-width: 767px) {
   .tooltip {
     bottom: 100px;
