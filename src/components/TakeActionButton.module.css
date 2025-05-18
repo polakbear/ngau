@@ -1,17 +1,17 @@
 .button {
   position: fixed;
-  right: -38px;
-  top: 50%;
-  transform: rotate(-90deg);
+  top: 16px;
+  right: 16px;
   background: rgba(63, 209, 199, 0.1);
   color: #3fd1c7;
   border: 1px solid rgba(63, 209, 199, 0.2);
-  padding: 8px 16px;
-  border-radius: 8px 8px 0 0;
+  padding: 6px 12px;
+  border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
+  font-size: 13px;
   transition: all 0.2s ease;
-  z-index: 10;
+  z-index: 20;
 }
 
 .button:hover {
@@ -19,25 +19,20 @@
   border-color: rgba(63, 209, 199, 0.3);
 }
 
-.button.active {
-  right: 382px;
+.button i {
+  font-size: 12px;
+  margin-right: 6px;
 }
 
 @media (max-width: 768px) {
   .button {
+    top: auto;
     right: auto;
     left: 50%;
     bottom: 100px;
-    top: auto;
     transform: translateX(-50%);
-    rotate: 0deg;
-    border-radius: 6px;
     padding: 6px 16px;
     font-size: 13px;
-  }
-  
-  .button.active {
-    right: auto;
   }
   
   .button i {
