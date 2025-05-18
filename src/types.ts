@@ -57,7 +57,7 @@ export type InfoPanelSetter = React.Dispatch<
   React.SetStateAction<CountryData | null>
 >;
 
-export type ScoreType = keyof CountryData | 'overall';
+export type ScoreType = keyof CountryData | 'overall' | 'organizations';
 
 export type Nullable = number | null | undefined;
 

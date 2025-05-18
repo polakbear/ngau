@@ -10,6 +10,7 @@ const methodologyContent = {
   ranking_protection: 'Child labour, adolescent birth rate, birth registration',
   ranking_environment:
     'Environmental sustainability and climate action metrics',
+  organizations: 'Organizations working to protect and support children',
 } as const;
 
 type MetricType = keyof typeof methodologyContent;
