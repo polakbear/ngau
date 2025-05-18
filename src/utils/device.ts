@@ -42,12 +42,12 @@ export const getDeviceZoom = () => {
   const deviceType = detectDeviceType();
   switch (deviceType) {
     case 'mobile':
-      return 4; // Most zoomed out for mobile
+      return 4; //  mobile
     case 'tablet':
-      return 3; // Medium zoom for tablet
+      return 3; //  tablet
     case 'desktop':
-      return 2; // Closest zoom for desktop
+      return 2; //  desktop
     default:
-      return 2.5; // Fallback
+      return 2.5; // fallback
   }
 };

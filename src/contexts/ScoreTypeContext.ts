@@ -6,7 +6,6 @@ export interface ScoreTypeContextValue {
   setScoreType: (score: ScoreType) => void;
 }
 
-// Create a default value to avoid undefined checks
 const defaultContextValue: ScoreTypeContextValue = {
   scoreType: 'overall',
   setScoreType: () => {},

@@ -22,7 +22,7 @@ export function getContrastingTextColor(color: string): 'white' | 'black' {
     if (color.startsWith('#')) {
       let hex = color.slice(1);
 
-      // Expand short hex (#abc → #aabbcc)
+      // expand short hex (#fff → #ffffff)
       if (hex.length === 3) {
         hex = hex
           .split('')

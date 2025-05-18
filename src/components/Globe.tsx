@@ -50,10 +50,9 @@ export default function GlobeComponent() {
       setDimensions(newDimensions);
     };
 
-    // Initial size setup
     handleResize();
 
-    // Add throttled event listener
+    // throttled event listener
     let timeoutId: NodeJS.Timeout;
     const throttledResize = () => {
       if (timeoutId) clearTimeout(timeoutId);
