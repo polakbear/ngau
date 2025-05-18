@@ -15,12 +15,47 @@ export const rankBasedColorScale = d3
   .domain([1, 194])
   .range([colors.excellent, colors.veryPoor]);
 
-export function getContrastingTextColor(bg: string): string {
-  const r = parseInt(bg.slice(1, 3), 16);
-  const g = parseInt(bg.slice(3, 5), 16);
-  const b = parseInt(bg.slice(5, 7), 16);
-  const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-  return brightness > 140 ? '#000' : '#fff';
+export function getContrastingTextColor(color: string): 'white' | 'black' {
+  try {
+    let r: number, g: number, b: number;
+
+    if (color.startsWith('#')) {
+      let hex = color.slice(1);
+
+      // Expand short hex (#abc → #aabbcc)
+      if (hex.length === 3) {
+        hex = hex
+          .split('')
+          .map((c) => c + c)
+          .join('');
+      }
+
+      if (!/^[0-9a-fA-F]{6}$/.test(hex)) {
+        throw new Error('Invalid hex format');
+      }
+
+      r = parseInt(hex.substring(0, 2), 16);
+      g = parseInt(hex.substring(2, 4), 16);
+      b = parseInt(hex.substring(4, 6), 16);
+    } else if (color.startsWith('rgb')) {
+      const match = color.match(
+        /^rgb\s*\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/
+      );
+
+      if (!match) throw new Error('Invalid RGB format');
+
+      r = parseInt(match[1], 10);
+      g = parseInt(match[2], 10);
+      b = parseInt(match[3], 10);
+    } else {
+      throw new Error('Unsupported format');
+    }
+
+    const yiq = (r * 299 + g * 587 + b * 114) / 1000;
+    return yiq >= 128 ? 'black' : 'white';
+  } catch {
+    return 'white';
+  }
 }
 
 export function getColorFromRank(rank: number | null, total: number): string {

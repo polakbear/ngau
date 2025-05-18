@@ -1,7 +1,7 @@
 import { CountryData } from '../types';
 import MetricRow from './MetricRow';
 import IndicatorSection from './IndicatorSection';
-import { rankBasedColorScale } from '../utils/color';
+import { getContrastingTextColor, rankBasedColorScale } from '../utils/color';
 import { getFullLabel } from '../utils/score';
 import styles from './InfoPanel.module.css';
 
@@ -16,6 +16,40 @@ export function InfoPanel({
 }) {
   const rank = country?.kri_rank ?? null;
   const color = rank ? rankBasedColorScale(rank) : '#FEFEFE';
+  const bgColor = getContrastingTextColor(color);
+
+  if (!country || rank === null) {
+    return (
+      <div className={styles.panel}>
+        <button onClick={onClose} className={styles.closeButton}>
+          ✖
+        </button>
+
+        <div className={styles.header}>{countryName}</div>
+        <div
+          style={{
+            color: '#888',
+            marginTop: '30px',
+            textAlign: 'center',
+            padding: '40px 0',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '100px',
+          }}
+        >
+          <div>
+            <i
+              className="fas fa-info-circle"
+              style={{ marginRight: '8px', opacity: 0.6 }}
+            ></i>
+            No data provided
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={styles.panel}>
       <button onClick={onClose} className={styles.closeButton}>
@@ -37,15 +71,14 @@ export function InfoPanel({
           <div
             className={styles.performanceBadge}
             style={{
-              backgroundColor: country.kri_rank
-                ? rankBasedColorScale(country.kri_rank)
-                : '#FEFEFE',
-              color: country.kri_rank ? '#fff' : '#000',
+              backgroundColor: color,
+              color: bgColor,
             }}
           >
             {getFullLabel(country.kri_rank ?? null, 194)}
           </div>
         </div>
+
         <MetricRow
           iconClass="fa fa-seedling"
           label="Life"
