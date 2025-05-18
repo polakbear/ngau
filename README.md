@@ -1,54 +1,58 @@
-# React + TypeScript + Vite
+## An interactive map showing the state of child rights around the world.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project started as a way to make sense of scattered, complex data — something visual, straightforward, and easier to explore. It combines the KidsRights Index with global indicators like child marriage, labor, FGM, and violent discipline.
 
-Currently, two official plugins are available:
+Some countries have detailed data, others don’t — and that gap is part of the picture too.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+I built it as a way to explore patterns in child rights data — and to offer that understanding to anyone else who's curious about how those patterns vary around the world.
 
-## Expanding the ESLint configuration
+It’s a personal project, not affiliated with any organization.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Sources
+
+- KidsRights Index 2024
+- UNICEF Reports
+- DHS & MICS Surveys
+
+---
+
+## How to run locally
+
+This project uses [Vite](https://vitejs.dev/) for development.
+
+1. Clone the repository
+2. Install dependencies
+3. Start the dev server
+
+```bash
+git clone https://github.com/polakbear/ngau.git
+cd ngau
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Then open http://localhost:5173 in your browser.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Roadmap
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- [x] Visualize KidsRights Index core scores
+- [x] Add tooltip and info panel for country-level info
+- [x] Display child rights violations (where data exists)
+- [x] Implement visual score toggle (life, health, education, etc.)
+- [x] Finalize indicator data structure (child marriage, labor, FGM, etc.)
+- [x] Visualize indicators in tooltip and info panel
+- [ ] Fill in data for all relevant countries (child marriage, labor, FGM, etc.)
+- [ ] Improve mobile layout and responsiveness
+- [ ] Add optional map layer for organizational presence
+- [ ] Explore justice-related indicators
+  - Age of criminal responsibility
+  - Juvenile incarceration
+  - Legal protections for children
+- [ ] Add “bright spots” layer (countries showing progress or strong youth engagement)
+- [ ] Add country search (autocomplete, smarter matching)
+- [ ] Explore “story” view: link to human stories or context behind the numbers
+- [ ] Optional: overlay risk data (conflict, climate, displacement)
+- [ ] Explore time-based comparisons (e.g. trends since 2010)
+- [ ] Consider basic offline/static fallback
