@@ -1,6 +1,4 @@
 import { CountryData } from '../types';
-import { rankBasedColorScale, getContrastingTextColor } from '../utils/color';
-import { getFullLabel } from '../utils/score';
 import MetricRow from './MetricRow';
 import styles from './Tooltip.module.css';
 
@@ -15,9 +13,7 @@ export function Tooltip({
   closeButton?: boolean;
   onClose?: () => void;
 }) {
-  const total = 194;
   const rank = country?.kri_rank ?? null;
-  const kri = country?.kri_score ?? null;
 
   if (!country || rank === null) {
     return (
@@ -53,50 +49,44 @@ export function Tooltip({
 
       <div className={styles.header}>{countryName}</div>
 
-      <div className={styles.badgesRow}>
-        <div className={styles.badge}>
-          <i className={`fa fa-star ${styles.kriIcon}`} />
-          <strong className={styles.scoreText}>KRI</strong>{' '}
-          {kri != null ? kri.toFixed(3) : 'N/A'}
-          <span className={styles.divider}>|</span>
-          <strong className={styles.scoreText}>Rank</strong> {rank} / {total}
-        </div>
-        <div
-          className={styles.qualBadge}
-          style={{
-            backgroundColor: rankBasedColorScale(rank),
-            color: getContrastingTextColor(rankBasedColorScale(rank)),
-          }}
-        >
-          {getFullLabel(rank, total)}
-        </div>
-      </div>
+      <div className={styles.badgesRow}></div>
 
       <div className={styles.metricsGrid}>
+        {' '}
         <MetricRow
           iconClass="fa fa-seedling"
+          label="Life"
           value={country?.life}
           rank={country?.ranking_life}
+          hideGradientAndRank
         />
         <MetricRow
           iconClass="fa fa-heart"
+          label="Health"
           value={country?.health}
           rank={country?.ranking_health}
+          hideGradientAndRank
         />
         <MetricRow
           iconClass="fa fa-graduation-cap"
+          label="Education"
           value={country?.education}
           rank={country?.ranking_education}
+          hideGradientAndRank
         />
         <MetricRow
           iconClass="fa fa-shield-alt"
+          label="Protection"
           value={country?.protection}
           rank={country?.ranking_protection}
+          hideGradientAndRank
         />
         <MetricRow
           iconClass="fa fa-globe"
+          label="Environment"
           value={country?.environment}
           rank={country?.ranking_environment}
+          hideGradientAndRank
         />
       </div>
 

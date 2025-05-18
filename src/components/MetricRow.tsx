@@ -7,6 +7,7 @@ interface MetricRowProps {
   label?: string;
   value: number | null | undefined;
   rank: number | null | undefined;
+  hideGradientAndRank?: boolean;
 }
 
 export default function MetricRow({
@@ -14,6 +15,7 @@ export default function MetricRow({
   label,
   value,
   rank,
+  hideGradientAndRank = false,
 }: MetricRowProps) {
   return (
     <div className={styles.metric}>
@@ -33,17 +35,21 @@ export default function MetricRow({
                 color: '#fff',
               }}
             >
-              <span className={styles.rankText}>
-                Rank {String(rank).padStart(3, '\u00A0')}
-              </span>
-              <span className={styles.divider}>|</span>
+              {!hideGradientAndRank ? (
+                <>
+                  <span className={styles.rankText}>
+                    Rank {String(rank).padStart(3, '\u00A0')}
+                  </span>
+                  <span className={styles.divider}>|</span>
+                </>
+              ) : null}
               <span className={styles.performanceText}>
                 {getPerformanceLabel(rank ?? null, 194)}
               </span>
             </div>
           )}
         </div>
-        {value != null && (
+        {value != null && !hideGradientAndRank && (
           <div className={styles.barContainer}>
             <div
               className={styles.barFill}
