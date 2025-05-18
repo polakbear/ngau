@@ -9,14 +9,14 @@ import styles from './MetricRow.module.css';
 
 interface MetricRowProps {
   iconClass: string;
-  label: string;
+  label?: string;
   value: number | null | undefined;
   rank: number | null | undefined;
 }
 
 export default function MetricRow({
   iconClass,
-  label: _label, // not used but required by interface, look into it later
+  label,
   value,
   rank,
 }: MetricRowProps) {
@@ -28,6 +28,7 @@ export default function MetricRow({
     <div className={styles.metric}>
       <div className={styles.label}>
         <i className={iconClass}></i>
+        {label}
       </div>
       <div className={styles.info}>
         <div className={styles.row}>

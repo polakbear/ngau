@@ -80,7 +80,7 @@ export function InfoPanel({
       {country?.indicators && country.indicators.length > 0 && (
         <>
           <div className={styles.subtitle}>Indicators</div>
-          <IndicatorSection indicators={country.indicators} />
+          <IndicatorSection indicators={country.indicators} rank={rank} />
         </>
       )}
     </div>

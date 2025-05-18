@@ -1,15 +1,21 @@
 import { IndicatorEntry } from '../types';
 import ProgressBar from './ProgressBar';
+import { rankBasedColorScale } from '../utils/color';
 import styles from './IndicatorSection.module.css';
 
 interface IndicatorSectionProps {
   indicators: IndicatorEntry[] | undefined;
+  rank: number | null;
 }
 
 export default function IndicatorSection({
   indicators,
+  rank,
 }: IndicatorSectionProps) {
   if (!indicators || indicators.length === 0) return null;
+  const borderColor = rank
+    ? rankBasedColorScale(rank)
+    : 'rgba(63, 209, 199, 0.25)';
 
   //  extract indicator values
   const find = (type: string) =>
@@ -23,7 +29,10 @@ export default function IndicatorSection({
   return (
     <div className={styles.container}>
       {(femaleChildMarriage || maleChildMarriage) && (
-        <div className={styles.section}>
+        <div
+          className={styles.section}
+          style={{ borderLeftColor: borderColor }}
+        >
           <div className={styles.title}>
             <i className="fas fa-ring"></i> Child Marriage
           </div>
@@ -131,7 +140,10 @@ export default function IndicatorSection({
       )}
 
       {violentDiscipline && (
-        <div className={styles.section}>
+        <div
+          className={styles.section}
+          style={{ borderLeftColor: borderColor }}
+        >
           <div className={styles.title}>
             <i className="fas fa-hand"></i> Violent Discipline
           </div>
@@ -203,7 +215,10 @@ export default function IndicatorSection({
       )}
 
       {fgm && (
-        <div className={styles.section}>
+        <div
+          className={styles.section}
+          style={{ borderLeftColor: borderColor }}
+        >
           <div className={styles.title}>
             <i className="fas fa-triangle-exclamation"></i> Female Genital
             Mutilation
