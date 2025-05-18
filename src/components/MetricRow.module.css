@@ -38,44 +38,35 @@
   padding-right: 0;
 }
 
-.splitBadge {
+.badge {
   display: flex;
+  align-items: center;
+  height: 24px;
   border-radius: 4px;
   overflow: hidden;
   font-size: 13px;
-  font-weight: 500;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  height: 24px;
-  width: fit-content;
+  padding: 0 8px;
   margin-left: auto;
+  font-weight: 500;
+  width: fit-content;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.splitLeft {
-  background: rgba(255, 255, 255, 0.12);
-  border-right: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 2px 8px;
-  min-width: 65px;
-  width: 70px;
-  justify-content: flex-end;
+.rankText {
   font-feature-settings: 'tnum';
   font-variant-numeric: tabular-nums;
-  display: flex;
-  align-items: center;
-  line-height: 1.2;
-  white-space: nowrap;
-  color: #fff;
+  opacity: 0.95;
+  min-width: 65px;
 }
 
-.splitRight {
-  padding: 2px 8px;
-  flex: 1;
-  justify-content: center;
+.divider {
+  margin: 0 8px;
+  opacity: 0.5;
+}
+
+.performanceText {
+  font-weight: 600;
   min-width: 80px;
-  max-width: 80px;
-  display: flex;
-  align-items: center;
-  line-height: 1.2;
-  white-space: nowrap;
 }
 
 .value {

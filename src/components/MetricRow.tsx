@@ -1,9 +1,4 @@
-import {
-  colors,
-  getBarColor,
-  getContrastingTextColor,
-  rankBasedColorScale,
-} from '../utils/color';
+import { colors, getBarColor } from '../utils/color';
 import { getPerformanceLabel } from '../utils/score';
 import styles from './MetricRow.module.css';
 
@@ -22,7 +17,6 @@ export default function MetricRow({
 }: MetricRowProps) {
   const total = 194;
   const performance = getPerformanceLabel(rank ?? null, total);
-  const color = rank ? rankBasedColorScale(rank) : colors.noData;
 
   return (
     <div className={styles.metric}>
@@ -32,22 +26,21 @@ export default function MetricRow({
       </div>
       <div className={styles.info}>
         <div className={styles.row}>
-          <div className={styles.splitBadge}>
-            {rank != null && (
-              <span className={styles.splitLeft}>
-                Rank {String(rank).padStart(3, '\u00A0')}
-              </span>
-            )}
-            <span
-              className={styles.splitRight}
+          {rank != null && (
+            <div
+              className={styles.badge}
               style={{
-                background: color,
-                color: getContrastingTextColor(color),
+                background: `linear-gradient(to right, ${colors.veryPoor}, ${getBarColor(rank)})`,
+                color: '#fff',
               }}
             >
-              {performance}
-            </span>
-          </div>
+              <span className={styles.rankText}>
+                Rank {String(rank).padStart(3, '\u00A0')}
+              </span>
+              <span className={styles.divider}>|</span>
+              <span className={styles.performanceText}>{performance}</span>
+            </div>
+          )}
           {/* Score value removed */}
         </div>
         <div className={styles.barContainer}>
