@@ -9,8 +9,8 @@ export function ScoreTabs() {
     <div className={styles.container}>
       <div className={styles.tabsContainer}>
         <button
-          className={`${styles.tab} ${scoreType === 'kri_score' ? styles.active : ''}`}
-          onClick={() => setScoreType('kri_score')}
+          className={`${styles.tab} ${scoreType === 'overall' ? styles.active : ''}`}
+          onClick={() => setScoreType('overall')}
         >
           Overall
         </button>
