@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import styles from './Organizations.module.css';
 
 export function Organizations() {
   const [showPanel, setShowPanel] = useState(false);
@@ -6,16 +7,18 @@ export function Organizations() {
   return (
     <>
       <button
-        className={`take-action-tab ${showPanel ? 'active' : ''}`}
+        className={`${styles.takeActionTab} ${showPanel ? styles.active : ''}`}
         onClick={() => setShowPanel(!showPanel)}
       >
         Take Action
       </button>
 
-      <div className={`organizations-panel ${showPanel ? 'active' : ''}`}>
-        <div className="organization-item">
-          <div className="organization-name">UNICEF</div>
-          <div className="organization-description">
+      <div
+        className={`${styles.organizationsPanel} ${showPanel ? styles.active : ''}`}
+      >
+        <div className={styles.organizationItem}>
+          <div className={styles.organizationName}>UNICEF</div>
+          <div className={styles.organizationDescription}>
             Works in over 190 countries to protect children's rights, help meet
             their basic needs, and expand opportunities for children to reach
             their full potential.
@@ -24,15 +27,15 @@ export function Organizations() {
             href="https://www.unicef.org/take-action"
             target="_blank"
             rel="noopener"
-            className="organization-link"
+            className={styles.organizationLink}
           >
             Make a difference
           </a>
         </div>
 
-        <div className="organization-item">
-          <div className="organization-name">Child Fund</div>
-          <div className="organization-description">
+        <div className={styles.organizationItem}>
+          <div className={styles.organizationName}>Child Fund</div>
+          <div className={styles.organizationDescription}>
             Helping deprived, excluded and vulnerable children have the capacity
             to become young adults, parents and leaders who bring lasting and
             positive change to their communities.
@@ -41,15 +44,15 @@ export function Organizations() {
             href="https://www.childfund.org/ways-to-help/"
             target="_blank"
             rel="noopener"
-            className="organization-link"
+            className={styles.organizationLink}
           >
             Help today
           </a>
         </div>
 
-        <div className="organization-item">
-          <div className="organization-name">Shine for Kids</div>
-          <div className="organization-description">
+        <div className={styles.organizationItem}>
+          <div className={styles.organizationName}>Shine for Kids</div>
+          <div className={styles.organizationDescription}>
             Supporting children, young people and families with relatives in the
             criminal justice system through various programs.
           </div>
@@ -57,15 +60,15 @@ export function Organizations() {
             href="https://shineforkids.org.au/get-involved/"
             target="_blank"
             rel="noopener"
-            className="organization-link"
+            className={styles.organizationLink}
           >
             Get involved
           </a>
         </div>
 
-        <div className="organization-item">
-          <div className="organization-name">Kids Rights</div>
-          <div className="organization-description">
+        <div className={styles.organizationItem}>
+          <div className={styles.organizationName}>Kids Rights</div>
+          <div className={styles.organizationDescription}>
             Advocates for children's rights worldwide and supports local
             organizations helping disadvantaged children.
           </div>
@@ -73,7 +76,7 @@ export function Organizations() {
             href="https://www.kidsrights.org/support/"
             target="_blank"
             rel="noopener"
-            className="organization-link"
+            className={styles.organizationLink}
           >
             Take action
           </a>

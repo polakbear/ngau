@@ -49,12 +49,7 @@ export function InfoPanel({
         <div className={styles.kriRow} style={{ background: color }}>
           <div className={styles.badge}>
             <i className={`fa fa-star ${styles.kriIcon}`} />
-            <strong className={styles.kriLabel}>KRI</strong>
-            <span className={styles.kriValue}>
-              {country?.kri_score ? country.kri_score.toFixed(3) : 'N/A'}
-            </span>
-            <span className={styles.kriDivider}>|</span>
-            <strong className={styles.kriLabel}>Rank</strong>
+            <strong className={styles.kriLabel}>KRI Rank</strong>
             <span className={styles.kriValue}>{country?.kri_rank} / 194</span>
           </div>
           <div

@@ -1,0 +1,12 @@
+.container {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  padding: 6px;
+}

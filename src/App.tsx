@@ -1,18 +1,16 @@
 import GlobeComponent from './components/Globe';
 import ScoreTypeProvider from './contexts/ScoreTypeProvider';
-import { ScoreTabs } from './components/ScoreTabs';
 import { Legend } from './components/Legend';
 import { Sources } from './components/Sources';
-import { Methodology } from './components/Methodology';
+import { TabRow } from './components/TabRow';
 
 function App() {
   return (
     <ScoreTypeProvider>
-      <ScoreTabs />
+      <TabRow />
       <GlobeComponent />
       <Legend />
       <Sources />
-      <Methodology />
     </ScoreTypeProvider>
   );
 }

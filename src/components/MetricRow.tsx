@@ -48,9 +48,7 @@ export default function MetricRow({
               {performance}
             </span>
           </div>
-          <span className={styles.value}>
-            {value != null ? value.toFixed(3) : ''}
-          </span>
+          {/* Score value removed */}
         </div>
         <div className={styles.barContainer}>
           <div
