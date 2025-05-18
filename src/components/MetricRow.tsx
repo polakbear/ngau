@@ -57,7 +57,7 @@ export default function MetricRow({
             className={styles.barFill}
             style={{
               width: value != null ? `${value * 100}%` : '0%',
-              background: getBarColor(rank),
+              background: `linear-gradient(to right, ${colors.veryPoor}, ${getBarColor(rank)})`,
               transition: 'width 0.6s cubic-bezier(.4,0,.2,1)',
             }}
             data-score={value || 0}
