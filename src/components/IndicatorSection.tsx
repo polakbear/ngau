@@ -43,24 +43,12 @@ export default function IndicatorSection({
                 <i className="fas fa-venus" style={{ color: '#ff9f43' }}></i>{' '}
                 Female
               </div>
-              {femaleChildMarriage?.value_female_15 ? (
-                <ProgressBar
-                  label={
-                    <>
-                      <i
-                        className="fas fa-child"
-                        style={{
-                          fontSize: 10,
-                          marginRight: 4,
-                          color: '#ff9f43',
-                        }}
-                      />
-                      By age 15
-                    </>
-                  }
-                  value={femaleChildMarriage.value_female_15}
-                />
-              ) : (
+              {(!femaleChildMarriage?.value_female_15 &&
+                !femaleChildMarriage?.value_female_18) ||
+              ((femaleChildMarriage?.value_female_15 === 0 ||
+                femaleChildMarriage?.value_female_15 == null) &&
+                (femaleChildMarriage?.value_female_18 === 0 ||
+                  femaleChildMarriage?.value_female_18 == null)) ? (
                 <div className={styles.item}>
                   <div className={styles.label}>
                     <i
@@ -75,25 +63,46 @@ export default function IndicatorSection({
                     No data available
                   </div>
                 </div>
+              ) : (
+                <>
+                  {(femaleChildMarriage?.value_female_15 ?? 0) > 0 && (
+                    <ProgressBar
+                      label={
+                        <>
+                          <i
+                            className="fas fa-child"
+                            style={{
+                              fontSize: 10,
+                              marginRight: 4,
+                              color: '#ff9f43',
+                            }}
+                          />
+                          By age 15
+                        </>
+                      }
+                      value={femaleChildMarriage!.value_female_15!}
+                    />
+                  )}
+                  {(femaleChildMarriage?.value_female_18 ?? 0) > 0 && (
+                    <ProgressBar
+                      label={
+                        <>
+                          <i
+                            className="fas fa-female"
+                            style={{
+                              fontSize: 10,
+                              marginRight: 4,
+                              color: '#ff9f43',
+                            }}
+                          />
+                          By age 18
+                        </>
+                      }
+                      value={femaleChildMarriage!.value_female_18!}
+                    />
+                  )}
+                </>
               )}
-              {femaleChildMarriage?.value_female_18 ? (
-                <ProgressBar
-                  label={
-                    <>
-                      <i
-                        className="fas fa-female"
-                        style={{
-                          fontSize: 10,
-                          marginRight: 4,
-                          color: '#ff9f43',
-                        }}
-                      />
-                      By age 18
-                    </>
-                  }
-                  value={femaleChildMarriage.value_female_18}
-                />
-              ) : null}
             </div>
             {/* Male Column */}
             <div className={styles.childMarriageColumn}>
@@ -101,7 +110,23 @@ export default function IndicatorSection({
                 <i className="fas fa-mars" style={{ color: '#ff9f43' }}></i>{' '}
                 Male
               </div>
-              {maleChildMarriage?.value_male_18 ? (
+              {!maleChildMarriage?.value_male_18 ||
+              maleChildMarriage.value_male_18 === 0 ? (
+                <div className={styles.item}>
+                  <div className={styles.label}>
+                    <i
+                      className="fas fa-exclamation-circle"
+                      style={{
+                        fontSize: 10,
+                        marginRight: 4,
+                        opacity: 0.7,
+                        color: '#ff9f43',
+                      }}
+                    />
+                    No data available
+                  </div>
+                </div>
+              ) : (
                 <ProgressBar
                   label={
                     <>
@@ -118,21 +143,6 @@ export default function IndicatorSection({
                   }
                   value={maleChildMarriage.value_male_18}
                 />
-              ) : (
-                <div className={styles.item}>
-                  <div className={styles.label}>
-                    <i
-                      className="fas fa-exclamation-circle"
-                      style={{
-                        fontSize: 10,
-                        marginRight: 4,
-                        opacity: 0.7,
-                        color: '#ff9f43',
-                      }}
-                    />
-                    No data available
-                  </div>
-                </div>
               )}
             </div>
           </div>
