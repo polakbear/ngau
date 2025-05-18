@@ -114,6 +114,17 @@
   color: #3fd1c7;
 }
 
+.noDataContainer {
+  color: #888;
+  margin-top: 30px;
+  text-align: center;
+  padding: 40px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+}
+
 @media (max-width: 768px) {
   .panel {
     left: 16px;

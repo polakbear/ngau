@@ -26,18 +26,7 @@ export function InfoPanel({
         </button>
 
         <div className={styles.header}>{countryName}</div>
-        <div
-          style={{
-            color: '#888',
-            marginTop: '30px',
-            textAlign: 'center',
-            padding: '40px 0',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            height: '100px',
-          }}
-        >
+        <div className={styles.noDataContainer}>
           <div>
             <i
               className="fas fa-info-circle"
