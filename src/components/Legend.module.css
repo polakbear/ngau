@@ -81,6 +81,22 @@
 
 @media (max-width: 768px) {
   .legend {
-    bottom: 16px;
+    bottom: 40px;
+    left: 50%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .legend {
+        left: 25%;
+    }
+}
+
+@media (max-width: 380px) {
+  .legend {
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 32px);
   }
 }
