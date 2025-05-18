@@ -137,20 +137,63 @@ export default function IndicatorSection({
           </div>
           <div className={styles.content}>
             {violentDiscipline.value_total != null && (
-              <ProgressBar
-                label="Total"
-                value={violentDiscipline.value_total}
-              />
+              <div className={styles.fullWidth}>
+                <ProgressBar
+                  label={
+                    <>
+                      <i
+                        className="fas fa-chart-bar"
+                        style={{
+                          fontSize: 10,
+                          marginRight: 4,
+                          color: '#ff9f43',
+                        }}
+                      />
+                      Total
+                    </>
+                  }
+                  value={violentDiscipline.value_total}
+                />
+              </div>
             )}
-            {violentDiscipline.value_male != null && (
-              <ProgressBar label="Male" value={violentDiscipline.value_male} />
-            )}
-            {violentDiscipline.value_female != null && (
-              <ProgressBar
-                label="Female"
-                value={violentDiscipline.value_female}
-              />
-            )}
+            <div className={styles.twoColumnGrid}>
+              {violentDiscipline.value_male != null && (
+                <ProgressBar
+                  label={
+                    <>
+                      <i
+                        className="fas fa-mars"
+                        style={{
+                          fontSize: 10,
+                          marginRight: 4,
+                          color: '#ff9f43',
+                        }}
+                      />
+                      Male
+                    </>
+                  }
+                  value={violentDiscipline.value_male}
+                />
+              )}
+              {violentDiscipline.value_female != null && (
+                <ProgressBar
+                  label={
+                    <>
+                      <i
+                        className="fas fa-venus"
+                        style={{
+                          fontSize: 10,
+                          marginRight: 4,
+                          color: '#ff9f43',
+                        }}
+                      />
+                      Female
+                    </>
+                  }
+                  value={violentDiscipline.value_female}
+                />
+              )}
+            </div>
             <div className={styles.source}>
               Source: {violentDiscipline.data_source || 'Not specified'} (
               {violentDiscipline.year || 'Year not specified'})
@@ -167,17 +210,51 @@ export default function IndicatorSection({
           </div>
           <div className={styles.content}>
             {fgm.value_girls_0_14 != null && (
-              <ProgressBar
-                label="Girls aged 0-14"
-                value={fgm.value_girls_0_14}
-              />
+              <div className={styles.fgmTotal}>
+                <ProgressBar
+                  label="Girls aged 0-14"
+                  value={fgm.value_girls_0_14}
+                />
+              </div>
             )}
-            {fgm.value_urban != null && (
-              <ProgressBar label="Urban" value={fgm.value_urban} />
-            )}
-            {fgm.value_rural != null && (
-              <ProgressBar label="Rural" value={fgm.value_rural} />
-            )}
+            <div className={styles.twoColumnGrid}>
+              {fgm.value_urban != null && (
+                <ProgressBar
+                  label={
+                    <>
+                      <i
+                        className="fas fa-city"
+                        style={{
+                          fontSize: 10,
+                          marginRight: 4,
+                          color: '#ff9f43',
+                        }}
+                      />
+                      Urban
+                    </>
+                  }
+                  value={fgm.value_urban}
+                />
+              )}
+              {fgm.value_rural != null && (
+                <ProgressBar
+                  label={
+                    <>
+                      <i
+                        className="fas fa-tree"
+                        style={{
+                          fontSize: 10,
+                          marginRight: 4,
+                          color: '#ff9f43',
+                        }}
+                      />
+                      Rural
+                    </>
+                  }
+                  value={fgm.value_rural}
+                />
+              )}
+            </div>
             <div className={styles.source}>
               Source: {fgm.data_source || 'Not specified'} (
               {fgm.year || 'Year not specified'})

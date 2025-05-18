@@ -8,7 +8,20 @@
 .section {
   border-left: 2px solid rgba(63, 209, 199, 0.25);
   padding-left: 10px;
+  margin-bottom: 4px;
+  padding-bottom: 8px;
+}
+
+.section:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   margin-bottom: 8px;
+}
+
+/* Hide divider between Child Marriage and Violent Discipline if one of them is missing */
+.section:only-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .title {
@@ -30,7 +43,7 @@
 .content {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 4px;
 }
 
 .item {
@@ -66,7 +79,7 @@
 }
 
 .value {
-  font-size: 12px;
+  font-size: 16px;
   color: #ff9f43;
   font-weight: 600;
   min-width: 35px;
@@ -78,7 +91,7 @@
 .source {
   font-size: 10px;
   color: rgba(255, 255, 255, 0.5);
-  margin-top: 4px;
+  margin-top: 2px;
   margin-left: 28px; /* Align with content after icon */
   font-style: italic;
 }
@@ -120,8 +133,6 @@
   margin-left: 8px;
 }
 
-
-
 .childMarriageTitle {
   font-size: 14px;
   font-weight: bold;
@@ -135,8 +146,6 @@
 .childMarriageTitle i {
   font-size: 13px;
 }
-
-
 
 .childMarriageGrid .barContainer {
   height: 5px;
@@ -171,4 +180,30 @@
   color: rgba(255, 255, 255, 0.5);
   margin-top: 2px;
   font-style: italic;
+}
+
+.fgmGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 8px 0;
+}
+
+.fgmGrid .barContainer {
+  height: 5px;
+}
+
+.fgmTotal {
+  grid-column: 1 / span 2;
+  margin-bottom: 4px;
+}
+
+.twoColumnGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.fullWidth {
+  grid-column: 1 / span 2;
 }

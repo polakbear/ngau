@@ -8,7 +8,8 @@
   -webkit-backdrop-filter: blur(12px);
   color: #fff;
   padding: 20px;
-  max-width: 350px;
+  max-width: 360px;
+  width: 360px;
   border-radius: 8px;
   box-shadow: 
     0 4px 6px rgba(0, 0, 0, 0.1),
@@ -54,6 +55,64 @@
   color: #89cfff;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+}
+
+.kriRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 -20px;
+  padding: 8px 20px;
+  color: white;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.performanceBadge {
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-align: center;
+  background: rgb(0, 64, 64);
+  color: #ffffff;
+  min-width: 95px;
+  margin-left: 10px;
+}
+
+.kriLabel {
+  font-weight: 600;
+  font-size: 12px;
+  margin-right: 2px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.kriValue {
+  margin-left: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.kriDivider {
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 4px;
+}
+
+.kriIcon {
+  font-size: 10px;
+  width: 10px;
+  text-align: center;
+  color: #3fd1c7;
 }
 
 @media (max-width: 768px) {
