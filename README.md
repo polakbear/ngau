@@ -2,9 +2,9 @@
 
 This project started as a way to make sense of scattered, complex data — something visual, straightforward, and easier to explore. It combines the KidsRights Index with global indicators like child marriage, labor, FGM, and violent discipline.
 
-Some countries have detailed data. Others don’t — and that gap is part of the picture too.
+Some countries have detailed data, others don’t — and that gap is part of the picture too.
 
-This map isn’t built for clicks or promotion. It’s a tool for exploring patterns in child rights data, and for anyone curious to better understand how those patterns vary across the world.
+I built it as a way to explore patterns in child rights data — and to offer that understanding to anyone else who's curious about how those patterns vary around the world.
 
 It’s a personal project, not affiliated with any organization.
 
@@ -43,16 +43,15 @@ Then open http://localhost:5173 in your browser.
 - [x] Implement visual score toggle (life, health, education, etc.)
 - [x] Finalize indicator data structure (child marriage, labor, FGM, etc.)
 - [x] Visualize indicators in tooltip and info panel
-- [ ] Fill in data for (child marriage, labor, FGM, etc.)
+- [ ] Fill in data for all relevant countries (child marriage, labor, FGM, etc.)
 - [ ] Improve mobile layout and responsiveness
 - [ ] Add optional map layer for organizational presence
 - [ ] Explore justice-related indicators
   - Age of criminal responsibility
   - Juvenile incarceration
   - Legal protections for children
-- [ ] Consider light/dark mode toggle
 - [ ] Add “bright spots” layer (countries showing progress or strong youth engagement)
-- [ ] Add country search improvements (autocomplete, smarter matching)
+- [ ] Add country search (autocomplete, smarter matching)
 - [ ] Explore “story” view: link to human stories or context behind the numbers
 - [ ] Optional: overlay risk data (conflict, climate, displacement)
 - [ ] Explore time-based comparisons (e.g. trends since 2010)

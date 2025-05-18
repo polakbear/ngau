@@ -1,0 +1,300 @@
+.panel {
+  position: absolute;
+  left: 50px;
+  top: 120px;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.80);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #fff;
+  padding: 20px;
+  max-width: 380px;
+  width: 380px;
+  border-radius: 8px;
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.closeButton {
+  float: right;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.closeButton:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.title {
+  margin: 0 0 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.metricsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  margin: 8px 0 4px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #89cfff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.kriRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 -20px 16px;
+  padding: 8px 20px;
+  color: white;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.performanceBadge {
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-align: center;
+  color: #ffffff;
+  min-width: 95px;
+  margin-left: 10px;
+}
+
+.kriLabel {
+  font-weight: 600;
+  font-size: 12px;
+  margin-right: 2px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.kriValue {
+  margin-left: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.kriDivider {
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 4px;
+}
+
+.kriIcon {
+  font-size: 10px;
+  width: 10px;
+  text-align: center;
+  color: #3fd1c7;
+}
+
+.noDataContainer {
+  color: #888;
+  margin-top: 30px;
+  text-align: center;
+  padding: 40px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+}
+
+.barContainer {
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  pointer-events: none;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 30;
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 4px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.9) transparent transparent transparent;
+}
+
+.barContainer:hover .tooltip,
+.badge:hover .tooltip,
+.performanceBadge:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 768px) {
+  .panel {
+    left: 10%;
+    top: 120px;
+    max-width: calc(100vw - 16px);
+    padding: 12px;
+    width: 320px;
+    overflow: hidden;
+  }
+
+  .metricsGrid {
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+
+  .title {
+    font-size: 14px;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    margin: 6px 0 3px;
+    font-size: 11px;
+    letter-spacing: 0.3px;
+  }
+
+  .kriRow {
+    margin: 0 -12px;
+    padding: 6px 12px;
+    width: calc(100% + 24px);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .badge {
+    font-size: 13px;
+    gap: 6px;
+    height: 22px;
+    line-height: 1.2;
+  }
+
+  .performanceBadge {
+    font-size: 13px;
+    padding: 3px 6px;
+    min-width: 65px;
+    margin-left: 8px;
+    line-height: 1.2;
+  }
+
+  .kriLabel, .kriValue {
+    font-size: 13px;
+    line-height: 1.2;
+  }
+
+  .kriDivider {
+    margin: 0 4px;
+  }
+
+  .kriIcon {
+    font-size: 12px;
+    width: 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .panel {
+    left: 4px;
+    max-width: calc(100vw - 8px);
+    padding: 10px;
+    width: calc(100vw - 8px);
+    overflow: hidden;
+  }
+
+  .metricsGrid {
+    gap: 3px;
+    margin-bottom: 8px;
+  }
+
+  .title {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  .subtitle {
+    margin: 4px 0 2px;
+    font-size: 10px;
+  }
+
+  .kriRow {
+    margin: 0 -10px;
+    padding: 5px 10px;
+    width: calc(100% + 20px);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .badge {
+    font-size: 12px;
+    gap: 5px;
+    height: 20px;
+  }
+
+  .performanceBadge {
+    font-size: 11px;
+    padding: 2px 5px;
+    min-width: 60px;
+    margin-left: 6px;
+    height: 20px;
+  }
+
+  .kriLabel, .kriValue {
+    font-size: 12px;
+  }
+
+  .kriDivider {
+    margin: 0 3px;
+  }
+
+  .kriIcon {
+    font-size: 11px;
+    width: 11px;
+  }
+
+  .noDataContainer {
+    padding: 20px 0;
+    height: 60px;
+    font-size: 11px;
+  }
+}

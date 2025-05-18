@@ -1,3 +1,5 @@
+import { DeviceType } from '../types';
+
 export function detectMobileMode(): boolean {
   const userAgent = navigator.userAgent.toLowerCase();
 
@@ -23,3 +25,29 @@ export function detectMobileMode(): boolean {
 
   return isEdgeMobile || hasMobileKeyword || isSmallScreen;
 }
+
+export function detectDeviceType(): DeviceType {
+  const width = window.innerWidth;
+
+  if (width <= 767) {
+    return 'mobile';
+  } else if (width <= 1024) {
+    return 'tablet';
+  } else {
+    return 'desktop';
+  }
+}
+
+export const getDeviceZoom = () => {
+  const deviceType = detectDeviceType();
+  switch (deviceType) {
+    case 'mobile':
+      return 4; //  mobile
+    case 'tablet':
+      return 3; //  tablet
+    case 'desktop':
+      return 2; //  desktop
+    default:
+      return 2.5; // fallback
+  }
+};
