@@ -146,17 +146,6 @@
   visibility: visible;
 }
 
-.barTooltip::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  border-width: 4px;
-  border-style: solid;
-  border-color: white transparent transparent transparent;
-}
-
 .barFill {
   position: absolute;
   height: 4px;
