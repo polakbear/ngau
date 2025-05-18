@@ -1,0 +1,107 @@
+.legend {
+  position: fixed;
+  bottom: 30px;
+  left: 15%;
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none;
+  width: min(300px, calc(100vw - 32px));
+}
+
+.container {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.scale {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bar {
+  display: flex;
+  width: 100%;
+  height: 12px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.gradient {
+  flex: 1;
+  height: 100%;
+  border-radius: 0 6px 6px 0;
+}
+
+.noData {
+  width: 24px;
+  height: 100%;
+  background: #333;
+  border-radius: 6px 0 0 6px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.labels {
+  display: flex;
+  align-items: flex-start;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.labelNoData {
+  width: 24px;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 10px;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.gradientLabels {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 8px;
+}
+
+.gradientLabels span {
+  transform: translateX(-50%);
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 11px;
+}
+
+.labelVeryPoor {
+  transform: translateX(0%) !important;
+}
+
+.labelPoor {
+  transform: translateX(-25%) !important;
+}
+
+.labelFair {
+  transform: translateX(-50%) !important;
+}
+
+.labelGood {
+  transform: translateX(-75%) !important;
+}
+
+.labelExcellent {
+  transform: translateX(-100%) !important;
+}
+
+@media (max-width: 768px) {
+  .legend {
+    bottom: 16px;
+  }
+}

@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { rankBasedColorScale } from '../utils/color';
+import styles from './Legend.module.css';
 
 export function Legend() {
   const [showMethodology, setShowMethodology] = useState(false);
@@ -23,22 +24,22 @@ export function Legend() {
 
   return (
     <>
-      <div className="legend">
-        <div className="legend-container">
-          <div className="legend-scale">
-            <div className="legend-bar">
-              <div className="legend-no-data"></div>
-              <div className="legend-gradient" style={gradientStyle}></div>
+      <div className={styles.legend}>
+        <div className={styles.container}>
+          <div className={styles.scale}>
+            <div className={styles.bar}>
+              <div className={styles.noData}></div>
+              <div className={styles.gradient} style={gradientStyle}></div>
             </div>
-            <div className="legend-row">
-              <div className="legend-labels">
-                <div className="legend-label-nodata">No data</div>
-                <div className="legend-gradient-labels">
-                  <span className="legend-label-verypoor">Very Poor</span>
-                  <span className="legend-label-poor">Poor</span>
-                  <span className="legend-label-fair">Fair</span>
-                  <span className="legend-label-good">Good</span>
-                  <span className="legend-label-excellent">Excellent</span>
+            <div className={styles.row}>
+              <div className={styles.labels}>
+                <div className={styles.labelNoData}>No data</div>
+                <div className={styles.gradientLabels}>
+                  <span className={styles.labelVeryPoor}>Very Poor</span>
+                  <span className={styles.labelPoor}>Poor</span>
+                  <span className={styles.labelFair}>Fair</span>
+                  <span className={styles.labelGood}>Good</span>
+                  <span className={styles.labelExcellent}>Excellent</span>
                 </div>
               </div>
             </div>

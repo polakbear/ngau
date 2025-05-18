@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import styles from './Methodology.module.css';
 
 export function Methodology() {
   const [showMethodology, setShowMethodology] = useState(false);
@@ -16,38 +17,39 @@ export function Methodology() {
   return (
     <>
       <div
-        className={`legend-methodology ${
-          isDesktop || showMethodology ? 'active' : ''
+        className={`${styles.container} ${
+          isDesktop || showMethodology ? styles.active : ''
         }`}
         id="methodology-panel"
       >
-        <div className="methodology-section methodology-overall">
+        <div className={styles.section}>
           <strong>Overall (KRI Score):</strong>
           Combined measure of child rights implementation
         </div>
-        <div className="methodology-section methodology-life">
+        <div className={styles.section}>
           <strong>Life:</strong>
           Under-5 mortality, life expectancy, maternal mortality
         </div>
-        <div className="methodology-section methodology-health">
+        <div className={styles.section}>
           <strong>Health:</strong>
           Underweight children, immunization, sanitation, water access
         </div>
-        <div className="methodology-section methodology-education">
+        <div className={styles.section}>
           <strong>Education:</strong>
           Schooling for girls and boys, gender gap
         </div>
-        <div className="methodology-section methodology-protection">
+        <div className={styles.section}>
           <strong>Protection:</strong>
           Child labour, adolescent birth rate, birth registration
         </div>
-        <div className="methodology-section methodology-environment">
+        <div className={styles.section}>
           <strong>Empowerment:</strong>
-          Child marriage, female genital mutilation, voice of the child
+          Equal treatment, child voice, funding, detailed data, cooperation with
+          child rights groups
         </div>
       </div>
       <button
-        className="methodology-toggle"
+        className={styles.toggleButton}
         onClick={() => setShowMethodology(!showMethodology)}
       >
         <i className="fas fa-info-circle"></i> Methodology
