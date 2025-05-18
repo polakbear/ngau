@@ -1,6 +1,7 @@
 import { CountryData } from '../types';
 import MetricRow from './MetricRow';
 import IndicatorSection from './IndicatorSection';
+import styles from './InfoPanel.module.css';
 
 export function InfoPanel({
   countryName,
@@ -12,13 +13,12 @@ export function InfoPanel({
   onClose: () => void;
 }) {
   return (
-    <div className="info-panel">
-      <button onClick={onClose} style={{ float: 'right' }}>
+    <div className={styles.panel}>
+      <button onClick={onClose} className={styles.closeButton}>
         ✖
       </button>
-      <h4>{countryName}</h4>
-      {/* <pre>{JSON.stringify(country, null, 2)}</pre> */}
-      <div className="tooltip-metrics-grid">
+      <h4 className={styles.title}>{countryName}</h4>
+      <div className={styles.metricsGrid}>
         <MetricRow
           iconClass="fa fa-seedling"
           label="Life"
@@ -52,12 +52,10 @@ export function InfoPanel({
       </div>
       {country?.indicators && country.indicators.length > 0 && (
         <>
-          <div className="tooltip-subtitle">Indicators</div>
+          <div className={styles.subtitle}>Indicators</div>
           <IndicatorSection indicators={country.indicators} />
         </>
       )}
-
-      {/* Add violations etc here if needed */}
     </div>
   );
 }

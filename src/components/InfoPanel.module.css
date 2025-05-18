@@ -1,0 +1,87 @@
+.panel {
+  position: absolute;
+  left: 50px;
+  top: 50px;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #fff;
+  padding: 20px;
+  max-width: 350px;
+  border-radius: 8px;
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.closeButton {
+  float: right;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.closeButton:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.title {
+  margin: 0 0 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.metricsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  margin: 8px 0 4px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #89cfff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+  .panel {
+    left: 16px;
+    top: 60px;
+    max-width: calc(100vw - 32px);
+    padding: 16px;
+  }
+
+  .metricsGrid {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 380px) {
+  .panel {
+    left: 8px;
+    max-width: calc(100vw - 16px);
+    padding: 12px;
+  }
+
+  .title {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  
+  .metricsGrid {
+    gap: 6px;
+  }
+}

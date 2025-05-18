@@ -1,0 +1,129 @@
+.tooltip {
+  position: absolute;
+  background: rgba(5, 5, 5, 0.95);
+  border: 1px solid rgba(80, 220, 220, 0.05);
+  color: #f0f0f0;
+  padding: 16px 20px 20px;
+  font-family: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+  font-size: 14px;
+  pointer-events: none;
+  max-width: 340px;
+  width: clamp(280px, calc(100vw - 32px), 340px);
+  border-radius: 12px;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset,
+    0 10px 40px rgba(0, 255, 255, 0.03),
+    0 0 12px rgba(0, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  line-height: 1.6;
+  z-index: 1000;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  max-height: calc(100vh - 180px);
+  overflow-y: auto;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.badgesRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 4px 0 16px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(63, 209, 199, 0.04);
+  color: #3fd1c7;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 2px 8px;
+  border: 1px solid rgba(63, 209, 199, 0.15);
+  border-radius: 2px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.divider {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.qualBadge {
+  display: inline-block;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.2;
+  white-space: nowrap;
+  min-width: 95px;
+  text-align: center;
+}
+
+.header {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  margin: 0;
+  text-align: left;
+  flex: 1;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.metricsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  margin: 8px 0 4px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #89cfff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.section {
+  margin-bottom: 6px;
+}
+
+.section:not(:last-of-type)::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.05);
+  margin: 12px 0;
+}
+
+@media (max-width: 767px) {
+  .tooltip {
+    bottom: 100px;
+    left: 50% !important;
+    width: auto;
+    transform: none !important;
+  }
+
+  .badgesRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}

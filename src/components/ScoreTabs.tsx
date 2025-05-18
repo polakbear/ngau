@@ -6,42 +6,44 @@ export function ScoreTabs() {
 
   return (
     <div className={styles.container}>
-      <button
-        className={`${styles.tab} ${scoreType === 'overall' ? styles.active : ''}`}
-        onClick={() => setScoreType('overall')}
-      >
-        Overall
-      </button>
-      <button
-        className={`${styles.tab} ${scoreType === 'ranking_life' ? styles.active : ''}`}
-        onClick={() => setScoreType('ranking_life')}
-      >
-        Life
-      </button>
-      <button
-        className={`${styles.tab} ${scoreType === 'ranking_health' ? styles.active : ''}`}
-        onClick={() => setScoreType('ranking_health')}
-      >
-        Health
-      </button>
-      <button
-        className={`${styles.tab} ${scoreType === 'ranking_education' ? styles.active : ''}`}
-        onClick={() => setScoreType('ranking_education')}
-      >
-        Education
-      </button>
-      <button
-        className={`${styles.tab} ${scoreType === 'ranking_protection' ? styles.active : ''}`}
-        onClick={() => setScoreType('ranking_protection')}
-      >
-        Protection
-      </button>
-      <button
-        className={`${styles.tab} ${scoreType === 'ranking_environment' ? styles.active : ''}`}
-        onClick={() => setScoreType('ranking_environment')}
-      >
-        Empowerment
-      </button>
+      <div className={styles.tabsContainer}>
+        <button
+          className={`${styles.tab} ${scoreType === 'overall' ? styles.active : ''}`}
+          onClick={() => setScoreType('overall')}
+        >
+          Overall
+        </button>
+        <button
+          className={`${styles.tab} ${scoreType === 'ranking_life' ? styles.active : ''}`}
+          onClick={() => setScoreType('ranking_life')}
+        >
+          Life
+        </button>
+        <button
+          className={`${styles.tab} ${scoreType === 'ranking_health' ? styles.active : ''}`}
+          onClick={() => setScoreType('ranking_health')}
+        >
+          Health
+        </button>
+        <button
+          className={`${styles.tab} ${scoreType === 'ranking_education' ? styles.active : ''}`}
+          onClick={() => setScoreType('ranking_education')}
+        >
+          Education
+        </button>
+        <button
+          className={`${styles.tab} ${scoreType === 'ranking_protection' ? styles.active : ''}`}
+          onClick={() => setScoreType('ranking_protection')}
+        >
+          Protection
+        </button>
+        <button
+          className={`${styles.tab} ${scoreType === 'ranking_environment' ? styles.active : ''}`}
+          onClick={() => setScoreType('ranking_environment')}
+        >
+          Empowerment
+        </button>
+      </div>
     </div>
   );
 }

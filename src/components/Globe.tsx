@@ -160,17 +160,6 @@ export default function GlobeComponent() {
           position: 'absolute',
           left: 0,
           top: 0,
-          zIndex: 10,
-          background: 'rgba(0,0,0,0.75)',
-          color: 'white',
-          padding: '16px',
-          borderRadius: '12px',
-          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
-          backdropFilter: 'blur(8px)',
-          maxWidth: '90vw',
-          // maxWidth: '320px',
-          willChange: 'transform',
-          transform: 'translateZ(0)',
         }}
       >
         {tooltip && (
@@ -185,14 +174,6 @@ export default function GlobeComponent() {
         ref={infoPanelRef}
         style={{
           display: infoPanel ? 'block' : 'none',
-          position: 'absolute',
-          left: 50,
-          top: 50,
-          zIndex: 20,
-          background: 'rgba(0,0,0,0.85)',
-          color: '#fff',
-          padding: '1rem',
-          maxWidth: 350,
         }}
       >
         {infoPanel && infoPanel.country && (

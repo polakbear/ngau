@@ -2,6 +2,7 @@ import { CountryData } from '../types';
 import { rankBasedColorScale, getContrastingTextColor } from '../utils/color';
 import { getFullLabel } from '../utils/score';
 import MetricRow from './MetricRow';
+import styles from './Tooltip.module.css';
 
 export function Tooltip({
   countryName,
@@ -20,15 +21,7 @@ export function Tooltip({
 
   if (!country || rank === null) {
     return (
-      <div
-        className="tooltip-content"
-        style={{
-          position: 'relative',
-          width: '288px',
-          minHeight: '180px',
-          fontSize: '12px',
-        }}
-      >
+      <div className={styles.tooltip}>
         {closeButton && (
           <div style={{ position: 'absolute', top: 12, right: 12 }}>
             <button onClick={onClose} className="pinned-icon" title="Pinned">
@@ -37,19 +30,13 @@ export function Tooltip({
           </div>
         )}
 
-        <div
-          className="tooltip-header"
-          style={{ textAlign: 'left', fontSize: '14px', marginBottom: '8px' }}
-        >
-          {countryName}
-        </div>
+        <div className={styles.header}>{countryName}</div>
         <div
           style={{
             color: '#888',
             marginTop: '30px',
             textAlign: 'center',
             padding: '40px 0',
-            fontSize: '12px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -69,15 +56,7 @@ export function Tooltip({
   }
 
   return (
-    <div
-      className="tooltip-content"
-      style={{
-        position: 'relative',
-        width: '288px',
-        minHeight: '180px',
-        fontSize: '11px',
-      }}
-    >
+    <div className={styles.tooltip}>
       {closeButton && (
         <div style={{ position: 'absolute', top: 12, right: 12 }}>
           <button onClick={onClose} className="pinned-icon" title="Pinned">
@@ -86,79 +65,40 @@ export function Tooltip({
         </div>
       )}
 
-      <div
-        className="tooltip-header"
-        style={{ textAlign: 'left', fontSize: '14px', marginBottom: '8px' }}
-      >
-        {countryName}
-      </div>
+      <div className={styles.header}>{countryName}</div>
 
-      <div
-        className="tooltip-badges-row"
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginBottom: '18px',
-          width: '100%',
-          fontSize: '10px',
-        }}
-      >
-        <div
-          className="tooltip-badge"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            flexShrink: 1,
-            marginRight: '6px',
-            backgroundColor: 'rgba(63, 209, 199, 0.1)',
-            border: '1px solid rgba(63, 209, 199, 0.4)',
-            borderRadius: '4px',
-            padding: '4px 5px',
-            maxWidth: '190px',
-          }}
-        >
+      <div className={styles.badgesRow}>
+        <div className={styles.badge}>
           <i
             className="fa fa-star"
             style={{
               color: '#3fd1c7',
-              marginRight: 4,
               width: '10px',
               textAlign: 'center',
               fontSize: '10px',
+              marginRight: 4,
             }}
           />
           <strong style={{ marginRight: '2px', fontSize: '10px' }}>KRI</strong>{' '}
           {kri != null ? kri.toFixed(3) : 'N/A'}
-          <span style={{ margin: '0 3px' }}>|</span>
+          <span className={styles.divider}>|</span>
           <strong style={{ marginRight: '2px', fontSize: '10px' }}>
             Rank
           </strong>{' '}
           {rank} / {total}
         </div>
         <div
-          className="badge-qual"
+          className={styles.qualBadge}
           style={{
             backgroundColor: rankBasedColorScale(rank),
             color: getContrastingTextColor(rankBasedColorScale(rank)),
-            minWidth: '50px',
-            textAlign: 'center',
-            paddingLeft: '4px',
-            paddingRight: '4px',
-            paddingTop: '3px',
-            paddingBottom: '3px',
-            borderRadius: '4px',
-            display: 'inline-block',
-            flexShrink: 0,
-            fontSize: '11px',
           }}
         >
           {getFullLabel(rank, total)}
         </div>
       </div>
 
-      <div className="tooltip-metrics-grid" style={{ padding: '0' }}>
+      <div className={styles.metricsGrid}>
         <MetricRow
           iconClass="fa fa-seedling"
           label="Life"

@@ -3,6 +3,7 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
+  align-items: center;
   left: 50%;
   transform: translateX(-50%);
   padding: 6px 12px;
@@ -11,6 +12,12 @@
   border-radius: 8px;
   font-family: 'Segoe UI', sans-serif;
   top: 16px;
+  background: transparent;
+}
+
+.tabsContainer {
+  display: flex;
+  gap: 8px;
 }
 
 .tab {
@@ -28,12 +35,18 @@
   border-bottom: 2px solid #0cb5a9;
 }
 
+.tab:hover {
+  color: #0cb5a9;
+  border-bottom: 2px solid #0cb5a9;
+}
+
+
+
 @media (max-width: 768px) {
   .container {
     padding: 6px;
     gap: 4px;
     width: auto;
-    z-index: 30;
     max-width: calc(100vw - 32px);
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -50,6 +63,8 @@
     font-size: 12px;
     white-space: nowrap;
   }
+
+
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {

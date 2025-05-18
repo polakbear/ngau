@@ -1,8 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './Methodology.module.css';
+import useScoreType from '../hooks/useScoreType';
 
 export function Methodology() {
   const [showMethodology, setShowMethodology] = useState(false);
+  const { scoreType } = useScoreType();
+
+  // Hide panel when score type changes
+  useEffect(() => {
+    setShowMethodology(false);
+  }, [scoreType]);
 
   return (
     <>
@@ -40,7 +47,7 @@ export function Methodology() {
         className={styles.toggleButton}
         onClick={() => setShowMethodology(!showMethodology)}
       >
-        <i className="fas fa-info-circle"></i> Methodology
+        <i className="fas fa-info-circle"></i>
       </button>
     </>
   );
