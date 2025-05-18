@@ -12,7 +12,8 @@
 
 .tabsContainer {
   display: flex;
-  gap: 8px;
+  gap: 4px;
+  padding: 2px;
 }
 
 .tabWrapper {
@@ -23,23 +24,27 @@
 }
 
 .tab {
-  background: none;
+  background: rgba(20, 28, 47, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: none;
-  color: #ccc;
+  color: rgba(255, 255, 255, 0.7);
   font-size: 14px;
   cursor: pointer;
-  padding: 6px 8px;
-  border-bottom: 2px solid transparent;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .tab.active {
-  color: #0cb5a9;
-  border-bottom: 2px solid #0cb5a9;
+  color: rgba(255, 255, 255, 1);
+  background: rgba(12, 181, 169, 0.25);
 }
 
-.tab:hover {
-  color: #0cb5a9;
-  border-bottom: 2px solid #0cb5a9;
+.tab:hover:not(.active) {
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(20, 28, 47, 0.35);
 }
 
 
