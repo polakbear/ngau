@@ -1,0 +1,114 @@
+.metric {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-height: 32px;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #80e1ff;
+  width: 24px;
+  text-align: center;
+  margin-right: 12px;
+}
+
+.label i {
+  width: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  width: calc(100% - 36px);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 24px;
+  gap: 8px;
+}
+
+.splitBadge {
+  display: flex;
+  border-radius: 4px;
+  overflow: hidden;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  height: 24px;
+  min-width: 120px;
+}
+
+.splitLeft {
+  background: rgba(255, 255, 255, 0.12);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 2px 8px;
+  min-width: 50px;
+  width: 55px;
+  justify-content: flex-end;
+  font-feature-settings: 'tnum';
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  align-items: center;
+  line-height: 1.2;
+  white-space: nowrap;
+  color: #fff;
+}
+
+.splitRight {
+  padding: 2px 8px;
+  flex: 1;
+  justify-content: center;
+  min-width: 80px;
+  max-width: 80px;
+  display: flex;
+  align-items: center;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.value {
+  font-feature-settings: 'tnum';
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--value-color, #ffffff);
+  background: linear-gradient(to right, #80e1ff, #3fd1c7);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  min-width: 50px;
+  text-align: right;
+  padding-top: 2px;
+}
+
+.barContainer {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 2px;
+  width: 100%;
+  margin-top: 2px;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(
+    to right,
+    var(--bar-color, #3fd1c7),
+    rgba(255, 255, 255, 0.25)
+  );
+  transition: width 0.3s ease;
+}

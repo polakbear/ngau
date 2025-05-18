@@ -5,6 +5,7 @@ import {
   rankBasedColorScale,
 } from '../utils/color';
 import { getPerformanceLabel } from '../utils/score';
+import styles from './MetricRow.module.css';
 
 interface MetricRowProps {
   iconClass: string;
@@ -24,45 +25,35 @@ export default function MetricRow({
   const color = rank ? rankBasedColorScale(rank) : colors.noData;
 
   return (
-    <div className="tooltip-metric">
-      <div
-        className="metric-label"
-        style={{ width: '24px', textAlign: 'center', marginRight: '12px' }}
-      >
+    <div className={styles.metric}>
+      <div className={styles.label}>
         <i className={iconClass}></i>
       </div>
-      <div className="metric-info" style={{ width: 'calc(100% - 36px)' }}>
-        <div
-          className="metric-row"
-          style={{ justifyContent: 'space-between', gap: '8px', width: '100%' }}
-        >
-          <div className="split-badge" style={{ minWidth: '120px' }}>
+      <div className={styles.info}>
+        <div className={styles.row}>
+          <div className={styles.splitBadge}>
             {rank != null && (
-              <span className="split-left">
+              <span className={styles.splitLeft}>
                 Rank {String(rank).padStart(3, '\u00A0')}
               </span>
             )}
             <span
-              className="split-right"
+              className={styles.splitRight}
               style={{
                 background: color,
                 color: getContrastingTextColor(color),
-                width: '80px',
               }}
             >
               {performance}
             </span>
           </div>
-          <span
-            className="value"
-            style={{ minWidth: '50px', textAlign: 'right' }}
-          >
+          <span className={styles.value}>
             {value != null ? value.toFixed(3) : ''}
           </span>
         </div>
-        <div className="bar-container">
+        <div className={styles.barContainer}>
           <div
-            className="bar-fill"
+            className={styles.barFill}
             style={{
               width: value != null ? `${value * 100}%` : '0%',
               background: getBarColor(rank),
