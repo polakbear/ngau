@@ -1,6 +1,6 @@
 .searchContainer {
   position: fixed;
-  top: 16px;
+  top: 26px;
   left: 16px;
   z-index: 100;
   display: flex;
@@ -11,25 +11,23 @@
 .searchButton {
   width: 34px;
   height: 34px;
-  height: 34px;
-  border-radius: 6px;
+  /* border-radius: 6px; */
   border: none;
-  background: rgba(0, 0, 0, 0.6);
+  background: transparent;
   color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  /* transition: all 0.3s ease; */
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
 
-.searchButton:hover,
-.searchButton.active {
-  background: rgba(12, 181, 169, 0.25);
-  color: white;
+.searchButton:hover, .searchButton.active {
+  border-bottom: 2px solid rgba(63, 209, 199, 0.5);
 }
+
 
 .searchInputContainer {
   width: 0;
@@ -39,7 +37,7 @@
 }
 
 .searchInputContainer.expanded {
-  width: 240px;
+  width: 185px;
   opacity: 1;
 }
 
@@ -52,7 +50,7 @@
   border-radius: 6px;
   color: white;
   box-sizing: border-box;
-  font-size: 13px;
+  font-size: 12px;
   outline: none;
   transition: all 0.2s ease;
   backdrop-filter: blur(8px);
@@ -61,40 +59,13 @@
 
 .searchInput:focus {
   border-color: #3fd1c7;
-  background: rgba(0, 0, 0, 0.8);
+  /* background: rgba(0, 0, 0, 0.8); */
+  background: transparent;
   box-shadow: 0 0 0 2px rgba(63, 209, 199, 0.2);
 }
 
 .searchInput::placeholder {
   color: rgba(255, 255, 255, 0.5);
-}
-
-.searchResults {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  margin-top: 8px;
-  background: rgba(0, 0, 0, 0.8);
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  max-height: 300px;
-  overflow-y: auto;
-  z-index: 101;
-  padding: 4px 0;
-}
-
-.searchResult {
-  padding: 8px 16px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  color: #fff;
-}
-
-.searchResult:hover {
-  background: rgba(63, 209, 199, 0.2);
 }
 
 /* Tablet */
@@ -127,14 +98,6 @@
   .searchInput {
     height: 36px;
     font-size: 13px;
-    padding: 6px 12px;
-  }
-
-  .searchResults {
-    max-height: 200px;
-  }
-
-  .searchResult {
     padding: 6px 12px;
   }
 }

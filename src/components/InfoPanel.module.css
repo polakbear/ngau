@@ -98,7 +98,7 @@
 }
 
 .performanceBadge {
-  font-size: 14px;
+  font-size: 16px;
   padding: 4px 8px;
   border-radius: 4px;
   font-weight: 600;
@@ -112,14 +112,14 @@
 
 .kriLabel {
   font-weight: 600;
-  font-size: 12px;
+  font-size: 16px;
   margin-right: 2px;
   color: rgba(255, 255, 255, 0.9);
 }
 
 .kriValue {
   margin-left: 4px;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 600;
 }
 
@@ -130,7 +130,7 @@
 
 .kriIcon {
   font-size: 10px;
-  width: 10px;
+  width: 16px;
   text-align: center;
   color: #3fd1c7;
 }
