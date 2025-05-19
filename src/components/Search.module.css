@@ -71,8 +71,9 @@
 @media (min-width: 768px) and (max-width: 1024px) {
   .searchContainer {
     bottom: unset;
-    left: 50%;
+    left: 47%;
     top: 80px;
+    width: 300px;
     transform: translateX(-50%);
   }
 }
