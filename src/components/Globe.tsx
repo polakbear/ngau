@@ -132,8 +132,8 @@ export default function GlobeComponent({
         polygonsData={geoJson ? geoJson.features : []}
         polygonCapMaterial={getPolygonCapMaterial}
         polygonSideColor={() => '#000000'}
-        // polygonAltitude={(d) => (d === hoverD ? 0.02 : 0.01)}
-        polygonAltitude={() => 0.01}
+        polygonAltitude={(d) => (d === hoverD ? 0.04 : 0.01)}
+        // polygonAltitude={() => 0.01}
         polygonsTransitionDuration={300}
         onPolygonHover={(polygon) => handleHover(polygon, data)}
         onPolygonClick={handlePolygonClickMemoized.current}
@@ -148,8 +148,8 @@ export default function GlobeComponent({
         htmlElement={(d: any) => {
           const el = document.createElement('div');
           // el.innerHTML = markerSvg;
-          el.style.width = '12px';
-          el.style.height = '12px';
+          el.style.width = '10px';
+          el.style.height = '10px';
           el.style.backgroundColor = d.color;
           el.style.borderRadius = '50%';
           el.style.transition = 'opacity 250ms';
