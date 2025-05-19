@@ -1,19 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
 import Globe from 'react-globe.gl';
 import { geoCentroid } from 'd3-geo';
-import {
-  CountryData,
-  GeoJsonFeature,
-  InfoPanelState,
-  TooltipState,
-} from '../types';
+import { CountryData, InfoPanelState } from '../types';
 import { handlePolygonClick } from '../utils/poly';
-import { detectMobileMode, detectDeviceType } from '../utils/device';
+import { detectMobileMode } from '../utils/device';
 import { Tooltip } from './Tooltip';
 import { InfoPanel } from './InfoPanel';
 import useScoreType from '../hooks/useScoreType';
 import { getOrCreatePolygonMaterial } from './OptimizedPolyMaterial';
-import { createOptimizedPolygonHover } from '../utils/optimized-hover';
+import { useDeviceHover } from '../hooks/useDeviceHover';
 
 interface GlobeComponentProps {
   setGlobeRef: (ref: any) => void;
@@ -26,14 +21,13 @@ export default function GlobeComponent({
 }: GlobeComponentProps) {
   const [geoJson, setGeoJson] = useState<any>(null);
   const [data, setData] = useState<CountryData[]>([]);
-  const [hoverD, setHoverD] = useState<GeoJsonFeature | null>(null);
-  const [tooltip, setTooltip] = useState<TooltipState>(null);
   const [infoPanel, setInfoPanel] = useState<InfoPanelState>(null);
   const [dimensions, setDimensions] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
   });
 
+  const { hoverD, tooltip, handleHover } = useDeviceHover();
   const { scoreType } = useScoreType();
   const mobileMode = detectMobileMode();
 
@@ -55,7 +49,7 @@ export default function GlobeComponent({
     fetch('/data.json')
       .then((res) => res.json())
       .then(setData);
-  }, []);
+  }, [onDataLoaded]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -92,17 +86,6 @@ export default function GlobeComponent({
     }
   }, [globeRef, mobileMode, setGlobeRef]);
 
-  const mousePositionRef = useRef({ x: 0, y: 0 });
-
-  useEffect(() => {
-    function trackMousePosition(e: MouseEvent) {
-      mousePositionRef.current = { x: e.pageX, y: e.pageY };
-    }
-
-    window.addEventListener('mousemove', trackMousePosition);
-    return () => window.removeEventListener('mousemove', trackMousePosition);
-  }, []);
-
   useEffect(() => {
     function onMouseMove(e: MouseEvent) {
       if (tooltip && tooltipRef.current) {
@@ -114,57 +97,18 @@ export default function GlobeComponent({
     return () => window.removeEventListener('mousemove', onMouseMove);
   }, [tooltip]);
 
-  const handlePolygonHoverOptimized = useRef(
-    createOptimizedPolygonHover({
-      setTooltip: (tooltip) => {
-        const deviceType = detectDeviceType();
-        if (deviceType === 'desktop') {
-          setTooltip(tooltip);
-        }
-      },
-      setHoverD,
-      data,
-      mousePositionRef,
-    })
-  );
-
-  const handlePolygonClickMemoized = useRef((feat: any) => {
-    const deviceType = detectDeviceType();
-    handlePolygonClick(
-      feat,
-      data,
-      deviceType === 'desktop' ? setTooltip : () => {},
-      setInfoPanel
-    );
-  });
-
   const getPolygonCapMaterial = (d: any) => {
     return getOrCreatePolygonMaterial(d, data, hoverD, 0, scoreType);
   };
 
-  useEffect(() => {
-    handlePolygonHoverOptimized.current = createOptimizedPolygonHover({
-      setTooltip: (tooltip) => {
-        const deviceType = detectDeviceType();
-        if (deviceType === 'desktop') {
-          setTooltip(tooltip);
-        }
-      },
-      setHoverD,
-      data,
-      mousePositionRef,
-    });
+  const handlePolygonClickMemoized = useRef((feat: any) =>
+    handlePolygonClick(feat, data, () => {}, setInfoPanel)
+  );
 
-    handlePolygonClickMemoized.current = (feat: any) => {
-      const deviceType = detectDeviceType();
-      handlePolygonClick(
-        feat,
-        data,
-        deviceType === 'desktop' ? setTooltip : () => {},
-        setInfoPanel
-      );
-    };
-  }, [data, scoreType, setTooltip, setInfoPanel]);
+  useEffect(() => {
+    handlePolygonClickMemoized.current = (feat: any) =>
+      handlePolygonClick(feat, data, () => {}, setInfoPanel);
+  }, [data, setInfoPanel]);
 
   return (
     <div
@@ -180,7 +124,7 @@ export default function GlobeComponent({
         polygonSideColor={() => '#000000'}
         polygonAltitude={(d) => (d === hoverD ? 0.02 : 0.01)}
         polygonsTransitionDuration={300}
-        onPolygonHover={handlePolygonHoverOptimized.current}
+        onPolygonHover={(polygon) => handleHover(polygon, data)}
         onPolygonClick={handlePolygonClickMemoized.current}
         globeImageUrl=""
         showAtmosphere

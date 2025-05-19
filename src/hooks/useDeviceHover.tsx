@@ -22,20 +22,22 @@ export function useDeviceHover() {
 
   const handleHover = useCallback(
     (polygon: any, data: CountryData[]) => {
-      if (!isDesktop) return;
-
       if (polygon) {
         const countryName = polygon.properties.name;
         const country = data.find(
           (d) => normalize(d.country) === normalize(countryName)
         );
 
-        setTooltip({
-          x: mousePositionRef.current.x,
-          y: mousePositionRef.current.y,
-          countryName,
-          country,
-        });
+        // Only show tooltip on desktop
+        if (isDesktop) {
+          setTooltip({
+            x: mousePositionRef.current.x,
+            y: mousePositionRef.current.y,
+            countryName,
+            country,
+          });
+        }
+        // Always set hover state for visual feedback
         setHoverD(polygon);
       } else {
         setTooltip(null);
