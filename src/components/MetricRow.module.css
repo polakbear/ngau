@@ -175,7 +175,7 @@
 @media (max-width: 768px) {
   .metric {
     gap: 6px;
-    min-height: 20px;
+    min-height: 26px;
   }
 
   .label {
@@ -196,11 +196,11 @@
   }
 
   .row {
-    height: 18px;
+    height: 24px;
   }
 
   .badge {
-    height: 18px;
+    height: 24px;
     font-size: 11px;
     padding: 0 4px;
   }
@@ -224,18 +224,11 @@
     margin-left: 2px;
   }
 
-  .barContainer {
-    height: 14px;
-    width: 160px;
-    margin-bottom: 0;
-  }
-
-  .barBackground {
-    height: 3px;
-  }
-
-  .barFill {
-    height: 3px;
+  .barContainer,
+  .barBackground,
+  .barFill,
+  .barTooltip {
+    display: none !important;
   }
 }
 
@@ -289,16 +282,10 @@
     width: 30px;
   }
 
-  .barContainer {
-    height: 12px;
-    width: 140px;
-  }
-
-  .barBackground {
-    height: 2px;
-  }
-
-  .barFill {
-    height: 2px;
+  .barContainer,
+  .barBackground,
+  .barFill,
+  .barTooltip {
+    display: none !important;
   }
 }
