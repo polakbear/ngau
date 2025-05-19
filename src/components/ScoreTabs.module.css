@@ -58,17 +58,14 @@
 
 .tab {
   position: relative;
-  background: rgba(20, 28, 47, 0.25);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: transparent;
   border: none;
   color: rgba(255, 255, 255, 0.7);
   font-size: 14px;
   cursor: pointer;
   padding: 6px 12px;
-  border-radius: 6px;
+  padding-bottom: 8px;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -81,8 +78,18 @@
 
 .tab.active {
   color: rgba(255, 255, 255, 1);
-  background: rgba(12, 181, 169, 0.25);
   z-index: 20;
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background: rgb(12, 181, 169);
+  border-radius: 1px;
 }
 
 .tab.active .methodology {
@@ -92,7 +99,6 @@
 
 .tab:hover:not(.active) {
   color: rgba(255, 255, 255, 0.9);
-  background: rgba(20, 28, 47, 0.35);
 }
 
 
