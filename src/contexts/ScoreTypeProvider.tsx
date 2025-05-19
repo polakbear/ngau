@@ -8,10 +8,16 @@ export default function ScoreTypeProvider({
   children: ReactNode;
 }) {
   const [scoreType, setScoreType] = useState<ScoreType>('overall');
+  const [activeTabPosition, setActiveTabPosition] = useState<{
+    left: number;
+    width: number;
+  }>();
 
   const value: ScoreTypeContextValue = {
     scoreType,
     setScoreType,
+    activeTabPosition,
+    setActiveTabPosition,
   };
 
   return (

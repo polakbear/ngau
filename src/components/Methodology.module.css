@@ -1,45 +1,50 @@
 .container {
   position: absolute;
-  left: 50%;
+  left: var(--tooltip-left, 50%);
   transform: translateX(-50%);
   top: calc(100% + 8px);
-  background: rgba(1, 22, 26, 0.75);
-  padding: 10px 16px;
-  color: rgba(255, 255, 255, 0.95);
+  background: rgba(1, 22, 26, 0.95);
+  padding: 14px 20px;
+  color: white;
   font-size: 13px;
-  z-index: 100;
+  z-index: 30;
   text-align: left;
-  border-radius: 8px;
+  border-radius: 16px;
   backdrop-filter: blur(12px) saturate(180%);
   -webkit-backdrop-filter: blur(12px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  max-width: 280px;
+  min-width: 200px;
+  max-width: 320px;
   width: max-content;
   white-space: normal;
   pointer-events: none;
   box-shadow: 
-    0 4px 16px rgba(0, 0, 0, 0.3),
-    0 0 0 1px rgba(255, 255, 255, 0.05);
-  animation: fadeIn 0.15s ease-out;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+    0 4px 20px rgba(12, 181, 169, 0.3),
+    0 2px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .container::before {
   content: '';
   position: absolute;
-  top: -8px;
+  top: -6px;
   left: 50%;
   transform: translateX(-50%);
-  border-style: solid;
-  border-width: 0 8px 8px 8px;
-  border-color: transparent transparent rgba(1, 22, 26, 0.75) transparent;
-  z-index: -1;
+  width: 12px;
+  height: 12px;
+  background: rgba(1, 22, 26, 0.95);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .section {
-  line-height: 1.5;
-  letter-spacing: 0.2px;
+  line-height: 1.6;
+  letter-spacing: 0.3px;
+  opacity: 1;
+  color: white;
+  word-wrap: break-word;
+  font-weight: 400;
 }
 
 @keyframes fadeIn {
@@ -50,14 +55,5 @@
   to {
     opacity: 1;
     transform: translate(-50%, 0);
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    max-width: 260px;
-    padding: 8px 12px;
-    font-size: 12px;
-    border: none;
   }
 }

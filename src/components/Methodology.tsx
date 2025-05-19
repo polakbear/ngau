@@ -16,15 +16,22 @@ const methodologyContent = {
 type MetricType = keyof typeof methodologyContent;
 
 export function Methodology() {
-  const { scoreType } = useScoreType();
+  const { scoreType, activeTabPosition } = useScoreType();
   const validType = scoreType as MetricType;
 
   if (!methodologyContent[validType]) {
     return null;
   }
 
+  // Use position from context for horizontal positioning
+  const tooltipStyle = activeTabPosition
+    ? ({
+        '--tooltip-left': `${activeTabPosition.left + activeTabPosition.width / 2}px`,
+      } as React.CSSProperties)
+    : undefined;
+
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={tooltipStyle}>
       <div className={styles.section}>{methodologyContent[validType]}</div>
     </div>
   );

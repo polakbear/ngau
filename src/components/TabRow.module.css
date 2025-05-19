@@ -3,22 +3,46 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 8px;
   top: 16px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 20;
-  padding: 6px;
+  padding: 8px 12px;
+  border-radius: 12px;
+}
+
+.tabContent {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .divider {
   width: 1px;
   height: 24px;
   background: rgba(255, 255, 255, 0.2);
-  margin: 0 8px;
+  margin: 0 4px;
 }
 
 @media (max-width: 768px) {
+  .container {
+    top: 12px;
+    padding: 4px;
+    gap: 6px;
+    max-width: calc(100% - 32px);
+    border-radius: 20px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .container::-webkit-scrollbar {
+    display: none;
+  }
+  
   .divider {
     display: none;
   }
