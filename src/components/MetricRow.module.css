@@ -235,7 +235,7 @@
 @media (max-width: 380px) {
   .metric {
     gap: 4px;
-    min-height: 18px;
+    min-height: 22px;
   }
 
   .label {
@@ -255,12 +255,12 @@
   }
 
   .row {
-    height: 18px;
+    height: 22px;
   }
 
   .badge {
-    height: 16px;
-    font-size: 10px;
+    height: 20px;
+    font-size: 11px;
     padding: 0 4px;
   }
 

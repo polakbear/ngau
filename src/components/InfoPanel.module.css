@@ -79,10 +79,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+  width: calc(100% + 40px);
   margin: 0 -20px 16px;
   padding: 8px 20px;
   color: white;
+  position: relative;
+  left: 0;
+  right: 0;
 }
 
 .badge {
@@ -222,8 +225,11 @@
   }
 
   .kriRow {
+    width: calc(100% + 24px);
     margin: 0 -12px 12px;
     padding: 4px 12px;
+    left: 0;
+    right: 0;
   }
 
   .badge {
@@ -256,7 +262,8 @@
   }
 
   .metricsGrid {
-    gap: 2px;
+    width: 100%;
+    gap: 4px;
   }
 
   .title {
@@ -265,13 +272,17 @@
   }
 
   .kriRow {
+    width: 100%;
     margin: 0 -10px 8px;
     padding: 3px 10px;
+    left: 0;
+    right: 0;
   }
 
   .badge {
     font-size: 11px;
     height: 18px;
+    width: 140px;; 
   }
 
   .performanceBadge {
