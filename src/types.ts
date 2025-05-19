@@ -41,6 +41,7 @@ export interface GeoJsonFeature {
     ADMIN: string;
     NAME: string;
     NAME_LONG: string;
+    ISO_A3: string;
   };
   bbox?: [number, number, number, number];
   geometry: {

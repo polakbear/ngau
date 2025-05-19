@@ -120,11 +120,6 @@ export default function GlobeComponent({
       handlePolygonClick(feat, data, () => {}, setInfoPanel);
   }, [data, setInfoPanel]);
 
-  const markerSvg = `<svg viewBox="-4 0 36 36">
-    <path fill="currentColor" d="M14,0 C21.732,0 28,5.641 28,12.6 C28,23.963 14,36 14,36 C14,36 0,24.064 0,12.6 C0,5.641 6.268,0 14,0 Z"></path>
-    <circle fill="black" cx="14" cy="14" r="7"></circle>
-  </svg>`;
-
   return (
     <div
       id="globe"
@@ -137,7 +132,8 @@ export default function GlobeComponent({
         polygonsData={geoJson ? geoJson.features : []}
         polygonCapMaterial={getPolygonCapMaterial}
         polygonSideColor={() => '#000000'}
-        polygonAltitude={(d) => (d === hoverD ? 0.02 : 0.01)}
+        // polygonAltitude={(d) => (d === hoverD ? 0.02 : 0.01)}
+        polygonAltitude={() => 0.01}
         polygonsTransitionDuration={300}
         onPolygonHover={(polygon) => handleHover(polygon, data)}
         onPolygonClick={handlePolygonClickMemoized.current}
@@ -151,7 +147,7 @@ export default function GlobeComponent({
         htmlElementsData={markerData}
         htmlElement={(d: any) => {
           const el = document.createElement('div');
-          el.innerHTML = markerSvg;
+          // el.innerHTML = markerSvg;
           el.style.width = '12px';
           el.style.height = '12px';
           el.style.backgroundColor = d.color;

@@ -240,7 +240,8 @@
     "ranking_health": 6,
     "ranking_education": 44,
     "ranking_protection": 47,
-    "ranking_environment": 139
+    "ranking_environment": 139,
+    "criminal_minimum_age": 14
   },
   {
     "country": "Belgium",
@@ -1252,7 +1253,8 @@
     "ranking_health": 14,
     "ranking_education": 14,
     "ranking_protection": 13,
-    "ranking_environment": 35
+    "ranking_environment": 35,
+    "criminal_minimum_age": 14
   },
   {
     "country": "Ghana",
@@ -1915,7 +1917,8 @@
     "ranking_health": 16,
     "ranking_education": 49,
     "ranking_protection": 8,
-    "ranking_environment": 2
+    "ranking_environment": 2,
+    "criminal_minimum_age": 16
   },
   {
     "country": "Madagascar",
@@ -2011,7 +2014,8 @@
     "ranking_health": 18,
     "ranking_education": 24,
     "ranking_protection": 34,
-    "ranking_environment": 99
+    "ranking_environment": 99,
+    "criminal_minimum_age": 14
   },
   {
     "country": "Marshall Islands",
@@ -2305,7 +2309,8 @@
     "ranking_health": 55,
     "ranking_education": 9,
     "ranking_protection": 3,
-    "ranking_environment": 109
+    "ranking_environment": 109,
+    "criminal_minimum_age": 12
   },
     {
     "country": "New Caledonia",
@@ -2449,7 +2454,8 @@
     "ranking_health": 31,
     "ranking_education": 13,
     "ranking_protection": 4,
-    "ranking_environment": 78
+    "ranking_environment": 78,
+    "criminal_minimum_age": 15
   },
   {
     "country": "Oman",
@@ -2642,7 +2648,7 @@
     "ranking_education": 52,
     "ranking_protection": 29,
     "ranking_environment": 176,
-    "criminal_minimum_age": 17
+    "criminal_minimum_age": 15
   },
   {
     "country": "Portugal",
@@ -2738,6 +2744,7 @@
     "ranking_education": 29,
     "ranking_protection": 46,
     "ranking_environment": 149,
+    "criminal_minimum_age": 14,
     "indicators": [
       {
         "indicator_type": "female_child_marriage",
