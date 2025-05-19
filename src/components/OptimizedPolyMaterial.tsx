@@ -33,6 +33,19 @@ export function getOrCreatePolygonMaterial(
 
   const country = data.find((d) => normalize(d.country) === countryName);
 
+  if (country) {
+    if (scoreType === 'criminal_minimum_age') {
+      const material = new THREE.MeshLambertMaterial({
+        color: new THREE.Color('#2A3445'), // muted gray
+        transparent: true,
+        opacity: 0.5,
+        depthWrite: false,
+      });
+      materialCache.set(cacheKey, material);
+      return material;
+    }
+  }
+
   let rank: number | null = null;
   if (country) {
     const rawRank =

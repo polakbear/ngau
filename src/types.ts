@@ -27,6 +27,7 @@ export interface CountryData {
   ranking_protection?: number;
   environment?: number | null;
   ranking_environment?: number;
+  criminal_minimum_age?: number;
   indicators?: IndicatorEntry[];
 }
 
@@ -46,6 +47,7 @@ export interface GeoJsonFeature {
     type: string;
     coordinates: number[][][] | number[][] | number[];
   };
+  __centroid?: [number, number];
 }
 
 export type TooltipState = {

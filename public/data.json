@@ -29,7 +29,8 @@
     "ranking_health": 65,
     "ranking_education": 95,
     "ranking_protection": 50,
-    "ranking_environment": 184
+    "ranking_environment": 184,
+    "criminal_minimum_age": 14
   },
   {
     "country": "Algeria",
@@ -61,7 +62,8 @@
     "ranking_health": 5,
     "ranking_education": null,
     "ranking_protection": null,
-    "ranking_environment": 32
+    "ranking_environment": 32,
+    "criminal_minimum_age": 12
   },
   {
     "country": "Angola",
@@ -125,7 +127,8 @@
     "ranking_health": 57,
     "ranking_education": 118,
     "ranking_protection": 58,
-    "ranking_environment": 168
+    "ranking_environment": 168,
+    "criminal_minimum_age": 14
   },
   {
     "country": "Australia",
@@ -2638,7 +2641,8 @@
     "ranking_health": 116,
     "ranking_education": 52,
     "ranking_protection": 29,
-    "ranking_environment": 176
+    "ranking_environment": 176,
+    "criminal_minimum_age": 17
   },
   {
     "country": "Portugal",

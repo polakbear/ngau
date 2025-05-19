@@ -92,6 +92,14 @@ export function ScoreTabs() {
           <span className={styles.tabLabel}>Empowerment</span>
           {scoreType === 'ranking_environment' && <Methodology />}
         </button>
+        <button
+          className={`${styles.tab} ${scoreType === 'criminal_minimum_age' ? styles.active : ''}`}
+          onClick={() => setScoreType('criminal_minimum_age')}
+        >
+          <i className="fa fa-globe" aria-hidden="true" />
+          <span className={styles.tabLabel}>Justice</span>
+          {scoreType === 'criminal_minimum_age' && <Methodology />}
+        </button>
       </div>
     </div>
   );

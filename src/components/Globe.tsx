@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import Globe from 'react-globe.gl';
 import { geoCentroid } from 'd3-geo';
 import { CountryData, InfoPanelState } from '../types';
@@ -9,6 +9,7 @@ import { InfoPanel } from './InfoPanel';
 import useScoreType from '../hooks/useScoreType';
 import { getOrCreatePolygonMaterial } from './OptimizedPolyMaterial';
 import { useDeviceHover } from '../hooks/useDeviceHover';
+import { getMarkerData } from './AgeMarkers';
 
 interface GlobeComponentProps {
   setGlobeRef: (ref: any) => void;
@@ -34,6 +35,15 @@ export default function GlobeComponent({
   const globeRef = useRef<any>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
   const infoPanelRef = useRef<HTMLDivElement>(null);
+
+  const markerData = useMemo(() => {
+    if (scoreType === 'criminal_minimum_age') {
+      return getMarkerData(data, geoJson);
+    }
+    return [];
+  }, [data, geoJson, scoreType]);
+
+  console.log('markerData', markerData);
 
   useEffect(() => {
     fetch('/countries.geojson')
@@ -110,6 +120,11 @@ export default function GlobeComponent({
       handlePolygonClick(feat, data, () => {}, setInfoPanel);
   }, [data, setInfoPanel]);
 
+  const markerSvg = `<svg viewBox="-4 0 36 36">
+    <path fill="currentColor" d="M14,0 C21.732,0 28,5.641 28,12.6 C28,23.963 14,36 14,36 C14,36 0,24.064 0,12.6 C0,5.641 6.268,0 14,0 Z"></path>
+    <circle fill="black" cx="14" cy="14" r="7"></circle>
+  </svg>`;
+
   return (
     <div
       id="globe"
@@ -133,8 +148,22 @@ export default function GlobeComponent({
         backgroundColor="#0a1d26"
         polygonStrokeColor={() => 'rgba(255,255,255,0.6)'}
         enablePointerInteraction={true}
+        htmlElementsData={markerData}
+        htmlElement={(d: any) => {
+          const el = document.createElement('div');
+          el.innerHTML = markerSvg;
+          el.style.width = '12px';
+          el.style.height = '12px';
+          el.style.backgroundColor = d.color;
+          el.style.borderRadius = '50%';
+          el.style.transition = 'opacity 250ms';
+          el.title = `${d.country}: ${d.age} years`;
+          return el;
+        }}
+        htmlElementVisibilityModifier={(el, isVisible) => {
+          el.style.opacity = isVisible ? '1' : '0';
+        }}
       />
-
       <div
         ref={tooltipRef}
         style={{
