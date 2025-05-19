@@ -172,79 +172,51 @@
   .panel {
     left: 50%;
     transform: translateX(-50%);
-    top: 140px;
-    width: calc(100% - 40px);
-    max-width: 500px;
+    top: 90px;
+    width: min(380px, calc(100% - 32px));
+    max-width: 380px;
+    padding: 16px;
   }
 }
 
 @media (max-width: 768px) {
   .panel {
-    left: 50%;
-    top: unset;
-    bottom: 16px;
-    transform: translateX(-50%);
-    max-width: calc(100vw - 32px);
-    padding: 16px;
-    width: 320px;
-    overflow-y: auto;
-    max-height: 60vh;
-    -webkit-overflow-scrolling: touch;
+    top: 90px;
+    width: min(340px, calc(100% - 32px));
+    padding: 12px;
+    max-height: calc(100vh - 120px);
   }
 
   .metricsGrid {
     gap: 4px;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
 
   .title {
     font-size: 14px;
-    margin-bottom: 10px;
-    line-height: 1.2;
+    margin-bottom: 8px;
   }
 
   .subtitle {
-    margin: 6px 0 3px;
-    font-size: 11px;
-    letter-spacing: 0.3px;
+    margin: 4px 0 2px;
+    font-size: 10px;
   }
 
   .kriRow {
-    margin: 0 -12px;
-    padding: 6px 12px;
-    width: calc(100% + 24px);
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    margin: 0 -12px 12px;
+    padding: 4px 12px;
   }
 
   .badge {
-    font-size: 13px;
-    gap: 6px;
-    height: 22px;
-    line-height: 1.2;
+    font-size: 12px;
+    gap: 4px;
+    height: 20px;
   }
 
   .performanceBadge {
-    font-size: 13px;
-    padding: 3px 6px;
-    min-width: 65px;
-    margin-left: 8px;
-    line-height: 1.2;
-  }
-
-  .kriLabel, .kriValue {
-    font-size: 13px;
-    line-height: 1.2;
-  }
-
-  .kriDivider {
-    margin: 0 4px;
-  }
-
-  .kriIcon {
     font-size: 12px;
-    width: 12px;
+    padding: 2px 6px;
+    min-width: 60px;
   }
 }
 
@@ -259,62 +231,34 @@
 
 @media (max-width: 380px) {
   .panel {
-    left: 4px;
-    max-width: calc(100vw - 8px);
+    width: min(300px, calc(100% - 16px));
     padding: 10px;
-    width: calc(100vw - 8px);
-    overflow: hidden;
+    max-height: calc(100vh - 110px);
   }
 
   .metricsGrid {
-    gap: 3px;
-    margin-bottom: 8px;
+    gap: 2px;
   }
 
   .title {
     font-size: 13px;
-    margin-bottom: 10px;
-  }
-
-  .subtitle {
-    margin: 4px 0 2px;
-    font-size: 10px;
+    margin-bottom: 6px;
   }
 
   .kriRow {
-    margin: 0 -10px;
-    padding: 5px 10px;
-    width: calc(100% + 20px);
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    margin: 0 -10px 8px;
+    padding: 3px 10px;
   }
 
   .badge {
-    font-size: 12px;
-    gap: 5px;
-    height: 20px;
+    font-size: 11px;
+    height: 18px;
   }
 
   .performanceBadge {
     font-size: 11px;
-    padding: 2px 5px;
-    min-width: 60px;
-    margin-left: 6px;
-    height: 20px;
-  }
-
-  .kriLabel, .kriValue {
-    font-size: 12px;
-  }
-
-  .kriDivider {
-    margin: 0 3px;
-  }
-
-  .kriIcon {
-    font-size: 11px;
-    width: 11px;
+    padding: 2px 4px;
+    min-width: 55px;
   }
 
   .noDataContainer {

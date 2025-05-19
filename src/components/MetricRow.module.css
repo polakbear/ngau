@@ -174,94 +174,86 @@
 
 @media (max-width: 768px) {
   .metric {
-    gap: 8px;
-    min-height: 24px;
-    margin-top: 16px;
+    gap: 6px;
+    min-height: 20px;
   }
 
   .label {
-    gap: 6px;
+    gap: 4px;
     width: 16px;
-    margin-right: 6px;
-    font-size: 14px;
+    margin-right: 4px;
+    font-size: 12px;
   }
 
   .label i {
     width: 14px;
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .info {
-    gap: 4px;
-    width: calc(100% - 22px);
+    gap: 3px;
+    width: calc(100% - 20px);
   }
 
   .row {
-    height: 20px;
+    height: 18px;
   }
 
   .badge {
-    height: 20px;
+    height: 18px;
     font-size: 11px;
-    padding: 0 6px;
-    display: inline-flex;
-    align-items: center;
-    line-height: 1;
+    padding: 0 4px;
   }
 
   .rankText {
-    min-width: 50px;
-    display: inline-flex;
-    align-items: center;
-    height: 100%;
+    min-width: 45px;
   }
 
   .divider {
-    margin: 0 4px;
-    display: inline-flex;
-    align-items: center;
-    height: 100%;
+    margin: 0 3px;
   }
 
   .performanceText {
-    min-width: 65px;
-    font-size: 12px;
-    display: inline-flex;
-    align-items: center;
-    height: 100%;
+    min-width: 55px;
+    font-size: 11px;
   }
 
   .value {
     font-size: 10px;
-    width: 40px;
-    padding-top: 1px;
-    margin-left: 3px;
+    width: 35px;
+    margin-left: 2px;
   }
 
   .barContainer {
-    height: 16px;
-    width: 180px;
-    margin-bottom: 1px;
+    height: 14px;
+    width: 160px;
+    margin-bottom: 0;
+  }
+
+  .barBackground {
+    height: 3px;
+  }
+
+  .barFill {
+    height: 3px;
   }
 }
 
 @media (max-width: 380px) {
   .metric {
-    gap: 6px;
-    min-height: 22px;
-    margin-top: 12px;
+    gap: 4px;
+    min-height: 18px;
   }
 
   .label {
-    gap: 4px;
+    gap: 3px;
     width: 14px;
-    margin-right: 4px;
-    font-size: 10px;
+    font-size: 11px;
   }
 
   .label i {
     width: 12px;
-    font-size: 10px;
+    font-size: 11px;
   }
 
   .info {
@@ -274,44 +266,39 @@
   }
 
   .badge {
-    height: 18px;
+    height: 16px;
     font-size: 10px;
     padding: 0 4px;
-    display: inline-flex;
-    align-items: center;
-    line-height: 1;
   }
 
   .rankText {
-    min-width: 45px;
-    display: inline-flex;
-    align-items: center;
-    height: 100%;
+    min-width: 40px;
   }
 
   .divider {
-    margin: 0 3px;
-    display: inline-flex;
-    align-items: center;
-    height: 100%;
+    margin: 0 2px;
   }
 
   .performanceText {
-    min-width: 55px;
-    font-size: 8px;
-    display: inline-flex;
-    align-items: center;
-    height: 100%;
+    min-width: 50px;
+    font-size: 10px;
   }
 
   .value {
     font-size: 9px;
-    width: 35px;
-    margin-left: 2px;
+    width: 30px;
   }
 
   .barContainer {
-    height: 14px;
-    width: 160px;
+    height: 12px;
+    width: 140px;
+  }
+
+  .barBackground {
+    height: 2px;
+  }
+
+  .barFill {
+    height: 2px;
   }
 }

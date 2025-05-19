@@ -23,7 +23,7 @@ export function useDeviceHover() {
   const handleHover = useCallback(
     (polygon: any, data: CountryData[]) => {
       if (polygon) {
-        const countryName = polygon.properties.name;
+        const countryName = polygon.properties.ADMIN || 'Unknown';
         const country = data.find(
           (d) => normalize(d.country) === normalize(countryName)
         );

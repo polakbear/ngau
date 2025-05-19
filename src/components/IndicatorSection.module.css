@@ -210,22 +210,19 @@
 
 @media (max-width: 768px) {
   .container {
-    margin-top: 8px;
-    gap: 12px;
+    margin-top: 6px;
+    gap: 8px;
   }
 
   .section {
     padding-left: 8px;
     padding-bottom: 6px;
-  }
-
-  .section:not(:last-child) {
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
 
   .title {
     font-size: 12px;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
     gap: 4px;
   }
 
@@ -235,7 +232,7 @@
   }
 
   .content {
-    gap: 3px;
+    gap: 2px;
   }
 
   .item {
@@ -243,63 +240,59 @@
   }
 
   .label {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .valueBar {
-    gap: 6px;
+    gap: 4px;
   }
 
   .barContainer {
-    height: 4px;
+    height: 3px;
   }
 
   .value {
-    font-size: 13px;
-    min-width: 30px;
+    font-size: 12px;
+    min-width: 28px;
   }
 
   .source {
     font-size: 9px;
+    margin-left: 18px;
     margin-top: 1px;
-    margin-left: 22px;
   }
 
   .childMarriageGrid {
-    gap: 8px;
-    margin-bottom: 6px;
+    gap: 6px;
+    margin-bottom: 4px;
   }
 
   .childMarriageColumn {
-    gap: 6px;
-    padding: 6px;
+    gap: 4px;
+    padding: 4px;
   }
 
   .childMarriageTitle {
-    font-size: 12px;
-    gap: 4px;
-    margin-bottom: 3px;
+    font-size: 11px;
+    gap: 3px;
+    margin-bottom: 2px;
   }
 
   .childMarriageTitle i {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .childMarriageGrid .barContainer {
-    height: 4px;
-  }
-
-  .childMarriageGrid .item {
-    margin-bottom: 1px;
+    height: 3px;
   }
 
   .childMarriageGrid .label {
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .childMarriageGrid .value {
-    font-size: 13px;
-    min-width: 30px;
+    font-size: 11px;
+    min-width: 26px;
   }
 
   .childMarriageSource {
@@ -338,7 +331,7 @@
 
   .title {
     font-size: 11px;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
     gap: 3px;
   }
 
@@ -356,7 +349,7 @@
   }
 
   .label {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .valueBar {
@@ -364,31 +357,31 @@
   }
 
   .barContainer {
-    height: 3px;
+    height: 2px;
   }
 
   .value {
-    font-size: 12px;
-    min-width: 28px;
+    font-size: 11px;
+    min-width: 24px;
   }
 
   .source {
     font-size: 8px;
-    margin-left: 18px;
+    margin-left: 15px;
   }
 
   .childMarriageGrid {
-    gap: 6px;
+    gap: 4px;
     margin-bottom: 4px;
   }
 
   .childMarriageColumn {
     gap: 4px;
-    padding: 4px;
+    padding: 3px;
   }
 
   .childMarriageTitle {
-    font-size: 11px;
+    font-size: 10px;
     gap: 3px;
     margin-bottom: 2px;
   }
@@ -398,16 +391,16 @@
   }
 
   .childMarriageGrid .barContainer {
-    height: 3px;
+    height: 2px;
   }
 
   .childMarriageGrid .label {
-    font-size: 11px;
+    font-size: 9px;
   }
 
   .childMarriageGrid .value {
-    font-size: 12px;
-    min-width: 28px;
+    font-size: 10px;
+    min-width: 22px;
   }
 
   .childMarriageSource {
