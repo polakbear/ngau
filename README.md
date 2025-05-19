@@ -35,6 +35,7 @@ Then open http://localhost:5173 in your browser.
 
 ## Roadmap
 
+### Now
 - [x] Visualize KidsRights Index core scores
 - [x] Add tooltip and info panel for country-level info
 - [x] Display child rights violations (where data exists)
@@ -45,17 +46,19 @@ Then open http://localhost:5173 in your browser.
 - [ ] Fill in data for all relevant countries (child marriage, labor, FGM, etc.)
 - [ ] Accessibility polish (hover/touch, color contrast, ARIA?)
 - [ ] Improve mobile layout and responsiveness
-- [ ] Add optional map layer for organizational presence
 - [ ] Explore more data sources and/or reports
 - [ ] Explore justice-related indicators
   - Age of criminal responsibility
   - Juvenile incarceration
   - Legal protections for children
 - [ ] Add “bright spots” layer (countries showing progress or strong youth engagement)
+- [ ] Bookmark/share state: ability to link to a specific country or view (e.g. ?country=SE&tab=protection).
+- [ ] Ethics statement - how data is gathered, used, and framed.
+- [ ] Links to concrete UNICEF reports used
+
+### Later
+- [ ] Add optional map layer for organizational presence
 - [ ] Explore “story” view: link to human stories or context behind the numbers
 - [ ] Overlay risk data (conflict, climate, displacement)
 - [ ] Explore time-based comparisons (e.g. trends since 2010)
 - [ ] Consider basic offline/static fallback
-- [ ] Bookmark/share state: ability to link to a specific country or view (e.g. ?country=SE&tab=protection).
-- [ ] Ethics statement - how data is gathered, used, and framed.
-- [ ] Links to concrete UNICEF reports used
