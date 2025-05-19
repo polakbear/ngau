@@ -7,6 +7,7 @@ import { TabRow } from './components/TabRow';
 import TakeActionButton from './components/TakeActionButton';
 import Search from './components/Search';
 import { GeoJsonFeature } from './types';
+import { detectMobileMode } from './utils/device';
 
 function App() {
   const [geoJson, setGeoJson] = useState<any>(null);
@@ -16,7 +17,8 @@ function App() {
   const handleCountryFound = useCallback(
     (feature: GeoJsonFeature) => {
       if (globeRef && feature.properties) {
-        const altitude = 1.7;
+        const isMobile = detectMobileMode();
+        const altitude = isMobile ? 2.5 : 1.7;
         const [lng, lat] = (feature as any).__centroid || [0, 0];
         globeRef.pointOfView(
           {
@@ -37,19 +39,8 @@ function App() {
       <GlobeComponent setGlobeRef={setGlobeRef} onDataLoaded={setGeoJson} />
       <Legend />
       <Sources />
-      <div
-        style={{
-          position: 'fixed',
-          bottom: '20px',
-          right: '20px',
-          display: 'flex',
-          gap: '20px',
-          zIndex: 100,
-        }}
-      >
-        <Search geoJson={geoJson} onCountryFound={handleCountryFound} />
-        <TakeActionButton />
-      </div>
+      <Search geoJson={geoJson} onCountryFound={handleCountryFound} />
+      <TakeActionButton />
     </ScoreTypeProvider>
   );
 }

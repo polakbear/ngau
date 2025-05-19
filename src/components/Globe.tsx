@@ -86,7 +86,7 @@ export default function GlobeComponent({
     if (globeRef.current) {
       setGlobeRef(globeRef.current);
       globeRef.current.pointOfView(
-        { lat: 0, lng: 0, altitude: mobileMode ? 3 : 2 },
+        { lat: 0, lng: 0, altitude: mobileMode ? 4 : 2.5 },
         0
       );
     }
