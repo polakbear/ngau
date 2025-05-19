@@ -21,9 +21,19 @@ export function Organizations({ onClose }: OrganizationsProps) {
       }
     };
 
+    const handleClickOutside = (e: MouseEvent) => {
+      const dialog = dialogRef.current;
+      if (dialog && e.target === dialog) {
+        onClose();
+      }
+    };
+
     window.addEventListener('keydown', handleEscape);
+    window.addEventListener('mousedown', handleClickOutside);
+
     return () => {
       window.removeEventListener('keydown', handleEscape);
+      window.removeEventListener('mousedown', handleClickOutside);
     };
   }, [onClose]);
 
