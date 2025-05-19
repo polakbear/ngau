@@ -14,6 +14,9 @@ export default function Search({ geoJson, onCountryFound }: SearchProps) {
   const searchInputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  const [suggestions, setSuggestions] = useState<GeoJsonFeature[]>([]);
+  const [selectedIndex, setSelectedIndex] = useState(-1);
+
   useEffect(() => {
     if (isExpanded && searchInputRef.current) {
       searchInputRef.current.focus();
@@ -40,36 +43,54 @@ export default function Search({ geoJson, onCountryFound }: SearchProps) {
   const handleSearch = useCallback(
     (query: string) => {
       setSearchQuery(query);
+      setSelectedIndex(-1);
 
-      if (!query || !geoJson?.features) return;
+      if (!query || !geoJson?.features) {
+        setSuggestions([]);
+        return;
+      }
 
       const normalizedQuery = normalize(query.trim());
-      console.log('Search query:', normalizedQuery);
-      console.log('GeoJSON features:', geoJson.features.slice(0, 3));
 
-      const feature = geoJson.features.find((f: GeoJsonFeature) => {
-        const adminMatch = normalize(f.properties.ADMIN).includes(
-          normalizedQuery
-        );
-        const nameMatch = normalize(f.properties.NAME).includes(
-          normalizedQuery
-        );
-        console.log(
-          'Matching:',
-          f.properties.ADMIN,
-          adminMatch,
-          f.properties.NAME,
-          nameMatch
-        );
-        return adminMatch || nameMatch;
-      });
+      const matches = geoJson.features
+        .filter((f: GeoJsonFeature) => {
+          const adminMatch = normalize(f.properties.ADMIN).includes(
+            normalizedQuery
+          );
+          const nameMatch = normalize(f.properties.NAME).includes(
+            normalizedQuery
+          );
+          return adminMatch || nameMatch;
+        })
+        .slice(0, 5); // Limit to 5 suggestions
 
-      if (feature) {
-        console.log('Found feature:', feature);
-        onCountryFound(feature);
+      setSuggestions(matches);
+    },
+    [geoJson]
+  );
+
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        setSelectedIndex((prev) =>
+          prev < suggestions.length - 1 ? prev + 1 : prev
+        );
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        setSelectedIndex((prev) => (prev > 0 ? prev - 1 : prev));
+      } else if (
+        e.key === 'Enter' &&
+        selectedIndex >= 0 &&
+        selectedIndex < suggestions.length
+      ) {
+        onCountryFound(suggestions[selectedIndex]);
+        setIsExpanded(false);
+        setSearchQuery('');
+        setSuggestions([]);
       }
     },
-    [geoJson, onCountryFound]
+    [suggestions, selectedIndex, onCountryFound]
   );
 
   return (
@@ -91,7 +112,29 @@ export default function Search({ geoJson, onCountryFound }: SearchProps) {
           placeholder="Search for a country..."
           value={searchQuery}
           onChange={(e) => handleSearch(e.target.value)}
+          onKeyDown={handleKeyDown}
         />
+
+        {suggestions.length > 0 && isExpanded && (
+          <ul className={styles.suggestionsList}>
+            {suggestions.map((feature, index) => (
+              <li
+                key={feature.properties.ADMIN}
+                className={`${styles.suggestionItem} ${
+                  index === selectedIndex ? styles.selected : ''
+                }`}
+                onClick={() => {
+                  onCountryFound(feature);
+                  setIsExpanded(false);
+                  setSearchQuery('');
+                  setSuggestions([]);
+                }}
+              >
+                {feature.properties.ADMIN}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );
