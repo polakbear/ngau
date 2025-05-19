@@ -8,7 +8,7 @@ import {
   TooltipState,
 } from '../types';
 import { handlePolygonClick } from '../utils/poly';
-import { detectMobileMode } from '../utils/device';
+import { detectMobileMode, detectDeviceType } from '../utils/device';
 import { Tooltip } from './Tooltip';
 import { InfoPanel } from './InfoPanel';
 import useScoreType from '../hooks/useScoreType';
@@ -116,16 +116,27 @@ export default function GlobeComponent({
 
   const handlePolygonHoverOptimized = useRef(
     createOptimizedPolygonHover({
-      setTooltip,
+      setTooltip: (tooltip) => {
+        const deviceType = detectDeviceType();
+        if (deviceType === 'desktop') {
+          setTooltip(tooltip);
+        }
+      },
       setHoverD,
       data,
       mousePositionRef,
     })
   );
 
-  const handlePolygonClickMemoized = useRef((feat: any) =>
-    handlePolygonClick(feat, data, setTooltip, setInfoPanel)
-  );
+  const handlePolygonClickMemoized = useRef((feat: any) => {
+    const deviceType = detectDeviceType();
+    handlePolygonClick(
+      feat,
+      data,
+      deviceType === 'desktop' ? setTooltip : () => {},
+      setInfoPanel
+    );
+  });
 
   const getPolygonCapMaterial = (d: any) => {
     return getOrCreatePolygonMaterial(d, data, hoverD, 0, scoreType);
@@ -133,14 +144,26 @@ export default function GlobeComponent({
 
   useEffect(() => {
     handlePolygonHoverOptimized.current = createOptimizedPolygonHover({
-      setTooltip,
+      setTooltip: (tooltip) => {
+        const deviceType = detectDeviceType();
+        if (deviceType === 'desktop') {
+          setTooltip(tooltip);
+        }
+      },
       setHoverD,
       data,
       mousePositionRef,
     });
 
-    handlePolygonClickMemoized.current = (feat: any) =>
-      handlePolygonClick(feat, data, setTooltip, setInfoPanel);
+    handlePolygonClickMemoized.current = (feat: any) => {
+      const deviceType = detectDeviceType();
+      handlePolygonClick(
+        feat,
+        data,
+        deviceType === 'desktop' ? setTooltip : () => {},
+        setInfoPanel
+      );
+    };
   }, [data, scoreType, setTooltip, setInfoPanel]);
 
   return (
