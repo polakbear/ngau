@@ -143,6 +143,7 @@ export default function Search({ geoJson, onCountryFound }: SearchProps) {
           placeholder="Search for a country..."
           value={searchQuery}
           onChange={(e) => handleSearch(e.target.value)}
+          onKeyDown={handleKeyDown}
         />
 
         {suggestions.length > 0 && isExpanded && (
