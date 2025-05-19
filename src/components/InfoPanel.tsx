@@ -3,6 +3,7 @@ import MetricRow from './MetricRow';
 import IndicatorSection from './IndicatorSection';
 import { getContrastingTextColor, rankBasedColorScale } from '../utils/color';
 import { getFullLabel } from '../utils/score';
+import { useEffect, useRef } from 'react';
 import styles from './InfoPanel.module.css';
 
 export function InfoPanel({
@@ -14,41 +15,81 @@ export function InfoPanel({
   country: CountryData;
   onClose: () => void;
 }) {
+  const dialogRef = useRef<HTMLDialogElement>(null);
   const rank = country?.kri_rank ?? null;
   const color = rank ? rankBasedColorScale(rank) : '#FEFEFE';
   const bgColor = getContrastingTextColor(color);
 
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (dialog && !dialog.open) {
+      dialog.showModal();
+    }
+
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    window.addEventListener('keydown', handleEscape);
+    return () => {
+      window.removeEventListener('keydown', handleEscape);
+    };
+  }, [onClose]);
+
   if (!country || rank === null) {
     return (
-      <div className={styles.panel}>
-        <button onClick={onClose} className={styles.closeButton}>
+      <dialog
+        ref={dialogRef}
+        className={styles.panel}
+        aria-labelledby="country-name"
+      >
+        <button
+          onClick={onClose}
+          className={styles.closeButton}
+          aria-label="Close panel"
+        >
           ✖
         </button>
 
-        <div className={styles.header}>{countryName}</div>
+        <div id="country-name" className={styles.header}>
+          {countryName}
+        </div>
         <div className={styles.noDataContainer}>
           <div>
             <i
               className="fas fa-info-circle"
               style={{ marginRight: '8px', opacity: 0.6 }}
+              aria-hidden="true"
             ></i>
             No data provided
           </div>
         </div>
-      </div>
+      </dialog>
     );
   }
 
   return (
-    <div className={styles.panel}>
-      <button onClick={onClose} className={styles.closeButton}>
+    <dialog
+      ref={dialogRef}
+      className={styles.panel}
+      aria-labelledby="country-title"
+    >
+      <button
+        onClick={onClose}
+        className={styles.closeButton}
+        aria-label="Close panel"
+      >
         ✖
       </button>
-      <h4 className={styles.title}>{countryName}</h4>
+      <h4 id="country-title" className={styles.title}>
+        {countryName}
+      </h4>
       <div className={styles.metricsGrid}>
         <div className={styles.kriRow} style={{ background: color }}>
           <div className={styles.badge}>
-            <i className={`fa fa-star ${styles.kriIcon}`} />
+            <i className={`fa fa-star ${styles.kriIcon}`} aria-hidden="true" />
             <strong className={styles.kriLabel}>KRI Rank</strong>
             <span className={styles.kriValue}>{country?.kri_rank} / 194</span>
           </div>
@@ -100,6 +141,6 @@ export function InfoPanel({
           <IndicatorSection indicators={country.indicators} rank={rank} />
         </>
       )}
-    </div>
+    </dialog>
   );
 }
