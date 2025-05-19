@@ -79,7 +79,11 @@ export default function Search({ geoJson, onCountryFound }: SearchProps) {
       } else if (e.key === 'ArrowUp') {
         e.preventDefault();
         setSelectedIndex((prev) => (prev > 0 ? prev - 1 : prev));
-      } else if (e.key === 'Enter' && selectedIndex >= 0) {
+      } else if (
+        e.key === 'Enter' &&
+        selectedIndex >= 0 &&
+        selectedIndex < suggestions.length
+      ) {
         onCountryFound(suggestions[selectedIndex]);
         setIsExpanded(false);
         setSearchQuery('');
