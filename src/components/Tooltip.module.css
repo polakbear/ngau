@@ -194,10 +194,14 @@
 
 @media (max-width: 767px) {
   .tooltip {
-    bottom: 100px;
+    position: fixed !important;
+    bottom: unset;
+    top: 75px !important;
     left: 50% !important;
-    width: auto;
-    transform: none !important;
+    transform: translateX(-50%) !important;
+    width: min(calc(100vw - 32px), 300px);
+    z-index: 1000;
+    pointer-events: none;
   }
 
   .badgesRow {

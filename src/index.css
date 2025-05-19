@@ -44,6 +44,11 @@ body {
   z-index: 0;
   touch-action: none;
   overflow: hidden;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
 }
 
 #globe canvas {
@@ -371,9 +376,9 @@ canvas {
   .take-action-tab {
     position: fixed;
     top: 60px;
-    right: auto;
-    left: 50%;
-    transform: translateX(-50%);
+    right: 16px;
+    font-size: 13px;
+    padding: 4px 6px;
   }
 
   .organizations-panel {

@@ -86,7 +86,7 @@ export default function GlobeComponent({
     if (globeRef.current) {
       setGlobeRef(globeRef.current);
       globeRef.current.pointOfView(
-        { lat: 0, lng: 0, altitude: mobileMode ? 4 : 2 },
+        { lat: 0, lng: 0, altitude: mobileMode ? 3 : 2 },
         0
       );
     }
@@ -165,6 +165,7 @@ export default function GlobeComponent({
         atmosphereAltitude={mobileMode ? 0.2 : 0.25}
         backgroundColor="#0a1d26"
         polygonStrokeColor={() => 'rgba(255,255,255,0.6)'}
+        enablePointerInteraction={!mobileMode}
       />
 
       <div

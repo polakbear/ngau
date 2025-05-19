@@ -168,12 +168,16 @@
 
 @media (max-width: 768px) {
   .panel {
-    left: 10%;
-    top: 120px;
-    max-width: calc(100vw - 16px);
-    padding: 12px;
+    left: 50%;
+    top: unset;
+    bottom: 16px;
+    transform: translateX(-50%);
+    max-width: calc(100vw - 32px);
+    padding: 16px;
     width: 320px;
-    overflow: hidden;
+    overflow-y: auto;
+    max-height: 60vh;
+    -webkit-overflow-scrolling: touch;
   }
 
   .metricsGrid {
