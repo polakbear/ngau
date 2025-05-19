@@ -43,7 +43,7 @@ export default function GlobeComponent({
     return [];
   }, [data, geoJson, scoreType]);
 
-  console.log('markerData', markerData);
+  // console.log('markerData', markerData);
 
   useEffect(() => {
     fetch('/countries.geojson')
