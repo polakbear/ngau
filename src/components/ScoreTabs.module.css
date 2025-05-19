@@ -8,12 +8,45 @@
   border-radius: 8px;
   font-family: 'Segoe UI', sans-serif;
   background: transparent;
+  position: relative;
+}
+
+.container::before,
+.container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 32px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.container::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.2), transparent);
+}
+
+.container::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.2), transparent);
+}
+
+.container[data-can-scroll='true']::before {
+  opacity: 1;
+}
+
+.container[data-can-scroll-right='true']::after {
+  opacity: 1;
 }
 
 .tabsContainer {
   display: flex;
   gap: 4px;
   padding: 2px;
+  scroll-behavior: smooth;
 }
 
 .tabWrapper {
@@ -35,6 +68,14 @@
   border-radius: 6px;
   transition: all 0.2s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tab i {
+  font-size: 12px;
+  opacity: 0.9;
 }
 
 .tab.active {
@@ -52,13 +93,15 @@
 @media (max-width: 768px) {
   .container {
     padding: 6px;
-    gap: 4px;
+    gap: 2px;
     width: auto;
     max-width: calc(100vw - 32px);
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    backdrop-filter: blur(8px);    
+    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
   }
 
   .container::-webkit-scrollbar {
@@ -66,9 +109,27 @@
   }
 
   .tab {
-    padding: 4px 6px;
-    font-size: 12px;
+    padding: 6px;
+    font-size: 0;
     white-space: nowrap;
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    justify-content: center;
+  }
+
+  .tab i {
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .tab.active {
+    background: rgba(12, 181, 169, 0.4);
+    box-shadow: 0 0 0 2px rgba(12, 181, 169, 0.2);
+  }
+
+  .tabLabel {
+    display: none;
   }
 
 
