@@ -3,9 +3,9 @@
   left: 50px;
   top: 40px;
   z-index: 20;
-  background: rgba(0, 0, 0, 0.80);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: #fff;
   padding: 20px;
   max-width: 380px;
@@ -28,7 +28,7 @@
 .panel {
   margin: 0;
   padding: 20px;
-  background: rgba(0, 0, 0, 0.80);
+  background: rgba(0, 0, 0, 0.65);
 }
 
 .closeButton {
@@ -201,6 +201,9 @@
     width: min(340px, calc(100% - 32px));
     padding: 12px;
     max-height: calc(100vh - 40px);
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);    
   }
 
   .metricsGrid {
