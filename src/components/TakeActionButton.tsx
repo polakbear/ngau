@@ -5,6 +5,10 @@ import styles from './TakeActionButton.module.css';
 export function TakeActionButton() {
   const [isActive, setIsActive] = useState(false);
 
+  const handleClose = () => {
+    setIsActive(false);
+  };
+
   return (
     <>
       <button
@@ -13,7 +17,7 @@ export function TakeActionButton() {
       >
         <i className="fas fa-hands-helping" /> Take Action
       </button>
-      {isActive && <Organizations />}
+      {isActive && <Organizations onClose={handleClose} />}
     </>
   );
 }

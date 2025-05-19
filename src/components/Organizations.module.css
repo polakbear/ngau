@@ -1,7 +1,7 @@
 .organizationsPanel {
   position: fixed;
-  right: 50%;
-  transform: translateX(50%);
+  left: 50%;
+  transform: translateX(-50%);
   top: 120px;
   width: 380px;
   background: rgba(0, 0, 0, 0.80);
@@ -17,11 +17,38 @@
   max-height: calc(100vh - 120px);
   overflow-y: auto;
   z-index: 10;
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 0;
 }
 
-.organizationsPanel.active {
-  right: 50%;
+.organizationsPanel::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+}
+
+.closeButton {
+  float: right;
+  background: transparent !important;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.closeButton:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.title {
+  margin: 0 0 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
 }
 
 .organizationItem {

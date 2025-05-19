@@ -1,9 +1,49 @@
 /* Organizations panel shown by ScoreTabs */
+import { useEffect, useRef } from 'react';
 import styles from './Organizations.module.css';
 
-export function Organizations() {
+interface OrganizationsProps {
+  onClose: () => void;
+}
+
+export function Organizations({ onClose }: OrganizationsProps) {
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (dialog && !dialog.open) {
+      dialog.showModal();
+    }
+
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    window.addEventListener('keydown', handleEscape);
+    return () => {
+      window.removeEventListener('keydown', handleEscape);
+    };
+  }, [onClose]);
+
   return (
-    <div className={styles.organizationsPanel}>
+    <dialog
+      ref={dialogRef}
+      className={styles.organizationsPanel}
+      aria-labelledby="organizations-title"
+    >
+      <button
+        onClick={onClose}
+        className={styles.closeButton}
+        aria-label="Close organizations panel"
+      >
+        ✖
+      </button>
+      <h2 id="organizations-title" className={styles.title}>
+        Organizations
+      </h2>
+
       <div className={styles.organizationItem}>
         <div className={styles.organizationName}>
           <i className="fa fa-globe-americas" /> UNICEF
@@ -77,6 +117,6 @@ export function Organizations() {
           <i className="fa fa-hands-helping" /> Take action
         </a>
       </div>
-    </div>
+    </dialog>
   );
 }
