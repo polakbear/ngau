@@ -11,7 +11,8 @@
 .searchButton {
   width: 34px;
   height: 34px;
-  border-radius: 17px;
+  height: 34px;
+  border-radius: 6px;
   border: none;
   background: rgba(0, 0, 0, 0.6);
   color: rgba(255, 255, 255, 0.7);
@@ -47,9 +48,10 @@
   height: 34px;
   padding: 6px 12px;
   background: rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 17px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
   color: white;
+  box-sizing: border-box;
   font-size: 13px;
   outline: none;
   transition: all 0.2s ease;
@@ -150,58 +152,19 @@
 
 @media (max-width: 768px) {
   .searchContainer {
-    bottom: 24px;
+    top: auto;
+    bottom: 160px;
     left: 50%;
     transform: translateX(-50%);
-    top: auto;
   }
 
   .searchButton {
-    width: 44px;
-    height: 44px;
-    border-radius: 22px;
-    background: rgba(12, 181, 169, 0.25);
-    border: 1px solid rgba(12, 181, 169, 0.3);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  }
-
-  .searchButton i {
-    font-size: 16px;
-  }
-
-  .searchInputContainer {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 20px);
-    opacity: 0;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
   }
 
   .searchInputContainer.expanded {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(280px, calc(100vw - 32px));
-    animation: fadeInUp 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  }
-
-  .searchInput {
-    height: 44px;
-    font-size: 14px;
-    border-radius: 22px;
-    padding: 6px 16px;
-    background: rgba(0, 0, 0, 0.8);
-    border: 1px solid rgba(12, 181, 169, 0.3);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  }
-
-  .searchButton.active {
-    background: rgba(12, 181, 169, 0.4);
-    border-color: rgba(12, 181, 169, 0.5);
-    box-shadow: 
-      0 0 0 4px rgba(12, 181, 169, 0.2),
-      0 2px 8px rgba(0, 0, 0, 0.2);
+    bottom: -4px;
   }
 }

@@ -1,7 +1,7 @@
 .panel {
   position: fixed;
   left: 50px;
-  top: 120px;
+  top: 40px;
   z-index: 20;
   background: rgba(0, 0, 0, 0.80);
   backdrop-filter: blur(5px);
@@ -15,7 +15,7 @@
     0 4px 6px rgba(0, 0, 0, 0.1),
     0 1px 3px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  max-height: calc(100vh - 200px);
+  max-height: calc(100vh - 80px);
   overflow-y: auto;
 }
 
@@ -186,7 +186,7 @@
   .panel {
     left: 50%;
     transform: translateX(-50%);
-    top: 90px;
+    top: 20px;
     width: min(380px, calc(100% - 32px));
     max-width: 380px;
     padding: 16px;
@@ -195,10 +195,10 @@
 
 @media (max-width: 768px) {
   .panel {
-    top: 90px;
+    top: 20px;
     width: min(340px, calc(100% - 32px));
     padding: 12px;
-    max-height: calc(100vh - 120px);
+    max-height: calc(100vh - 40px);
   }
 
   .metricsGrid {
@@ -236,10 +236,10 @@
 
 @media (max-width: 767px) {
   .panel {
-    top: 120px;
+    top: 20px;
     width: calc(100% - 20px);
     padding: 15px;
-    max-height: calc(100vh - 160px);
+    max-height: calc(100vh - 40px);
   }
 }
 
