@@ -15,6 +15,8 @@
     0 4px 6px rgba(0, 0, 0, 0.1),
     0 1px 3px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
 }
 
 .closeButton {
@@ -166,6 +168,16 @@
   visibility: visible;
 }
 
+@media (max-width: 1024px) {
+  .panel {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 140px;
+    width: calc(100% - 40px);
+    max-width: 500px;
+  }
+}
+
 @media (max-width: 768px) {
   .panel {
     left: 50%;
@@ -233,6 +245,15 @@
   .kriIcon {
     font-size: 12px;
     width: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  .panel {
+    top: 120px;
+    width: calc(100% - 20px);
+    padding: 15px;
+    max-height: calc(100vh - 160px);
   }
 }
 
