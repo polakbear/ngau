@@ -32,9 +32,27 @@ export function InfoPanel({
       }
     };
 
+    const handleClickOutside = (e: MouseEvent) => {
+      const dialog = dialogRef.current;
+      if (dialog) {
+        const rect = dialog.getBoundingClientRect();
+        const isInDialog =
+          rect.top <= e.clientY &&
+          e.clientY <= rect.top + rect.height &&
+          rect.left <= e.clientX &&
+          e.clientX <= rect.left + rect.width;
+        if (!isInDialog) {
+          onClose();
+        }
+      }
+    };
+
     window.addEventListener('keydown', handleEscape);
+    dialog?.addEventListener('click', handleClickOutside);
+
     return () => {
       window.removeEventListener('keydown', handleEscape);
+      dialog?.removeEventListener('click', handleClickOutside);
     };
   }, [onClose]);
 
