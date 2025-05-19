@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useRef, useEffect } from 'react';
 import { GeoJsonFeature } from '../types';
 import styles from './Search.module.css';
 import { normalize } from '../utils/utils';
@@ -10,6 +10,32 @@ interface SearchProps {
 
 export default function Search({ geoJson, onCountryFound }: SearchProps) {
   const [searchQuery, setSearchQuery] = useState('');
+  const [isExpanded, setIsExpanded] = useState(false);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (isExpanded && searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  }, [isExpanded]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target as Node)
+      ) {
+        setIsExpanded(false);
+        setSearchQuery('');
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const handleSearch = useCallback(
     (query: string) => {
@@ -47,14 +73,26 @@ export default function Search({ geoJson, onCountryFound }: SearchProps) {
   );
 
   return (
-    <div className={styles.searchContainer}>
-      <input
-        type="text"
-        className={styles.searchInput}
-        placeholder="Search for a country..."
-        value={searchQuery}
-        onChange={(e) => handleSearch(e.target.value)}
-      />
+    <div className={styles.searchContainer} ref={containerRef}>
+      <button
+        className={`${styles.searchButton} ${isExpanded ? styles.active : ''}`}
+        onClick={() => setIsExpanded(!isExpanded)}
+        aria-label="Toggle search"
+      >
+        <i className="fas fa-search" aria-hidden="true" />
+      </button>
+      <div
+        className={`${styles.searchInputContainer} ${isExpanded ? styles.expanded : ''}`}
+      >
+        <input
+          ref={searchInputRef}
+          type="text"
+          className={styles.searchInput}
+          placeholder="Search for a country..."
+          value={searchQuery}
+          onChange={(e) => handleSearch(e.target.value)}
+        />
+      </div>
     </div>
   );
 }
