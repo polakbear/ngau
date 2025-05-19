@@ -157,9 +157,7 @@ export default function GlobeComponent({
         polygonSideColor={() => '#000000'}
         polygonAltitude={(d) => (d === hoverD ? 0.02 : 0.01)}
         polygonsTransitionDuration={300}
-        onPolygonHover={
-          mobileMode ? undefined : handlePolygonHoverOptimized.current
-        }
+        onPolygonHover={handlePolygonHoverOptimized.current}
         onPolygonClick={handlePolygonClickMemoized.current}
         globeImageUrl=""
         showAtmosphere
