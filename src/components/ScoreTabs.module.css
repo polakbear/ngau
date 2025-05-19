@@ -57,6 +57,7 @@
 }
 
 .tab {
+  position: relative;
   background: rgba(20, 28, 47, 0.25);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -71,7 +72,6 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  position: relative;
 }
 
 .tab i {
@@ -82,6 +82,7 @@
 .tab.active {
   color: rgba(255, 255, 255, 1);
   background: rgba(12, 181, 169, 0.25);
+  z-index: 20;
 }
 
 .tab.active .methodology {
