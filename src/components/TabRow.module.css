@@ -25,10 +25,10 @@
 .kriTab {
   background: linear-gradient(
     to bottom,
-    rgba(28, 40, 55, 0.9),
-    rgba(16, 24, 36, 0.95)
+    rgba(25, 25, 30, 0.6),
+    rgba(15, 15, 20, 0.7)
   );
-  border: 1px solid rgba(63, 209, 199, 0.4);
+  border: none;
   color: #fff;
   font-size: 16px;
   font-weight: 400;
@@ -44,17 +44,17 @@
   letter-spacing: 0.3px;
   box-shadow: 0 0 15px rgba(63, 209, 199, 0.15);
   position: relative;
+  backdrop-filter: blur(4px);
 }
 
 .kriTab:hover,
 .kriTab:focus {
   background: linear-gradient(
     to bottom,
-    rgba(32, 45, 60, 0.95),
-    rgba(20, 28, 40, 1)
+    rgba(30, 30, 35, 0.7),
+    rgba(20, 20, 25, 0.8)
   );
   color: #fff;
-  border-color: rgba(63, 209, 199, 0.6);
   box-shadow: 0 0 18px rgba(63, 209, 199, 0.25);
 }
 
@@ -83,11 +83,9 @@
   padding: 12px 0;
   min-width: 680px;
   z-index: 20;
-  background-color: rgba(16, 24, 36, 0.9);
-  border: 1px solid rgba(63, 209, 199, 0.3);
-  box-shadow:
-    0 0 20px rgba(0, 0, 0, 0.3),
-    0 0 8px rgba(63, 209, 199, 0.15);
+  background-color: rgba(20, 20, 25, 0.6);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
 }
 
 .divider {
