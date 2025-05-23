@@ -16,8 +16,25 @@ export function TabRow() {
           onClick={() => setSubmenuOpen((open) => !open)}
           style={{ alignSelf: 'center' }}
         >
-          <i className="fa fa-chart-bar" aria-hidden="true" />
-          <span>KRI</span>
+          <i
+            className="fa fa-list"
+            aria-hidden="true"
+            style={{ fontSize: '20px' }}
+          />
+          <span style={{ padding: '0 8px' }}>KRI</span>
+          {submenuOpen ? (
+            <i
+              className="fa fa-chevron-up"
+              aria-hidden="true"
+              style={{ fontSize: '12px', opacity: 0.6 }}
+            />
+          ) : (
+            <i
+              className="fa fa-chevron-down"
+              aria-hidden="true"
+              style={{ fontSize: '12px', opacity: 0.6 }}
+            />
+          )}
         </button>
         {submenuOpen && (
           <div id="kri-submenu" className={styles.submenu}>
