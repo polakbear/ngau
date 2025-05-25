@@ -1,5 +1,6 @@
 import styles from './Methodology.module.css';
 import useScoreType from '../hooks/useScoreType';
+import useTabHover from '../hooks/useTabHover';
 
 const methodologyContent = {
   overall: 'Combined measure of child rights implementation',
@@ -17,7 +18,10 @@ type MetricType = keyof typeof methodologyContent;
 
 export function Methodology() {
   const { scoreType } = useScoreType();
-  const validType = scoreType as MetricType;
+  const { hoverTab } = useTabHover();
+
+  const activeType = hoverTab || scoreType;
+  const validType = activeType as MetricType;
 
   if (!methodologyContent[validType]) {
     return null;

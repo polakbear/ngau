@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import useScoreType from '../hooks/useScoreType';
 import styles from './ScoreTabs.module.css';
 import { Methodology } from './Methodology';
+import useTabHover from '../hooks/useTabHover';
 
 export function ScoreTabs() {
   const { scoreType, setScoreType } = useScoreType();
@@ -10,7 +11,7 @@ export function ScoreTabs() {
   const underlineRef = useRef<HTMLDivElement>(null);
   const [canScroll, setCanScroll] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
-  const [hoverTab, setHoverTab] = useState<string | null>(null);
+  const { hoverTab, handleMouseEnter, handleMouseLeave } = useTabHover();
 
   useEffect(() => {
     const checkScroll = () => {
@@ -68,7 +69,6 @@ export function ScoreTabs() {
 
     updateUnderline(hoverTab);
 
-    // Also update when window resizes to ensure positions stay correct
     const handleResize = () => updateUnderline(hoverTab);
     window.addEventListener('resize', handleResize);
 
@@ -76,14 +76,6 @@ export function ScoreTabs() {
       window.removeEventListener('resize', handleResize);
     };
   }, [hoverTab, scoreType]);
-
-  const handleMouseEnter = (tabId: string) => {
-    setHoverTab(tabId);
-  };
-
-  const handleMouseLeave = () => {
-    setHoverTab(null);
-  };
 
   return (
     <div
@@ -106,8 +98,10 @@ export function ScoreTabs() {
         >
           <i className="fa fa-star" aria-hidden="true" />
           <span className={styles.tabLabel}>Overall</span>
-          {hoverTab === 'overall' && <Methodology />}
+          {(hoverTab === 'overall' ||
+            (!hoverTab && scoreType === 'overall')) && <Methodology />}
         </button>
+
         <button
           className={`${styles.tab} ${scoreType === 'ranking_life' ? styles.active : ''}`}
           onClick={() => setScoreType('ranking_life')}
@@ -116,7 +110,8 @@ export function ScoreTabs() {
         >
           <i className="fa fa-seedling" aria-hidden="true" />
           <span className={styles.tabLabel}>Life</span>
-          {hoverTab === 'ranking_life' && <Methodology />}
+          {(hoverTab === 'ranking_life' ||
+            (!hoverTab && scoreType === 'ranking_life')) && <Methodology />}
         </button>
         <button
           className={`${styles.tab} ${scoreType === 'ranking_health' ? styles.active : ''}`}
@@ -126,7 +121,8 @@ export function ScoreTabs() {
         >
           <i className="fa fa-heart" aria-hidden="true" />
           <span className={styles.tabLabel}>Health</span>
-          {hoverTab === 'ranking_health' && <Methodology />}
+          {(hoverTab === 'ranking_health' ||
+            (!hoverTab && scoreType === 'ranking_health')) && <Methodology />}
         </button>
         <button
           className={`${styles.tab} ${scoreType === 'ranking_education' ? styles.active : ''}`}
@@ -136,7 +132,10 @@ export function ScoreTabs() {
         >
           <i className="fa fa-graduation-cap" aria-hidden="true" />
           <span className={styles.tabLabel}>Education</span>
-          {hoverTab === 'ranking_education' && <Methodology />}
+          {(hoverTab === 'ranking_education' ||
+            (!hoverTab && scoreType === 'ranking_education')) && (
+            <Methodology />
+          )}
         </button>
         <button
           className={`${styles.tab} ${scoreType === 'ranking_protection' ? styles.active : ''}`}
@@ -146,7 +145,10 @@ export function ScoreTabs() {
         >
           <i className="fa fa-shield-alt" aria-hidden="true" />
           <span className={styles.tabLabel}>Protection</span>
-          {hoverTab === 'ranking_protection' && <Methodology />}
+          {(hoverTab === 'ranking_protection' ||
+            (!hoverTab && scoreType === 'ranking_protection')) && (
+            <Methodology />
+          )}
         </button>
         <button
           className={`${styles.tab} ${scoreType === 'ranking_environment' ? styles.active : ''}`}
@@ -156,7 +158,10 @@ export function ScoreTabs() {
         >
           <i className="fa fa-globe" aria-hidden="true" />
           <span className={styles.tabLabel}>Empowerment</span>
-          {hoverTab === 'ranking_environment' && <Methodology />}
+          {(hoverTab === 'ranking_environment' ||
+            (!hoverTab && scoreType === 'ranking_environment')) && (
+            <Methodology />
+          )}
         </button>
       </div>
     </div>

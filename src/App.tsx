@@ -8,6 +8,7 @@ import TakeActionButton from './components/TakeActionButton';
 import Search from './components/Search';
 import { GeoJsonFeature } from './types';
 import { detectMobileMode } from './utils/device';
+import TabHoverProvider from './contexts/TabHoverProvider';
 
 function App() {
   const [geoJson, setGeoJson] = useState<any>(null);
@@ -34,14 +35,16 @@ function App() {
   );
 
   return (
-    <ScoreTypeProvider>
-      <TabRow />
-      <GlobeComponent setGlobeRef={setGlobeRef} onDataLoaded={setGeoJson} />
-      <Legend />
-      <Sources />
-      <Search geoJson={geoJson} onCountryFound={handleCountryFound} />
-      <TakeActionButton />
-    </ScoreTypeProvider>
+    <TabHoverProvider>
+      <ScoreTypeProvider>
+        <TabRow />
+        <GlobeComponent setGlobeRef={setGlobeRef} onDataLoaded={setGeoJson} />
+        <Legend />
+        <Sources />
+        <Search geoJson={geoJson} onCountryFound={handleCountryFound} />
+        <TakeActionButton />
+      </ScoreTypeProvider>
+    </TabHoverProvider>
   );
 }
 

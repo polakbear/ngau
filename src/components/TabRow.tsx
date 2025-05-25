@@ -21,7 +21,7 @@ export function TabRow() {
             aria-hidden="true"
             style={{ fontSize: '20px' }}
           />
-          <span style={{ padding: '0 8px' }}>KRI</span>
+          <span style={{ padding: '0 8px' }}>Kids Rights Index</span>
           {submenuOpen ? (
             <i
               className="fa fa-chevron-up"
