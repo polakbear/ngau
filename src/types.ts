@@ -85,3 +85,12 @@ export interface HoverHandlerOptions {
 }
 
 export type DeviceType = 'desktop' | 'tablet' | 'mobile';
+
+export type TabType =
+  | 'overall'
+  | 'ranking_life'
+  | 'ranking_health'
+  | 'ranking_education'
+  | 'ranking_protection'
+  | 'ranking_environment'
+  | null;
