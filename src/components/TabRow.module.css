@@ -45,6 +45,8 @@
   box-shadow: 0 0 15px rgba(63, 209, 199, 0.15);
   position: relative;
   backdrop-filter: blur(4px);
+  min-height: 40px;
+  box-sizing: border-box;
 }
 
 .kriTab:hover,
@@ -80,7 +82,28 @@
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 6px 12px;
+  }
+
+  .submenu {
+    min-width: calc(100vw - 24px);
+    max-width: calc(100vw - 24px);
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+  }
+
   .divider {
     display: none;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .submenu {
+    min-width: calc(100vw - 48px);
+    max-width: calc(100vw - 48px);
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
