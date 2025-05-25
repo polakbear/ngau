@@ -58,22 +58,6 @@
   box-shadow: 0 0 18px rgba(63, 209, 199, 0.25);
 }
 
-.kriTab::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 15%;
-  right: 15%;
-  height: 8px;
-  background: radial-gradient(
-    ellipse at top,
-    rgba(63, 209, 199, 0.2),
-    transparent 70%
-  );
-  border-radius: 50%;
-  z-index: -1;
-}
-
 .submenu {
   position: absolute;
   top: calc(100% + 10px);

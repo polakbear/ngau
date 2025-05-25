@@ -106,7 +106,7 @@ export function ScoreTabs() {
         >
           <i className="fa fa-star" aria-hidden="true" />
           <span className={styles.tabLabel}>Overall</span>
-          {scoreType === 'overall' && <Methodology />}
+          {hoverTab === 'overall' && <Methodology />}
         </button>
         <button
           className={`${styles.tab} ${scoreType === 'ranking_life' ? styles.active : ''}`}
@@ -116,7 +116,7 @@ export function ScoreTabs() {
         >
           <i className="fa fa-seedling" aria-hidden="true" />
           <span className={styles.tabLabel}>Life</span>
-          {scoreType === 'ranking_life' && <Methodology />}
+          {hoverTab === 'ranking_life' && <Methodology />}
         </button>
         <button
           className={`${styles.tab} ${scoreType === 'ranking_health' ? styles.active : ''}`}
@@ -126,7 +126,7 @@ export function ScoreTabs() {
         >
           <i className="fa fa-heart" aria-hidden="true" />
           <span className={styles.tabLabel}>Health</span>
-          {scoreType === 'ranking_health' && <Methodology />}
+          {hoverTab === 'ranking_health' && <Methodology />}
         </button>
         <button
           className={`${styles.tab} ${scoreType === 'ranking_education' ? styles.active : ''}`}
@@ -136,7 +136,7 @@ export function ScoreTabs() {
         >
           <i className="fa fa-graduation-cap" aria-hidden="true" />
           <span className={styles.tabLabel}>Education</span>
-          {scoreType === 'ranking_education' && <Methodology />}
+          {hoverTab === 'ranking_education' && <Methodology />}
         </button>
         <button
           className={`${styles.tab} ${scoreType === 'ranking_protection' ? styles.active : ''}`}
@@ -146,7 +146,7 @@ export function ScoreTabs() {
         >
           <i className="fa fa-shield-alt" aria-hidden="true" />
           <span className={styles.tabLabel}>Protection</span>
-          {scoreType === 'ranking_protection' && <Methodology />}
+          {hoverTab === 'ranking_protection' && <Methodology />}
         </button>
         <button
           className={`${styles.tab} ${scoreType === 'ranking_environment' ? styles.active : ''}`}
@@ -156,7 +156,7 @@ export function ScoreTabs() {
         >
           <i className="fa fa-globe" aria-hidden="true" />
           <span className={styles.tabLabel}>Empowerment</span>
-          {scoreType === 'ranking_environment' && <Methodology />}
+          {hoverTab === 'ranking_environment' && <Methodology />}
         </button>
       </div>
     </div>
