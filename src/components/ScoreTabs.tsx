@@ -90,7 +90,6 @@ export function ScoreTabs() {
         onMouseLeave={handleMouseLeave}
       >
         <div className={styles.underline} ref={underlineRef}></div>
-
         <button
           className={`${styles.tab} ${scoreType === 'overall' ? styles.active : ''}`}
           onClick={() => setScoreType('overall')}
