@@ -21,7 +21,7 @@ export default function MetricRow({
     <div className={styles.metric}>
       <div className={styles.label}>
         <i className={iconClass}></i>
-        {!hideGradientAndRank ? label : ''}
+        {label}
       </div>
       <div className={styles.info}>
         <div className={styles.row}>
