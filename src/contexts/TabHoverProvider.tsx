@@ -7,7 +7,7 @@ export default function TabHoverProvider({
 }: {
   children: ReactNode;
 }) {
-  const [hoverTab, setHoverTab] = useState<TabType>('overall');
+  const [hoverTab, setHoverTab] = useState<TabType>(null);
 
   const value: TabHoverContextValue = {
     hoverTab,

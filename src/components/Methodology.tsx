@@ -1,5 +1,4 @@
 import styles from './Methodology.module.css';
-import useScoreType from '../hooks/useScoreType';
 import useTabHover from '../hooks/useTabHover';
 
 const methodologyContent = {
@@ -23,15 +22,12 @@ function isMetricType(type: string | null): type is MetricType {
 }
 
 export function Methodology() {
-  const { scoreType } = useScoreType();
   const { hoverTab } = useTabHover();
-  const activeType = hoverTab || scoreType;
-
-  if (!isMetricType(activeType)) return null;
+  if (!hoverTab || !isMetricType(hoverTab)) return null;
 
   return (
     <div className={styles.container} role="note" aria-live="polite">
-      <div className={styles.section}>{methodologyContent[activeType]}</div>
+      <div className={styles.section}>{methodologyContent[hoverTab]}</div>
     </div>
   );
 }
