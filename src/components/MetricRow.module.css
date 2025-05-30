@@ -68,6 +68,8 @@
 .performanceText {
   font-weight: 600;
   min-width: 80px;
+  display: flex;
+  justify-content: center;
 }
 
 .value {
