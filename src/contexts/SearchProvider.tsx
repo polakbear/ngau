@@ -61,14 +61,12 @@ export default function SearchProvider({ children }: { children: ReactNode }) {
         const isMobile = deviceType === 'mobile';
         const altitude = isMobile ? 2.5 : 1.7;
         const [lng, lat] = (feature as any).__centroid || [0, 0];
-        globeRef.pointOfView(
-          {
-            lat,
-            lng,
-            altitude,
-          },
-          1000
-        );
+        const coords = {
+          lat,
+          lng,
+          altitude,
+        };
+        globeRef.pointOfView(coords, 1000);
       }
     },
     [globeRef, deviceType]

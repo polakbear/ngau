@@ -1,9 +1,12 @@
-import { CountryData } from '../types';
-import MetricRow from './MetricRow';
-import IndicatorSection from './IndicatorSection';
-import { getContrastingTextColor, rankBasedColorScale } from '../utils/color';
-import { getFullLabel } from '../utils/score';
-import { useDialog } from '../hooks/useDialog';
+import { useDialog } from '../../hooks/useDialog';
+import { CountryData } from '../../types';
+import {
+  rankBasedColorScale,
+  getContrastingTextColor,
+} from '../../utils/color';
+import { getFullLabel } from '../../utils/score';
+import IndicatorSection from '../Indicators/IndicatorSection';
+import MetricRow from '../MetricRow';
 import styles from './InfoPanel.module.css';
 
 export function InfoPanel({
