@@ -6,7 +6,7 @@ import { Sources } from './components/Sources';
 import { TabRow } from './components/TabRow';
 import TakeActionButton from './components/TakeActionButton';
 import Search from './components/Search/Search';
-import { GeoDataProvider } from './contexts/GeoDataContext';
+import { GeoDataProvider } from './contexts/GeoDataProvider';
 import TabHoverProvider from './contexts/TabHoverProvider';
 
 function App() {

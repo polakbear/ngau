@@ -1,5 +1,5 @@
 import { useCallback, useRef, useEffect, useContext } from 'react';
-import { useGeoDataContext } from '../../contexts/GeoDataContext';
+import { useGeoData } from '../../hooks/useGeoData';
 import { useClickOutside } from '../../hooks/useClickOutside';
 import { GeoJsonFeature } from '../../types';
 import styles from './Search.module.css';
@@ -7,7 +7,7 @@ import { normalize } from '../../utils/utils';
 import { SearchContext } from '../../contexts/SearchContext';
 
 export default function Search() {
-  const { geoJson } = useGeoDataContext();
+  const { geoJson } = useGeoData();
   const { state, dispatch, focusCountry } = useContext(SearchContext);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);

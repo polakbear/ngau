@@ -1,6 +1,6 @@
 import { useContext, useRef, useState, useEffect } from 'react';
 import { SearchContext } from '../contexts/SearchContext';
-import { useGeoDataContext } from '../contexts/GeoDataContext';
+import { useGeoData } from '../hooks/useGeoData';
 import useScoreType from '../hooks/useScoreType';
 import { useWindowSize } from '../hooks/useWindowSize';
 import { usePolygonHover } from '../hooks/usePolygonHover';
@@ -16,7 +16,7 @@ import { useMemoizedCallback } from '../hooks/useMemoizedCallback';
 
 export default function GlobeComponent() {
   const [infoPanel, setInfoPanel] = useState<InfoPanelState>(null);
-  const { geoJson, data } = useGeoDataContext();
+  const { geoJson, data } = useGeoData();
   const dimensions = useWindowSize(100);
 
   const { hoveredFeature, tooltip, handleHover } = usePolygonHover();
