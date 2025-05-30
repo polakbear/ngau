@@ -10,9 +10,9 @@ import { InfoPanelState } from '../types';
 import { handlePolygonClick } from '../utils/poly';
 import { useDeviceType } from '../hooks/useDeviceType';
 import { Tooltip } from './Tooltip';
-import { InfoPanel } from './InfoPanel';
 import { getOrCreatePolygonMaterial } from './OptimizedPolyMaterial';
 import { useMemoizedCallback } from '../hooks/useMemoizedCallback';
+import { InfoPanel } from './InfoPanel/InfoPanel';
 
 export default function GlobeComponent() {
   const [infoPanel, setInfoPanel] = useState<InfoPanelState>(null);

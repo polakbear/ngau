@@ -1,0 +1,15 @@
+.icon {
+  font-size: 10px;
+  margin-right: 4px;
+  color: #ff9f43;
+}
+
+.iconFaded {
+  composes: icon;
+  opacity: 0.7;
+}
+
+.genderIcon {
+  composes: icon;
+  margin-right: 8px;
+}
