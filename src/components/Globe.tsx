@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
-import { useGeoData } from '../hooks/useGeoData';
+import { useGeoDataContext } from '../contexts/GeoDataContext';
 import useScoreType from '../hooks/useScoreType';
 import { useWindowSize } from '../hooks/useWindowSize';
 import { useDeviceHover } from '../hooks/useDeviceHover';
@@ -15,15 +15,10 @@ import { useMemoizedCallback } from '../hooks/useMemoizedCallback';
 
 interface GlobeComponentProps {
   setGlobeRef: (ref: any) => void;
-  onDataLoaded: (geoJson: any) => void;
 }
-
-export default function GlobeComponent({
-  setGlobeRef,
-  onDataLoaded,
-}: GlobeComponentProps) {
+export default function GlobeComponent({ setGlobeRef }: GlobeComponentProps) {
   const [infoPanel, setInfoPanel] = useState<InfoPanelState>(null);
-  const { geoJson, data } = useGeoData(onDataLoaded);
+  const { geoJson, data } = useGeoDataContext();
   const dimensions = useWindowSize(100);
 
   const { hoverD, tooltip, handleHover } = useDeviceHover();

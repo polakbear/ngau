@@ -1,4 +1,5 @@
 import { useCallback, useRef, useEffect, useReducer } from 'react';
+import { useGeoDataContext } from '../../contexts/GeoDataContext';
 import { useClickOutside } from '../../hooks/useClickOutside';
 import { GeoJsonFeature } from '../../types';
 import styles from './Search.module.css';
@@ -7,11 +8,11 @@ import { SearchState } from './types';
 import { searchReducer } from './reducer';
 
 interface SearchProps {
-  geoJson: any;
   onCountryFound: (feature: GeoJsonFeature) => void;
 }
 
-export default function Search({ geoJson, onCountryFound }: SearchProps) {
+export default function Search({ onCountryFound }: SearchProps) {
+  const { geoJson } = useGeoDataContext();
   const searchInputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 

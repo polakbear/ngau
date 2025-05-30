@@ -1,37 +1,41 @@
 import { DeviceType } from '../types';
 
-export function detectMobileMode(): boolean {
+export function detectDeviceType(): DeviceType {
+  const width = window.innerWidth;
   const userAgent = navigator.userAgent.toLowerCase();
 
   const mobileKeywords = [
     'mobile',
     'android',
     'iphone',
-    'ipad',
     'ipod',
     'blackberry',
     'windows phone',
     'webos',
   ];
+  const tabletKeywords = [
+    'ipad',
+    'tablet',
+    'kindle',
+    'playbook',
+    'silk',
+    'nexus 7',
+    'nexus 10',
+    'sm-t', // Samsung tablets
+  ];
 
   const isEdgeMobile =
     userAgent.includes('edg') && userAgent.includes('mobile');
-
   const hasMobileKeyword = mobileKeywords.some((keyword) =>
     userAgent.includes(keyword)
   );
+  const hasTabletKeyword = tabletKeywords.some((keyword) =>
+    userAgent.includes(keyword)
+  );
 
-  const isSmallScreen = window.innerWidth <= 768;
-
-  return isEdgeMobile || hasMobileKeyword || isSmallScreen;
-}
-
-export function detectDeviceType(): DeviceType {
-  const width = window.innerWidth;
-
-  if (width <= 767) {
+  if (isEdgeMobile || hasMobileKeyword || width <= 767) {
     return 'mobile';
-  } else if (width <= 1024) {
+  } else if (hasTabletKeyword || (width > 767 && width <= 1024)) {
     return 'tablet';
   } else {
     return 'desktop';

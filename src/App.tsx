@@ -8,11 +8,10 @@ import TakeActionButton from './components/TakeActionButton';
 import Search from './components/Search/Search';
 import { GeoJsonFeature } from './types';
 import { useDeviceType } from './hooks/useDeviceType';
+import { GeoDataProvider } from './contexts/GeoDataContext';
 import TabHoverProvider from './contexts/TabHoverProvider';
 
-
 function App() {
-  const [geoJson, setGeoJson] = useState<any>(null);
   const [globeRef, setGlobeRef] = useState<any>(null);
   const deviceType = useDeviceType();
 
@@ -38,12 +37,14 @@ function App() {
   return (
     <TabHoverProvider>
       <ScoreTypeProvider>
-        <TabRow />
-        <GlobeComponent setGlobeRef={setGlobeRef} onDataLoaded={setGeoJson} />
-        <Legend />
-        <Sources />
-        <Search geoJson={geoJson} onCountryFound={handleCountryFound} />
-        <TakeActionButton />
+        <GeoDataProvider>
+          <TabRow />
+          <GlobeComponent setGlobeRef={setGlobeRef} />
+          <Legend />
+          <Sources />
+          <Search onCountryFound={handleCountryFound} />
+          <TakeActionButton />
+        </GeoDataProvider>
       </ScoreTypeProvider>
     </TabHoverProvider>
   );
