@@ -1,6 +1,9 @@
 import * as d3 from 'd3-scale';
 import { Nullable } from '../types';
 
+const MAX_RANK = 194;
+const NUM_STOPS = 20;
+
 export const colors = {
   excellent: '#00C2B2',
   good: '#1B9C8C',
@@ -12,7 +15,7 @@ export const colors = {
 
 export const rankBasedColorScale = d3
   .scaleLinear<string>()
-  .domain([1, 194])
+  .domain([1, MAX_RANK])
   .range([colors.excellent, colors.veryPoor]);
 
 export function getContrastingTextColor(color: string): 'white' | 'black' {
@@ -72,4 +75,17 @@ export function getColorFromRank(rank: number | null, total: number): string {
 export function getBarColor(rank: Nullable): string {
   if (rank == null) return colors.noData;
   return rankBasedColorScale(rank);
+}
+
+export function getGradientStyle() {
+  const colorStops: string[] = [];
+  for (let i = 0; i < NUM_STOPS; i++) {
+    const rank = Math.round(MAX_RANK - (i * (MAX_RANK - 1)) / (NUM_STOPS - 1));
+    const percent = (i / (NUM_STOPS - 1)) * 100;
+    const color = rankBasedColorScale(rank);
+    colorStops.push(`${color} ${percent}%`);
+  }
+  return {
+    background: `linear-gradient(to right, ${colorStops.join(', ')})`,
+  };
 }

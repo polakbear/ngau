@@ -1,24 +1,8 @@
-import { useMemo } from 'react';
-import { rankBasedColorScale } from '../utils/color';
+import { getGradientStyle } from '../utils/color';
 import styles from './Legend.module.css';
 
 export function Legend() {
-  const gradientStyle = useMemo(() => {
-    const MAX_RANK = 194;
-    const colorStops: string[] = [];
-    const numStops = 20;
-
-    for (let i = 0; i < numStops; i++) {
-      const rank = Math.round(MAX_RANK - (i * (MAX_RANK - 1)) / (numStops - 1));
-      const percent = (i / (numStops - 1)) * 100;
-      const color = rankBasedColorScale(rank);
-      colorStops.push(`${color} ${percent}%`);
-    }
-
-    return {
-      background: `linear-gradient(to right, ${colorStops.join(', ')})`,
-    };
-  }, []);
+  const gradientStyle = getGradientStyle();
 
   return (
     <div className={styles.legend}>
