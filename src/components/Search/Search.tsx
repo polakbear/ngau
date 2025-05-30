@@ -1,4 +1,5 @@
 import { useCallback, useRef, useEffect, useReducer } from 'react';
+import { useClickOutside } from '../../hooks/useClickOutside';
 import { GeoJsonFeature } from '../../types';
 import styles from './Search.module.css';
 import { normalize } from '../../utils/utils';
@@ -32,22 +33,10 @@ export default function Search({ geoJson, onCountryFound }: SearchProps) {
     }
   }, [state.isExpanded]);
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        containerRef.current &&
-        !containerRef.current.contains(event.target as Node)
-      ) {
-        dispatch({ type: 'SET_EXPANDED', expanded: false });
-        dispatch({ type: 'RESET' });
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
+  useClickOutside(containerRef as React.RefObject<HTMLElement>, () => {
+    dispatch({ type: 'SET_EXPANDED', expanded: false });
+    dispatch({ type: 'RESET' });
+  });
 
   const handleSearch = useCallback(
     (query: string) => {
