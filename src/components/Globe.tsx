@@ -1,16 +1,16 @@
 import { useRef, useState, useEffect } from 'react';
+import { useGeoData } from '../hooks/useGeoData';
+import useScoreType from '../hooks/useScoreType';
 import { useWindowSize } from '../hooks/useWindowSize';
+import { useDeviceHover } from '../hooks/useDeviceHover';
 import Globe from 'react-globe.gl';
 // import { geoCentroid } from 'd3-geo';
 import { InfoPanelState } from '../types';
-import { useGeoData } from '../hooks/useGeoData';
 import { handlePolygonClick } from '../utils/poly';
 import { detectMobileMode } from '../utils/device';
 import { Tooltip } from './Tooltip';
 import { InfoPanel } from './InfoPanel';
-import useScoreType from '../hooks/useScoreType';
 import { getOrCreatePolygonMaterial } from './OptimizedPolyMaterial';
-import { useDeviceHover } from '../hooks/useDeviceHover';
 
 interface GlobeComponentProps {
   setGlobeRef: (ref: any) => void;
