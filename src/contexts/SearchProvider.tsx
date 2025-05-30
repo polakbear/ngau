@@ -1,5 +1,7 @@
-import { useReducer, ReactNode } from 'react';
+import { useReducer, ReactNode, useState, useCallback } from 'react';
 import { SearchContext, SearchState, SearchAction } from './SearchContext';
+import { GeoJsonFeature } from '../types';
+import { useDeviceType } from '../hooks/useDeviceType';
 
 const initialState: SearchState = {
   searchQuery: '',
@@ -21,7 +23,7 @@ function searchReducer(
         suggestions: action.suggestions,
         selectedIndex: -1,
       };
-    case 'SET_EXPANDED':
+    case 'SET_SUGGESTIONS_DROPDOWN_OPEN':
       return {
         ...state,
         isExpanded: action.expanded,
@@ -50,8 +52,32 @@ export default function SearchProvider({ children }: { children: ReactNode }) {
     initialState
   );
 
+  const [globeRef, setGlobeRef] = useState<any>(null);
+  const deviceType = useDeviceType();
+
+  const focusCountry = useCallback(
+    (feature: GeoJsonFeature) => {
+      if (globeRef && feature.properties) {
+        const isMobile = deviceType === 'mobile';
+        const altitude = isMobile ? 2.5 : 1.7;
+        const [lng, lat] = (feature as any).__centroid || [0, 0];
+        globeRef.pointOfView(
+          {
+            lat,
+            lng,
+            altitude,
+          },
+          1000
+        );
+      }
+    },
+    [globeRef, deviceType]
+  );
+
   return (
-    <SearchContext.Provider value={{ state, dispatch }}>
+    <SearchContext.Provider
+      value={{ state, dispatch, globeRef, setGlobeRef, focusCountry }}
+    >
       {children}
     </SearchContext.Provider>
   );
