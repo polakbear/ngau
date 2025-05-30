@@ -6,6 +6,7 @@ import { Sources } from './components/Sources';
 import { TabRow } from './components/TabRow';
 import TakeActionButton from './components/TakeActionButton';
 import Search from './components/Search/Search';
+import SearchProvider from './contexts/SearchProvider';
 import { GeoJsonFeature } from './types';
 import { useDeviceType } from './hooks/useDeviceType';
 import { GeoDataProvider } from './contexts/GeoDataContext';
@@ -38,12 +39,14 @@ function App() {
     <TabHoverProvider>
       <ScoreTypeProvider>
         <GeoDataProvider>
-          <TabRow />
-          <GlobeComponent setGlobeRef={setGlobeRef} />
-          <Legend />
-          <Sources />
-          <Search onCountryFound={handleCountryFound} />
-          <TakeActionButton />
+          <SearchProvider>
+            <TabRow />
+            <GlobeComponent setGlobeRef={setGlobeRef} />
+            <Legend />
+            <Sources />
+            <Search onCountryFound={handleCountryFound} />
+            <TakeActionButton />
+          </SearchProvider>
         </GeoDataProvider>
       </ScoreTypeProvider>
     </TabHoverProvider>

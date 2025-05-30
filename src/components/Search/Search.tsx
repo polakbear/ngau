@@ -1,11 +1,10 @@
-import { useCallback, useRef, useEffect, useReducer } from 'react';
+import { useCallback, useRef, useEffect, useContext } from 'react';
 import { useGeoDataContext } from '../../contexts/GeoDataContext';
 import { useClickOutside } from '../../hooks/useClickOutside';
 import { GeoJsonFeature } from '../../types';
 import styles from './Search.module.css';
 import { normalize } from '../../utils/utils';
-import { SearchState } from './types';
-import { searchReducer } from './reducer';
+import { SearchContext } from '../../contexts/SearchContext';
 
 interface SearchProps {
   onCountryFound: (feature: GeoJsonFeature) => void;
@@ -13,20 +12,9 @@ interface SearchProps {
 
 export default function Search({ onCountryFound }: SearchProps) {
   const { geoJson } = useGeoDataContext();
+  const { state, dispatch } = useContext(SearchContext);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-
-  const initialState: SearchState = {
-    searchQuery: '',
-    isExpanded: false,
-    suggestions: [],
-    selectedIndex: -1,
-  };
-
-  const [state, dispatch] = useReducer(
-    (state, action) => searchReducer(state, action, initialState),
-    initialState
-  );
 
   useEffect(() => {
     if (state.isExpanded && searchInputRef.current) {
@@ -62,7 +50,7 @@ export default function Search({ onCountryFound }: SearchProps) {
 
       dispatch({ type: 'SET_QUERY', query, suggestions: matches });
     },
-    [geoJson]
+    [geoJson, dispatch]
   );
 
   const handleKeyDown = useCallback(
@@ -95,7 +83,7 @@ export default function Search({ onCountryFound }: SearchProps) {
         dispatch({ type: 'RESET' });
       }
     },
-    [state.suggestions, state.selectedIndex, onCountryFound]
+    [state.suggestions, state.selectedIndex, onCountryFound, dispatch]
   );
 
   return (
