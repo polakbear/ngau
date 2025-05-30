@@ -7,18 +7,19 @@ import { TabRow } from './components/TabRow';
 import TakeActionButton from './components/TakeActionButton';
 import Search from './components/Search/Search';
 import { GeoJsonFeature } from './types';
-import { detectMobileMode } from './utils/device';
+import { useDeviceType } from './hooks/useDeviceType';
 import TabHoverProvider from './contexts/TabHoverProvider';
+
 
 function App() {
   const [geoJson, setGeoJson] = useState<any>(null);
-
   const [globeRef, setGlobeRef] = useState<any>(null);
+  const deviceType = useDeviceType();
 
   const handleCountryFound = useCallback(
     (feature: GeoJsonFeature) => {
       if (globeRef && feature.properties) {
-        const isMobile = detectMobileMode();
+        const isMobile = deviceType === 'mobile';
         const altitude = isMobile ? 2.5 : 1.7;
         const [lng, lat] = (feature as any).__centroid || [0, 0];
         globeRef.pointOfView(
@@ -31,7 +32,7 @@ function App() {
         );
       }
     },
-    [globeRef]
+    [globeRef, deviceType]
   );
 
   return (
