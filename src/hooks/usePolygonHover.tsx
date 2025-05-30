@@ -5,7 +5,6 @@ import { useDeviceType } from './useDeviceType';
 
 /**
  * Combines polygon hover logic (tooltip, hover state, mouse tracking) into a single hook.
- * Returns: { hoveredFeature, tooltip, handleHover, isDesktop }
  */
 export function usePolygonHover() {
   const [hoveredFeature, setHoveredFeature] = useState<GeoJsonFeature | null>(
