@@ -1,5 +1,5 @@
 /* Organizations panel shown by ScoreTabs */
-import { useEffect, useRef } from 'react';
+import { useDialog } from '../hooks/useDialog';
 import styles from './Organizations.module.css';
 
 interface OrganizationsProps {
@@ -7,35 +7,7 @@ interface OrganizationsProps {
 }
 
 export function Organizations({ onClose }: OrganizationsProps) {
-  const dialogRef = useRef<HTMLDialogElement>(null);
-
-  useEffect(() => {
-    const dialog = dialogRef.current;
-    if (dialog && !dialog.open) {
-      dialog.showModal();
-    }
-
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
-    };
-
-    const handleClickOutside = (e: MouseEvent) => {
-      const dialog = dialogRef.current;
-      if (dialog && e.target === dialog) {
-        onClose();
-      }
-    };
-
-    window.addEventListener('keydown', handleEscape);
-    window.addEventListener('mousedown', handleClickOutside);
-
-    return () => {
-      window.removeEventListener('keydown', handleEscape);
-      window.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [onClose]);
+  const dialogRef = useDialog(onClose);
 
   return (
     <dialog
