@@ -100,7 +100,7 @@ export function Tooltip({
                 i.indicator_type === 'male_child_marriage'
             ) && (
               <div className={styles.indicatorItem}>
-                <i className="fas fa-ring" style={{ color: '#ff9f43' }} />
+                <i className="fas fa-ring" />
                 <span>Child Marriage</span>
               </div>
             )}
@@ -108,16 +108,13 @@ export function Tooltip({
               (i) => i.indicator_type === 'violent_discipline'
             ) && (
               <div className={styles.indicatorItem}>
-                <i className="fas fa-hand" style={{ color: '#ff9f43' }} />
+                <i className="fas fa-hand" />
                 <span>Violent Discipline</span>
               </div>
             )}
             {country.indicators.some((i) => i.indicator_type === 'fgm') && (
               <div className={styles.indicatorItem}>
-                <i
-                  className="fas fa-triangle-exclamation"
-                  style={{ color: '#ff9f43' }}
-                />
+                <i className="fas fa-triangle-exclamation" />
                 <span>FGM</span>
               </div>
             )}
