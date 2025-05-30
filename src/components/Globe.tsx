@@ -11,6 +11,7 @@ import { detectMobileMode } from '../utils/device';
 import { Tooltip } from './Tooltip';
 import { InfoPanel } from './InfoPanel';
 import { getOrCreatePolygonMaterial } from './OptimizedPolyMaterial';
+import { useMemoizedCallback } from '../hooks/useMemoizedCallback';
 
 interface GlobeComponentProps {
   setGlobeRef: (ref: any) => void;
@@ -58,14 +59,10 @@ export default function GlobeComponent({
     return getOrCreatePolygonMaterial(d, data, hoverD, 0, scoreType);
   };
 
-  const handlePolygonClickMemoized = useRef((feat: any) =>
-    handlePolygonClick(feat, data, () => {}, setInfoPanel)
+  const handlePolygonClickMemoized = useMemoizedCallback(
+    (feat: any) => handlePolygonClick(feat, data, () => {}, setInfoPanel),
+    [data, setInfoPanel]
   );
-
-  useEffect(() => {
-    handlePolygonClickMemoized.current = (feat: any) =>
-      handlePolygonClick(feat, data, () => {}, setInfoPanel);
-  }, [data, setInfoPanel]);
 
   return (
     <div
@@ -82,7 +79,7 @@ export default function GlobeComponent({
         polygonAltitude={(d) => (d === hoverD ? 0.02 : 0.01)}
         polygonsTransitionDuration={300}
         onPolygonHover={(polygon) => handleHover(polygon, data)}
-        onPolygonClick={handlePolygonClickMemoized.current}
+        onPolygonClick={handlePolygonClickMemoized}
         globeImageUrl=""
         showAtmosphere
         atmosphereColor="#3fd1c7"
