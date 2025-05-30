@@ -6,13 +6,9 @@ import styles from './Search.module.css';
 import { normalize } from '../../utils/utils';
 import { SearchContext } from '../../contexts/SearchContext';
 
-interface SearchProps {
-  onCountryFound: (feature: GeoJsonFeature) => void;
-}
-
-export default function Search({ onCountryFound }: SearchProps) {
+export default function Search() {
   const { geoJson } = useGeoDataContext();
-  const { state, dispatch } = useContext(SearchContext);
+  const { state, dispatch, focusCountry } = useContext(SearchContext);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -23,7 +19,7 @@ export default function Search({ onCountryFound }: SearchProps) {
   }, [state.isExpanded]);
 
   useClickOutside(containerRef as React.RefObject<HTMLElement>, () => {
-    dispatch({ type: 'SET_EXPANDED', expanded: false });
+    dispatch({ type: 'SET_SUGGESTIONS_DROPDOWN_OPEN', expanded: false });
     dispatch({ type: 'RESET' });
   });
 
@@ -78,12 +74,12 @@ export default function Search({ onCountryFound }: SearchProps) {
         state.selectedIndex >= 0 &&
         state.selectedIndex < state.suggestions.length
       ) {
-        onCountryFound(state.suggestions[state.selectedIndex]);
-        dispatch({ type: 'SET_EXPANDED', expanded: false });
+        focusCountry(state.suggestions[state.selectedIndex]);
+        dispatch({ type: 'SET_SUGGESTIONS_DROPDOWN_OPEN', expanded: false });
         dispatch({ type: 'RESET' });
       }
     },
-    [state.suggestions, state.selectedIndex, onCountryFound, dispatch]
+    [state.suggestions, state.selectedIndex, focusCountry, dispatch]
   );
 
   return (
@@ -91,7 +87,10 @@ export default function Search({ onCountryFound }: SearchProps) {
       <button
         className={`${styles.searchButton} ${state.isExpanded ? styles.active : ''}`}
         onClick={() =>
-          dispatch({ type: 'SET_EXPANDED', expanded: !state.isExpanded })
+          dispatch({
+            type: 'SET_SUGGESTIONS_DROPDOWN_OPEN',
+            expanded: !state.isExpanded,
+          })
         }
         aria-label="Toggle search"
       >
@@ -119,8 +118,11 @@ export default function Search({ onCountryFound }: SearchProps) {
                   index === state.selectedIndex ? styles.selected : ''
                 }`}
                 onClick={() => {
-                  onCountryFound(feature);
-                  dispatch({ type: 'SET_EXPANDED', expanded: false });
+                  focusCountry(feature);
+                  dispatch({
+                    type: 'SET_SUGGESTIONS_DROPDOWN_OPEN',
+                    expanded: false,
+                  });
                   dispatch({ type: 'RESET' });
                 }}
               >

@@ -10,7 +10,7 @@ export type SearchState = {
 
 export type SearchAction =
   | { type: 'SET_QUERY'; query: string; suggestions: GeoJsonFeature[] }
-  | { type: 'SET_EXPANDED'; expanded: boolean }
+  | { type: 'SET_SUGGESTIONS_DROPDOWN_OPEN'; expanded: boolean }
   | { type: 'SET_SUGGESTIONS'; suggestions: GeoJsonFeature[] }
   | { type: 'SET_SELECTED_INDEX'; index: number }
   | { type: 'RESET' };
@@ -18,6 +18,9 @@ export type SearchAction =
 export interface SearchContextValue {
   state: SearchState;
   dispatch: React.Dispatch<SearchAction>;
+  globeRef: any;
+  setGlobeRef: (ref: any) => void;
+  focusCountry: (feature: GeoJsonFeature) => void;
 }
 
 const defaultContextValue: SearchContextValue = {
@@ -28,6 +31,9 @@ const defaultContextValue: SearchContextValue = {
     selectedIndex: -1,
   },
   dispatch: () => {},
+  globeRef: null,
+  setGlobeRef: () => {},
+  focusCountry: () => {},
 };
 
 export const SearchContext =
