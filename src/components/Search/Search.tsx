@@ -1,38 +1,24 @@
-import { useCallback, useRef, useEffect, useReducer } from 'react';
+import { useCallback, useRef, useEffect } from 'react';
 import { useGeoDataContext } from '../../contexts/GeoDataContext';
 import { useClickOutside } from '../../hooks/useClickOutside';
 import { GeoJsonFeature } from '../../types';
 import styles from './Search.module.css';
 import { normalize } from '../../utils/utils';
-import { SearchState } from './types';
-import { searchReducer } from './reducer';
+import { useSearchContext } from '../../contexts/SearchContext';
 
-interface SearchProps {
-  onCountryFound: (feature: GeoJsonFeature) => void;
-}
-
-export default function Search({ onCountryFound }: SearchProps) {
+export default function Search() {
   const { geoJson } = useGeoDataContext();
   const searchInputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const initialState: SearchState = {
-    searchQuery: '',
-    isExpanded: false,
-    suggestions: [],
-    selectedIndex: -1,
-  };
-
-  const [state, dispatch] = useReducer(
-    (state, action) => searchReducer(state, action, initialState),
-    initialState
-  );
+  const { searchQuery, isExpanded, suggestions, selectedIndex, dispatch } =
+    useSearchContext();
 
   useEffect(() => {
-    if (state.isExpanded && searchInputRef.current) {
+    if (isExpanded && searchInputRef.current) {
       searchInputRef.current.focus();
     }
-  }, [state.isExpanded]);
+  }, [isExpanded]);
 
   useClickOutside(containerRef as React.RefObject<HTMLElement>, () => {
     dispatch({ type: 'SET_EXPANDED', expanded: false });
@@ -62,7 +48,7 @@ export default function Search({ onCountryFound }: SearchProps) {
 
       dispatch({ type: 'SET_QUERY', query, suggestions: matches });
     },
-    [geoJson]
+    [geoJson, dispatch]
   );
 
   const handleKeyDown = useCallback(
@@ -72,66 +58,61 @@ export default function Search({ onCountryFound }: SearchProps) {
         dispatch({
           type: 'SET_SELECTED_INDEX',
           index:
-            state.selectedIndex < state.suggestions.length - 1
-              ? state.selectedIndex + 1
-              : state.selectedIndex,
+            selectedIndex < suggestions.length - 1
+              ? selectedIndex + 1
+              : selectedIndex,
         });
       } else if (e.key === 'ArrowUp') {
         e.preventDefault();
         dispatch({
           type: 'SET_SELECTED_INDEX',
-          index:
-            state.selectedIndex > 0
-              ? state.selectedIndex - 1
-              : state.selectedIndex,
+          index: selectedIndex > 0 ? selectedIndex - 1 : selectedIndex,
         });
       } else if (
         e.key === 'Enter' &&
-        state.selectedIndex >= 0 &&
-        state.selectedIndex < state.suggestions.length
+        selectedIndex >= 0 &&
+        selectedIndex < suggestions.length
       ) {
-        onCountryFound(state.suggestions[state.selectedIndex]);
         dispatch({ type: 'SET_EXPANDED', expanded: false });
         dispatch({ type: 'RESET' });
       }
     },
-    [state.suggestions, state.selectedIndex, onCountryFound]
+    [suggestions, selectedIndex, dispatch]
   );
 
   return (
     <div className={styles.searchContainer} ref={containerRef}>
       <button
-        className={`${styles.searchButton} ${state.isExpanded ? styles.active : ''}`}
+        className={`${styles.searchButton} ${isExpanded ? styles.active : ''}`}
         onClick={() =>
-          dispatch({ type: 'SET_EXPANDED', expanded: !state.isExpanded })
+          dispatch({ type: 'SET_EXPANDED', expanded: !isExpanded })
         }
         aria-label="Toggle search"
       >
         <i className="fas fa-search" aria-hidden="true" />
       </button>
       <div
-        className={`${styles.searchInputContainer} ${state.isExpanded ? styles.expanded : ''}`}
+        className={`${styles.searchInputContainer} ${isExpanded ? styles.expanded : ''}`}
       >
         <input
           ref={searchInputRef}
           type="text"
           className={styles.searchInput}
           placeholder="Search for a country..."
-          value={state.searchQuery}
+          value={searchQuery}
           onChange={(e) => handleSearch(e.target.value)}
           onKeyDown={handleKeyDown}
         />
 
-        {state.suggestions.length > 0 && state.isExpanded && (
+        {suggestions.length > 0 && isExpanded && (
           <ul className={styles.suggestionsList}>
-            {state.suggestions.map((feature, index) => (
+            {suggestions.map((feature, index) => (
               <li
                 key={feature.properties.ADMIN}
                 className={`${styles.suggestionItem} ${
-                  index === state.selectedIndex ? styles.selected : ''
+                  index === selectedIndex ? styles.selected : ''
                 }`}
                 onClick={() => {
-                  onCountryFound(feature);
                   dispatch({ type: 'SET_EXPANDED', expanded: false });
                   dispatch({ type: 'RESET' });
                 }}

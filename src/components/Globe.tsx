@@ -13,10 +13,7 @@ import { InfoPanel } from './InfoPanel';
 import { getOrCreatePolygonMaterial } from './OptimizedPolyMaterial';
 import { useMemoizedCallback } from '../hooks/useMemoizedCallback';
 
-interface GlobeComponentProps {
-  setGlobeRef: (ref: any) => void;
-}
-export default function GlobeComponent({ setGlobeRef }: GlobeComponentProps) {
+export default function GlobeComponent() {
   const [infoPanel, setInfoPanel] = useState<InfoPanelState>(null);
   const { geoJson, data } = useGeoDataContext();
   const dimensions = useWindowSize(100);
@@ -32,13 +29,12 @@ export default function GlobeComponent({ setGlobeRef }: GlobeComponentProps) {
 
   useEffect(() => {
     if (globeRef.current) {
-      setGlobeRef(globeRef.current);
       globeRef.current.pointOfView(
         { lat: 0, lng: 0, altitude: mobileMode ? 4 : 2.5 },
         0
       );
     }
-  }, [globeRef, mobileMode, setGlobeRef]);
+  }, [mobileMode]);
 
   useEffect(() => {
     function onMouseMove(e: MouseEvent) {
