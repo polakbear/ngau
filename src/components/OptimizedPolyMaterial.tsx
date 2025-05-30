@@ -10,13 +10,13 @@ const MAX_CACHE_SIZE = 500;
 export function getOrCreatePolygonMaterial(
   d: any,
   data: CountryData[],
-  hoverD: GeoJsonFeature | null,
+  hoveredFeature: GeoJsonFeature | null,
   desaturationProgress: number,
   scoreType: string = 'overall'
 ): THREE.MeshLambertMaterial {
   const countryName = normalize(d.properties.ADMIN);
 
-  const isHovered = hoverD && d === hoverD;
+  const isHovered = hoveredFeature && d === hoveredFeature;
   const cacheKey = `${countryName}_${scoreType}_${isHovered ? 1 : 0}`;
 
   if (materialCache.has(cacheKey)) {
@@ -53,7 +53,11 @@ export function getOrCreatePolygonMaterial(
     return material;
   }
 
-  const opacity = !hoverD ? 1 : isHovered ? 1 : 1 - 0.7 * desaturationProgress;
+  const opacity = !hoveredFeature
+    ? 1
+    : isHovered
+      ? 1
+      : 1 - 0.7 * desaturationProgress;
   const baseColor = rankBasedColorScale(rank);
 
   const material = new THREE.MeshLambertMaterial({

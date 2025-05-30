@@ -21,7 +21,7 @@ export default function GlobeComponent({ setGlobeRef }: GlobeComponentProps) {
   const { geoJson, data } = useGeoDataContext();
   const dimensions = useWindowSize(100);
 
-  const { hoverD, tooltip, handleHover } = usePolygonHover();
+  const { hoveredFeature, tooltip, handleHover } = usePolygonHover();
   const { scoreType } = useScoreType();
   const deviceType = useDeviceType();
   const mobileMode = deviceType === 'mobile';
@@ -52,7 +52,7 @@ export default function GlobeComponent({ setGlobeRef }: GlobeComponentProps) {
   }, [tooltip]);
 
   const getPolygonCapMaterial = (d: any) => {
-    return getOrCreatePolygonMaterial(d, data, hoverD, 0, scoreType);
+    return getOrCreatePolygonMaterial(d, data, hoveredFeature, 0, scoreType);
   };
 
   const handlePolygonClickMemoized = useMemoizedCallback(
@@ -72,7 +72,7 @@ export default function GlobeComponent({ setGlobeRef }: GlobeComponentProps) {
         polygonsData={geoJson ? geoJson.features : []}
         polygonCapMaterial={getPolygonCapMaterial}
         polygonSideColor={() => '#000000'}
-        polygonAltitude={(d) => (d === hoverD ? 0.02 : 0.01)}
+        polygonAltitude={(d) => (d === hoveredFeature ? 0.02 : 0.01)}
         polygonsTransitionDuration={300}
         onPolygonHover={(polygon) => handleHover(polygon, data)}
         onPolygonClick={handlePolygonClickMemoized}

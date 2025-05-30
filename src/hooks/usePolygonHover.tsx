@@ -5,10 +5,12 @@ import { useDeviceType } from './useDeviceType';
 
 /**
  * Combines polygon hover logic (tooltip, hover state, mouse tracking) into a single hook.
- * Returns: { hoverD, tooltip, handleHover, isDesktop }
+ * Returns: { hoveredFeature, tooltip, handleHover, isDesktop }
  */
 export function usePolygonHover() {
-  const [hoverD, setHoverD] = useState<GeoJsonFeature | null>(null);
+  const [hoveredFeature, setHoveredFeature] = useState<GeoJsonFeature | null>(
+    null
+  );
   const [tooltip, setTooltip] = useState<TooltipState>(null);
   const mousePositionRef = useRef({ x: 0, y: 0 });
   const deviceType = useDeviceType();
@@ -39,17 +41,17 @@ export function usePolygonHover() {
             country,
           });
         }
-        setHoverD(feature);
+        setHoveredFeature(feature);
       } else {
         setTooltip(null);
-        setHoverD(null);
+        setHoveredFeature(null);
       }
     },
     [isDesktop]
   );
 
   return {
-    hoverD,
+    hoveredFeature,
     tooltip,
     handleHover,
     isDesktop,

@@ -75,7 +75,7 @@ export interface HoverHandlerOptions {
   data: CountryData[];
   setTooltip: React.Dispatch<React.SetStateAction<TooltipState | null>>;
   setInfoPanel: React.Dispatch<React.SetStateAction<string | null>>;
-  setHoverD: (d: GeoJsonFeature | null) => void;
+  setHoveredFeature: (d: GeoJsonFeature | null) => void;
   animateDesaturation: (
     world: any,
     target: number,
