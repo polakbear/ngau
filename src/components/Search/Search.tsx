@@ -1,7 +1,9 @@
-import { useCallback, useState, useRef, useEffect } from 'react';
-import { GeoJsonFeature } from '../types';
+import { useCallback, useRef, useEffect, useReducer } from 'react';
+import { GeoJsonFeature } from '../../types';
 import styles from './Search.module.css';
-import { normalize } from '../utils/utils';
+import { normalize } from '../../utils/utils';
+import { SearchState } from './types';
+import { searchReducer } from './reducer';
 
 interface SearchProps {
   geoJson: any;
@@ -9,19 +11,26 @@ interface SearchProps {
 }
 
 export default function Search({ geoJson, onCountryFound }: SearchProps) {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [isExpanded, setIsExpanded] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const [suggestions, setSuggestions] = useState<GeoJsonFeature[]>([]);
-  const [selectedIndex, setSelectedIndex] = useState(-1);
+  const initialState: SearchState = {
+    searchQuery: '',
+    isExpanded: false,
+    suggestions: [],
+    selectedIndex: -1,
+  };
+
+  const [state, dispatch] = useReducer(
+    (state, action) => searchReducer(state, action, initialState),
+    initialState
+  );
 
   useEffect(() => {
-    if (isExpanded && searchInputRef.current) {
+    if (state.isExpanded && searchInputRef.current) {
       searchInputRef.current.focus();
     }
-  }, [isExpanded]);
+  }, [state.isExpanded]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -29,8 +38,8 @@ export default function Search({ geoJson, onCountryFound }: SearchProps) {
         containerRef.current &&
         !containerRef.current.contains(event.target as Node)
       ) {
-        setIsExpanded(false);
-        setSearchQuery('');
+        dispatch({ type: 'SET_EXPANDED', expanded: false });
+        dispatch({ type: 'RESET' });
       }
     };
 
@@ -42,11 +51,8 @@ export default function Search({ geoJson, onCountryFound }: SearchProps) {
 
   const handleSearch = useCallback(
     (query: string) => {
-      setSearchQuery(query);
-      setSelectedIndex(-1);
-
       if (!query || !geoJson?.features) {
-        setSuggestions([]);
+        dispatch({ type: 'SET_QUERY', query, suggestions: [] });
         return;
       }
 
@@ -62,9 +68,9 @@ export default function Search({ geoJson, onCountryFound }: SearchProps) {
           );
           return adminMatch || nameMatch;
         })
-        .slice(0, 5); // Limit to 5 suggestions
+        .slice(0, 5);
 
-      setSuggestions(matches);
+      dispatch({ type: 'SET_QUERY', query, suggestions: matches });
     },
     [geoJson]
   );
@@ -73,61 +79,71 @@ export default function Search({ geoJson, onCountryFound }: SearchProps) {
     (e: React.KeyboardEvent) => {
       if (e.key === 'ArrowDown') {
         e.preventDefault();
-        setSelectedIndex((prev) =>
-          prev < suggestions.length - 1 ? prev + 1 : prev
-        );
+        dispatch({
+          type: 'SET_SELECTED_INDEX',
+          index:
+            state.selectedIndex < state.suggestions.length - 1
+              ? state.selectedIndex + 1
+              : state.selectedIndex,
+        });
       } else if (e.key === 'ArrowUp') {
         e.preventDefault();
-        setSelectedIndex((prev) => (prev > 0 ? prev - 1 : prev));
+        dispatch({
+          type: 'SET_SELECTED_INDEX',
+          index:
+            state.selectedIndex > 0
+              ? state.selectedIndex - 1
+              : state.selectedIndex,
+        });
       } else if (
         e.key === 'Enter' &&
-        selectedIndex >= 0 &&
-        selectedIndex < suggestions.length
+        state.selectedIndex >= 0 &&
+        state.selectedIndex < state.suggestions.length
       ) {
-        onCountryFound(suggestions[selectedIndex]);
-        setIsExpanded(false);
-        setSearchQuery('');
-        setSuggestions([]);
+        onCountryFound(state.suggestions[state.selectedIndex]);
+        dispatch({ type: 'SET_EXPANDED', expanded: false });
+        dispatch({ type: 'RESET' });
       }
     },
-    [suggestions, selectedIndex, onCountryFound]
+    [state.suggestions, state.selectedIndex, onCountryFound]
   );
 
   return (
     <div className={styles.searchContainer} ref={containerRef}>
       <button
-        className={`${styles.searchButton} ${isExpanded ? styles.active : ''}`}
-        onClick={() => setIsExpanded(!isExpanded)}
+        className={`${styles.searchButton} ${state.isExpanded ? styles.active : ''}`}
+        onClick={() =>
+          dispatch({ type: 'SET_EXPANDED', expanded: !state.isExpanded })
+        }
         aria-label="Toggle search"
       >
         <i className="fas fa-search" aria-hidden="true" />
       </button>
       <div
-        className={`${styles.searchInputContainer} ${isExpanded ? styles.expanded : ''}`}
+        className={`${styles.searchInputContainer} ${state.isExpanded ? styles.expanded : ''}`}
       >
         <input
           ref={searchInputRef}
           type="text"
           className={styles.searchInput}
           placeholder="Search for a country..."
-          value={searchQuery}
+          value={state.searchQuery}
           onChange={(e) => handleSearch(e.target.value)}
           onKeyDown={handleKeyDown}
         />
 
-        {suggestions.length > 0 && isExpanded && (
+        {state.suggestions.length > 0 && state.isExpanded && (
           <ul className={styles.suggestionsList}>
-            {suggestions.map((feature, index) => (
+            {state.suggestions.map((feature, index) => (
               <li
                 key={feature.properties.ADMIN}
                 className={`${styles.suggestionItem} ${
-                  index === selectedIndex ? styles.selected : ''
+                  index === state.selectedIndex ? styles.selected : ''
                 }`}
                 onClick={() => {
                   onCountryFound(feature);
-                  setIsExpanded(false);
-                  setSearchQuery('');
-                  setSuggestions([]);
+                  dispatch({ type: 'SET_EXPANDED', expanded: false });
+                  dispatch({ type: 'RESET' });
                 }}
               >
                 {feature.properties.ADMIN}

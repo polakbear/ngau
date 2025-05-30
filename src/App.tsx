@@ -5,7 +5,7 @@ import { Legend } from './components/Legend';
 import { Sources } from './components/Sources';
 import { TabRow } from './components/TabRow';
 import TakeActionButton from './components/TakeActionButton';
-import Search from './components/Search';
+import Search from './components/Search/Search';
 import { GeoJsonFeature } from './types';
 import { detectMobileMode } from './utils/device';
 import TabHoverProvider from './contexts/TabHoverProvider';
