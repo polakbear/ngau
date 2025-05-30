@@ -16,20 +16,22 @@ const methodologyContent = {
 
 type MetricType = keyof typeof methodologyContent;
 
+function isMetricType(type: string | null): type is MetricType {
+  return (
+    !!type && Object.prototype.hasOwnProperty.call(methodologyContent, type)
+  );
+}
+
 export function Methodology() {
   const { scoreType } = useScoreType();
   const { hoverTab } = useTabHover();
-
   const activeType = hoverTab || scoreType;
-  const validType = activeType as MetricType;
 
-  if (!methodologyContent[validType]) {
-    return null;
-  }
+  if (!isMetricType(activeType)) return null;
 
   return (
-    <div className={styles.container}>
-      <div className={styles.section}>{methodologyContent[validType]}</div>
+    <div className={styles.container} role="note" aria-live="polite">
+      <div className={styles.section}>{methodologyContent[activeType]}</div>
     </div>
   );
 }
