@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { detectDeviceType } from '../utils/device';
+import { useDeviceType } from './useDeviceType';
 import { GeoJsonFeature, TooltipState, CountryData } from '../types';
 import { normalize } from '../utils/utils';
 
@@ -7,7 +7,8 @@ export function useDeviceHover() {
   const [hoverD, setHoverD] = useState<GeoJsonFeature | null>(null);
   const [tooltip, setTooltip] = useState<TooltipState>(null);
   const mousePositionRef = useRef({ x: 0, y: 0 });
-  const isDesktop = detectDeviceType() === 'desktop';
+  const deviceType = useDeviceType();
+  const isDesktop = deviceType === 'desktop';
 
   useEffect(() => {
     if (!isDesktop) return;

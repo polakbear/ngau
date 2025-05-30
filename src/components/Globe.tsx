@@ -7,7 +7,7 @@ import Globe from 'react-globe.gl';
 // import { geoCentroid } from 'd3-geo';
 import { InfoPanelState } from '../types';
 import { handlePolygonClick } from '../utils/poly';
-import { detectMobileMode } from '../utils/device';
+import { useDeviceType } from '../hooks/useDeviceType';
 import { Tooltip } from './Tooltip';
 import { InfoPanel } from './InfoPanel';
 import { getOrCreatePolygonMaterial } from './OptimizedPolyMaterial';
@@ -28,7 +28,8 @@ export default function GlobeComponent({
 
   const { hoverD, tooltip, handleHover } = useDeviceHover();
   const { scoreType } = useScoreType();
-  const mobileMode = detectMobileMode();
+  const deviceType = useDeviceType();
+  const mobileMode = deviceType === 'mobile';
 
   const globeRef = useRef<any>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
