@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import { useGeoDataContext } from '../contexts/GeoDataContext';
 import useScoreType from '../hooks/useScoreType';
 import { useWindowSize } from '../hooks/useWindowSize';
-import { useDeviceHover } from '../hooks/useDeviceHover';
+import { usePolygonHover } from '../hooks/usePolygonHover';
 import Globe from 'react-globe.gl';
 // import { geoCentroid } from 'd3-geo';
 import { InfoPanelState } from '../types';
@@ -21,7 +21,7 @@ export default function GlobeComponent({ setGlobeRef }: GlobeComponentProps) {
   const { geoJson, data } = useGeoDataContext();
   const dimensions = useWindowSize(100);
 
-  const { hoverD, tooltip, handleHover } = useDeviceHover();
+  const { hoverD, tooltip, handleHover } = usePolygonHover();
   const { scoreType } = useScoreType();
   const deviceType = useDeviceType();
   const mobileMode = deviceType === 'mobile';
