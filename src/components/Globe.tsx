@@ -1,15 +1,16 @@
-import { useState, useEffect, useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
+import { useGeoData } from '../hooks/useGeoData';
+import useScoreType from '../hooks/useScoreType';
 import { useWindowSize } from '../hooks/useWindowSize';
+import { useDeviceHover } from '../hooks/useDeviceHover';
 import Globe from 'react-globe.gl';
-import { geoCentroid } from 'd3-geo';
-import { CountryData, InfoPanelState } from '../types';
+// import { geoCentroid } from 'd3-geo';
+import { InfoPanelState } from '../types';
 import { handlePolygonClick } from '../utils/poly';
 import { detectMobileMode } from '../utils/device';
 import { Tooltip } from './Tooltip';
 import { InfoPanel } from './InfoPanel';
-import useScoreType from '../hooks/useScoreType';
 import { getOrCreatePolygonMaterial } from './OptimizedPolyMaterial';
-import { useDeviceHover } from '../hooks/useDeviceHover';
 
 interface GlobeComponentProps {
   setGlobeRef: (ref: any) => void;
@@ -20,9 +21,8 @@ export default function GlobeComponent({
   setGlobeRef,
   onDataLoaded,
 }: GlobeComponentProps) {
-  const [geoJson, setGeoJson] = useState<any>(null);
-  const [data, setData] = useState<CountryData[]>([]);
   const [infoPanel, setInfoPanel] = useState<InfoPanelState>(null);
+  const { geoJson, data } = useGeoData(onDataLoaded);
   const dimensions = useWindowSize(100);
 
   const { hoverD, tooltip, handleHover } = useDeviceHover();
@@ -32,22 +32,6 @@ export default function GlobeComponent({
   const globeRef = useRef<any>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
   const infoPanelRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    fetch('/countries.geojson')
-      .then((res) => res.json())
-      .then((data) => {
-        // calculate centroids for each feature - needed for panning when searching
-        data.features.forEach((f: any) => {
-          f.__centroid = geoCentroid(f);
-        });
-        setGeoJson(data);
-        onDataLoaded(data);
-      });
-    fetch('/data.json')
-      .then((res) => res.json())
-      .then(setData);
-  }, [onDataLoaded]);
 
   useEffect(() => {
     if (globeRef.current) {
