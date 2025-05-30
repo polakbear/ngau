@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useWindowSize } from '../hooks/useWindowSize';
 import Globe from 'react-globe.gl';
 import { geoCentroid } from 'd3-geo';
 import { CountryData, InfoPanelState } from '../types';
@@ -22,10 +23,7 @@ export default function GlobeComponent({
   const [geoJson, setGeoJson] = useState<any>(null);
   const [data, setData] = useState<CountryData[]>([]);
   const [infoPanel, setInfoPanel] = useState<InfoPanelState>(null);
-  const [dimensions, setDimensions] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
+  const dimensions = useWindowSize(100);
 
   const { hoverD, tooltip, handleHover } = useDeviceHover();
   const { scoreType } = useScoreType();
@@ -50,31 +48,6 @@ export default function GlobeComponent({
       .then((res) => res.json())
       .then(setData);
   }, [onDataLoaded]);
-
-  useEffect(() => {
-    const handleResize = () => {
-      const newDimensions = {
-        width: window.innerWidth,
-        height: window.innerHeight,
-      };
-      setDimensions(newDimensions);
-    };
-
-    handleResize();
-
-    // throttled event listener
-    let timeoutId: NodeJS.Timeout;
-    const throttledResize = () => {
-      if (timeoutId) clearTimeout(timeoutId);
-      timeoutId = setTimeout(handleResize, 100);
-    };
-
-    window.addEventListener('resize', throttledResize);
-    return () => {
-      if (timeoutId) clearTimeout(timeoutId);
-      window.removeEventListener('resize', throttledResize);
-    };
-  }, []);
 
   useEffect(() => {
     if (globeRef.current) {
