@@ -1,6 +1,14 @@
-import { SearchState, SearchAction } from './types';
+import { useReducer, ReactNode } from 'react';
+import { SearchContext, SearchState, SearchAction } from './SearchContext';
 
-export function searchReducer(
+const initialState: SearchState = {
+  searchQuery: '',
+  isExpanded: false,
+  suggestions: [],
+  selectedIndex: -1,
+};
+
+function searchReducer(
   state: SearchState,
   action: SearchAction,
   initialState: SearchState
@@ -33,4 +41,18 @@ export function searchReducer(
     default:
       return state;
   }
+}
+
+export default function SearchProvider({ children }: { children: ReactNode }) {
+  const [state, dispatch] = useReducer(
+    (state: SearchState, action: SearchAction) =>
+      searchReducer(state, action, initialState),
+    initialState
+  );
+
+  return (
+    <SearchContext.Provider value={{ state, dispatch }}>
+      {children}
+    </SearchContext.Provider>
+  );
 }
