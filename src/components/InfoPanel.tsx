@@ -3,7 +3,7 @@ import MetricRow from './MetricRow';
 import IndicatorSection from './IndicatorSection';
 import { getContrastingTextColor, rankBasedColorScale } from '../utils/color';
 import { getFullLabel } from '../utils/score';
-import { useEffect, useRef } from 'react';
+import { useDialog } from '../hooks/useDialog';
 import styles from './InfoPanel.module.css';
 
 export function InfoPanel({
@@ -15,46 +15,10 @@ export function InfoPanel({
   country: CountryData;
   onClose: () => void;
 }) {
-  const dialogRef = useRef<HTMLDialogElement>(null);
+  const dialogRef = useDialog(onClose);
   const rank = country?.kri_rank ?? null;
   const color = rank ? rankBasedColorScale(rank) : '#FEFEFE';
   const bgColor = getContrastingTextColor(color);
-
-  useEffect(() => {
-    const dialog = dialogRef.current;
-    if (dialog && !dialog.open) {
-      dialog.showModal();
-    }
-
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
-    };
-
-    const handleClickOutside = (e: MouseEvent) => {
-      const dialog = dialogRef.current;
-      if (dialog) {
-        const rect = dialog.getBoundingClientRect();
-        const isInDialog =
-          rect.top <= e.clientY &&
-          e.clientY <= rect.top + rect.height &&
-          rect.left <= e.clientX &&
-          e.clientX <= rect.left + rect.width;
-        if (!isInDialog) {
-          onClose();
-        }
-      }
-    };
-
-    window.addEventListener('keydown', handleEscape);
-    dialog?.addEventListener('click', handleClickOutside);
-
-    return () => {
-      window.removeEventListener('keydown', handleEscape);
-      dialog?.removeEventListener('click', handleClickOutside);
-    };
-  }, [onClose]);
 
   if (!country || rank === null) {
     return (
