@@ -40,6 +40,22 @@
   text-align: center;
 }
 
+.icon {
+  font-size: 10px;
+  margin-right: 4px;
+  color: #ff9f43;
+}
+
+.iconFaded {
+  composes: icon;
+  opacity: 0.7;
+}
+
+.genderIcon {
+  composes: icon;
+  margin-right: 8px;
+}
+
 .content {
   display: flex;
   flex-direction: column;
@@ -94,108 +110,6 @@
   margin-top: 2px;
   margin-left: 28px; /* Align with content after icon */
   font-style: italic;
-}
-
-.childMarriageGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 8px;
-  position: relative;
-}
-
-.childMarriageGrid::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  height: 100%;
-  width: 1px;
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateX(-50%);
-}
-
-.childMarriageColumn {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 8px;
-  border-radius: 6px;
-  position: relative;
-  background: rgba(255, 255, 255, 0.02);
-}
-
-.childMarriageColumn:first-child {
-  margin-right: 8px;
-}
-
-.childMarriageColumn:last-child {
-  margin-left: 8px;
-}
-
-.childMarriageTitle {
-  font-size: 14px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 4px;
-  position: relative;
-}
-
-.childMarriageTitle i {
-  font-size: 13px;
-}
-
-.childMarriageGrid .barContainer {
-  height: 5px;
-}
-
-.childMarriageGrid .item {
-  margin-bottom: 2px;
-}
-
-.childMarriageGrid .label {
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-}
-
-.childMarriageGrid .value {
-  font-size: 15px;
-  min-width: 34px;
-  font-weight: bold;
-  text-align: right;
-  font-feature-settings: 'tnum';
-  font-variant-numeric: tabular-nums;
-}
-
-.childMarriageColumn .value {
-  color: #ff9f43;
-}
-
-.childMarriageSource {
-  grid-column: 1 / span 2;
-  font-size: 10px;
-  color: rgba(255, 255, 255, 0.5);
-  margin-top: 2px;
-  font-style: italic;
-}
-
-.fgmGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin: 8px 0;
-}
-
-.fgmGrid .barContainer {
-  height: 5px;
-}
-
-.fgmTotal {
-  grid-column: 1 / span 2;
-  margin-bottom: 4px;
 }
 
 .twoColumnGrid {
@@ -261,57 +175,6 @@
     margin-left: 18px;
     margin-top: 1px;
   }
-
-  .childMarriageGrid {
-    gap: 6px;
-    margin-bottom: 4px;
-  }
-
-  .childMarriageColumn {
-    gap: 4px;
-    padding: 4px;
-  }
-
-  .childMarriageTitle {
-    font-size: 11px;
-    gap: 3px;
-    margin-bottom: 2px;
-  }
-
-  .childMarriageTitle i {
-    font-size: 10px;
-  }
-
-  .childMarriageGrid .barContainer {
-    height: 3px;
-  }
-
-  .childMarriageGrid .label {
-    font-size: 10px;
-  }
-
-  .childMarriageGrid .value {
-    font-size: 11px;
-    min-width: 26px;
-  }
-
-  .childMarriageSource {
-    font-size: 9px;
-    margin-top: 1px;
-  }
-
-  .fgmGrid {
-    gap: 8px;
-    margin: 6px 0;
-  }
-
-  .fgmGrid .barContainer {
-    height: 4px;
-  }
-
-  .fgmTotal {
-    margin-bottom: 3px;
-  }
 }
 
 @media (max-width: 380px) {
@@ -369,54 +232,6 @@
     font-size: 8px;
     margin-left: 15px;
   }
-
-  .childMarriageGrid {
-    gap: 4px;
-    margin-bottom: 4px;
-  }
-
-  .childMarriageColumn {
-    gap: 4px;
-    padding: 3px;
-  }
-
-  .childMarriageTitle {
-    font-size: 10px;
-    gap: 3px;
-    margin-bottom: 2px;
-  }
-
-  .childMarriageTitle i {
-    font-size: 10px;
-  }
-
-  .childMarriageGrid .barContainer {
-    height: 2px;
-  }
-
-  .childMarriageGrid .label {
-    font-size: 9px;
-  }
-
-  .childMarriageGrid .value {
-    font-size: 10px;
-    min-width: 22px;
-  }
-
-  .childMarriageSource {
-    font-size: 8px;
-  }
-
-  .fgmGrid {
-    gap: 6px;
-    margin: 4px 0;
-  }
-
-  .fgmGrid .barContainer {
-    height: 3px;
-  }
-
-  .fgmTotal {
-    margin-bottom: 2px;
-  }
 }
+
+

@@ -1,7 +1,7 @@
 import { IndicatorEntry } from '../../types';
 import ProgressBar from '../ProgressBar';
-import styles from './IndicatorSection.module.css';
-import iconStyles from './Indicators.module.css';
+import indicatorStyles from './IndicatorSection.module.css';
+import styles from './FGMSection.module.css';
 
 interface FGMSectionProps {
   fgm: IndicatorEntry;
@@ -12,23 +12,26 @@ export default function FGMSection({ fgm, borderColor }: FGMSectionProps) {
   if (!fgm) return null;
 
   return (
-    <div className={styles.section} style={{ borderLeftColor: borderColor }}>
-      <div className={styles.title}>
+    <div
+      className={indicatorStyles.section}
+      style={{ borderLeftColor: borderColor }}
+    >
+      <div className={indicatorStyles.title}>
         <i className="fas fa-triangle-exclamation"></i> Female Genital
         Mutilation
       </div>
-      <div className={styles.content}>
+      <div className={indicatorStyles.content}>
         {fgm.value_girls_0_14 != null && (
           <div className={styles.fgmTotal}>
             <ProgressBar label="Girls aged 0-14" value={fgm.value_girls_0_14} />
           </div>
         )}
-        <div className={styles.twoColumnGrid}>
+        <div className={indicatorStyles.twoColumnGrid}>
           {fgm.value_urban != null && (
             <ProgressBar
               label={
                 <>
-                  <i className={`fas fa-city ${iconStyles.icon}`} />
+                  <i className={`fas fa-city ${indicatorStyles.icon}`} />
                   Urban
                 </>
               }
@@ -39,7 +42,7 @@ export default function FGMSection({ fgm, borderColor }: FGMSectionProps) {
             <ProgressBar
               label={
                 <>
-                  <i className={`fas fa-tree ${iconStyles.icon}`} />
+                  <i className={`fas fa-tree ${indicatorStyles.icon}`} />
                   Rural
                 </>
               }
@@ -47,7 +50,7 @@ export default function FGMSection({ fgm, borderColor }: FGMSectionProps) {
             />
           )}
         </div>
-        <div className={styles.source}>
+        <div className={indicatorStyles.source}>
           Source: {fgm.data_source || 'Not specified'} (
           {fgm.year || 'Year not specified'})
         </div>

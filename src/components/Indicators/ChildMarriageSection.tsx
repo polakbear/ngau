@@ -1,8 +1,8 @@
 import { IndicatorEntry } from '../../types';
 import ProgressBar from '../ProgressBar';
 import NoDataMessage from './NoDataMessage';
-import styles from './IndicatorSection.module.css';
-import iconStyles from './Indicators.module.css';
+import styles from './ChildMarriageSection.module.css';
+import indicatorStyles from './IndicatorSection.module.css';
 
 interface ChildMarriageSectionProps {
   femaleChildMarriage: IndicatorEntry | undefined;
@@ -19,14 +19,15 @@ export default function ChildMarriageSection({
 
   return (
     <div className={styles.section} style={{ borderLeftColor: borderColor }}>
-      <div className={styles.title}>
+      <div className={indicatorStyles.title}>
         <i className="fas fa-ring"></i> Child Marriage
       </div>
       <div className={styles.childMarriageGrid}>
         {/* Female Column */}
         <div className={styles.childMarriageColumn}>
           <div className={styles.childMarriageTitle}>
-            <i className={`fas fa-venus ${iconStyles.genderIcon}`} /> Female
+            <i className={`fas fa-venus ${indicatorStyles.genderIcon}`} />{' '}
+            Female
           </div>
           {(!femaleChildMarriage?.value_female_15 &&
             !femaleChildMarriage?.value_female_18) ||
@@ -41,7 +42,7 @@ export default function ChildMarriageSection({
                 <ProgressBar
                   label={
                     <>
-                      <i className={`fas fa-child ${iconStyles.icon}`} />
+                      <i className={`fas fa-child ${indicatorStyles.icon}`} />
                       By age 15
                     </>
                   }
@@ -52,7 +53,7 @@ export default function ChildMarriageSection({
                 <ProgressBar
                   label={
                     <>
-                      <i className={`fas fa-female ${iconStyles.icon}`} />
+                      <i className={`fas fa-female ${indicatorStyles.icon}`} />
                       By age 18
                     </>
                   }
@@ -65,7 +66,7 @@ export default function ChildMarriageSection({
         {/* Male Column */}
         <div className={styles.childMarriageColumn}>
           <div className={styles.childMarriageTitle}>
-            <i className={`fas fa-mars ${iconStyles.genderIcon}`} /> Male
+            <i className={`fas fa-mars ${indicatorStyles.genderIcon}`} /> Male
           </div>
           {!maleChildMarriage?.value_male_18 ||
           maleChildMarriage.value_male_18 === 0 ? (
@@ -74,7 +75,7 @@ export default function ChildMarriageSection({
             <ProgressBar
               label={
                 <>
-                  <i className={`fas fa-male ${iconStyles.icon}`} />
+                  <i className={`fas fa-male ${indicatorStyles.icon}`} />
                   By age 18
                 </>
               }
