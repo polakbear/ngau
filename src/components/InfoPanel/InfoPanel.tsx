@@ -72,13 +72,6 @@ export function InfoPanel({
         {countryName}
       </h4>
       <RadarChartComponent
-        data={{
-          life: country?.ranking_life,
-          health: country?.ranking_health,
-          education: country?.ranking_education,
-          protection: country?.ranking_protection,
-          empowerment: country?.ranking_environment,
-        }}
         scores={{
           life: country?.life,
           health: country?.health,

@@ -10,19 +10,12 @@ import {
 import styles from './RadarChartComponent.module.css';
 
 interface RadarChartComponentProps {
-  data: {
-    life: number | undefined;
-    health: number | undefined;
-    education: number | undefined;
-    protection: number | undefined;
-    empowerment: number | undefined;
-  };
   scores: {
-    life: number | null | undefined;
-    health: number | null | undefined;
-    education: number | null | undefined;
-    protection: number | null | undefined;
-    empowerment: number | null | undefined;
+    life?: number | null;
+    health?: number | null;
+    education?: number | null;
+    protection?: number | null;
+    empowerment?: number | null;
   };
   overallRank: number | null;
 }
@@ -36,19 +29,16 @@ const axisLabels = [
 ];
 
 const RadarChartComponent: React.FC<RadarChartComponentProps> = ({
-  data,
   scores,
 }) => {
   const chartData = axisLabels.map(({ key, label }) => {
-    const rankValue = data[key as keyof typeof data];
-    const invertedValue =
-      typeof rankValue === 'number'
-        ? Math.max(40, 100 - ((rankValue - 1) / 193) * 60)
-        : 40;
+    const scoreValue = scores[key as keyof typeof scores];
+    const chartValue =
+      typeof scoreValue === 'number' && scoreValue !== null ? scoreValue : 0;
 
     return {
       category: label,
-      value: invertedValue,
+      value: chartValue,
     };
   });
 
@@ -63,7 +53,6 @@ const RadarChartComponent: React.FC<RadarChartComponentProps> = ({
     const iconX = x + Math.cos(angle) * distance;
     const iconY = y + Math.sin(angle) * distance;
 
-    // Get the actual score for this dimension
     const scoreValue = scores[axisData.key as keyof typeof scores];
     const formattedScore = scoreValue ? scoreValue.toFixed(3) : 'N/A';
 
@@ -94,9 +83,10 @@ const RadarChartComponent: React.FC<RadarChartComponentProps> = ({
           />
           <PolarRadiusAxis
             angle={30}
-            domain={[40, 100]}
+            domain={[0, 1]}
             tick={false}
             axisLine={false}
+            allowDataOverflow={false}
           />
           <Radar
             name="Score"
@@ -105,6 +95,7 @@ const RadarChartComponent: React.FC<RadarChartComponentProps> = ({
             fill={chartColor}
             fillOpacity={0.4}
             strokeWidth={2}
+            dot={false}
           />
         </RadarChart>
       </ResponsiveContainer>
