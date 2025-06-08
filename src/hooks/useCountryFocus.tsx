@@ -12,7 +12,7 @@ export function useCountryFocus() {
       if (globeRef && feature.properties) {
         const countryName = feature.properties.ADMIN;
         setFocusedCountry(countryName);
-        setFadeProgress(1); // Start at full intensity
+        setFadeProgress(1); // full intensity
 
         const isMobile = deviceType === 'mobile';
         const altitude = isMobile ? 2.5 : 1.7;
@@ -24,10 +24,9 @@ export function useCountryFocus() {
         };
         globeRef.pointOfView(coords, 1000);
 
-        // Start fade out after 1 second, fade for 1 second
         setTimeout(() => {
           const startTime = Date.now();
-          const fadeDuration = 1000; // 1 second fade
+          const fadeDuration = 300;
 
           const fade = () => {
             const elapsed = Date.now() - startTime;
@@ -43,7 +42,7 @@ export function useCountryFocus() {
           };
 
           requestAnimationFrame(fade);
-        }, 1000); // Start fading after 1 second
+        }, 1000);
       }
     },
     [deviceType]
