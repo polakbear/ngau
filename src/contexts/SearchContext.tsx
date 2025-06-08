@@ -21,6 +21,8 @@ export interface SearchContextValue {
   globeRef: any;
   setGlobeRef: (ref: any) => void;
   focusCountry: (feature: GeoJsonFeature) => void;
+  focusedCountry: string | null;
+  fadeProgress: number;
 }
 
 const defaultContextValue: SearchContextValue = {
@@ -34,6 +36,8 @@ const defaultContextValue: SearchContextValue = {
   globeRef: null,
   setGlobeRef: () => {},
   focusCountry: () => {},
+  focusedCountry: null,
+  fadeProgress: 0,
 };
 
 export const SearchContext =

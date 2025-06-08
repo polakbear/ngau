@@ -12,12 +12,15 @@ export function getOrCreatePolygonMaterial(
   data: CountryData[],
   hoveredFeature: GeoJsonFeature | null,
   desaturationProgress: number,
-  scoreType: string = 'overall'
+  scoreType: string = 'overall',
+  focusedCountry: string | null = null,
+  fadeProgress: number = 0
 ): THREE.MeshLambertMaterial {
   const countryName = normalize(d.properties.ADMIN);
 
   const isHovered = hoveredFeature && d === hoveredFeature;
-  const cacheKey = `${countryName}_${scoreType}_${isHovered ? 1 : 0}`;
+  const isFocused = focusedCountry && d.properties.ADMIN === focusedCountry;
+  const cacheKey = `${countryName}_${scoreType}_${isHovered ? 1 : 0}_${isFocused ? 1 : 0}_${Math.round(fadeProgress * 10)}`;
 
   if (materialCache.has(cacheKey)) {
     return materialCache.get(cacheKey)!;
@@ -45,6 +48,41 @@ export function getOrCreatePolygonMaterial(
   if (rank === null) {
     const material = new THREE.MeshLambertMaterial({
       color: new THREE.Color(colors.noData),
+      transparent: true,
+      opacity: 1,
+      depthWrite: false,
+    });
+    materialCache.set(cacheKey, material);
+    return material;
+  }
+
+  // If focused from search, interpolate between red and normal color
+  if (isFocused && fadeProgress > 0) {
+    const country = data.find((d) => normalize(d.country) === countryName);
+    let normalRank: number | null = null;
+    if (country) {
+      const rawRank =
+        scoreType === 'overall'
+          ? country.kri_rank
+          : country[scoreType as keyof CountryData];
+      normalRank = typeof rawRank === 'number' ? rawRank : null;
+    }
+
+    const normalColor = normalRank
+      ? rankBasedColorScale(normalRank)
+      : colors.noData;
+
+    // Use THREE.js color interpolation which is more reliable
+    const redColorObj = new THREE.Color('#ff4757');
+    const normalColorObj = new THREE.Color(normalColor);
+
+    // Interpolate using THREE.js lerp method
+    const interpolatedColor = redColorObj
+      .clone()
+      .lerp(normalColorObj, 1 - fadeProgress);
+
+    const material = new THREE.MeshLambertMaterial({
+      color: interpolatedColor,
       transparent: true,
       opacity: 1,
       depthWrite: false,

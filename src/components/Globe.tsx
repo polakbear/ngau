@@ -28,7 +28,8 @@ export default function GlobeComponent() {
   const tooltipRef = useRef<HTMLDivElement>(null);
   const infoPanelRef = useRef<HTMLDivElement>(null);
 
-  const { setGlobeRef } = useContext(SearchContext);
+  const { setGlobeRef, focusedCountry, fadeProgress } =
+    useContext(SearchContext);
 
   useEffect(() => {
     if (globeRef.current) {
@@ -59,7 +60,15 @@ export default function GlobeComponent() {
   }, [tooltip]);
 
   const getPolygonCapMaterial = (d: any) => {
-    return getOrCreatePolygonMaterial(d, data, hoveredFeature, 0, scoreType);
+    return getOrCreatePolygonMaterial(
+      d,
+      data,
+      hoveredFeature,
+      0,
+      scoreType,
+      focusedCountry,
+      fadeProgress
+    );
   };
 
   const handlePolygonClickMemoized = useMemoizedCallback(
