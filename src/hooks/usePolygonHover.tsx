@@ -6,7 +6,7 @@ import { useDeviceType } from './useDeviceType';
 /**
  * Combines polygon hover logic (tooltip, hover state, mouse tracking) into a single hook.
  */
-export function usePolygonHover() {
+export function usePolygonHover(disableHover: boolean = false) {
   const [hoveredFeature, setHoveredFeature] = useState<GeoJsonFeature | null>(
     null
   );
@@ -26,6 +26,13 @@ export function usePolygonHover() {
 
   const handleHover = useCallback(
     (polygon: any, data: CountryData[]) => {
+      // Don't handle hover events if disabled (e.g., when InfoPanel is open)
+      if (disableHover) {
+        setTooltip(null);
+        setHoveredFeature(null);
+        return;
+      }
+
       if (polygon) {
         const feature = polygon as GeoJsonFeature;
         const countryName = feature.properties.ADMIN || 'Unknown';
@@ -46,7 +53,7 @@ export function usePolygonHover() {
         setHoveredFeature(null);
       }
     },
-    [isDesktop]
+    [isDesktop, disableHover]
   );
 
   return {

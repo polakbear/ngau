@@ -1,6 +1,6 @@
 .tooltip {
   position: absolute;
-  background: rgba(5, 5, 5, 0.95);
+  background: rgba(5, 5, 5, 0.55);
   border: 1px solid rgba(80, 220, 220, 0.05);
   color: #f0f0f0;
   padding: 16px 20px 20px;
@@ -125,7 +125,6 @@
   padding-top: 12px;
   margin-top: 12px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.2));
 }
 
 .indicatorLabel {
@@ -200,6 +199,99 @@
   text-align: center;
   font-size: 10px;
   margin-right: 4px;
+}
+
+.kriSummary {
+  margin: 12px 0;
+  padding: 12px;
+  /* background: rgba(255, 255, 255, 0.08); */
+  border-radius: 0;
+  /* border-left: 3px solid var(--border-color, #3fd1c7); */
+}
+
+.kriRankSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.kriRank {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rankText {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.rankBar {
+  position: relative;
+  height: 4px;
+  border-radius: 2px;
+  overflow: visible;
+}
+
+.rankBarBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+  opacity: 0.8;
+}
+
+.rankPosition {
+  position: absolute;
+  top: -3px;
+  width: 0;
+  height: 0;
+  transform: translateX(-50%);
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 6px solid white;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+  animation: slideInAndPulse 1.2s ease-out;
+}
+
+.rankPosition::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: -1px;
+  width: 2px;
+  height: 4px;
+  background: white;
+  border-radius: 0 0 1px 1px;
+}
+
+@keyframes slideInAndPulse {
+  0% {
+    opacity: 0;
+    left: 0%;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+  }
+  40% {
+    opacity: 1;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+  }
+  60%, 80% {
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+  }
+  100% {
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+  }
+}
+
+.performanceLabel {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 0;
+  white-space: nowrap;
 }
 
 .scoreText {

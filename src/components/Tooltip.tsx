@@ -1,5 +1,10 @@
 import { CountryData } from '../types';
-import MetricRow from './MetricRow';
+import {
+  rankBasedColorScale,
+  getContrastingTextColor,
+  getGradientStyle,
+} from '../utils/color';
+import { getFullLabel } from '../utils/score';
 import styles from './Tooltip.module.css';
 
 export function Tooltip({
@@ -14,6 +19,16 @@ export function Tooltip({
   onClose?: () => void;
 }) {
   const rank = country?.kri_rank ?? null;
+
+  const getPerformanceContext = (rank: number) => {
+    const percentile = ((194 - rank) / 194) * 100;
+    if (percentile >= 90) return 'Top 10%';
+    if (percentile >= 75) return 'Top 25%';
+    if (percentile >= 50) return 'Top half';
+    if (percentile >= 25) return 'Bottom half';
+    if (percentile >= 10) return 'Bottom 25%';
+    return 'Bottom 10%';
+  };
 
   if (!country || rank === null) {
     return (
@@ -49,45 +64,34 @@ export function Tooltip({
 
       <div className={styles.header}>{countryName}</div>
 
-      <div className={styles.badgesRow}></div>
-
-      <div className={styles.metricsGrid}>
-        {' '}
-        <MetricRow
-          iconClass="fa fa-seedling"
-          label="Life"
-          value={country?.life}
-          rank={country?.ranking_life}
-          hideGradientAndRank
-        />
-        <MetricRow
-          iconClass="fa fa-heart"
-          label="Health"
-          value={country?.health}
-          rank={country?.ranking_health}
-          hideGradientAndRank
-        />
-        <MetricRow
-          iconClass="fa fa-graduation-cap"
-          label="Education"
-          value={country?.education}
-          rank={country?.ranking_education}
-          hideGradientAndRank
-        />
-        <MetricRow
-          iconClass="fa fa-shield-alt"
-          label="Protection"
-          value={country?.protection}
-          rank={country?.ranking_protection}
-          hideGradientAndRank
-        />
-        <MetricRow
-          iconClass="fa fa-globe"
-          label="Empowerment"
-          value={country?.environment}
-          rank={country?.ranking_environment}
-          hideGradientAndRank
-        />
+      {/* Overall KRI Summary */}
+      <div
+        className={styles.kriSummary}
+        style={
+          {
+            '--border-color': rankBasedColorScale(rank),
+          } as React.CSSProperties
+        }
+      >
+        <div className={styles.kriRankSection}>
+          <div className={styles.kriRank}>
+            <i className={`fa fa-star ${styles.kriIcon}`} aria-hidden="true" />
+            <span className={styles.rankText}>Rank {rank}/194</span>
+          </div>
+          <div className={styles.rankBar}>
+            <div
+              className={styles.rankBarBackground}
+              style={getGradientStyle()}
+            ></div>
+            <div
+              key={`rank-${rank}`}
+              className={styles.rankPosition}
+              style={{
+                left: `${((194 - rank) / 194) * 100}%`,
+              }}
+            ></div>
+          </div>
+        </div>
       </div>
 
       {/* Indicator Icons */}

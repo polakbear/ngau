@@ -19,7 +19,7 @@ export default function GlobeComponent() {
   const { geoJson, data } = useGeoData();
   const dimensions = useWindowSize(100);
 
-  const { hoveredFeature, tooltip, handleHover } = usePolygonHover();
+  const { hoveredFeature, tooltip, handleHover } = usePolygonHover(!!infoPanel);
   const { scoreType } = useScoreType();
   const deviceType = useDeviceType();
   const mobileMode = deviceType === 'mobile';

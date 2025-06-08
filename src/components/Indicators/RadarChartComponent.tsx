@@ -17,6 +17,13 @@ interface RadarChartComponentProps {
     protection: number | undefined;
     empowerment: number | undefined;
   };
+  scores: {
+    life: number | null | undefined;
+    health: number | null | undefined;
+    education: number | null | undefined;
+    protection: number | null | undefined;
+    empowerment: number | null | undefined;
+  };
   overallRank: number | null;
 }
 
@@ -28,7 +35,10 @@ const axisLabels = [
   { key: 'empowerment', label: 'Empowerment', icon: 'fa fa-globe' },
 ];
 
-const RadarChartComponent: React.FC<RadarChartComponentProps> = ({ data }) => {
+const RadarChartComponent: React.FC<RadarChartComponentProps> = ({
+  data,
+  scores,
+}) => {
   const chartData = axisLabels.map(({ key, label }) => {
     const rankValue = data[key as keyof typeof data];
     const invertedValue =
@@ -53,12 +63,19 @@ const RadarChartComponent: React.FC<RadarChartComponentProps> = ({ data }) => {
     const iconX = x + Math.cos(angle) * distance;
     const iconY = y + Math.sin(angle) * distance;
 
+    // Get the actual score for this dimension
+    const scoreValue = scores[axisData.key as keyof typeof scores];
+    const formattedScore = scoreValue ? scoreValue.toFixed(3) : 'N/A';
+
     return (
       <g>
-        <foreignObject x={iconX - 50} y={iconY - 10} width="100" height="20">
+        <foreignObject x={iconX - 50} y={iconY - 15} width="100" height="30">
           <div className={styles.labelContainer}>
             <i className={`${axisData.icon} ${styles.labelIcon}`} />
-            {axisData.label}
+            <div className={styles.labelTextContainer}>
+              <div className={styles.labelText}>{axisData.label}</div>
+              <div className={styles.labelScore}>{formattedScore}</div>
+            </div>
           </div>
         </foreignObject>
       </g>

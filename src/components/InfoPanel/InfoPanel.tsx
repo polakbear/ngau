@@ -7,7 +7,6 @@ import {
 import { getFullLabel } from '../../utils/score';
 import IndicatorSection from '../Indicators/IndicatorSection';
 import RadarChartComponent from '../Indicators/RadarChartComponent';
-import MetricRow from '../MetricRow';
 import styles from './InfoPanel.module.css';
 
 export function InfoPanel({
@@ -81,6 +80,13 @@ export function InfoPanel({
           protection: country?.ranking_protection,
           empowerment: country?.ranking_environment,
         }}
+        scores={{
+          life: country?.life,
+          health: country?.health,
+          education: country?.education,
+          protection: country?.protection,
+          empowerment: country?.environment,
+        }}
         overallRank={rank}
       />
       <div className={styles.metricsGrid}>
@@ -93,8 +99,7 @@ export function InfoPanel({
           }
         >
           <div className={styles.badge}>
-            <i className={`fa fa-star ${styles.kriIcon}`} aria-hidden="true" />
-            <strong className={styles.kriLabel}>KRI Rank</strong>
+            <strong className={styles.kriLabel}>Overall KRI Rank</strong>
             <span className={styles.kriValue}>{country?.kri_rank} / 194</span>
           </div>
           <div
