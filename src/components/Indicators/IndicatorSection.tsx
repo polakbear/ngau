@@ -1,7 +1,7 @@
 import { IndicatorEntry } from '../../types';
 import { rankBasedColorScale } from '../../utils/color';
 import styles from './IndicatorSection.module.css';
-import ChildMarriageSection from '../Indicators/ChildMarriageSection';
+import ChildMarriageVisual from '../Indicators/ChildMarriageVisual';
 import ViolentDisciplineSection from '../Indicators/ViolentDisciplineSection';
 import FGMSection from '../Indicators/FGMSection';
 
@@ -31,7 +31,7 @@ export default function IndicatorSection({
   return (
     <div className={styles.container}>
       {(femaleChildMarriage || maleChildMarriage) && (
-        <ChildMarriageSection
+        <ChildMarriageVisual
           femaleChildMarriage={femaleChildMarriage}
           maleChildMarriage={maleChildMarriage}
           borderColor={borderColor}

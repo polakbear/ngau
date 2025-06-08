@@ -1,0 +1,240 @@
+/* Flexible metric flow layout */
+.metricsFlow {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+/* Individual metric cards for substantial data */
+.metricCard {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 6px;
+  padding: 12px;
+  border-left: 2px solid rgba(94, 234, 212, 0.3);
+}
+
+/* Compact display for minimal data */
+.minimalMetric {
+  padding: 6px 8px;
+  background: rgba(255, 255, 255, 0.01);
+  border-radius: 4px;
+  border-left: 2px solid rgba(94, 234, 212, 0.3);
+}
+
+.minimalMetricHeader {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.minimalMetricHeader .genderLabelGroup {
+  gap: 4px;
+}
+
+/* Metric header styling */
+.metricHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.genderLabelGroup {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.genderLabel {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+
+
+.metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Individual metric item - matching ProgressBar design */
+.visualMetric {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 2px;
+}
+
+.metricHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.ageLabel {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.percentage {
+  font-size: 15px;
+  color: #ff9f43;
+  font-weight: 600;
+  min-width: 35px;
+  text-align: right;
+  font-feature-settings: 'tnum';
+  font-variant-numeric: tabular-nums;
+}
+
+.figureGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin: 6px 0;
+  justify-content: flex-start;
+}
+
+.figure {
+  font-size: 8px;
+  width: 12px;
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.figureFilled {
+  color: #ff9f43;
+  background: rgba(255, 159, 67, 0.15);
+  transform: scale(1.05);
+}
+
+.figureEmpty {
+  color: rgba(255, 255, 255, 0.3);
+  background: transparent;
+}
+
+.description {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: left;
+  margin-top: 4px;
+}
+
+.lowImpactMessage {
+  font-size: 11px;
+  color: rgba(94, 234, 212, 0.8);
+  display: flex;
+  align-items: center;
+  margin: 2px 0;
+  font-weight: 500;
+}
+
+/* Source citation */
+.source {
+  grid-column: 1 / span 2;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .metricsFlow {
+    gap: 8px;
+  }
+  
+  .metricCard {
+    padding: 8px;
+  }
+  
+  .minimalMetric {
+    padding: 4px 6px;
+  }
+  
+  .metricHeader {
+    font-size: 11px;
+    gap: 4px;
+    margin-bottom: 6px;
+  }
+  
+  .ageLabel {
+    font-size: 10px;
+  }
+  
+  .percentage {
+    font-size: 11px;
+    min-width: 26px;
+  }
+  
+  .figure {
+    font-size: 7px;
+    width: 10px;
+    height: 10px;
+  }
+  
+  .description {
+    font-size: 9px;
+  }
+  
+  .source {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 380px) {
+  .visualGrid {
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+
+  .genderColumn {
+    gap: 4px;
+  }
+
+  .genderHeader {
+    font-size: 10px;
+    gap: 3px;
+    margin-bottom: 2px;
+  }
+
+  .genderHeader i {
+    font-size: 10px;
+  }
+
+  .ageLabel {
+    font-size: 9px;
+  }
+
+  .percentage {
+    font-size: 10px;
+    min-width: 22px;
+  }
+  
+  .figure {
+    font-size: 6px;
+    width: 8px;
+    height: 8px;
+  }
+  
+  .description {
+    font-size: 8px;
+  }
+
+  .source {
+    font-size: 8px;
+  }
+} 
