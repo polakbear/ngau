@@ -1,8 +1,28 @@
 .container {
   margin-top: 12px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 16px;
+  align-items: start;
+}
+
+/* Allow certain indicators to span full width */
+.container > .section:only-child {
+  grid-column: 1 / -1;
+}
+
+/* Make Violent Discipline span full width when it's the third item */
+.container > .section:nth-child(3) {
+  grid-column: 1 / -1;
+}
+
+/* Single column for mobile */
+@media (max-width: 600px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
 }
 
 .section {

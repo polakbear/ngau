@@ -1,5 +1,5 @@
 import HumanFigureGrid from './HumanFigureGrid';
-import styles from './ChildMarriageVisual.module.css';
+import styles from './IndicatorMetrics.module.css';
 
 interface VisualMetricProps {
   label: string;

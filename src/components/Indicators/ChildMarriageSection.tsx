@@ -1,20 +1,20 @@
 import { IndicatorEntry } from '../../types';
 import NoDataMessage from './NoDataMessage';
 import VisualMetric from './VisualMetric';
-import styles from './ChildMarriageVisual.module.css';
+import styles from './IndicatorMetrics.module.css';
 import indicatorStyles from './IndicatorSection.module.css';
 
-interface ChildMarriageVisualProps {
+interface ChildMarriageSectionProps {
   femaleChildMarriage: IndicatorEntry | undefined;
   maleChildMarriage: IndicatorEntry | undefined;
   borderColor: string;
 }
 
-export default function ChildMarriageVisual({
+export default function ChildMarriageSection({
   femaleChildMarriage,
   maleChildMarriage,
   borderColor,
-}: ChildMarriageVisualProps) {
+}: ChildMarriageSectionProps) {
   if (!femaleChildMarriage && !maleChildMarriage) return null;
 
   return (
@@ -57,10 +57,10 @@ export default function ChildMarriageVisual({
               </div>
             </div>
             <VisualMetric
-              label="Before age 18"
+              label="By age 18"
               value={femaleChildMarriage!.value_female_18!}
               gender="female"
-              ageLabel="Before age 18"
+              ageLabel="By age 18"
             />
           </div>
         ) : (femaleChildMarriage?.value_female_18 ?? 0) > 0 ? (
@@ -91,10 +91,10 @@ export default function ChildMarriageVisual({
               </div>
             </div>
             <VisualMetric
-              label="Before age 18"
+              label="By age 18"
               value={maleChildMarriage.value_male_18}
               gender="male"
-              ageLabel="Before age 18"
+              ageLabel="By age 18"
             />
           </div>
         ) : maleChildMarriage?.value_male_18 &&

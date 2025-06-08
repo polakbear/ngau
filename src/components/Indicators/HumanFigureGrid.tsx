@@ -1,4 +1,4 @@
-import styles from './ChildMarriageVisual.module.css';
+import styles from './IndicatorMetrics.module.css';
 
 interface HumanFigureGridProps {
   percentage: number;
