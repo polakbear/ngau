@@ -8,3 +8,10 @@ export const normalize = (str: string) => {
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z]/g, '');
 };
+
+export function getAffectedCount(percentage: number) {
+  const total = percentage < 5 ? 100 : 20;
+  const affected = Math.round((percentage / 100) * total);
+
+  return { total, affected };
+}

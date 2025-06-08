@@ -3,6 +3,7 @@ import NoDataMessage from './NoDataMessage';
 import VisualMetric from './VisualMetric';
 import styles from './IndicatorMetrics.module.css';
 import indicatorStyles from './IndicatorSection.module.css';
+import { getAffectedCount } from '../../utils/utils';
 
 interface ChildMarriageSectionProps {
   femaleChildMarriage: IndicatorEntry | undefined;
@@ -43,6 +44,14 @@ export default function ChildMarriageSection({
               gender="female"
               ageLabel="By age 15"
             />
+            <div className={styles.description}>
+              {(() => {
+                const { total, affected } = getAffectedCount(
+                  femaleChildMarriage!.value_female_15!
+                );
+                return `Out of ${total} girls, ${affected} married by age 15`;
+              })()}
+            </div>
           </div>
         )}
 
@@ -62,6 +71,14 @@ export default function ChildMarriageSection({
               gender="female"
               ageLabel="By age 18"
             />
+            <div className={styles.description}>
+              {(() => {
+                const { total, affected } = getAffectedCount(
+                  femaleChildMarriage!.value_female_18!
+                );
+                return `Out of ${total} girls, ${affected} married by age 18`;
+              })()}
+            </div>
           </div>
         ) : (femaleChildMarriage?.value_female_18 ?? 0) > 0 ? (
           <div className={styles.minimalMetric}>
@@ -70,10 +87,7 @@ export default function ChildMarriageSection({
               <span className={styles.genderLabel}>Female</span>
             </div>
             <div className={styles.lowImpactMessage}>
-              <i
-                className="fas fa-info-circle"
-                style={{ fontSize: '9px', marginRight: '4px', opacity: 0.7 }}
-              />
+              <i className="fas fa-info-circle" />
               Before 18: {femaleChildMarriage!.value_female_18}% (minimal)
             </div>
           </div>
@@ -96,6 +110,14 @@ export default function ChildMarriageSection({
               gender="male"
               ageLabel="By age 18"
             />
+            <div className={styles.description}>
+              {(() => {
+                const { total, affected } = getAffectedCount(
+                  maleChildMarriage.value_male_18
+                );
+                return `Out of ${total} boys, ${affected} married by age 18`;
+              })()}
+            </div>
           </div>
         ) : maleChildMarriage?.value_male_18 &&
           maleChildMarriage.value_male_18 > 0 ? (
@@ -105,10 +127,7 @@ export default function ChildMarriageSection({
               <span className={styles.genderLabel}>Male</span>
             </div>
             <div className={styles.lowImpactMessage}>
-              <i
-                className="fas fa-info-circle"
-                style={{ fontSize: '9px', marginRight: '4px', opacity: 0.7 }}
-              />
+              <i className="fas fa-info-circle" />
               Before 18: {maleChildMarriage.value_male_18}% (minimal)
             </div>
           </div>

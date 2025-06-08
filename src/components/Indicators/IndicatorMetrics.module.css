@@ -88,7 +88,7 @@
 
 .percentage {
   font-size: 15px;
-  color: #ff9f43;
+  color: #ff4757;
   font-weight: 600;
   min-width: 35px;
   text-align: right;
@@ -97,11 +97,21 @@
 }
 
 .figureGrid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 3px;
+  display: grid;
+  gap: 2px;
   margin: 6px 0;
-  justify-content: flex-start;
+}
+
+/* Grid for 20 figures (normal view) */
+.figureGrid[data-total="20"] {
+  grid-template-columns: repeat(10, 1fr);
+  max-width: 200px;
+}
+
+/* Grid for 100 figures (detailed view for small percentages) */
+.figureGrid[data-total="100"] {
+  grid-template-columns: repeat(20, 1fr);
+  max-width: 400px;
 }
 
 .figure {
@@ -116,8 +126,8 @@
 }
 
 .figureFilled {
-  color: #ff9f43;
-  background: rgba(255, 159, 67, 0.15);
+  color: #ff4757;
+  background: rgba(255, 71, 87, 0.15);
   transform: scale(1.05);
 }
 
@@ -137,9 +147,17 @@
   font-size: 11px;
   color: rgba(94, 234, 212, 0.8);
   display: flex;
-  align-items: center;
+  align-items: baseline;
   margin: 2px 0;
   font-weight: 500;
+  gap: 4px;
+}
+
+.lowImpactMessage i {
+  font-size: 9px;
+  opacity: 0.7;
+  flex-shrink: 0;
+  line-height: 1;
 }
 
 /* Source citation */

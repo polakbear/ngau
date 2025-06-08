@@ -25,5 +25,9 @@ export default function HumanFigureGrid({
     );
   }
 
-  return <div className={styles.figureGrid}>{figures}</div>;
+  return (
+    <div className={styles.figureGrid} data-total={total}>
+      {figures}
+    </div>
+  );
 }

@@ -1,6 +1,8 @@
 import { IndicatorEntry } from '../../types';
 import indicatorStyles from './IndicatorSection.module.css';
 import styles from './IndicatorMetrics.module.css';
+import VisualMetric from './VisualMetric';
+import { getAffectedCount } from '../../utils/utils';
 
 interface FGMSectionProps {
   fgm: IndicatorEntry;
@@ -9,37 +11,6 @@ interface FGMSectionProps {
 
 export default function FGMSection({ fgm, borderColor }: FGMSectionProps) {
   if (!fgm) return null;
-
-  // Create visual metric matching child marriage style exactly
-  const createVisualMetric = (percentage: number, label: string) => {
-    const total = 20; // Match child marriage style
-    const affected = Math.round((percentage / 100) * total);
-    const figures = [];
-
-    for (let i = 0; i < total; i++) {
-      figures.push(
-        <i
-          key={i}
-          className={`fas fa-female ${styles.figure} ${
-            i < affected ? styles.figureFilled : styles.figureEmpty
-          }`}
-        />
-      );
-    }
-
-    return (
-      <div className={styles.visualMetric}>
-        <div className={styles.metricHeader}>
-          <div className={styles.ageLabel}>{label}</div>
-          <div className={styles.percentage}>{percentage}%</div>
-        </div>
-        <div className={styles.figureGrid}>{figures}</div>
-        <div className={styles.description}>
-          Out of {total} girls, {affected} affected by FGM
-        </div>
-      </div>
-    );
-  };
 
   return (
     <div
@@ -61,7 +32,20 @@ export default function FGMSection({ fgm, borderColor }: FGMSectionProps) {
                 <span className={styles.genderLabel}>Girls aged 0-14</span>
               </div>
             </div>
-            {createVisualMetric(fgm.value_girls_0_14, '')}
+            <VisualMetric
+              label=""
+              value={fgm.value_girls_0_14}
+              gender="female"
+              ageLabel=""
+            />
+            <div className={styles.description}>
+              {(() => {
+                const { total, affected } = getAffectedCount(
+                  fgm.value_girls_0_14
+                );
+                return `Out of ${total} girls, ${affected} affected by FGM`;
+              })()}
+            </div>
           </div>
         )}
 
