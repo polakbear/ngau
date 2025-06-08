@@ -6,6 +6,7 @@ import {
 } from '../../utils/color';
 import { getFullLabel } from '../../utils/score';
 import IndicatorSection from '../Indicators/IndicatorSection';
+import RadarChartComponent from '../Indicators/RadarChartComponent';
 import MetricRow from '../MetricRow';
 import styles from './InfoPanel.module.css';
 
@@ -71,8 +72,26 @@ export function InfoPanel({
       <h4 id="country-title" className={styles.title}>
         {countryName}
       </h4>
+      {/* Radar/Spider Chart for main categories */}
+      <RadarChartComponent
+        data={{
+          life: country?.ranking_life,
+          health: country?.ranking_health,
+          education: country?.ranking_education,
+          protection: country?.ranking_protection,
+          empowerment: country?.ranking_environment,
+        }}
+        overallRank={rank}
+      />
       <div className={styles.metricsGrid}>
-        <div className={styles.kriRow} style={{ background: color }}>
+        <div
+          className={styles.kriRow}
+          style={
+            {
+              '--border-color': color,
+            } as React.CSSProperties
+          }
+        >
           <div className={styles.badge}>
             <i className={`fa fa-star ${styles.kriIcon}`} aria-hidden="true" />
             <strong className={styles.kriLabel}>KRI Rank</strong>
@@ -88,37 +107,13 @@ export function InfoPanel({
             {getFullLabel(country.kri_rank ?? null, 194)}
           </div>
         </div>
-
-        <MetricRow
-          iconClass="fa fa-seedling"
-          label="Life"
-          value={country?.life}
-          rank={country?.ranking_life}
-        />
-        <MetricRow
-          iconClass="fa fa-heart"
-          label="Health"
-          value={country?.health}
-          rank={country?.ranking_health}
-        />
-        <MetricRow
-          iconClass="fa fa-graduation-cap"
-          label="Education"
-          value={country?.education}
-          rank={country?.ranking_education}
-        />
-        <MetricRow
-          iconClass="fa fa-shield-alt"
-          label="Protection"
-          value={country?.protection}
-          rank={country?.ranking_protection}
-        />
-        <MetricRow
-          iconClass="fa fa-globe"
-          label="Empowerment"
-          value={country?.environment}
-          rank={country?.ranking_environment}
-        />
+        <div className={styles.kriDescription}>
+          Kids Rights Index measures children's rights realization across 194
+          countries.
+          <br />
+          Lower rank numbers indicate better performance for children's
+          wellbeing.
+        </div>
       </div>
       {country?.indicators && country.indicators.length > 0 && (
         <>

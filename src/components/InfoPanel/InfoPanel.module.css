@@ -81,11 +81,22 @@
   justify-content: space-between;
   width: 100%;
   margin: 0 -20px 16px;
-  padding: 8px 20px;
+  padding: 10px 20px;
   color: white;
   position: relative;
   left: 0;
   right: 0;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.kriRow::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--border-color);
 }
 
 .badge {
@@ -129,10 +140,19 @@
 }
 
 .kriIcon {
-  font-size: 10px;
+  font-size: 11px;
   width: 16px;
   text-align: center;
   color: #3fd1c7;
+}
+
+.kriDescription {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.4;
+  margin: -8px 0 16px 0;
+  font-style: italic;
+  text-align: left;
 }
 
 .noDataContainer {
