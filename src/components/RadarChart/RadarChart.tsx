@@ -1,15 +1,15 @@
 import React from 'react';
 import {
   Radar,
-  RadarChart,
+  RadarChart as RechartsRadarChart,
   PolarGrid,
   PolarAngleAxis,
   PolarRadiusAxis,
   ResponsiveContainer,
 } from 'recharts';
-import styles from './RadarChartComponent.module.css';
+import styles from './RadarChart.module.css';
 
-interface RadarChartComponentProps {
+interface RadarChartProps {
   scores: {
     life?: number | null;
     health?: number | null;
@@ -28,9 +28,7 @@ const axisLabels = [
   { key: 'empowerment', label: 'Empowerment', icon: 'fa fa-globe' },
 ];
 
-const RadarChartComponent: React.FC<RadarChartComponentProps> = ({
-  scores,
-}) => {
+const RadarChart: React.FC<RadarChartProps> = ({ scores }) => {
   const chartData = axisLabels.map(({ key, label }) => {
     const scoreValue = scores[key as keyof typeof scores];
     const chartValue =
@@ -74,7 +72,12 @@ const RadarChartComponent: React.FC<RadarChartComponentProps> = ({
   return (
     <div className={styles.container}>
       <ResponsiveContainer width="100%" height="100%">
-        <RadarChart cx="50%" cy="50%" outerRadius="60%" data={chartData}>
+        <RechartsRadarChart
+          cx="50%"
+          cy="50%"
+          outerRadius="60%"
+          data={chartData}
+        >
           <PolarGrid stroke="#ffffff" strokeOpacity={0.1} />
           <PolarAngleAxis
             dataKey="category"
@@ -97,10 +100,10 @@ const RadarChartComponent: React.FC<RadarChartComponentProps> = ({
             strokeWidth={2}
             dot={false}
           />
-        </RadarChart>
+        </RechartsRadarChart>
       </ResponsiveContainer>
     </div>
   );
 };
 
-export default RadarChartComponent;
+export default RadarChart;

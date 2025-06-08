@@ -6,7 +6,7 @@ import {
 } from '../../utils/color';
 import { getFullLabel } from '../../utils/score';
 import IndicatorSection from '../Indicators/IndicatorSection';
-import RadarChartComponent from '../Indicators/RadarChartComponent';
+import RadarChart from '../RadarChart/RadarChart';
 import styles from './InfoPanel.module.css';
 
 export function InfoPanel({
@@ -71,7 +71,7 @@ export function InfoPanel({
       <h4 id="country-title" className={styles.title}>
         {countryName}
       </h4>
-      <RadarChartComponent
+      <RadarChart
         scores={{
           life: country?.life,
           health: country?.health,
