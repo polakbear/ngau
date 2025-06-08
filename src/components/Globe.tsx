@@ -41,14 +41,21 @@ export default function GlobeComponent() {
   }, [globeRef, mobileMode, setGlobeRef]);
 
   useEffect(() => {
+    if (!tooltip || !tooltipRef.current) return;
+
+    const tooltipElement = tooltipRef.current;
+
     function onMouseMove(e: MouseEvent) {
-      if (tooltip && tooltipRef.current) {
-        tooltipRef.current.style.left = `${e.pageX + 10}px`;
-        tooltipRef.current.style.top = `${e.pageY + 10}px`;
-      }
+      tooltipElement.style.left = `${e.pageX + 10}px`;
+      tooltipElement.style.top = `${e.pageY + 10}px`;
     }
+
     window.addEventListener('mousemove', onMouseMove);
-    return () => window.removeEventListener('mousemove', onMouseMove);
+
+    // Cleanup function
+    return () => {
+      window.removeEventListener('mousemove', onMouseMove);
+    };
   }, [tooltip]);
 
   const getPolygonCapMaterial = (d: any) => {
