@@ -76,7 +76,6 @@ export function getOrCreatePolygonMaterial(
     const redColorObj = new THREE.Color('#ff4757');
     const normalColorObj = new THREE.Color(normalColor);
 
-    // Interpolate using THREE.js lerp method
     const interpolatedColor = redColorObj
       .clone()
       .lerp(normalColorObj, 1 - fadeProgress);

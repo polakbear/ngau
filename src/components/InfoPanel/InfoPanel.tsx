@@ -71,7 +71,6 @@ export function InfoPanel({
       <h4 id="country-title" className={styles.title}>
         {countryName}
       </h4>
-      {/* Radar/Spider Chart for main categories */}
       <RadarChartComponent
         data={{
           life: country?.ranking_life,

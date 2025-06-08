@@ -1,10 +1,5 @@
 import { CountryData } from '../types';
-import {
-  rankBasedColorScale,
-  getContrastingTextColor,
-  getGradientStyle,
-} from '../utils/color';
-import { getFullLabel } from '../utils/score';
+import { rankBasedColorScale, getGradientStyle } from '../utils/color';
 import styles from './Tooltip.module.css';
 
 export function Tooltip({
@@ -19,16 +14,6 @@ export function Tooltip({
   onClose?: () => void;
 }) {
   const rank = country?.kri_rank ?? null;
-
-  const getPerformanceContext = (rank: number) => {
-    const percentile = ((194 - rank) / 194) * 100;
-    if (percentile >= 90) return 'Top 10%';
-    if (percentile >= 75) return 'Top 25%';
-    if (percentile >= 50) return 'Top half';
-    if (percentile >= 25) return 'Bottom half';
-    if (percentile >= 10) return 'Bottom 25%';
-    return 'Bottom 10%';
-  };
 
   if (!country || rank === null) {
     return (
@@ -64,7 +49,7 @@ export function Tooltip({
 
       <div className={styles.header}>{countryName}</div>
 
-      {/* Overall KRI Summary */}
+      {/* Overall KRI rank summary */}
       <div
         className={styles.kriSummary}
         style={
@@ -94,7 +79,7 @@ export function Tooltip({
         </div>
       </div>
 
-      {/* Indicator Icons */}
+      {/* Indicators  */}
       {country.indicators && country.indicators.length > 0 && (
         <div className={styles.indicatorIcons}>
           <div className={styles.indicatorList}>
