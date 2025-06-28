@@ -15,6 +15,9 @@ export function useMemoizedCallback<T extends (...args: any[]) => any>(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
 
-  // @ts-expect-error foo bar
-  return useRef((...args) => ref.current(...args)).current;
+  const stableRef = useRef(
+    (...args: Parameters<T>): ReturnType<T> => ref.current(...args)
+  );
+
+  return stableRef.current as T;
 }
