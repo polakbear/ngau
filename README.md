@@ -1,6 +1,6 @@
 ## An interactive map showing the state of child rights around the world.
 
-This project started as a way to make sense of scattered, complex data — something visual, straightforward, and easier to explore. It combines the KidsRights Index with global indicators like child marriage, labor, FGM, and violent discipline.
+This project started as a way to make sense of scattered, complex data — something visual, straightforward, and easier to explore. It combines the Kids Rights Index with global indicators like child marriage, labor, FGM, and violent discipline.
 
 Some countries have detailed data, others don’t — and that gap is part of the picture too.
 
@@ -12,7 +12,7 @@ It’s a personal project, not affiliated with any organization.
 
 ## Sources
 
-- KidsRights Index 2024
+- Kids Rights Index 2024
 - UNICEF Reports
 - DHS & MICS Surveys
 
@@ -36,7 +36,7 @@ Then open http://localhost:5173 in your browser.
 ## Roadmap
 
 ### Now
-- [x] Visualize KidsRights Index core scores
+- [x] Visualize Kids Rights Index core scores
 - [x] Add tooltip and info panel for country-level info
 - [x] Display child rights violations (where data exists)
 - [x] Implement visual score toggle (life, health, education, etc.)

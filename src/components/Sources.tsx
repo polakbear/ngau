@@ -7,7 +7,7 @@ export function Sources() {
         target="_blank"
         rel="noopener"
       >
-        KidsRights Index
+        Kids Rights Index
       </a>
       ,{' '}
       <a href="https://data.unicef.org/" target="_blank" rel="noopener">
