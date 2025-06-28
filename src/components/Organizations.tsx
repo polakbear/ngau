@@ -1,4 +1,4 @@
-/* Organizations panel shown by ScoreTabs */
+/* Organizations panel launched from TakeActionButton */
 import { useDialog } from '../hooks/useDialog';
 import styles from './Organizations.module.css';
 
