@@ -60,6 +60,7 @@ export function usePolygonHover(disableHover: boolean = false) {
     hoveredFeature,
     tooltip,
     handleHover,
+    setTooltip,
     isDesktop,
   };
 }

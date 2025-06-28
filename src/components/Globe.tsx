@@ -19,7 +19,8 @@ export default function GlobeComponent() {
   const { geoJson, data } = useGeoData();
   const dimensions = useWindowSize(100);
 
-  const { hoveredFeature, tooltip, handleHover } = usePolygonHover(!!infoPanel);
+  const { hoveredFeature, tooltip, handleHover, setTooltip } =
+    usePolygonHover(!!infoPanel);
   const { scoreType } = useScoreType();
   const deviceType = useDeviceType();
   const mobileMode = deviceType === 'mobile';
@@ -72,8 +73,8 @@ export default function GlobeComponent() {
   };
 
   const handlePolygonClickMemoized = useMemoizedCallback(
-    (feat: any) => handlePolygonClick(feat, data, () => {}, setInfoPanel),
-    [data, setInfoPanel]
+    (feat: any) => handlePolygonClick(feat, data, setTooltip, setInfoPanel),
+    [data, setTooltip, setInfoPanel]
   );
 
   return (
